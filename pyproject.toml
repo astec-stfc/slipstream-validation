@@ -1,0 +1,17 @@
+[project]
+name = "slipstream-validation"
+version = "0.0.0"
+description = "Cross-code validation, benchmarks and reproducible evidence for Slipstream"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["reviews"]
+norecursedirs = ["results", "runs", "work", "checkouts", "workers"]
+markers = [
+    "claims: the numbers quoted in the paper, recomputed from archived evidence",
+    "benchmark: the frozen cross-code cases",
+    "injector: CLARA injector against ASTRA and GPT",
+    "tier0: needs Python, numpy and pytest only; runs in CI",
+    "tier1: needs the validation image (ASTRA, elegant, Ocelot, Xsuite, Cheetah) and Slipstream on CPU",
+    "tier2: needs a GPU, a licensed code (GPT) or an external build (ImpactX, JuTrack, HELIX)",
+]

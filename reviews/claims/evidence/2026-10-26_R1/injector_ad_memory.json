@@ -1,0 +1,216 @@
+{
+ "steps": [
+  {
+   "n_particles": 4096,
+   "z_stop_m": 0.15,
+   "mode": "none",
+   "n_steps": 1201,
+   "checkpoint_every": 0,
+   "status": "ok",
+   "seconds": 28.144699811935425,
+   "peak_MiB": 2094.16552734375
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 0.15,
+   "mode": "sqrt",
+   "n_steps": 1201,
+   "checkpoint_every": 34,
+   "status": "ok",
+   "seconds": 51.86207628250122,
+   "peak_MiB": 84.193359375
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 0.3,
+   "mode": "none",
+   "n_steps": 2201,
+   "checkpoint_every": 0,
+   "status": "ok",
+   "seconds": 46.47994422912598,
+   "peak_MiB": 3815.08837890625
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 0.3,
+   "mode": "sqrt",
+   "n_steps": 2201,
+   "checkpoint_every": 46,
+   "status": "ok",
+   "seconds": 89.16380047798157,
+   "peak_MiB": 105.85791015625
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 0.5,
+   "mode": "none",
+   "n_steps": 3551,
+   "checkpoint_every": 0,
+   "status": "ok",
+   "seconds": 72.13991832733154,
+   "peak_MiB": 6137.0673828125
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 0.5,
+   "mode": "sqrt",
+   "n_steps": 3551,
+   "checkpoint_every": 59,
+   "status": "ok",
+   "seconds": 118.56007647514343,
+   "peak_MiB": 126.5830078125
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 0.75,
+   "mode": "none",
+   "n_steps": 5221,
+   "checkpoint_every": 0,
+   "status": "ok",
+   "seconds": 119.36741280555725,
+   "peak_MiB": 9012.275390625
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 0.75,
+   "mode": "sqrt",
+   "n_steps": 5221,
+   "checkpoint_every": 72,
+   "status": "ok",
+   "seconds": 166.86065030097961,
+   "peak_MiB": 149.841796875
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 1.0,
+   "mode": "none",
+   "n_steps": 6901,
+   "checkpoint_every": 0,
+   "status": "ok",
+   "seconds": 171.91094756126404,
+   "peak_MiB": 11903.42578125
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 1.0,
+   "mode": "sqrt",
+   "n_steps": 6901,
+   "checkpoint_every": 83,
+   "status": "ok",
+   "seconds": 211.23337721824646,
+   "peak_MiB": 169.912109375
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 1.5,
+   "mode": "none",
+   "n_steps": 10251,
+   "checkpoint_every": 0,
+   "status": "ok",
+   "seconds": 264.16522884368896,
+   "peak_MiB": 17667.25048828125
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 1.5,
+   "mode": "sqrt",
+   "n_steps": 10251,
+   "checkpoint_every": 101,
+   "status": "ok",
+   "seconds": 323.860253572464,
+   "peak_MiB": 206.3095703125
+  }
+ ],
+ "particles": [
+  {
+   "n_particles": 1024,
+   "z_stop_m": 0.5,
+   "mode": "none",
+   "n_steps": 3551,
+   "checkpoint_every": 0,
+   "status": "ok",
+   "seconds": 57.27839159965515,
+   "peak_MiB": 1723.7041015625
+  },
+  {
+   "n_particles": 1024,
+   "z_stop_m": 0.5,
+   "mode": "sqrt",
+   "n_steps": 3551,
+   "checkpoint_every": 59,
+   "status": "ok",
+   "seconds": 97.79241299629211,
+   "peak_MiB": 43.7109375
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 0.5,
+   "mode": "none",
+   "n_steps": 3551,
+   "checkpoint_every": 0,
+   "status": "ok",
+   "seconds": 60.03841590881348,
+   "peak_MiB": 6137.0673828125
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 0.5,
+   "mode": "sqrt",
+   "n_steps": 3551,
+   "checkpoint_every": 59,
+   "status": "ok",
+   "seconds": 99.20167779922485,
+   "peak_MiB": 126.5830078125
+  },
+  {
+   "n_particles": 16384,
+   "z_stop_m": 0.5,
+   "mode": "none",
+   "n_steps": 3551,
+   "checkpoint_every": 0,
+   "status": "ok",
+   "seconds": 201.94398617744446,
+   "peak_MiB": 23790.5205078125
+  },
+  {
+   "n_particles": 16384,
+   "z_stop_m": 0.5,
+   "mode": "sqrt",
+   "n_steps": 3551,
+   "checkpoint_every": 59,
+   "status": "ok",
+   "seconds": 142.25961208343506,
+   "peak_MiB": 464.90087890625
+  },
+  {
+   "n_particles": 65536,
+   "z_stop_m": 0.5,
+   "mode": "none",
+   "n_steps": 3551,
+   "checkpoint_every": 0,
+   "status": "skipped_exceeds_budget",
+   "seconds": null,
+   "peak_MiB": null,
+   "predicted_MiB": 152248.0153125
+  },
+  {
+   "n_particles": 65536,
+   "z_stop_m": 0.5,
+   "mode": "sqrt",
+   "n_steps": 3551,
+   "checkpoint_every": 59,
+   "status": "ok",
+   "seconds": 368.9637043476105,
+   "peak_MiB": 1845.51025390625
+  }
+ ],
+ "device": "NVIDIA GeForce RTX 3050",
+ "dt_s": 5e-13,
+ "env": {
+  "torch": "2.14.0+cu132"
+ },
+ "source_sha256": {
+  "2026-11-03_injector_ad_memory.json": "3d4e9eda8ef38c7f3524799757ac68a71e759e575e5526164332c9a7bb1913cf"
+ },
+ "device_MiB": 8192.0
+}

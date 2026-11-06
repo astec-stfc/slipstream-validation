@@ -1,0 +1,1325 @@
+{
+  "design": {
+    "date": "2026-10-27",
+    "procs": 3,
+    "repeats": 2,
+    "threads": 1,
+    "note": "Vary one of 3-D grid and time step independently; no convergence claim from two grid points."
+  },
+  "case_sha256": "ea7f7278673acc0746f2df757ab6ed10a9253426f4756a02b9847ae3fd84ba08",
+  "reference_sha256": "5d28bada797fd11732de097efc845e26b36bb3326592038c15f26b6403c0afe8",
+  "analysis_sha256": "0cb8281cd87ddbadbcedb788c146d40d0baa43bed308f1688deb898016ba4b5a",
+  "rows": [
+    {
+      "config": "cpu-f64-3d32h1.4",
+      "n_recorded": 3,
+      "n_ok": 3,
+      "jobs": [
+        {
+          "result": {
+            "schema": 1,
+            "code": "astra",
+            "case": "sc_drift",
+            "config": {
+              "name": "cpu-f64-3d32h1.4",
+              "device": "cpu",
+              "dtype": "float64",
+              "nrad": 0,
+              "nlong": 0,
+              "h_ns": 0.0014,
+              "three_d": true,
+              "n3d": 32
+            },
+            "rank": 4,
+            "job": {
+              "case_path": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\cases\\sc_drift.json",
+              "config": "cpu-f64-3d32h1.4",
+              "repeats": 2,
+              "threads": 1,
+              "out_dir": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-26_R1\\sc_drift\\astra\\cpu-f64-3d32h1.4\\p0"
+            },
+            "status": "ok",
+            "warnings": [],
+            "provenance": {
+              "host": "DDAST0117",
+              "platform": "Windows-11-10.0.26200-SP0",
+              "python": "3.12.13",
+              "cpu_count": 32,
+              "threads_env": {
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "NUMBA_NUM_THREADS": "1"
+              },
+              "gpu": {
+                "name": "NVIDIA GeForce RTX 3050",
+                "driver_version": "616.56",
+                "memory.total": "8192 MiB",
+                "clocks.sm": "210 MHz",
+                "clocks.max.sm": "2100 MHz",
+                "power.draw": "4.31 W",
+                "power.limit": "130.00 W",
+                "temperature.gpu": "34"
+              },
+              "argv": [
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\workers\\w_astra.py",
+                "--job",
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-26_R1\\sc_drift\\astra\\cpu-f64-3d32h1.4\\p0\\job.json"
+              ],
+              "time_utc": "2026-10-26T10:09:26Z"
+            },
+            "case_sha256": "ea7f7278673acc0746f2df757ab6ed10a9253426f4756a02b9847ae3fd84ba08",
+            "lattice_sha256": "c26667be30d3ae86a28a95305e44416e0d826811b6d344ec18c5891be8506deb",
+            "source_sha256": {
+              "analyse.py": "1690728031603feaaf2dd5e1e960ce03057a80e212238d9930a3632d8bf7dc2f",
+              "analyse_grad.py": "e4e4c6d1f04a0bf808297124cb108837689392a7f7eb2560fba46a4b67a82147",
+              "analyse_sc.py": "50c69e0ea54cdb8a51351b5a35c49492a32b728a19b56d379d2c9a72b98591a3",
+              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "common.py": "54467c409a40f673dd6f00baeff67051b5216fe5b40af6ff9ae300fda4c70a71",
+              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
+              "publish_study.py": "42e9f17b7f7d8b7efcdebe60993938ae0189f9e01078c2f97a04930c82ff0b72",
+              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
+              "test_study.py": "cd74ca40e0af1d66d011ff1e2b3cd7dc8aa794f71a452c508d793019c5460897",
+              "workers\\astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "workers\\impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
+              "workers\\w_astra.py": "4d584407fd1a9d4b16903368a6e59ef819145d1d491a65095c73ff8d100da52a",
+              "workers\\w_bmadx.py": "080b3fe82730bc3bf695655f36d731d33298bcf2fb68fb1ab8866afd5f9e462c",
+              "workers\\w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
+              "workers\\w_cheetah_sc.py": "8251bfcc773ac5ac7eb8d823e6c10c41a7f82e30a975404ae96687c11d21ba71",
+              "workers\\w_elegant.py": "bb5b91830c8a9fc99c3b4c5a24062dc08f6c28b18e2868a2c776eff9ed87794a",
+              "workers\\w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
+              "workers\\w_helix.py": "43458bd3ccd109227b9f08ce1dbb06b38af23094f5013aaad7f33d78569d7830",
+              "workers\\w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
+              "workers\\w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
+              "workers\\w_ocelot_sc.py": "4540ff4d8dd7e94fef3675642d691a5fd9a1be46fb9719a969952c7e9c64373d",
+              "workers\\w_slipstream.py": "872932f8e6c035c5cf5f6c3a48803b807552959ab257ad077b9f211be4a55ad9",
+              "workers\\w_slipstream_sc.py": "37bd97f64d5ee70b327ca39016c396d742a0afea0d8860f7942dcfdc347d10ef",
+              "workers\\w_xsuite.py": "0b9701052c357102e17dc89bac492927f1108fac0637b09679b9c5dab3832ca5"
+            },
+            "particles_sha256": "f38e9ba6ac37b9ea132e9fe4bfe11d6b278e48c4b1ebcd4cd708e181d9a8b34c",
+            "versions": {
+              "astra_exe": "C:\\Users\\jkj62.CLRC\\Documents\\GitHub\\simcodes\\SimCodes\\ASTRA\\nt\\Astra.exe",
+              "banner": [
+                "Version 4.0",
+                "DESY,  Hamburg 2022"
+              ]
+            },
+            "timing": {
+              "import_s": 1.200009137392044e-06,
+              "build_s": 0.10374219994992018,
+              "cold_s": 36.26334589999169,
+              "warm_s": {
+                "n": 2,
+                "median": 35.7367260500323,
+                "q1": 35.67449872510042,
+                "q3": 35.798953374964185,
+                "min": 35.61227140016854,
+                "max": 35.86118069989607,
+                "samples": [
+                  35.86118069989607,
+                  35.61227140016854
+                ]
+              }
+            },
+            "memory": {
+              "rss_peak_bytes": 41795584
+            },
+            "repeat_maxdiff": 0.0,
+            "tbt_shape": [
+              20,
+              8
+            ]
+          },
+          "result_sha256": "250e9ccb2213056fd70a99928e9fe22c8f1689086e4b781d17d93524cee0962f",
+          "artifact_sha256": "5d28bada797fd11732de097efc845e26b36bb3326592038c15f26b6403c0afe8",
+          "versus_baseline": {
+            "size": 0.0,
+            "length": 0.0,
+            "emit": 0.0,
+            "spread": 0.0
+          }
+        },
+        {
+          "result": {
+            "schema": 1,
+            "code": "astra",
+            "case": "sc_drift",
+            "config": {
+              "name": "cpu-f64-3d32h1.4",
+              "device": "cpu",
+              "dtype": "float64",
+              "nrad": 0,
+              "nlong": 0,
+              "h_ns": 0.0014,
+              "three_d": true,
+              "n3d": 32
+            },
+            "rank": 4,
+            "job": {
+              "case_path": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\cases\\sc_drift.json",
+              "config": "cpu-f64-3d32h1.4",
+              "repeats": 2,
+              "threads": 1,
+              "out_dir": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-26_R1\\sc_drift\\astra\\cpu-f64-3d32h1.4\\p1"
+            },
+            "status": "ok",
+            "warnings": [],
+            "provenance": {
+              "host": "DDAST0117",
+              "platform": "Windows-11-10.0.26200-SP0",
+              "python": "3.12.13",
+              "cpu_count": 32,
+              "threads_env": {
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "NUMBA_NUM_THREADS": "1"
+              },
+              "gpu": {
+                "name": "NVIDIA GeForce RTX 3050",
+                "driver_version": "616.56",
+                "memory.total": "8192 MiB",
+                "clocks.sm": "210 MHz",
+                "clocks.max.sm": "2100 MHz",
+                "power.draw": "7.13 W",
+                "power.limit": "130.00 W",
+                "temperature.gpu": "32"
+              },
+              "argv": [
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\workers\\w_astra.py",
+                "--job",
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-26_R1\\sc_drift\\astra\\cpu-f64-3d32h1.4\\p1\\job.json"
+              ],
+              "time_utc": "2026-10-26T10:04:48Z"
+            },
+            "case_sha256": "ea7f7278673acc0746f2df757ab6ed10a9253426f4756a02b9847ae3fd84ba08",
+            "lattice_sha256": "c26667be30d3ae86a28a95305e44416e0d826811b6d344ec18c5891be8506deb",
+            "source_sha256": {
+              "analyse.py": "1690728031603feaaf2dd5e1e960ce03057a80e212238d9930a3632d8bf7dc2f",
+              "analyse_grad.py": "e4e4c6d1f04a0bf808297124cb108837689392a7f7eb2560fba46a4b67a82147",
+              "analyse_sc.py": "07daa5bd4e295d90acb08a839ba0f2e036ec48adc3aa4d70899d83f8d9dabb97",
+              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "common.py": "54467c409a40f673dd6f00baeff67051b5216fe5b40af6ff9ae300fda4c70a71",
+              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
+              "publish_study.py": "04359214ea027e141df00256824b27ed57682efc1a4469eb90cfbd498ad267ab",
+              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
+              "test_study.py": "cd74ca40e0af1d66d011ff1e2b3cd7dc8aa794f71a452c508d793019c5460897",
+              "workers\\astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "workers\\impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
+              "workers\\w_astra.py": "4d584407fd1a9d4b16903368a6e59ef819145d1d491a65095c73ff8d100da52a",
+              "workers\\w_bmadx.py": "080b3fe82730bc3bf695655f36d731d33298bcf2fb68fb1ab8866afd5f9e462c",
+              "workers\\w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
+              "workers\\w_cheetah_sc.py": "8251bfcc773ac5ac7eb8d823e6c10c41a7f82e30a975404ae96687c11d21ba71",
+              "workers\\w_elegant.py": "bb5b91830c8a9fc99c3b4c5a24062dc08f6c28b18e2868a2c776eff9ed87794a",
+              "workers\\w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
+              "workers\\w_helix.py": "43458bd3ccd109227b9f08ce1dbb06b38af23094f5013aaad7f33d78569d7830",
+              "workers\\w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
+              "workers\\w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
+              "workers\\w_ocelot_sc.py": "4540ff4d8dd7e94fef3675642d691a5fd9a1be46fb9719a969952c7e9c64373d",
+              "workers\\w_slipstream.py": "872932f8e6c035c5cf5f6c3a48803b807552959ab257ad077b9f211be4a55ad9",
+              "workers\\w_slipstream_sc.py": "37bd97f64d5ee70b327ca39016c396d742a0afea0d8860f7942dcfdc347d10ef",
+              "workers\\w_xsuite.py": "0b9701052c357102e17dc89bac492927f1108fac0637b09679b9c5dab3832ca5"
+            },
+            "particles_sha256": "f38e9ba6ac37b9ea132e9fe4bfe11d6b278e48c4b1ebcd4cd708e181d9a8b34c",
+            "versions": {
+              "astra_exe": "C:\\Users\\jkj62.CLRC\\Documents\\GitHub\\simcodes\\SimCodes\\ASTRA\\nt\\Astra.exe",
+              "banner": [
+                "Version 4.0",
+                "DESY,  Hamburg 2022"
+              ]
+            },
+            "timing": {
+              "import_s": 1.200009137392044e-06,
+              "build_s": 0.10087749967351556,
+              "cold_s": 36.35087580000982,
+              "warm_s": {
+                "n": 2,
+                "median": 36.120570350205526,
+                "q1": 35.98959917516913,
+                "q3": 36.25154152524192,
+                "min": 35.85862800013274,
+                "max": 36.38251270027831,
+                "samples": [
+                  35.85862800013274,
+                  36.38251270027831
+                ]
+              }
+            },
+            "memory": {
+              "rss_peak_bytes": 41697280
+            },
+            "repeat_maxdiff": 0.0,
+            "tbt_shape": [
+              20,
+              8
+            ]
+          },
+          "result_sha256": "601599a9be96231784588df8ef16a4da0f942377734531eb66565a244304b172",
+          "artifact_sha256": "5d28bada797fd11732de097efc845e26b36bb3326592038c15f26b6403c0afe8",
+          "versus_baseline": {
+            "size": 0.0,
+            "length": 0.0,
+            "emit": 0.0,
+            "spread": 0.0
+          }
+        },
+        {
+          "result": {
+            "schema": 1,
+            "code": "astra",
+            "case": "sc_drift",
+            "config": {
+              "name": "cpu-f64-3d32h1.4",
+              "device": "cpu",
+              "dtype": "float64",
+              "nrad": 0,
+              "nlong": 0,
+              "h_ns": 0.0014,
+              "three_d": true,
+              "n3d": 32
+            },
+            "rank": 4,
+            "job": {
+              "case_path": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\cases\\sc_drift.json",
+              "config": "cpu-f64-3d32h1.4",
+              "repeats": 2,
+              "threads": 1,
+              "out_dir": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-26_R1\\sc_drift\\astra\\cpu-f64-3d32h1.4\\p2"
+            },
+            "status": "ok",
+            "warnings": [],
+            "provenance": {
+              "host": "DDAST0117",
+              "platform": "Windows-11-10.0.26200-SP0",
+              "python": "3.12.13",
+              "cpu_count": 32,
+              "threads_env": {
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "NUMBA_NUM_THREADS": "1"
+              },
+              "gpu": {
+                "name": "NVIDIA GeForce RTX 3050",
+                "driver_version": "616.56",
+                "memory.total": "8192 MiB",
+                "clocks.sm": "210 MHz",
+                "clocks.max.sm": "2100 MHz",
+                "power.draw": "7.04 W",
+                "power.limit": "130.00 W",
+                "temperature.gpu": "33"
+              },
+              "argv": [
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\workers\\w_astra.py",
+                "--job",
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-26_R1\\sc_drift\\astra\\cpu-f64-3d32h1.4\\p2\\job.json"
+              ],
+              "time_utc": "2026-10-26T10:59:14Z"
+            },
+            "case_sha256": "ea7f7278673acc0746f2df757ab6ed10a9253426f4756a02b9847ae3fd84ba08",
+            "lattice_sha256": "c26667be30d3ae86a28a95305e44416e0d826811b6d344ec18c5891be8506deb",
+            "source_sha256": {
+              "analyse.py": "1c2fccfd63acce2b768a3e011d2551b4665b37743accc4453613a9626e8008f8",
+              "analyse_grad.py": "e4e4c6d1f04a0bf808297124cb108837689392a7f7eb2560fba46a4b67a82147",
+              "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
+              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "common.py": "54467c409a40f673dd6f00baeff67051b5216fe5b40af6ff9ae300fda4c70a71",
+              "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
+              "probe_elements.py": "e7711c398643f6dd8c3bc2b795e9dc41ec7edddb72e49ace91a3c67692b32c73",
+              "publish_study.py": "2426c27043355f3cea4777a2a38388526bdf6633352b78c87c47532ad2f76cf0",
+              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
+              "test_study.py": "b96afc7e4f96b6666dee0f234fb90959a633c3cabada0626fedde8b82eb1ea3c",
+              "workers\\astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "workers\\impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
+              "workers\\w_astra.py": "4d584407fd1a9d4b16903368a6e59ef819145d1d491a65095c73ff8d100da52a",
+              "workers\\w_bmadx.py": "080b3fe82730bc3bf695655f36d731d33298bcf2fb68fb1ab8866afd5f9e462c",
+              "workers\\w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
+              "workers\\w_cheetah_sc.py": "8251bfcc773ac5ac7eb8d823e6c10c41a7f82e30a975404ae96687c11d21ba71",
+              "workers\\w_elegant.py": "bb5b91830c8a9fc99c3b4c5a24062dc08f6c28b18e2868a2c776eff9ed87794a",
+              "workers\\w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
+              "workers\\w_helix.py": "43458bd3ccd109227b9f08ce1dbb06b38af23094f5013aaad7f33d78569d7830",
+              "workers\\w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
+              "workers\\w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
+              "workers\\w_ocelot_sc.py": "4540ff4d8dd7e94fef3675642d691a5fd9a1be46fb9719a969952c7e9c64373d",
+              "workers\\w_slipstream.py": "872932f8e6c035c5cf5f6c3a48803b807552959ab257ad077b9f211be4a55ad9",
+              "workers\\w_slipstream_sc.py": "019dab41b516f87f84cd24759615593b05f0967a861ceed9d98976bc18b4208e",
+              "workers\\w_xsuite.py": "0b9701052c357102e17dc89bac492927f1108fac0637b09679b9c5dab3832ca5"
+            },
+            "particles_sha256": "f38e9ba6ac37b9ea132e9fe4bfe11d6b278e48c4b1ebcd4cd708e181d9a8b34c",
+            "versions": {
+              "astra_exe": "C:\\Users\\jkj62.CLRC\\Documents\\GitHub\\simcodes\\SimCodes\\ASTRA\\nt\\Astra.exe",
+              "banner": [
+                "Version 4.0",
+                "DESY,  Hamburg 2022"
+              ]
+            },
+            "timing": {
+              "import_s": 1.600012183189392e-06,
+              "build_s": 0.10488269990310073,
+              "cold_s": 38.51065959967673,
+              "warm_s": {
+                "n": 2,
+                "median": 35.94715579994954,
+                "q1": 35.883288149838336,
+                "q3": 36.01102345006075,
+                "min": 35.81942049972713,
+                "max": 36.07489110017195,
+                "samples": [
+                  35.81942049972713,
+                  36.07489110017195
+                ]
+              }
+            },
+            "memory": {
+              "rss_peak_bytes": 41754624
+            },
+            "repeat_maxdiff": 0.0,
+            "tbt_shape": [
+              20,
+              8
+            ]
+          },
+          "result_sha256": "881fd73514081470957ca211d1724171aa28e7eca5f61930b5a0fa36e737fb35",
+          "artifact_sha256": "5d28bada797fd11732de097efc845e26b36bb3326592038c15f26b6403c0afe8",
+          "versus_baseline": {
+            "size": 0.0,
+            "length": 0.0,
+            "emit": 0.0,
+            "spread": 0.0
+          }
+        }
+      ],
+      "warm_s": 35.94715579994954,
+      "versus_baseline": {
+        "size": 0.0,
+        "length": 0.0,
+        "emit": 0.0,
+        "spread": 0.0
+      },
+      "native_vs_this": {
+        "cpu64": {
+          "size": 0.0005770173981950425,
+          "length": 0.00015154573528812322,
+          "emit": 0.0007024691985410272,
+          "spread": 0.008588077463230238
+        },
+        "gpu_fast": {
+          "size": 0.0004996854525019101,
+          "length": 0.00014982639685373204,
+          "emit": 0.0006549459708500702,
+          "spread": 0.008556320600062471
+        }
+      },
+      "native_artifact_sha256": {
+        "cpu64": [
+          "78020a1c39b9525e368ab17fc6b5e17ea1331cb81e1e74aa80dcc26bdb1fafb6",
+          "78020a1c39b9525e368ab17fc6b5e17ea1331cb81e1e74aa80dcc26bdb1fafb6",
+          "78020a1c39b9525e368ab17fc6b5e17ea1331cb81e1e74aa80dcc26bdb1fafb6"
+        ],
+        "gpu_fast": [
+          "4ce4f017d9ccff6be7735a546e4aacf5b2ecb568949e7156c481b07b35ad6058",
+          "4ff907ad9f2ed8e300c6b4812431b6d12d5ca2e5a5db576227609631e1995bc0",
+          "df3e8b870e80ada2a2bdad3b66837ea48add9c51f1bd4b71a8c9fefefe4d48e1"
+        ]
+      }
+    },
+    {
+      "config": "cpu-f64-3d64h1.4",
+      "n_recorded": 3,
+      "n_ok": 3,
+      "jobs": [
+        {
+          "result": {
+            "schema": 1,
+            "code": "astra",
+            "case": "sc_drift",
+            "config": {
+              "name": "cpu-f64-3d64h1.4",
+              "device": "cpu",
+              "dtype": "float64",
+              "nrad": 0,
+              "nlong": 0,
+              "h_ns": 0.0014,
+              "three_d": true,
+              "n3d": 64
+            },
+            "rank": 4,
+            "job": {
+              "case_path": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\cases\\sc_drift.json",
+              "config": "cpu-f64-3d64h1.4",
+              "repeats": 2,
+              "threads": 1,
+              "out_dir": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-27_astra_refinement\\sc_drift\\astra\\cpu-f64-3d64h1.4\\p0"
+            },
+            "status": "ok",
+            "warnings": [],
+            "provenance": {
+              "host": "DDAST0117",
+              "platform": "Windows-11-10.0.26200-SP0",
+              "python": "3.12.13",
+              "cpu_count": 32,
+              "threads_env": {
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "NUMBA_NUM_THREADS": "1"
+              },
+              "gpu": {
+                "name": "NVIDIA GeForce RTX 3050",
+                "driver_version": "616.56",
+                "memory.total": "8192 MiB",
+                "clocks.sm": "210 MHz",
+                "clocks.max.sm": "2100 MHz",
+                "power.draw": "7.17 W",
+                "power.limit": "130.00 W",
+                "temperature.gpu": "33"
+              },
+              "argv": [
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\workers\\w_astra.py",
+                "--job",
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-27_astra_refinement\\sc_drift\\astra\\cpu-f64-3d64h1.4\\p0\\job.json"
+              ],
+              "time_utc": "2026-10-27T11:42:25Z"
+            },
+            "case_sha256": "ea7f7278673acc0746f2df757ab6ed10a9253426f4756a02b9847ae3fd84ba08",
+            "lattice_sha256": "c26667be30d3ae86a28a95305e44416e0d826811b6d344ec18c5891be8506deb",
+            "source_sha256": {
+              "analyse.py": "1c2fccfd63acce2b768a3e011d2551b4665b37743accc4453613a9626e8008f8",
+              "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
+              "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
+              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "astra_refinement.py": "a9291e770cda65cfdfbb29497090b366f19f348bf1f39c4aa1f72aa3a2cce215",
+              "bend_attribution.py": "b21214f51a16352643bd80cff81ae986eaf81f3a26a22c0517c737afe5d9af65",
+              "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+              "corrected_reference.py": "52e908b2caac8db7ac991c775c76920dd81e324d6379b7586955edf3726a069f",
+              "cpu_control.py": "f1bd1a8cd52a60c8186b7c3ee146842c2726ee576e03a5b30662005ac23e8068",
+              "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "injector_cost_control.py": "492c9989b1b77c20ce631664ddecd837ef10ac1afffd7407e48fb88ebcec5397",
+              "injector_step_control.py": "65f051267c8a18eed0438112b47b7ee33c7f3c5c23da84dd2feca5c81baf8701",
+              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
+              "precision_control.py": "ab813aedb9d7bcc02239cd9bd4509430d2d7750f3196fde4f60861efa5ee0371",
+              "precision_probe.py": "0e3a8a9965baeb6e6a1e5bc2daaa140f221f00a36b16b333cb58c344b4a6a417",
+              "probe_elements.py": "23b991e9d6fb17ddc366150d6a2b5e811258027e7f51079b169a0390b6dd4770",
+              "publish_study.py": "19d13ee7f0d788f1ce3825d5053989c16d1b245f9e26da580dfd8ac19e307374",
+              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
+              "test_study.py": "ca5f3a44a43b1815becfc934de80b9970c55d7dea60642ce253d77c8c20aa5c9",
+              "workers\\astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "workers\\impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
+              "workers\\w_astra.py": "3499a2c384763e020289012932a8361b31d8c098094f5f26fcfde13af42459fc",
+              "workers\\w_bmadx.py": "2a5c7704eb62d88876f8def708aee22c4d61a2880724ed8d44f19231f1e250a6",
+              "workers\\w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
+              "workers\\w_cheetah_sc.py": "0ecbb51867e7e64d4dc6d346504a924ea5275888aaa7eb85393dcb8c12791773",
+              "workers\\w_elegant.py": "89f607a640a46f32476182d5364d8f81d1f576571c318ac475ed4d9bde828191",
+              "workers\\w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
+              "workers\\w_helix.py": "eacccf73fb09025a292ddc9622b802c2484bb0ffba98a2b53331dea1fb6c0f39",
+              "workers\\w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
+              "workers\\w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
+              "workers\\w_ocelot_sc.py": "3ea60dfca4e2ffe50a5856a6ccd51d13735ebee164b485a149c3aba8bb45aa15",
+              "workers\\w_slipstream.py": "8e24a7861bf530452361548c25ea125f7a867dbd790a7a2fa06e0017f08b0aa3",
+              "workers\\w_slipstream_sc.py": "dcfd4861c087113ee5282f26261d7c4944b6d2d720e50b931f03e7c934774890",
+              "workers\\w_xsuite.py": "b1788d888e7e2d08408a84789c042bcab2841c2cf7908942f092d6e3b2dc4050",
+              "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
+            },
+            "particles_sha256": "f38e9ba6ac37b9ea132e9fe4bfe11d6b278e48c4b1ebcd4cd708e181d9a8b34c",
+            "versions": {
+              "astra_exe": "C:\\Users\\jkj62.CLRC\\Documents\\GitHub\\simcodes\\SimCodes\\ASTRA\\nt\\Astra.exe",
+              "banner": [
+                "Version 4.0",
+                "DESY,  Hamburg 2022"
+              ]
+            },
+            "timing": {
+              "import_s": 1.200009137392044e-06,
+              "build_s": 0.10284019960090518,
+              "cold_s": 83.40402119979262,
+              "warm_s": {
+                "n": 2,
+                "median": 79.81205095001496,
+                "q1": 79.75877577497158,
+                "q3": 79.86532612505835,
+                "min": 79.7055005999282,
+                "max": 79.91860130010173,
+                "samples": [
+                  79.7055005999282,
+                  79.91860130010173
+                ]
+              }
+            },
+            "memory": {
+              "rss_peak_bytes": 41394176
+            },
+            "repeat_maxdiff": 0.0,
+            "tbt_shape": [
+              20,
+              8
+            ]
+          },
+          "result_sha256": "c916f837c3393e38a492f531a3ad1c420f1058761acd7bb5faf6c19caf7a7b4d",
+          "artifact_sha256": "9bd7329c8782577a4ea1651371d4db3c2021a772540b5742f4bc8aef287c603b",
+          "versus_baseline": {
+            "size": 0.009435299119057093,
+            "length": 0.0001997203914518638,
+            "emit": 0.025577119509704017,
+            "spread": 0.009932381667918776
+          }
+        },
+        {
+          "result": {
+            "schema": 1,
+            "code": "astra",
+            "case": "sc_drift",
+            "config": {
+              "name": "cpu-f64-3d64h1.4",
+              "device": "cpu",
+              "dtype": "float64",
+              "nrad": 0,
+              "nlong": 0,
+              "h_ns": 0.0014,
+              "three_d": true,
+              "n3d": 64
+            },
+            "rank": 4,
+            "job": {
+              "case_path": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\cases\\sc_drift.json",
+              "config": "cpu-f64-3d64h1.4",
+              "repeats": 2,
+              "threads": 1,
+              "out_dir": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-27_astra_refinement\\sc_drift\\astra\\cpu-f64-3d64h1.4\\p1"
+            },
+            "status": "ok",
+            "warnings": [],
+            "provenance": {
+              "host": "DDAST0117",
+              "platform": "Windows-11-10.0.26200-SP0",
+              "python": "3.12.13",
+              "cpu_count": 32,
+              "threads_env": {
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "NUMBA_NUM_THREADS": "1"
+              },
+              "gpu": {
+                "name": "NVIDIA GeForce RTX 3050",
+                "driver_version": "616.56",
+                "memory.total": "8192 MiB",
+                "clocks.sm": "210 MHz",
+                "clocks.max.sm": "2100 MHz",
+                "power.draw": "8.30 W",
+                "power.limit": "130.00 W",
+                "temperature.gpu": "33"
+              },
+              "argv": [
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\workers\\w_astra.py",
+                "--job",
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-27_astra_refinement\\sc_drift\\astra\\cpu-f64-3d64h1.4\\p1\\job.json"
+              ],
+              "time_utc": "2026-10-27T11:50:21Z"
+            },
+            "case_sha256": "ea7f7278673acc0746f2df757ab6ed10a9253426f4756a02b9847ae3fd84ba08",
+            "lattice_sha256": "c26667be30d3ae86a28a95305e44416e0d826811b6d344ec18c5891be8506deb",
+            "source_sha256": {
+              "analyse.py": "1c2fccfd63acce2b768a3e011d2551b4665b37743accc4453613a9626e8008f8",
+              "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
+              "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
+              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "astra_refinement.py": "a9291e770cda65cfdfbb29497090b366f19f348bf1f39c4aa1f72aa3a2cce215",
+              "bend_attribution.py": "b21214f51a16352643bd80cff81ae986eaf81f3a26a22c0517c737afe5d9af65",
+              "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+              "corrected_reference.py": "52e908b2caac8db7ac991c775c76920dd81e324d6379b7586955edf3726a069f",
+              "cpu_control.py": "f1bd1a8cd52a60c8186b7c3ee146842c2726ee576e03a5b30662005ac23e8068",
+              "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "injector_cost_control.py": "492c9989b1b77c20ce631664ddecd837ef10ac1afffd7407e48fb88ebcec5397",
+              "injector_step_control.py": "65f051267c8a18eed0438112b47b7ee33c7f3c5c23da84dd2feca5c81baf8701",
+              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
+              "precision_control.py": "ab813aedb9d7bcc02239cd9bd4509430d2d7750f3196fde4f60861efa5ee0371",
+              "precision_probe.py": "0e3a8a9965baeb6e6a1e5bc2daaa140f221f00a36b16b333cb58c344b4a6a417",
+              "probe_elements.py": "23b991e9d6fb17ddc366150d6a2b5e811258027e7f51079b169a0390b6dd4770",
+              "publish_study.py": "19d13ee7f0d788f1ce3825d5053989c16d1b245f9e26da580dfd8ac19e307374",
+              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
+              "test_study.py": "ca5f3a44a43b1815becfc934de80b9970c55d7dea60642ce253d77c8c20aa5c9",
+              "workers\\astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "workers\\impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
+              "workers\\w_astra.py": "3499a2c384763e020289012932a8361b31d8c098094f5f26fcfde13af42459fc",
+              "workers\\w_bmadx.py": "2a5c7704eb62d88876f8def708aee22c4d61a2880724ed8d44f19231f1e250a6",
+              "workers\\w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
+              "workers\\w_cheetah_sc.py": "0ecbb51867e7e64d4dc6d346504a924ea5275888aaa7eb85393dcb8c12791773",
+              "workers\\w_elegant.py": "89f607a640a46f32476182d5364d8f81d1f576571c318ac475ed4d9bde828191",
+              "workers\\w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
+              "workers\\w_helix.py": "eacccf73fb09025a292ddc9622b802c2484bb0ffba98a2b53331dea1fb6c0f39",
+              "workers\\w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
+              "workers\\w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
+              "workers\\w_ocelot_sc.py": "3ea60dfca4e2ffe50a5856a6ccd51d13735ebee164b485a149c3aba8bb45aa15",
+              "workers\\w_slipstream.py": "8e24a7861bf530452361548c25ea125f7a867dbd790a7a2fa06e0017f08b0aa3",
+              "workers\\w_slipstream_sc.py": "dcfd4861c087113ee5282f26261d7c4944b6d2d720e50b931f03e7c934774890",
+              "workers\\w_xsuite.py": "b1788d888e7e2d08408a84789c042bcab2841c2cf7908942f092d6e3b2dc4050",
+              "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
+            },
+            "particles_sha256": "f38e9ba6ac37b9ea132e9fe4bfe11d6b278e48c4b1ebcd4cd708e181d9a8b34c",
+            "versions": {
+              "astra_exe": "C:\\Users\\jkj62.CLRC\\Documents\\GitHub\\simcodes\\SimCodes\\ASTRA\\nt\\Astra.exe",
+              "banner": [
+                "Version 4.0",
+                "DESY,  Hamburg 2022"
+              ]
+            },
+            "timing": {
+              "import_s": 1.200009137392044e-06,
+              "build_s": 0.10132939973846078,
+              "cold_s": 86.85474309977144,
+              "warm_s": {
+                "n": 2,
+                "median": 82.37846575002186,
+                "q1": 82.1693009751616,
+                "q3": 82.58763052488212,
+                "min": 81.96013620030135,
+                "max": 82.79679529974237,
+                "samples": [
+                  81.96013620030135,
+                  82.79679529974237
+                ]
+              }
+            },
+            "memory": {
+              "rss_peak_bytes": 41480192
+            },
+            "repeat_maxdiff": 0.0,
+            "tbt_shape": [
+              20,
+              8
+            ]
+          },
+          "result_sha256": "a4f5f53afbc62708c932bac67ea96bc15bf54d418228b3a4f2370ac6c822d814",
+          "artifact_sha256": "9bd7329c8782577a4ea1651371d4db3c2021a772540b5742f4bc8aef287c603b",
+          "versus_baseline": {
+            "size": 0.009435299119057093,
+            "length": 0.0001997203914518638,
+            "emit": 0.025577119509704017,
+            "spread": 0.009932381667918776
+          }
+        },
+        {
+          "result": {
+            "schema": 1,
+            "code": "astra",
+            "case": "sc_drift",
+            "config": {
+              "name": "cpu-f64-3d64h1.4",
+              "device": "cpu",
+              "dtype": "float64",
+              "nrad": 0,
+              "nlong": 0,
+              "h_ns": 0.0014,
+              "three_d": true,
+              "n3d": 64
+            },
+            "rank": 4,
+            "job": {
+              "case_path": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\cases\\sc_drift.json",
+              "config": "cpu-f64-3d64h1.4",
+              "repeats": 2,
+              "threads": 1,
+              "out_dir": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-27_astra_refinement\\sc_drift\\astra\\cpu-f64-3d64h1.4\\p2"
+            },
+            "status": "ok",
+            "warnings": [],
+            "provenance": {
+              "host": "DDAST0117",
+              "platform": "Windows-11-10.0.26200-SP0",
+              "python": "3.12.13",
+              "cpu_count": 32,
+              "threads_env": {
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "NUMBA_NUM_THREADS": "1"
+              },
+              "gpu": {
+                "name": "NVIDIA GeForce RTX 3050",
+                "driver_version": "616.56",
+                "memory.total": "8192 MiB",
+                "clocks.sm": "210 MHz",
+                "clocks.max.sm": "2100 MHz",
+                "power.draw": "8.64 W",
+                "power.limit": "130.00 W",
+                "temperature.gpu": "38"
+              },
+              "argv": [
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\workers\\w_astra.py",
+                "--job",
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-27_astra_refinement\\sc_drift\\astra\\cpu-f64-3d64h1.4\\p2\\job.json"
+              ],
+              "time_utc": "2026-10-27T11:30:41Z"
+            },
+            "case_sha256": "ea7f7278673acc0746f2df757ab6ed10a9253426f4756a02b9847ae3fd84ba08",
+            "lattice_sha256": "c26667be30d3ae86a28a95305e44416e0d826811b6d344ec18c5891be8506deb",
+            "source_sha256": {
+              "analyse.py": "1c2fccfd63acce2b768a3e011d2551b4665b37743accc4453613a9626e8008f8",
+              "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
+              "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
+              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "astra_refinement.py": "2892c2f7e9c109ef003dfee2000f43587cd0942642f531f4f8675fc70328e239",
+              "bend_attribution.py": "b21214f51a16352643bd80cff81ae986eaf81f3a26a22c0517c737afe5d9af65",
+              "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+              "corrected_reference.py": "52e908b2caac8db7ac991c775c76920dd81e324d6379b7586955edf3726a069f",
+              "cpu_control.py": "f1bd1a8cd52a60c8186b7c3ee146842c2726ee576e03a5b30662005ac23e8068",
+              "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "injector_cost_control.py": "492c9989b1b77c20ce631664ddecd837ef10ac1afffd7407e48fb88ebcec5397",
+              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
+              "precision_control.py": "ab813aedb9d7bcc02239cd9bd4509430d2d7750f3196fde4f60861efa5ee0371",
+              "precision_probe.py": "0e3a8a9965baeb6e6a1e5bc2daaa140f221f00a36b16b333cb58c344b4a6a417",
+              "probe_elements.py": "23b991e9d6fb17ddc366150d6a2b5e811258027e7f51079b169a0390b6dd4770",
+              "publish_study.py": "c4c0c83e9e8fc1fa929769ae2eb9e7d0da124a57e49a84ee4cc357ffd578b418",
+              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
+              "test_study.py": "5be96155e4473833c644ea42652c440c56e3dccc33fd321f1df6aabe1bbfa377",
+              "workers\\astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "workers\\impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
+              "workers\\w_astra.py": "3499a2c384763e020289012932a8361b31d8c098094f5f26fcfde13af42459fc",
+              "workers\\w_bmadx.py": "2a5c7704eb62d88876f8def708aee22c4d61a2880724ed8d44f19231f1e250a6",
+              "workers\\w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
+              "workers\\w_cheetah_sc.py": "0ecbb51867e7e64d4dc6d346504a924ea5275888aaa7eb85393dcb8c12791773",
+              "workers\\w_elegant.py": "89f607a640a46f32476182d5364d8f81d1f576571c318ac475ed4d9bde828191",
+              "workers\\w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
+              "workers\\w_helix.py": "eacccf73fb09025a292ddc9622b802c2484bb0ffba98a2b53331dea1fb6c0f39",
+              "workers\\w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
+              "workers\\w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
+              "workers\\w_ocelot_sc.py": "3ea60dfca4e2ffe50a5856a6ccd51d13735ebee164b485a149c3aba8bb45aa15",
+              "workers\\w_slipstream.py": "d99148f90c7f32154743b41b6753c64d675ba70a0be88a2ba1a009df22bd35f4",
+              "workers\\w_slipstream_sc.py": "a3c1d983c9b906c59f6e07b9916970b3621d78cad6468a3ddbca3f11f84794e8",
+              "workers\\w_xsuite.py": "b1788d888e7e2d08408a84789c042bcab2841c2cf7908942f092d6e3b2dc4050",
+              "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
+            },
+            "particles_sha256": "f38e9ba6ac37b9ea132e9fe4bfe11d6b278e48c4b1ebcd4cd708e181d9a8b34c",
+            "versions": {
+              "astra_exe": "C:\\Users\\jkj62.CLRC\\Documents\\GitHub\\simcodes\\SimCodes\\ASTRA\\nt\\Astra.exe",
+              "banner": [
+                "Version 4.0",
+                "DESY,  Hamburg 2022"
+              ]
+            },
+            "timing": {
+              "import_s": 1.0998919606208801e-06,
+              "build_s": 0.10011559957638383,
+              "cold_s": 82.4826147002168,
+              "warm_s": {
+                "n": 2,
+                "median": 85.16932590003125,
+                "q1": 82.52583724993747,
+                "q3": 87.81281455012504,
+                "min": 79.88234859984368,
+                "max": 90.45630320021883,
+                "samples": [
+                  90.45630320021883,
+                  79.88234859984368
+                ]
+              }
+            },
+            "memory": {
+              "rss_peak_bytes": 41480192
+            },
+            "repeat_maxdiff": 0.0,
+            "tbt_shape": [
+              20,
+              8
+            ]
+          },
+          "result_sha256": "dbbbf4c879fac3ecab2432fddb6825d5dc2613143f3214ff4e8c73f8060d5f4f",
+          "artifact_sha256": "9bd7329c8782577a4ea1651371d4db3c2021a772540b5742f4bc8aef287c603b",
+          "versus_baseline": {
+            "size": 0.009435299119057093,
+            "length": 0.0001997203914518638,
+            "emit": 0.025577119509704017,
+            "spread": 0.009932381667918776
+          }
+        }
+      ],
+      "warm_s": 82.37846575002186,
+      "versus_baseline": {
+        "size": 0.009435299119057093,
+        "length": 0.0001997203914518638,
+        "emit": 0.025577119509704017,
+        "spread": 0.009932381667918776
+      },
+      "native_vs_this": {
+        "cpu64": {
+          "size": 0.009918730329710058,
+          "length": 0.0003506988981731335,
+          "emit": 0.024527217037807067,
+          "spread": 0.01833831597771149
+        },
+        "gpu_fast": {
+          "size": 0.009842121213939467,
+          "length": 0.00034897990220232855,
+          "emit": 0.024484546392233252,
+          "spread": 0.018306871433755666
+        }
+      },
+      "native_artifact_sha256": {
+        "cpu64": [
+          "78020a1c39b9525e368ab17fc6b5e17ea1331cb81e1e74aa80dcc26bdb1fafb6",
+          "78020a1c39b9525e368ab17fc6b5e17ea1331cb81e1e74aa80dcc26bdb1fafb6",
+          "78020a1c39b9525e368ab17fc6b5e17ea1331cb81e1e74aa80dcc26bdb1fafb6"
+        ],
+        "gpu_fast": [
+          "4ce4f017d9ccff6be7735a546e4aacf5b2ecb568949e7156c481b07b35ad6058",
+          "4ff907ad9f2ed8e300c6b4812431b6d12d5ca2e5a5db576227609631e1995bc0",
+          "df3e8b870e80ada2a2bdad3b66837ea48add9c51f1bd4b71a8c9fefefe4d48e1"
+        ]
+      }
+    },
+    {
+      "config": "cpu-f64-3d32h0.7",
+      "n_recorded": 3,
+      "n_ok": 3,
+      "jobs": [
+        {
+          "result": {
+            "schema": 1,
+            "code": "astra",
+            "case": "sc_drift",
+            "config": {
+              "name": "cpu-f64-3d32h0.7",
+              "device": "cpu",
+              "dtype": "float64",
+              "nrad": 0,
+              "nlong": 0,
+              "h_ns": 0.0007,
+              "three_d": true,
+              "n3d": 32
+            },
+            "rank": 5,
+            "job": {
+              "case_path": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\cases\\sc_drift.json",
+              "config": "cpu-f64-3d32h0.7",
+              "repeats": 2,
+              "threads": 1,
+              "out_dir": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-27_astra_refinement\\sc_drift\\astra\\cpu-f64-3d32h0.7\\p0"
+            },
+            "status": "ok",
+            "warnings": [],
+            "provenance": {
+              "host": "DDAST0117",
+              "platform": "Windows-11-10.0.26200-SP0",
+              "python": "3.12.13",
+              "cpu_count": 32,
+              "threads_env": {
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "NUMBA_NUM_THREADS": "1"
+              },
+              "gpu": {
+                "name": "NVIDIA GeForce RTX 3050",
+                "driver_version": "616.56",
+                "memory.total": "8192 MiB",
+                "clocks.sm": "210 MHz",
+                "clocks.max.sm": "2100 MHz",
+                "power.draw": "8.42 W",
+                "power.limit": "130.00 W",
+                "temperature.gpu": "34"
+              },
+              "argv": [
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\workers\\w_astra.py",
+                "--job",
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-27_astra_refinement\\sc_drift\\astra\\cpu-f64-3d32h0.7\\p0\\job.json"
+              ],
+              "time_utc": "2026-10-27T11:34:54Z"
+            },
+            "case_sha256": "ea7f7278673acc0746f2df757ab6ed10a9253426f4756a02b9847ae3fd84ba08",
+            "lattice_sha256": "c26667be30d3ae86a28a95305e44416e0d826811b6d344ec18c5891be8506deb",
+            "source_sha256": {
+              "analyse.py": "1c2fccfd63acce2b768a3e011d2551b4665b37743accc4453613a9626e8008f8",
+              "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
+              "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
+              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "astra_refinement.py": "2892c2f7e9c109ef003dfee2000f43587cd0942642f531f4f8675fc70328e239",
+              "bend_attribution.py": "b21214f51a16352643bd80cff81ae986eaf81f3a26a22c0517c737afe5d9af65",
+              "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+              "corrected_reference.py": "52e908b2caac8db7ac991c775c76920dd81e324d6379b7586955edf3726a069f",
+              "cpu_control.py": "f1bd1a8cd52a60c8186b7c3ee146842c2726ee576e03a5b30662005ac23e8068",
+              "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "injector_cost_control.py": "492c9989b1b77c20ce631664ddecd837ef10ac1afffd7407e48fb88ebcec5397",
+              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
+              "precision_control.py": "ab813aedb9d7bcc02239cd9bd4509430d2d7750f3196fde4f60861efa5ee0371",
+              "precision_probe.py": "0e3a8a9965baeb6e6a1e5bc2daaa140f221f00a36b16b333cb58c344b4a6a417",
+              "probe_elements.py": "23b991e9d6fb17ddc366150d6a2b5e811258027e7f51079b169a0390b6dd4770",
+              "publish_study.py": "1bccae5a9897a5cbcebd6348cc29572b00c65eab986f498329fa011a7bc3b3c5",
+              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
+              "test_study.py": "fbfdc53e6885ab34a2fb34d95fc63055a6126bcd7c8e55779fdd17937ac914ff",
+              "workers\\astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "workers\\impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
+              "workers\\w_astra.py": "3499a2c384763e020289012932a8361b31d8c098094f5f26fcfde13af42459fc",
+              "workers\\w_bmadx.py": "2a5c7704eb62d88876f8def708aee22c4d61a2880724ed8d44f19231f1e250a6",
+              "workers\\w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
+              "workers\\w_cheetah_sc.py": "0ecbb51867e7e64d4dc6d346504a924ea5275888aaa7eb85393dcb8c12791773",
+              "workers\\w_elegant.py": "89f607a640a46f32476182d5364d8f81d1f576571c318ac475ed4d9bde828191",
+              "workers\\w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
+              "workers\\w_helix.py": "eacccf73fb09025a292ddc9622b802c2484bb0ffba98a2b53331dea1fb6c0f39",
+              "workers\\w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
+              "workers\\w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
+              "workers\\w_ocelot_sc.py": "3ea60dfca4e2ffe50a5856a6ccd51d13735ebee164b485a149c3aba8bb45aa15",
+              "workers\\w_slipstream.py": "8e24a7861bf530452361548c25ea125f7a867dbd790a7a2fa06e0017f08b0aa3",
+              "workers\\w_slipstream_sc.py": "a3c1d983c9b906c59f6e07b9916970b3621d78cad6468a3ddbca3f11f84794e8",
+              "workers\\w_xsuite.py": "b1788d888e7e2d08408a84789c042bcab2841c2cf7908942f092d6e3b2dc4050",
+              "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
+            },
+            "particles_sha256": "f38e9ba6ac37b9ea132e9fe4bfe11d6b278e48c4b1ebcd4cd708e181d9a8b34c",
+            "versions": {
+              "astra_exe": "C:\\Users\\jkj62.CLRC\\Documents\\GitHub\\simcodes\\SimCodes\\ASTRA\\nt\\Astra.exe",
+              "banner": [
+                "Version 4.0",
+                "DESY,  Hamburg 2022"
+              ]
+            },
+            "timing": {
+              "import_s": 1.7997808754444122e-06,
+              "build_s": 0.10112830018624663,
+              "cold_s": 76.28452150011435,
+              "warm_s": {
+                "n": 2,
+                "median": 71.62260705023073,
+                "q1": 71.23193832521793,
+                "q3": 72.01327577524353,
+                "min": 70.84126960020512,
+                "max": 72.40394450025633,
+                "samples": [
+                  70.84126960020512,
+                  72.40394450025633
+                ]
+              }
+            },
+            "memory": {
+              "rss_peak_bytes": 41463808
+            },
+            "repeat_maxdiff": 0.0,
+            "tbt_shape": [
+              20,
+              8
+            ]
+          },
+          "result_sha256": "43b3408a28f3764b0bc7d825cc86729d83e7dd6715154d959f1e49e77b4a57ff",
+          "artifact_sha256": "0de53db81934644a27b70bf0a78ab48b847441967bd283b792bfe4c4fb513a61",
+          "versus_baseline": {
+            "size": 0.0002128766734470727,
+            "length": 5.972495464346356e-07,
+            "emit": 0.001179797699394538,
+            "spread": 9.0157776108244e-05
+          }
+        },
+        {
+          "result": {
+            "schema": 1,
+            "code": "astra",
+            "case": "sc_drift",
+            "config": {
+              "name": "cpu-f64-3d32h0.7",
+              "device": "cpu",
+              "dtype": "float64",
+              "nrad": 0,
+              "nlong": 0,
+              "h_ns": 0.0007,
+              "three_d": true,
+              "n3d": 32
+            },
+            "rank": 5,
+            "job": {
+              "case_path": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\cases\\sc_drift.json",
+              "config": "cpu-f64-3d32h0.7",
+              "repeats": 2,
+              "threads": 1,
+              "out_dir": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-27_astra_refinement\\sc_drift\\astra\\cpu-f64-3d32h0.7\\p1"
+            },
+            "status": "ok",
+            "warnings": [],
+            "provenance": {
+              "host": "DDAST0117",
+              "platform": "Windows-11-10.0.26200-SP0",
+              "python": "3.12.13",
+              "cpu_count": 32,
+              "threads_env": {
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "NUMBA_NUM_THREADS": "1"
+              },
+              "gpu": {
+                "name": "NVIDIA GeForce RTX 3050",
+                "driver_version": "616.56",
+                "memory.total": "8192 MiB",
+                "clocks.sm": "210 MHz",
+                "clocks.max.sm": "2100 MHz",
+                "power.draw": "7.03 W",
+                "power.limit": "130.00 W",
+                "temperature.gpu": "33"
+              },
+              "argv": [
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\workers\\w_astra.py",
+                "--job",
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-27_astra_refinement\\sc_drift\\astra\\cpu-f64-3d32h0.7\\p1\\job.json"
+              ],
+              "time_utc": "2026-10-27T11:46:29Z"
+            },
+            "case_sha256": "ea7f7278673acc0746f2df757ab6ed10a9253426f4756a02b9847ae3fd84ba08",
+            "lattice_sha256": "c26667be30d3ae86a28a95305e44416e0d826811b6d344ec18c5891be8506deb",
+            "source_sha256": {
+              "analyse.py": "1c2fccfd63acce2b768a3e011d2551b4665b37743accc4453613a9626e8008f8",
+              "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
+              "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
+              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "astra_refinement.py": "a9291e770cda65cfdfbb29497090b366f19f348bf1f39c4aa1f72aa3a2cce215",
+              "bend_attribution.py": "b21214f51a16352643bd80cff81ae986eaf81f3a26a22c0517c737afe5d9af65",
+              "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+              "corrected_reference.py": "52e908b2caac8db7ac991c775c76920dd81e324d6379b7586955edf3726a069f",
+              "cpu_control.py": "f1bd1a8cd52a60c8186b7c3ee146842c2726ee576e03a5b30662005ac23e8068",
+              "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "injector_cost_control.py": "492c9989b1b77c20ce631664ddecd837ef10ac1afffd7407e48fb88ebcec5397",
+              "injector_step_control.py": "65f051267c8a18eed0438112b47b7ee33c7f3c5c23da84dd2feca5c81baf8701",
+              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
+              "precision_control.py": "ab813aedb9d7bcc02239cd9bd4509430d2d7750f3196fde4f60861efa5ee0371",
+              "precision_probe.py": "0e3a8a9965baeb6e6a1e5bc2daaa140f221f00a36b16b333cb58c344b4a6a417",
+              "probe_elements.py": "23b991e9d6fb17ddc366150d6a2b5e811258027e7f51079b169a0390b6dd4770",
+              "publish_study.py": "19d13ee7f0d788f1ce3825d5053989c16d1b245f9e26da580dfd8ac19e307374",
+              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
+              "test_study.py": "ca5f3a44a43b1815becfc934de80b9970c55d7dea60642ce253d77c8c20aa5c9",
+              "workers\\astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "workers\\impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
+              "workers\\w_astra.py": "3499a2c384763e020289012932a8361b31d8c098094f5f26fcfde13af42459fc",
+              "workers\\w_bmadx.py": "2a5c7704eb62d88876f8def708aee22c4d61a2880724ed8d44f19231f1e250a6",
+              "workers\\w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
+              "workers\\w_cheetah_sc.py": "0ecbb51867e7e64d4dc6d346504a924ea5275888aaa7eb85393dcb8c12791773",
+              "workers\\w_elegant.py": "89f607a640a46f32476182d5364d8f81d1f576571c318ac475ed4d9bde828191",
+              "workers\\w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
+              "workers\\w_helix.py": "eacccf73fb09025a292ddc9622b802c2484bb0ffba98a2b53331dea1fb6c0f39",
+              "workers\\w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
+              "workers\\w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
+              "workers\\w_ocelot_sc.py": "3ea60dfca4e2ffe50a5856a6ccd51d13735ebee164b485a149c3aba8bb45aa15",
+              "workers\\w_slipstream.py": "8e24a7861bf530452361548c25ea125f7a867dbd790a7a2fa06e0017f08b0aa3",
+              "workers\\w_slipstream_sc.py": "dcfd4861c087113ee5282f26261d7c4944b6d2d720e50b931f03e7c934774890",
+              "workers\\w_xsuite.py": "b1788d888e7e2d08408a84789c042bcab2841c2cf7908942f092d6e3b2dc4050",
+              "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
+            },
+            "particles_sha256": "f38e9ba6ac37b9ea132e9fe4bfe11d6b278e48c4b1ebcd4cd708e181d9a8b34c",
+            "versions": {
+              "astra_exe": "C:\\Users\\jkj62.CLRC\\Documents\\GitHub\\simcodes\\SimCodes\\ASTRA\\nt\\Astra.exe",
+              "banner": [
+                "Version 4.0",
+                "DESY,  Hamburg 2022"
+              ]
+            },
+            "timing": {
+              "import_s": 1.4998950064182281e-06,
+              "build_s": 0.10141950007528067,
+              "cold_s": 72.87326569994912,
+              "warm_s": {
+                "n": 2,
+                "median": 79.10057394998148,
+                "q1": 77.550524875056,
+                "q3": 80.65062302490696,
+                "min": 76.00047580013052,
+                "max": 82.20067209983245,
+                "samples": [
+                  82.20067209983245,
+                  76.00047580013052
+                ]
+              }
+            },
+            "memory": {
+              "rss_peak_bytes": 41295872
+            },
+            "repeat_maxdiff": 0.0,
+            "tbt_shape": [
+              20,
+              8
+            ]
+          },
+          "result_sha256": "cf2b9cea97970f6ab301ae0330aa52fe3a4f21d49b8ef58159a5bd6058d69dc0",
+          "artifact_sha256": "0de53db81934644a27b70bf0a78ab48b847441967bd283b792bfe4c4fb513a61",
+          "versus_baseline": {
+            "size": 0.0002128766734470727,
+            "length": 5.972495464346356e-07,
+            "emit": 0.001179797699394538,
+            "spread": 9.0157776108244e-05
+          }
+        },
+        {
+          "result": {
+            "schema": 1,
+            "code": "astra",
+            "case": "sc_drift",
+            "config": {
+              "name": "cpu-f64-3d32h0.7",
+              "device": "cpu",
+              "dtype": "float64",
+              "nrad": 0,
+              "nlong": 0,
+              "h_ns": 0.0007,
+              "three_d": true,
+              "n3d": 32
+            },
+            "rank": 5,
+            "job": {
+              "case_path": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\cases\\sc_drift.json",
+              "config": "cpu-f64-3d32h0.7",
+              "repeats": 2,
+              "threads": 1,
+              "out_dir": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-27_astra_refinement\\sc_drift\\astra\\cpu-f64-3d32h0.7\\p2"
+            },
+            "status": "ok",
+            "warnings": [],
+            "provenance": {
+              "host": "DDAST0117",
+              "platform": "Windows-11-10.0.26200-SP0",
+              "python": "3.12.13",
+              "cpu_count": 32,
+              "threads_env": {
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "NUMBA_NUM_THREADS": "1"
+              },
+              "gpu": {
+                "name": "NVIDIA GeForce RTX 3050",
+                "driver_version": "616.56",
+                "memory.total": "8192 MiB",
+                "clocks.sm": "210 MHz",
+                "clocks.max.sm": "2100 MHz",
+                "power.draw": "7.13 W",
+                "power.limit": "130.00 W",
+                "temperature.gpu": "34"
+              },
+              "argv": [
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\workers\\w_astra.py",
+                "--job",
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-27_astra_refinement\\sc_drift\\astra\\cpu-f64-3d32h0.7\\p2\\job.json"
+              ],
+              "time_utc": "2026-10-27T11:38:34Z"
+            },
+            "case_sha256": "ea7f7278673acc0746f2df757ab6ed10a9253426f4756a02b9847ae3fd84ba08",
+            "lattice_sha256": "c26667be30d3ae86a28a95305e44416e0d826811b6d344ec18c5891be8506deb",
+            "source_sha256": {
+              "analyse.py": "1c2fccfd63acce2b768a3e011d2551b4665b37743accc4453613a9626e8008f8",
+              "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
+              "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
+              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "astra_refinement.py": "2892c2f7e9c109ef003dfee2000f43587cd0942642f531f4f8675fc70328e239",
+              "bend_attribution.py": "b21214f51a16352643bd80cff81ae986eaf81f3a26a22c0517c737afe5d9af65",
+              "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+              "corrected_reference.py": "52e908b2caac8db7ac991c775c76920dd81e324d6379b7586955edf3726a069f",
+              "cpu_control.py": "f1bd1a8cd52a60c8186b7c3ee146842c2726ee576e03a5b30662005ac23e8068",
+              "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "injector_cost_control.py": "492c9989b1b77c20ce631664ddecd837ef10ac1afffd7407e48fb88ebcec5397",
+              "injector_step_control.py": "65f051267c8a18eed0438112b47b7ee33c7f3c5c23da84dd2feca5c81baf8701",
+              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
+              "precision_control.py": "ab813aedb9d7bcc02239cd9bd4509430d2d7750f3196fde4f60861efa5ee0371",
+              "precision_probe.py": "0e3a8a9965baeb6e6a1e5bc2daaa140f221f00a36b16b333cb58c344b4a6a417",
+              "probe_elements.py": "23b991e9d6fb17ddc366150d6a2b5e811258027e7f51079b169a0390b6dd4770",
+              "publish_study.py": "1bccae5a9897a5cbcebd6348cc29572b00c65eab986f498329fa011a7bc3b3c5",
+              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
+              "test_study.py": "ca5f3a44a43b1815becfc934de80b9970c55d7dea60642ce253d77c8c20aa5c9",
+              "workers\\astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "workers\\impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
+              "workers\\w_astra.py": "3499a2c384763e020289012932a8361b31d8c098094f5f26fcfde13af42459fc",
+              "workers\\w_bmadx.py": "2a5c7704eb62d88876f8def708aee22c4d61a2880724ed8d44f19231f1e250a6",
+              "workers\\w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
+              "workers\\w_cheetah_sc.py": "0ecbb51867e7e64d4dc6d346504a924ea5275888aaa7eb85393dcb8c12791773",
+              "workers\\w_elegant.py": "89f607a640a46f32476182d5364d8f81d1f576571c318ac475ed4d9bde828191",
+              "workers\\w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
+              "workers\\w_helix.py": "eacccf73fb09025a292ddc9622b802c2484bb0ffba98a2b53331dea1fb6c0f39",
+              "workers\\w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
+              "workers\\w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
+              "workers\\w_ocelot_sc.py": "3ea60dfca4e2ffe50a5856a6ccd51d13735ebee164b485a149c3aba8bb45aa15",
+              "workers\\w_slipstream.py": "8e24a7861bf530452361548c25ea125f7a867dbd790a7a2fa06e0017f08b0aa3",
+              "workers\\w_slipstream_sc.py": "dcfd4861c087113ee5282f26261d7c4944b6d2d720e50b931f03e7c934774890",
+              "workers\\w_xsuite.py": "b1788d888e7e2d08408a84789c042bcab2841c2cf7908942f092d6e3b2dc4050",
+              "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
+            },
+            "particles_sha256": "f38e9ba6ac37b9ea132e9fe4bfe11d6b278e48c4b1ebcd4cd708e181d9a8b34c",
+            "versions": {
+              "astra_exe": "C:\\Users\\jkj62.CLRC\\Documents\\GitHub\\simcodes\\SimCodes\\ASTRA\\nt\\Astra.exe",
+              "banner": [
+                "Version 4.0",
+                "DESY,  Hamburg 2022"
+              ]
+            },
+            "timing": {
+              "import_s": 1.200009137392044e-06,
+              "build_s": 0.11102209985256195,
+              "cold_s": 80.68370169959962,
+              "warm_s": {
+                "n": 2,
+                "median": 74.52112515014596,
+                "q1": 73.85841512505431,
+                "q3": 75.18383517523762,
+                "min": 73.19570509996265,
+                "max": 75.84654520032927,
+                "samples": [
+                  75.84654520032927,
+                  73.19570509996265
+                ]
+              }
+            },
+            "memory": {
+              "rss_peak_bytes": 41336832
+            },
+            "repeat_maxdiff": 0.0,
+            "tbt_shape": [
+              20,
+              8
+            ]
+          },
+          "result_sha256": "77a2387132dfe7a059c7ed13e43ed6fb718dd98d670f46701f70bd5e8337eafb",
+          "artifact_sha256": "0de53db81934644a27b70bf0a78ab48b847441967bd283b792bfe4c4fb513a61",
+          "versus_baseline": {
+            "size": 0.0002128766734470727,
+            "length": 5.972495464346356e-07,
+            "emit": 0.001179797699394538,
+            "spread": 9.0157776108244e-05
+          }
+        }
+      ],
+      "warm_s": 74.52112515014596,
+      "versus_baseline": {
+        "size": 0.0002128766734470727,
+        "length": 5.972495464346356e-07,
+        "emit": 0.001179797699394538,
+        "spread": 9.0157776108244e-05
+      },
+      "native_vs_this": {
+        "cpu64": {
+          "size": 0.0003645349536277548,
+          "length": 0.00015154573528812322,
+          "emit": 0.0016640612586776664,
+          "spread": 0.008498685909743458
+        },
+        "gpu_fast": {
+          "size": 0.0002871865667669186,
+          "length": 0.00014982639685373204,
+          "emit": 0.001787391992063092,
+          "spread": 0.008466926183189376
+        }
+      },
+      "native_artifact_sha256": {
+        "cpu64": [
+          "78020a1c39b9525e368ab17fc6b5e17ea1331cb81e1e74aa80dcc26bdb1fafb6",
+          "78020a1c39b9525e368ab17fc6b5e17ea1331cb81e1e74aa80dcc26bdb1fafb6",
+          "78020a1c39b9525e368ab17fc6b5e17ea1331cb81e1e74aa80dcc26bdb1fafb6"
+        ],
+        "gpu_fast": [
+          "4ce4f017d9ccff6be7735a546e4aacf5b2ecb568949e7156c481b07b35ad6058",
+          "4ff907ad9f2ed8e300c6b4812431b6d12d5ca2e5a5db576227609631e1995bc0",
+          "df3e8b870e80ada2a2bdad3b66837ea48add9c51f1bd4b71a8c9fefefe4d48e1"
+        ]
+      }
+    }
+  ]
+}

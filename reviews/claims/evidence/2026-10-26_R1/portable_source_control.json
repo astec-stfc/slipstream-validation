@@ -1,0 +1,13 @@
+{
+  "native_file": "D:\\GitHub\\neg_coating_rwi\\tmp\\slipstream-source-export-u1ny7h6l\\src\\slipstream\\__init__.py",
+  "exported_source_without_git": true,
+  "environment": "existing conda dependencies; not a clean-machine installation test",
+  "input_sha256": {
+    "linear_fodo.json": "e1f9dbbb8f004fd06dbd7a0afbe6343abe5935f5db6ab626a6880916e2e0005e",
+    "linear_fodo_lat.json": "630d60042a6d8c200873103ebc16486225d4f037be63b23ef7c41ac3635634f0"
+  },
+  "position_abs_m": 2.3839321430976616e-16,
+  "momentum_abs": 4.1334869012830955e-16,
+  "analytic_gate_pass": true,
+  "strict_guard_pass": true
+}

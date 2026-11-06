@@ -1,0 +1,140 @@
+{
+  "design": {
+    "date": "2026-10-27",
+    "procs": 2,
+    "repeats": 1,
+    "threads": 1,
+    "note": "Adapter-level fix: deck momenta = case mass * beta*gamma for the Slipstream adapter only; ASTRA and other adapters unchanged"
+  },
+  "astra_particle_energy": {
+    "sc_drift": {
+      "charge_C": -2e-11,
+      "phase_space_file": "sc_drift.0300.001",
+      "n_particles": 20000,
+      "ekin_initial_eV": 5000039.668667119,
+      "ekin_final_eV": 5000075.114447623,
+      "gain_eV": 35.44578050356358,
+      "zemit_table_gain_eV": 99.99999999976694
+    },
+    "sc_drift_q0": {
+      "charge_C": -1.9999999999999998e-17,
+      "phase_space_file": "sc_drift.0300.001",
+      "n_particles": 20000,
+      "ekin_initial_eV": 5000039.668667119,
+      "ekin_final_eV": 5000039.668676433,
+      "gain_eV": 9.3141570687294e-06,
+      "zemit_table_gain_eV": 0.0
+    }
+  },
+  "case_sha256": {
+    "q20": "ea7f7278673acc0746f2df757ab6ed10a9253426f4756a02b9847ae3fd84ba08",
+    "q0": "591287ca7aea70c552a067d78e2de307c109c3e1030473c79700897c7274ef9f"
+  },
+  "analysis_sha256": "b0ff5b5b65de012019bd162ff3cf928a5d29e0b0df1c6a0f4c8c58c5d01d418d",
+  "rows": [
+    {
+      "config": "cuda-f32-3d32t1c10-r100",
+      "offset_prediction_eV": 43.30273141014206,
+      "q20": {
+        "n_ok": 2,
+        "change_vs_unchanged": {
+          "size": 8.549291818769596e-06,
+          "length": 4.083092330384843e-06,
+          "emit": 7.718162001666732e-06,
+          "spread": 9.047536742277255e-06
+        },
+        "gap_vs_astra": {
+          "size": 0.0004911404326398915,
+          "length": 0.0001476076847354609,
+          "emit": 0.0006519628390227932,
+          "spread": 0.00855779798640626
+        },
+        "gap_unchanged_vs_astra": {
+          "size": 0.0004996854525019101,
+          "length": 0.00014982639685373204,
+          "emit": 0.0006549459708500702,
+          "spread": 0.008556320600062471
+        },
+        "dEkin_new_eV": 29.046661318279803,
+        "dEkin_unchanged_eV": 72.19670693855733,
+        "field_energy_gain_eV": 27.506021146778707
+      },
+      "q0": {
+        "n_ok": 2,
+        "change_vs_unchanged": {
+          "size": 1.0926357503959905e-07,
+          "length": 2.370465499134097e-06,
+          "emit": 8.192287582285968e-06,
+          "spread": 7.850239755044608e-06
+        },
+        "gap_vs_astra": {
+          "size": 3.5229849076278055e-05,
+          "length": 2.9440510119644316e-05,
+          "emit": 6.781166643186502e-05,
+          "spread": 2.0662141030402024e-05
+        },
+        "gap_unchanged_vs_astra": {
+          "size": 3.5223615343617394e-05,
+          "length": 2.9714945815282692e-05,
+          "emit": 7.582918424609746e-05,
+          "spread": 2.851260461622891e-05
+        },
+        "dEkin_new_eV": -0.5172424903139472,
+        "dEkin_unchanged_eV": 42.3981017479673,
+        "field_energy_gain_eV": 2.745451139094977e-06
+      }
+    },
+    {
+      "config": "cpu-f64-3d32t1c1",
+      "offset_prediction_eV": 43.30273141014206,
+      "q20": {
+        "n_ok": 2,
+        "change_vs_unchanged": {
+          "size": 8.37539660375561e-06,
+          "length": 2.8544022660234087e-07,
+          "emit": 7.773041870162314e-06,
+          "spread": 7.983278901432442e-06
+        },
+        "gap_vs_astra": {
+          "size": 0.0005686530425978805,
+          "length": 0.0001512603383187699,
+          "emit": 0.0006986410630465887,
+          "spread": 0.008590196085314108
+        },
+        "gap_unchanged_vs_astra": {
+          "size": 0.0005770173981950425,
+          "length": 0.00015154573528812322,
+          "emit": 0.0007024691985410272,
+          "spread": 0.008588077463230238
+        },
+        "dEkin_new_eV": 29.376325690187514,
+        "dEkin_unchanged_eV": 72.67863200604916,
+        "field_energy_gain_eV": 27.50175476435476
+      },
+      "q0": {
+        "n_ok": 2,
+        "change_vs_unchanged": {
+          "size": 1.504330991503864e-11,
+          "length": 8.671552198646032e-09,
+          "emit": 7.925589466544928e-06,
+          "spread": 7.993727088653333e-06
+        },
+        "gap_vs_astra": {
+          "size": 3.465213145644568e-05,
+          "length": 2.985791232691905e-05,
+          "emit": 6.802100470251838e-05,
+          "spread": 2.01166041074444e-05
+        },
+        "gap_unchanged_vs_astra": {
+          "size": 3.4652129222921e-05,
+          "length": 2.9857776318885755e-05,
+          "emit": 7.594719552309111e-05,
+          "spread": 2.811055567931953e-05
+        },
+        "dEkin_new_eV": 6.668269634246826e-07,
+        "dEkin_unchanged_eV": 43.30273350607604,
+        "field_energy_gain_eV": 2.7453015215369373e-06
+      }
+    }
+  ]
+}

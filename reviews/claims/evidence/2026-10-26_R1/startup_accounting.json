@@ -1,0 +1,4609 @@
+{
+  "retro": {
+    "note": "Every stored job with a result and a wall time; medians over processes. command_to_output = wall - sum(warm calls) = import + build + first call + overhead",
+    "analysis_sha256": "3e55aca9100ee6639d53e2644b277cc75c3ce796f86a26c114533d33b4c8f234",
+    "rows": [
+      {
+        "campaign": "2026-10-26_preflight",
+        "case": "sc_drift",
+        "code": "ocelot",
+        "config": "cpu-f64-g16s1",
+        "n_proc": 1,
+        "import_s": 4.086984899826348,
+        "build_s": 0.0075667002238333225,
+        "cold_s": 1.3372920998372138,
+        "warm_median_s": 1.3043753998354077,
+        "overhead_s": 0.9894523001275957,
+        "command_to_output_s": 6.421296000014991,
+        "wall_s": 7.725671399850398,
+        "command_to_output_range_s": [
+          6.421296000014991,
+          6.421296000014991
+        ],
+        "per_process_command_to_output_s": [
+          6.42
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "linear_fodo",
+        "code": "helix",
+        "config": "cpu-f64-linear",
+        "n_proc": 3,
+        "import_s": 1.7311589997261763,
+        "build_s": 0.00224609998986125,
+        "cold_s": 0.0031625996343791485,
+        "warm_median_s": 0.0012562002521008253,
+        "overhead_s": 0.8628259003162384,
+        "command_to_output_s": 2.5990530997514725,
+        "wall_s": 2.601532199885696,
+        "command_to_output_range_s": [
+          2.5543587994761765,
+          5.313902500085533
+        ],
+        "per_process_command_to_output_s": [
+          5.31,
+          2.55,
+          2.6
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "linear_fodo",
+        "code": "slipstream",
+        "config": "cpu-f64-o4k4b8",
+        "n_proc": 3,
+        "import_s": 6.13820039993152,
+        "build_s": 0.003514599986374378,
+        "cold_s": 0.005117499735206366,
+        "warm_median_s": 0.004672099836170673,
+        "overhead_s": 1.3566747005097568,
+        "command_to_output_s": 7.503507200162858,
+        "wall_s": 7.5124776000157,
+        "command_to_output_range_s": [
+          7.235683700069785,
+          9.470987500157207
+        ],
+        "per_process_command_to_output_s": [
+          9.47,
+          7.24,
+          7.5
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "linear_fodo",
+        "code": "slipstream",
+        "config": "cpu-f64-o6k8b16",
+        "n_proc": 3,
+        "import_s": 5.870486699976027,
+        "build_s": 0.009343300014734268,
+        "cold_s": 0.01653779996559024,
+        "warm_median_s": 0.016067749820649624,
+        "overhead_s": 1.381233099848032,
+        "command_to_output_s": 7.277622099965811,
+        "wall_s": 7.30975759960711,
+        "command_to_output_range_s": [
+          7.237840699963272,
+          7.338312299922109
+        ],
+        "per_process_command_to_output_s": [
+          7.24,
+          7.34,
+          7.28
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "ring_tunes",
+        "code": "bmadx",
+        "config": "cpu-f64-q1s16",
+        "n_proc": 3,
+        "import_s": 0.956868747016415,
+        "build_s": 0.0037335290107876062,
+        "cold_s": 36.675830270163715,
+        "warm_median_s": 37.45338544854894,
+        "overhead_s": 4.041584620252252,
+        "command_to_output_s": 42.70545466733165,
+        "wall_s": 115.987500899937,
+        "command_to_output_range_s": [
+          41.08073000283912,
+          42.74148161476478
+        ],
+        "per_process_command_to_output_s": [
+          42.74,
+          41.08,
+          42.71
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "ring_tunes",
+        "code": "bmadx",
+        "config": "cpu-f64-q1s64",
+        "n_proc": 3,
+        "import_s": 1.0831515439786017,
+        "build_s": 0.005952553125098348,
+        "cold_s": 117.7397785531357,
+        "warm_median_s": 122.43232910451479,
+        "overhead_s": 4.072453040862456,
+        "command_to_output_s": 122.90133569110185,
+        "wall_s": 367.76599390013143,
+        "command_to_output_range_s": [
+          119.4219750338234,
+          128.86366476095282
+        ],
+        "per_process_command_to_output_s": [
+          119.42,
+          128.86,
+          122.9
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "ring_tunes",
+        "code": "cheetah",
+        "config": "cpu-f64-dri16",
+        "n_proc": 3,
+        "import_s": 2.4112181002274156,
+        "build_s": 0.005462500266730785,
+        "cold_s": 138.29818460019305,
+        "warm_median_s": 137.86879540025257,
+        "overhead_s": 1.0588253997266293,
+        "command_to_output_s": 141.77452469989657,
+        "wall_s": 420.3007490001619,
+        "command_to_output_range_s": [
+          140.40161100029945,
+          144.56315819965675
+        ],
+        "per_process_command_to_output_s": [
+          144.56,
+          141.77,
+          140.4
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "ring_tunes",
+        "code": "cheetah",
+        "config": "cpu-f64-dri4",
+        "n_proc": 3,
+        "import_s": 2.527649600058794,
+        "build_s": 0.00569669995456934,
+        "cold_s": 54.53175769979134,
+        "warm_median_s": 52.90056674997322,
+        "overhead_s": 1.0270826006308198,
+        "command_to_output_s": 58.092104700393975,
+        "wall_s": 168.1091963001527,
+        "command_to_output_range_s": [
+          56.09584899991751,
+          64.03010990004987
+        ],
+        "per_process_command_to_output_s": [
+          58.09,
+          56.1,
+          64.03
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "ring_tunes",
+        "code": "cheetah",
+        "config": "cpu-f64-lin1",
+        "n_proc": 3,
+        "import_s": 2.57476510014385,
+        "build_s": 0.00716619985178113,
+        "cold_s": 2.0563380997627974,
+        "warm_median_s": 1.3481554500758648,
+        "overhead_s": 0.8833588999696076,
+        "command_to_output_s": 5.707586199510843,
+        "wall_s": 8.477783999871463,
+        "command_to_output_range_s": [
+          5.369296499527991,
+          5.960564199835062
+        ],
+        "per_process_command_to_output_s": [
+          5.71,
+          5.37,
+          5.96
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "ring_tunes",
+        "code": "elegant",
+        "config": "cpu-f64-o6s16b32",
+        "n_proc": 3,
+        "import_s": 1.300126314163208e-06,
+        "build_s": 0.761688300408423,
+        "cold_s": 1.9352992000058293,
+        "warm_median_s": 1.2994763501919806,
+        "overhead_s": 0.4768850998952985,
+        "command_to_output_s": 3.4334121998399496,
+        "wall_s": 6.032364900223911,
+        "command_to_output_range_s": [
+          1.7886235998012125,
+          3.686210900079459
+        ],
+        "per_process_command_to_output_s": [
+          3.69,
+          1.79,
+          3.43
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "ring_tunes",
+        "code": "elegant",
+        "config": "cpu-f64-o6s8b16",
+        "n_proc": 3,
+        "import_s": 1.200009137392044e-06,
+        "build_s": 0.5902627999894321,
+        "cold_s": 1.4551717997528613,
+        "warm_median_s": 0.7231993500608951,
+        "overhead_s": 0.5057580000720918,
+        "command_to_output_s": 2.5815576002933085,
+        "wall_s": 3.985560600180179,
+        "command_to_output_range_s": [
+          1.2745932000689209,
+          2.9170597004704177
+        ],
+        "per_process_command_to_output_s": [
+          2.58,
+          1.27,
+          2.92
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "ring_tunes",
+        "code": "jutrack",
+        "config": "cpu-f64-n16b32",
+        "n_proc": 3,
+        "import_s": 2.2098345002159476,
+        "build_s": 2.5795113001950085,
+        "cold_s": 1.4897978999651968,
+        "warm_median_s": 0.40828289999626577,
+        "overhead_s": 0.5931434999220073,
+        "command_to_output_s": 6.761335600167513,
+        "wall_s": 7.577901400160044,
+        "command_to_output_range_s": [
+          6.203086300287396,
+          10.687233800534159
+        ],
+        "per_process_command_to_output_s": [
+          10.69,
+          6.76,
+          6.2
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "ring_tunes",
+        "code": "jutrack",
+        "config": "cpu-f64-n32b64",
+        "n_proc": 3,
+        "import_s": 5.091863499954343,
+        "build_s": 2.6618184000253677,
+        "cold_s": 1.760013499762863,
+        "warm_median_s": 0.8529972999822348,
+        "overhead_s": 0.6756477002054453,
+        "command_to_output_s": 10.143233199603856,
+        "wall_s": 11.85111299995333,
+        "command_to_output_range_s": [
+          6.24039370007813,
+          11.088762199971825
+        ],
+        "per_process_command_to_output_s": [
+          10.14,
+          11.09,
+          6.24
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "ring_tunes",
+        "code": "slipstream",
+        "config": "cuda-f32-o6k8b16",
+        "n_proc": 3,
+        "import_s": 7.517953199800104,
+        "build_s": 0.420919599942863,
+        "cold_s": 1.0952978003770113,
+        "warm_median_s": 0.662983950227499,
+        "overhead_s": 1.5810316000133753,
+        "command_to_output_s": 10.678016299381852,
+        "wall_s": 12.00398419983685,
+        "command_to_output_range_s": [
+          8.095676600001752,
+          11.868424200452864
+        ],
+        "per_process_command_to_output_s": [
+          11.87,
+          8.1,
+          10.68
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "ring_tunes",
+        "code": "slipstream",
+        "config": "cuda-f64-o6k16b32",
+        "n_proc": 3,
+        "import_s": 6.741133299656212,
+        "build_s": 0.32006740011274815,
+        "cold_s": 5.941663300152868,
+        "warm_median_s": 5.519378200173378,
+        "overhead_s": 1.4136008000932634,
+        "command_to_output_s": 14.579139799810946,
+        "wall_s": 26.148608500137925,
+        "command_to_output_range_s": [
+          12.840767900459468,
+          16.39403919968754
+        ],
+        "per_process_command_to_output_s": [
+          14.58,
+          12.84,
+          16.39
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "ring_tunes",
+        "code": "slipstream",
+        "config": "cuda-f64-o6k8b16",
+        "n_proc": 3,
+        "import_s": 7.170448000077158,
+        "build_s": 0.2782427999190986,
+        "cold_s": 3.2925513996742666,
+        "warm_median_s": 2.9365357998758554,
+        "overhead_s": 1.5242719007655978,
+        "command_to_output_s": 12.265514100436121,
+        "wall_s": 18.188573600258678,
+        "command_to_output_range_s": [
+          10.180673399940133,
+          14.720349400304258
+        ],
+        "per_process_command_to_output_s": [
+          14.72,
+          12.27,
+          10.18
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "ring_tunes",
+        "code": "xsuite",
+        "config": "cpu-f64-yosk16b32",
+        "n_proc": 3,
+        "import_s": 1.6306676499079913,
+        "build_s": 45.565839124144986,
+        "cold_s": 0.29049677797593176,
+        "warm_median_s": 0.29004924243781716,
+        "overhead_s": 3.8390830650459975,
+        "command_to_output_s": 51.56370119005442,
+        "wall_s": 52.13724149996415,
+        "command_to_output_range_s": [
+          51.10501851537265,
+          52.670141017762944
+        ],
+        "per_process_command_to_output_s": [
+          51.56,
+          51.11,
+          52.67
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "ring_tunes",
+        "code": "xsuite",
+        "config": "cpu-f64-yosk8b16",
+        "n_proc": 3,
+        "import_s": 2.1936762870755047,
+        "build_s": 47.63172451709397,
+        "cold_s": 0.195624731015414,
+        "warm_median_s": 0.18987959204241633,
+        "overhead_s": 4.081852911738679,
+        "command_to_output_s": 53.71460126992315,
+        "wall_s": 54.105207699816674,
+        "command_to_output_range_s": [
+          53.55617236113176,
+          54.4269714159891
+        ],
+        "per_process_command_to_output_s": [
+          54.43,
+          53.56,
+          53.71
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "ring_tunes",
+        "code": "xsuite",
+        "config": "cuda-f64-yosk8b16",
+        "n_proc": 3,
+        "import_s": 2.0842396228108555,
+        "build_s": 331.4292777159717,
+        "cold_s": 4.899139227112755,
+        "warm_median_s": 4.610227465396747,
+        "overhead_s": 4.475391184911132,
+        "command_to_output_s": 342.823870515218,
+        "wall_s": 352.000298100058,
+        "command_to_output_range_s": [
+          342.1813534689136,
+          454.623069512425
+        ],
+        "per_process_command_to_output_s": [
+          342.82,
+          454.62,
+          342.18
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "sc_drift",
+        "code": "astra",
+        "config": "cpu-f64-3d32h1.4",
+        "n_proc": 3,
+        "import_s": 1.200009137392044e-06,
+        "build_s": 0.10374219994992018,
+        "cold_s": 36.35087580000982,
+        "warm_median_s": 35.94715579994954,
+        "overhead_s": 0.6102956002578139,
+        "command_to_output_s": 37.02141309948638,
+        "wall_s": 109.26255379989743,
+        "command_to_output_range_s": [
+          36.97738490020856,
+          39.30309849977493
+        ],
+        "per_process_command_to_output_s": [
+          36.98,
+          37.02,
+          39.3
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "sc_drift",
+        "code": "astra",
+        "config": "cpu-f64-n64l128h0.7",
+        "n_proc": 3,
+        "import_s": 1.5003606677055359e-06,
+        "build_s": 0.10228830017149448,
+        "cold_s": 136.72701289970428,
+        "warm_median_s": 139.46760584996082,
+        "overhead_s": 0.6498687001876533,
+        "command_to_output_s": 137.4027183004655,
+        "wall_s": 411.26449549989775,
+        "command_to_output_range_s": [
+          132.3292837999761,
+          140.70508599979803
+        ],
+        "per_process_command_to_output_s": [
+          140.71,
+          137.4,
+          132.33
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "sc_drift",
+        "code": "cheetah",
+        "config": "cpu-f64-g32s2",
+        "n_proc": 3,
+        "import_s": 2.5329205999150872,
+        "build_s": 0.022858799900859594,
+        "cold_s": 5.630836799740791,
+        "warm_median_s": 4.830367800081149,
+        "overhead_s": 1.1406930000521243,
+        "command_to_output_s": 9.323870699852705,
+        "wall_s": 19.495284200180322,
+        "command_to_output_range_s": [
+          9.203920499887317,
+          9.91074789967388
+        ],
+        "per_process_command_to_output_s": [
+          9.2,
+          9.91,
+          9.32
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "sc_drift",
+        "code": "cheetah",
+        "config": "cpu-f64-g64s4",
+        "n_proc": 3,
+        "import_s": 4.654043099842966,
+        "build_s": 0.05543259996920824,
+        "cold_s": 52.0564461001195,
+        "warm_median_s": 50.89470349973999,
+        "overhead_s": 1.2059274008497596,
+        "command_to_output_s": 57.68063520034775,
+        "wall_s": 160.80723380018026,
+        "command_to_output_range_s": [
+          57.46512889955193,
+          59.01782680070028
+        ],
+        "per_process_command_to_output_s": [
+          59.02,
+          57.68,
+          57.47
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "sc_drift",
+        "code": "gpt",
+        "config": "cpu-f64-mesh-acc5",
+        "n_proc": 3,
+        "import_s": 1.300126314163208e-06,
+        "build_s": 0.7658894001506269,
+        "cold_s": 5.520738599821925,
+        "warm_median_s": 2.91327634989284,
+        "overhead_s": 0.5349762998521328,
+        "command_to_output_s": 15.049497400410473,
+        "wall_s": 20.876050100196153,
+        "command_to_output_range_s": [
+          3.584613800048828,
+          16.07917089993134
+        ],
+        "per_process_command_to_output_s": [
+          15.05,
+          3.58,
+          16.08
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "sc_drift",
+        "code": "gpt",
+        "config": "cpu-f64-mesh-acc6",
+        "n_proc": 3,
+        "import_s": 1.600012183189392e-06,
+        "build_s": 0.7449516002088785,
+        "cold_s": 4.172194799873978,
+        "warm_median_s": 2.8423684497829527,
+        "overhead_s": 0.6105058006942272,
+        "command_to_output_s": 5.527653400786221,
+        "wall_s": 11.212390300352126,
+        "command_to_output_range_s": [
+          3.504962400533259,
+          6.097717899829149
+        ],
+        "per_process_command_to_output_s": [
+          5.53,
+          6.1,
+          3.5
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "sc_drift",
+        "code": "impactx",
+        "config": "cpu-f64-mg32x40s2",
+        "n_proc": 3,
+        "import_s": 0.09564715204760432,
+        "build_s": 0.0008919329848140478,
+        "cold_s": 4.481860276078805,
+        "warm_median_s": 4.46868958149571,
+        "overhead_s": 2.9759031925350428,
+        "command_to_output_s": 7.559128788532689,
+        "wall_s": 16.46795539977029,
+        "command_to_output_range_s": [
+          7.509742772905156,
+          7.60748953721486
+        ],
+        "per_process_command_to_output_s": [
+          7.51,
+          7.61,
+          7.56
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "sc_drift",
+        "code": "impactx",
+        "config": "cpu-f64-mg64x80s4",
+        "n_proc": 3,
+        "import_s": 0.10736542195081711,
+        "build_s": 0.0009711908642202616,
+        "cold_s": 68.34152184496634,
+        "warm_median_s": 67.67496069299523,
+        "overhead_s": 3.100278382189572,
+        "command_to_output_s": 71.77091642678715,
+        "wall_s": 206.89394680038095,
+        "command_to_output_range_s": [
+          70.38448881381191,
+          71.95586465764791
+        ],
+        "per_process_command_to_output_s": [
+          71.96,
+          71.77,
+          70.38
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "sc_drift",
+        "code": "ocelot",
+        "config": "cpu-f64-g32s2",
+        "n_proc": 3,
+        "import_s": 3.207565600052476,
+        "build_s": 0.006688099820166826,
+        "cold_s": 3.722713300026953,
+        "warm_median_s": 3.7991185998544097,
+        "overhead_s": 0.792892100289464,
+        "command_to_output_s": 7.747886999510229,
+        "wall_s": 15.297793499659747,
+        "command_to_output_range_s": [
+          7.679671999998391,
+          8.147890000138432
+        ],
+        "per_process_command_to_output_s": [
+          7.75,
+          8.15,
+          7.68
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "sc_drift",
+        "code": "ocelot",
+        "config": "cpu-f64-g64s4",
+        "n_proc": 3,
+        "import_s": 2.621696500107646,
+        "build_s": 0.005310600157827139,
+        "cold_s": 65.97029470000416,
+        "warm_median_s": 65.7713421001099,
+        "overhead_s": 0.7252273005433381,
+        "command_to_output_s": 69.45765129989013,
+        "wall_s": 198.84232759987935,
+        "command_to_output_range_s": [
+          66.33283849991858,
+          73.20568250026554
+        ],
+        "per_process_command_to_output_s": [
+          69.46,
+          73.21,
+          66.33
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cpu-f64-3d32t1c1",
+        "n_proc": 3,
+        "import_s": 9.2056132000871,
+        "build_s": 0.11130979983136058,
+        "cold_s": 102.74396009976044,
+        "warm_median_s": 102.92390615027398,
+        "overhead_s": 1.7010274003259838,
+        "command_to_output_s": 111.94231119938195,
+        "wall_s": 317.7901234999299,
+        "command_to_output_range_s": [
+          107.4560409002006,
+          116.54349200008437
+        ],
+        "per_process_command_to_output_s": [
+          116.54,
+          111.94,
+          107.46
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-r32z128t2c5",
+        "n_proc": 3,
+        "import_s": 8.412435799837112,
+        "build_s": 0.2866469998843968,
+        "cold_s": 6.823563899844885,
+        "warm_median_s": 2.8814627998508513,
+        "overhead_s": 1.8164835995994508,
+        "command_to_output_s": 17.60727980034426,
+        "wall_s": 23.37020540004596,
+        "command_to_output_range_s": [
+          17.05571229988709,
+          35.7315157991834
+        ],
+        "per_process_command_to_output_s": [
+          35.73,
+          17.61,
+          17.06
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-r64z256t1c2",
+        "n_proc": 3,
+        "import_s": 6.082128099631518,
+        "build_s": 0.2567056999541819,
+        "cold_s": 13.33674139995128,
+        "warm_median_s": 10.663733100052923,
+        "overhead_s": 1.6522601004689932,
+        "command_to_output_s": 21.327835300005972,
+        "wall_s": 43.6079107997939,
+        "command_to_output_range_s": [
+          19.796555299777538,
+          42.933269899804145
+        ],
+        "per_process_command_to_output_s": [
+          42.93,
+          19.8,
+          21.33
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1_CPU_control",
+        "case": "ring_tunes",
+        "code": "slipstream",
+        "config": "cpu-f64-o6k8b16-compiled",
+        "n_proc": 3,
+        "import_s": 5.5051690000109375,
+        "build_s": 0.03313400037586689,
+        "cold_s": 8.14531429996714,
+        "warm_median_s": 5.17397924978286,
+        "overhead_s": 1.4645572998560965,
+        "command_to_output_s": 15.216183700133115,
+        "wall_s": 25.564142199698836,
+        "command_to_output_range_s": [
+          14.991790799424052,
+          34.90678789932281
+        ],
+        "per_process_command_to_output_s": [
+          15.22,
+          34.91,
+          14.99
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1_GPU_control",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-3d32t1c1",
+        "n_proc": 3,
+        "import_s": 5.702585899736732,
+        "build_s": 0.20977609977126122,
+        "cold_s": 16.09673730004579,
+        "warm_median_s": 13.396613349905238,
+        "overhead_s": 1.4226934993639588,
+        "command_to_output_s": 23.545343900099397,
+        "wall_s": 52.03299550013617,
+        "command_to_output_range_s": [
+          22.049373500514776,
+          43.52475159987807
+        ],
+        "per_process_command_to_output_s": [
+          22.05,
+          23.55,
+          43.52
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1_GPU_control",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f64-3d32t1c1",
+        "n_proc": 3,
+        "import_s": 6.740602399688214,
+        "build_s": 0.20514560025185347,
+        "cold_s": 21.261701699811965,
+        "warm_median_s": 14.572817950043827,
+        "overhead_s": 1.5122869997285306,
+        "command_to_output_s": 29.714345299638808,
+        "wall_s": 58.753632199950516,
+        "command_to_output_range_s": [
+          24.633750000037253,
+          42.60085449973121
+        ],
+        "per_process_command_to_output_s": [
+          29.71,
+          42.6,
+          24.63
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1_injector_cost",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-3d32t1c1-r100",
+        "n_proc": 3,
+        "import_s": 5.41504120035097,
+        "build_s": 0.19234990002587438,
+        "cold_s": 13.243610700126737,
+        "warm_median_s": 11.763477050233632,
+        "overhead_s": 1.42439269926399,
+        "command_to_output_s": 20.274286599829793,
+        "wall_s": 44.00060709984973,
+        "command_to_output_range_s": [
+          20.057822099421173,
+          21.4372904994525
+        ],
+        "per_process_command_to_output_s": [
+          21.44,
+          20.06,
+          20.27
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1_injector_cost",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-3d32t1c1-r50",
+        "n_proc": 3,
+        "import_s": 5.47656559990719,
+        "build_s": 0.20151699986308813,
+        "cold_s": 13.077523100189865,
+        "warm_median_s": 12.120112650096416,
+        "overhead_s": 1.505085799843073,
+        "command_to_output_s": 20.278487300034612,
+        "wall_s": 44.68770210025832,
+        "command_to_output_range_s": [
+          20.157989900559187,
+          21.05548539943993
+        ],
+        "per_process_command_to_output_s": [
+          20.16,
+          21.06,
+          20.28
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1_injector_cost",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-3d32t1c10-r100",
+        "n_proc": 3,
+        "import_s": 5.48962019989267,
+        "build_s": 0.1981823998503387,
+        "cold_s": 4.443771599791944,
+        "warm_median_s": 2.9617873998358846,
+        "overhead_s": 1.4766186005435884,
+        "command_to_output_s": 11.620922000613064,
+        "wall_s": 17.544496800284833,
+        "command_to_output_range_s": [
+          11.528294799849391,
+          11.859864099416882
+        ],
+        "per_process_command_to_output_s": [
+          11.86,
+          11.53,
+          11.62
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1_injector_cost",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-3d32t1c5-r100",
+        "n_proc": 3,
+        "import_s": 5.555412100162357,
+        "build_s": 0.19864419987425208,
+        "cold_s": 5.401460699737072,
+        "warm_median_s": 4.03195254993625,
+        "overhead_s": 1.5278093004599214,
+        "command_to_output_s": 12.55830160016194,
+        "wall_s": 20.62220670003444,
+        "command_to_output_range_s": [
+          12.546675199642777,
+          29.071191099938005
+        ],
+        "per_process_command_to_output_s": [
+          12.56,
+          29.07,
+          12.55
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1_Xsuite_exact",
+        "case": "ring_tunes",
+        "code": "xsuite",
+        "config": "cpu-f64-yosk16b32-exact",
+        "n_proc": 3,
+        "import_s": 1.5669513521715999,
+        "build_s": 44.56580717698671,
+        "cold_s": 0.30662222718819976,
+        "warm_median_s": 0.30423454544506967,
+        "overhead_s": 4.298427764326334,
+        "command_to_output_s": 50.76120904949494,
+        "wall_s": 51.36510439962149,
+        "command_to_output_range_s": [
+          50.543238546233624,
+          51.06569100916386
+        ],
+        "per_process_command_to_output_s": [
+          50.76,
+          51.07,
+          50.54
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1_Xsuite_exact",
+        "case": "ring_tunes",
+        "code": "xsuite",
+        "config": "cpu-f64-yosk8b16-exact",
+        "n_proc": 3,
+        "import_s": 1.5642316529992968,
+        "build_s": 44.32770177186467,
+        "cold_s": 0.19973700703121722,
+        "warm_median_s": 0.1993928279262036,
+        "overhead_s": 4.695067212218419,
+        "command_to_output_s": 50.782231877790764,
+        "wall_s": 51.17637909995392,
+        "command_to_output_range_s": [
+          50.68897568387911,
+          50.7867376441136
+        ],
+        "per_process_command_to_output_s": [
+          50.79,
+          50.78,
+          50.69
+        ]
+      },
+      {
+        "campaign": "2026-10-26_R1_Xsuite_exact",
+        "case": "ring_tunes",
+        "code": "xsuite",
+        "config": "cuda-f64-yosk8b16-exact",
+        "n_proc": 3,
+        "import_s": 1.5440134569071233,
+        "build_s": 316.11880946718156,
+        "cold_s": 5.116212656022981,
+        "warm_median_s": 4.760091964970343,
+        "overhead_s": 4.770781049039215,
+        "command_to_output_s": 327.5356944161467,
+        "wall_s": 337.05485010007396,
+        "command_to_output_range_s": [
+          326.6309650647454,
+          329.07741396990605
+        ],
+        "per_process_command_to_output_s": [
+          327.54,
+          329.08,
+          326.63
+        ]
+      },
+      {
+        "campaign": "2026-10-27_astra_refinement",
+        "case": "sc_drift",
+        "code": "astra",
+        "config": "cpu-f64-3d32h0.7",
+        "n_proc": 3,
+        "import_s": 1.4998950064182281e-06,
+        "build_s": 0.10141950007528067,
+        "cold_s": 76.28452150011435,
+        "warm_median_s": 74.52112515014596,
+        "overhead_s": 0.5507132993079722,
+        "command_to_output_s": 76.93636489938945,
+        "wall_s": 230.36790590034798,
+        "command_to_output_range_s": [
+          73.91723360028118,
+          81.32565560005605
+        ],
+        "per_process_command_to_output_s": [
+          76.94,
+          73.92,
+          81.33
+        ]
+      },
+      {
+        "campaign": "2026-10-27_astra_refinement",
+        "case": "sc_drift",
+        "code": "astra",
+        "config": "cpu-f64-3d64h1.4",
+        "n_proc": 3,
+        "import_s": 1.200009137392044e-06,
+        "build_s": 0.10132939973846078,
+        "cold_s": 83.40402119979262,
+        "warm_median_s": 82.37846575002186,
+        "overhead_s": 0.5916418004781008,
+        "command_to_output_s": 84.09850439988077,
+        "wall_s": 252.30956759955734,
+        "command_to_output_range_s": [
+          83.14376199990511,
+          87.55263609951362
+        ],
+        "per_process_command_to_output_s": [
+          84.1,
+          87.55,
+          83.14
+        ]
+      },
+      {
+        "campaign": "2026-10-27_charge_off",
+        "case": "sc_drift_q0",
+        "code": "astra",
+        "config": "cpu-f64-3d32h1.4",
+        "n_proc": 2,
+        "import_s": 1.500127837061882e-06,
+        "build_s": 0.10336134978570044,
+        "cold_s": 35.54455235018395,
+        "warm_median_s": 35.97876169998199,
+        "overhead_s": 0.7546696001663804,
+        "command_to_output_s": 36.40258480026387,
+        "wall_s": 72.38134650024585,
+        "command_to_output_range_s": [
+          34.82461450016126,
+          37.98055510036647
+        ],
+        "per_process_command_to_output_s": [
+          37.98,
+          34.82
+        ]
+      },
+      {
+        "campaign": "2026-10-27_charge_off",
+        "case": "sc_drift_q0",
+        "code": "cheetah",
+        "config": "cpu-f64-g32s2",
+        "n_proc": 2,
+        "import_s": 2.553254900034517,
+        "build_s": 0.018310150131583214,
+        "cold_s": 5.2780330998357385,
+        "warm_median_s": 4.578964000102133,
+        "overhead_s": 0.9785249498672783,
+        "command_to_output_s": 8.828123099869117,
+        "wall_s": 13.40708709997125,
+        "command_to_output_range_s": [
+          8.562060600146651,
+          9.094185599591583
+        ],
+        "per_process_command_to_output_s": [
+          9.09,
+          8.56
+        ]
+      },
+      {
+        "campaign": "2026-10-27_charge_off",
+        "case": "sc_drift_q0",
+        "code": "gpt",
+        "config": "cpu-f64-mesh-acc6",
+        "n_proc": 2,
+        "import_s": 1.2998934835195541e-06,
+        "build_s": 5.633997950004414,
+        "cold_s": 3.9683281001634896,
+        "warm_median_s": 2.5781888500787318,
+        "overhead_s": 0.5769159998744726,
+        "command_to_output_s": 10.17924334993586,
+        "wall_s": 12.757432200014591,
+        "command_to_output_range_s": [
+          5.636901599820703,
+          14.721585100051016
+        ],
+        "per_process_command_to_output_s": [
+          14.72,
+          5.64
+        ]
+      },
+      {
+        "campaign": "2026-10-27_charge_off",
+        "case": "sc_drift_q0",
+        "code": "impactx",
+        "config": "cpu-f64-mg32x40s2",
+        "n_proc": 2,
+        "import_s": 0.24330976989585906,
+        "build_s": 0.00254530506208539,
+        "cold_s": 4.515065540326759,
+        "warm_median_s": 4.425518809468485,
+        "overhead_s": 3.9220513752661645,
+        "command_to_output_s": 8.682971990550868,
+        "wall_s": 13.108490800019354,
+        "command_to_output_range_s": [
+          8.036803218070418,
+          9.329140763031319
+        ],
+        "per_process_command_to_output_s": [
+          9.33,
+          8.04
+        ]
+      },
+      {
+        "campaign": "2026-10-27_charge_off",
+        "case": "sc_drift_q0",
+        "code": "ocelot",
+        "config": "cpu-f64-g32s2",
+        "n_proc": 2,
+        "import_s": 2.642811849946156,
+        "build_s": 0.0049344501458108425,
+        "cold_s": 3.141780399950221,
+        "warm_median_s": 2.9923036999534816,
+        "overhead_s": 0.6783164502121508,
+        "command_to_output_s": 6.467843150254339,
+        "wall_s": 9.46014685020782,
+        "command_to_output_range_s": [
+          6.310173300560564,
+          6.625512999948114
+        ],
+        "per_process_command_to_output_s": [
+          6.63,
+          6.31
+        ]
+      },
+      {
+        "campaign": "2026-10-27_charge_off",
+        "case": "sc_drift_q0",
+        "code": "slipstream",
+        "config": "cpu-f64-3d32t1c1",
+        "n_proc": 2,
+        "import_s": 5.8513760501518846,
+        "build_s": 0.10990735003724694,
+        "cold_s": 96.41930129984394,
+        "warm_median_s": 93.36266759992577,
+        "overhead_s": 1.4886020000558347,
+        "command_to_output_s": 103.8691867000889,
+        "wall_s": 197.23185430001467,
+        "command_to_output_range_s": [
+          98.72885849978775,
+          109.00951490039006
+        ],
+        "per_process_command_to_output_s": [
+          98.73,
+          109.01
+        ]
+      },
+      {
+        "campaign": "2026-10-27_charge_off",
+        "case": "sc_drift_q0",
+        "code": "slipstream",
+        "config": "cuda-f32-3d32t1c10-r100",
+        "n_proc": 2,
+        "import_s": 5.710278650280088,
+        "build_s": 0.2213675999082625,
+        "cold_s": 4.715744699817151,
+        "warm_median_s": 3.1752883000299335,
+        "overhead_s": 1.462204199982807,
+        "command_to_output_s": 12.109595149988309,
+        "wall_s": 15.284883450018242,
+        "command_to_output_range_s": [
+          11.697350299917161,
+          12.521840000059456
+        ],
+        "per_process_command_to_output_s": [
+          12.52,
+          11.7
+        ]
+      },
+      {
+        "campaign": "2026-10-27_charge_off",
+        "case": "sc_drift_q0",
+        "code": "slipstream",
+        "config": "cuda-f32-r32z128t2c5",
+        "n_proc": 2,
+        "import_s": 6.606149649946019,
+        "build_s": 0.23330184980295599,
+        "cold_s": 22.131961499806494,
+        "warm_median_s": 2.729474350111559,
+        "overhead_s": 1.783434800338,
+        "command_to_output_s": 30.75484779989347,
+        "wall_s": 33.48432215000503,
+        "command_to_output_range_s": [
+          30.640283999964595,
+          30.869411599822342
+        ],
+        "per_process_command_to_output_s": [
+          30.87,
+          30.64
+        ]
+      },
+      {
+        "campaign": "2026-10-27_convergence",
+        "case": "sc_drift",
+        "code": "astra",
+        "config": "cpu-f64-3d128h1.4",
+        "n_proc": 1,
+        "import_s": 1.700129359960556e-06,
+        "build_s": 0.10310730012133718,
+        "cold_s": 539.9912402997725,
+        "warm_median_s": null,
+        "overhead_s": 1.0559585001319647,
+        "command_to_output_s": 541.1503078001551,
+        "wall_s": 541.1503078001551,
+        "command_to_output_range_s": [
+          541.1503078001551,
+          541.1503078001551
+        ],
+        "per_process_command_to_output_s": [
+          541.15
+        ]
+      },
+      {
+        "campaign": "2026-10-27_convergence",
+        "case": "sc_drift",
+        "code": "astra",
+        "config": "cpu-f64-3d96h1.4",
+        "n_proc": 1,
+        "import_s": 1.4998950064182281e-06,
+        "build_s": 0.099896099884063,
+        "cold_s": 562.6734023001045,
+        "warm_median_s": null,
+        "overhead_s": 1.1200210000388324,
+        "command_to_output_s": 563.8933208999224,
+        "wall_s": 563.8933208999224,
+        "command_to_output_range_s": [
+          563.8933208999224,
+          563.8933208999224
+        ],
+        "per_process_command_to_output_s": [
+          563.89
+        ]
+      },
+      {
+        "campaign": "2026-10-27_convergence",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-3d128t1c10-r100-mfix",
+        "n_proc": 3,
+        "import_s": 6.813465700019151,
+        "build_s": 0.21756700007244945,
+        "cold_s": 17.45350529998541,
+        "warm_median_s": 15.226394500117749,
+        "overhead_s": 1.6589971003122628,
+        "command_to_output_s": 26.266293900087476,
+        "wall_s": 56.652730400208384,
+        "command_to_output_range_s": [
+          24.26954340003431,
+          26.747741299215704
+        ],
+        "per_process_command_to_output_s": [
+          26.75,
+          24.27,
+          26.27
+        ]
+      },
+      {
+        "campaign": "2026-10-27_convergence",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-3d64t0.5c20-r200-mfix",
+        "n_proc": 3,
+        "import_s": 6.084148800000548,
+        "build_s": 0.1945731001906097,
+        "cold_s": 7.546482199802995,
+        "warm_median_s": 6.083967900136486,
+        "overhead_s": 1.6646964992396533,
+        "command_to_output_s": 15.225938200484961,
+        "wall_s": 27.401855900418013,
+        "command_to_output_range_s": [
+          15.11003559967503,
+          15.56380240013823
+        ],
+        "per_process_command_to_output_s": [
+          15.23,
+          15.11,
+          15.56
+        ]
+      },
+      {
+        "campaign": "2026-10-27_convergence",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-3d64t1c10-r100-mfix",
+        "n_proc": 3,
+        "import_s": 5.909915799740702,
+        "build_s": 0.23494429979473352,
+        "cold_s": 5.863365199882537,
+        "warm_median_s": 4.1571762000676244,
+        "overhead_s": 1.5880022002384067,
+        "command_to_output_s": 13.908504399936646,
+        "wall_s": 22.222856800071895,
+        "command_to_output_range_s": [
+          13.343220200855285,
+          13.924835000187159
+        ],
+        "per_process_command_to_output_s": [
+          13.91,
+          13.92,
+          13.34
+        ]
+      },
+      {
+        "campaign": "2026-10-27_convergence",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-3d64t1c5-r50-mfix",
+        "n_proc": 3,
+        "import_s": 6.334460200276226,
+        "build_s": 0.2204959997907281,
+        "cold_s": 6.851175100076944,
+        "warm_median_s": 5.114425349980593,
+        "overhead_s": 1.695062399841845,
+        "command_to_output_s": 15.071965100243688,
+        "wall_s": 24.921218500006944,
+        "command_to_output_range_s": [
+          14.692367800045758,
+          38.69710190035403
+        ],
+        "per_process_command_to_output_s": [
+          14.69,
+          38.7,
+          15.07
+        ]
+      },
+      {
+        "campaign": "2026-10-27_convergence",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-3d96t1c10-r100-mfix",
+        "n_proc": 3,
+        "import_s": 6.6862584999762475,
+        "build_s": 0.25585570000112057,
+        "cold_s": 18.052552299574018,
+        "warm_median_s": 14.924806050024927,
+        "overhead_s": 1.828680700622499,
+        "command_to_output_s": 27.28357020020485,
+        "wall_s": 56.06281730020419,
+        "command_to_output_range_s": [
+          24.607954199891537,
+          27.66009039990604
+        ],
+        "per_process_command_to_output_s": [
+          27.66,
+          27.28,
+          24.61
+        ]
+      },
+      {
+        "campaign": "2026-10-27_injector_step",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-3d32t0.5c20-r200",
+        "n_proc": 3,
+        "import_s": 6.28063159994781,
+        "build_s": 0.23059120029211044,
+        "cold_s": 6.792321600019932,
+        "warm_median_s": 5.679671350168064,
+        "overhead_s": 1.78214639890939,
+        "command_to_output_s": 14.83381489943713,
+        "wall_s": 27.137016899883747,
+        "command_to_output_range_s": [
+          14.637967400252819,
+          33.39682849962264
+        ],
+        "per_process_command_to_output_s": [
+          14.64,
+          33.4,
+          14.83
+        ]
+      },
+      {
+        "campaign": "2026-10-27_mass_fix",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cpu-f64-3d32t1c1-mfix",
+        "n_proc": 2,
+        "import_s": 6.5873002000153065,
+        "build_s": 0.1328863997478038,
+        "cold_s": 107.59302479983307,
+        "warm_median_s": 106.05440305010416,
+        "overhead_s": 1.9132540500722826,
+        "command_to_output_s": 116.22646544966847,
+        "wall_s": 222.28086849977262,
+        "command_to_output_range_s": [
+          111.34737910004333,
+          121.10555179929361
+        ],
+        "per_process_command_to_output_s": [
+          111.35,
+          121.11
+        ]
+      },
+      {
+        "campaign": "2026-10-27_mass_fix",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-3d32t1c10-r100-mfix",
+        "n_proc": 2,
+        "import_s": 7.719564500031993,
+        "build_s": 0.2417746998835355,
+        "cold_s": 13.466142549877986,
+        "warm_median_s": 3.09469234989956,
+        "overhead_s": 1.8603081004694104,
+        "command_to_output_s": 23.287789850262925,
+        "wall_s": 26.382482200162485,
+        "command_to_output_range_s": [
+          18.046583800576627,
+          28.528995899949223
+        ],
+        "per_process_command_to_output_s": [
+          28.53,
+          18.05
+        ]
+      },
+      {
+        "campaign": "2026-10-27_mass_fix",
+        "case": "sc_drift_q0",
+        "code": "slipstream",
+        "config": "cpu-f64-3d32t1c1-mfix",
+        "n_proc": 2,
+        "import_s": 8.066512450110167,
+        "build_s": 0.13461764995008707,
+        "cold_s": 102.33305500028655,
+        "warm_median_s": 104.01749534998089,
+        "overhead_s": 1.9314559996128082,
+        "command_to_output_s": 112.46564109995961,
+        "wall_s": 216.4831364499405,
+        "command_to_output_range_s": [
+          103.22328139981255,
+          121.70800080010667
+        ],
+        "per_process_command_to_output_s": [
+          121.71,
+          103.22
+        ]
+      },
+      {
+        "campaign": "2026-10-27_mass_fix",
+        "case": "sc_drift_q0",
+        "code": "slipstream",
+        "config": "cuda-f32-3d32t1c10-r100-mfix",
+        "n_proc": 2,
+        "import_s": 7.132721349829808,
+        "build_s": 0.2690533499699086,
+        "cold_s": 7.034349600318819,
+        "warm_median_s": 4.325682500144467,
+        "overhead_s": 2.1731293499469757,
+        "command_to_output_s": 16.60925365006551,
+        "wall_s": 20.934936150209978,
+        "command_to_output_range_s": [
+          16.143863699864596,
+          17.074643600266427
+        ],
+        "per_process_command_to_output_s": [
+          17.07,
+          16.14
+        ]
+      },
+      {
+        "campaign": "2026-10-27_momentum",
+        "case": "ring_tunes",
+        "code": "elegant",
+        "config": "cpu-f64-o6s16b32",
+        "n_proc": 3,
+        "import_s": 1.200009137392044e-06,
+        "build_s": 0.028612100053578615,
+        "cold_s": 1.3263404997996986,
+        "warm_median_s": 1.3018579999916255,
+        "overhead_s": 0.5550125003792346,
+        "command_to_output_s": 1.9098795000463724,
+        "wall_s": 4.5135955000296235,
+        "command_to_output_range_s": [
+          1.9038002002052963,
+          1.9844786999747157
+        ],
+        "per_process_command_to_output_s": [
+          1.9,
+          1.91,
+          1.98
+        ]
+      },
+      {
+        "campaign": "2026-10-27_momentum",
+        "case": "ring_tunes",
+        "code": "elegant",
+        "config": "cpu-f64-o6s8b16",
+        "n_proc": 3,
+        "import_s": 1.300126314163208e-06,
+        "build_s": 0.020542699843645096,
+        "cold_s": 0.7032362003810704,
+        "warm_median_s": 0.7012604500632733,
+        "overhead_s": 0.4885240993462503,
+        "command_to_output_s": 1.2087780996225774,
+        "wall_s": 2.7029277998954058,
+        "command_to_output_range_s": [
+          1.1992564001120627,
+          2.8707224996760488
+        ],
+        "per_process_command_to_output_s": [
+          1.2,
+          2.87,
+          1.21
+        ]
+      },
+      {
+        "campaign": "2026-10-27_native_box",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-3d64t1c10-r100-p0.05",
+        "n_proc": 3,
+        "import_s": 5.9616233999840915,
+        "build_s": 0.20491869980469346,
+        "cold_s": 6.14403560012579,
+        "warm_median_s": 4.303483949974179,
+        "overhead_s": 1.6306678000837564,
+        "command_to_output_s": 14.025506400037557,
+        "wall_s": 22.632474299985915,
+        "command_to_output_range_s": [
+          13.624841299839318,
+          14.440044799819589
+        ],
+        "per_process_command_to_output_s": [
+          13.62,
+          14.44,
+          14.03
+        ]
+      },
+      {
+        "campaign": "2026-10-27_native_box",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-3d64t1c10-r100-p0.2",
+        "n_proc": 3,
+        "import_s": 5.6902128998190165,
+        "build_s": 0.17959770001471043,
+        "cold_s": 5.298881400376558,
+        "warm_median_s": 3.7871402001474053,
+        "overhead_s": 1.6191643006168306,
+        "command_to_output_s": 12.680061299353838,
+        "wall_s": 20.25434169964865,
+        "command_to_output_range_s": [
+          12.561343300621957,
+          13.049056300427765
+        ],
+        "per_process_command_to_output_s": [
+          13.05,
+          12.56,
+          12.68
+        ]
+      },
+      {
+        "campaign": "2026-10-27_native_box",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-3d81t1c10-r100-p0.2",
+        "n_proc": 3,
+        "import_s": 6.246449199970812,
+        "build_s": 0.2154703000560403,
+        "cold_s": 17.611729100346565,
+        "warm_median_s": 15.032719949958846,
+        "overhead_s": 1.70009489916265,
+        "command_to_output_s": 25.781092999503016,
+        "wall_s": 56.89241679990664,
+        "command_to_output_range_s": [
+          24.560556900221854,
+          44.69662029994652
+        ],
+        "per_process_command_to_output_s": [
+          24.56,
+          44.7,
+          25.78
+        ]
+      },
+      {
+        "campaign": "2026-10-27_native_mesh",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-3d16t1c10-r100",
+        "n_proc": 3,
+        "import_s": 5.766418300103396,
+        "build_s": 0.20889919996261597,
+        "cold_s": 5.1428817003034055,
+        "warm_median_s": 3.086588499834761,
+        "overhead_s": 1.617372200358659,
+        "command_to_output_s": 12.680195400025696,
+        "wall_s": 18.853372399695218,
+        "command_to_output_range_s": [
+          11.889952099882066,
+          34.44885390019044
+        ],
+        "per_process_command_to_output_s": [
+          12.68,
+          11.89,
+          34.45
+        ]
+      },
+      {
+        "campaign": "2026-10-27_native_mesh",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-3d64t1c10-r100",
+        "n_proc": 3,
+        "import_s": 6.087298899888992,
+        "build_s": 0.21295220032334328,
+        "cold_s": 5.809700999874622,
+        "warm_median_s": 4.00102284993045,
+        "overhead_s": 1.5263272994197905,
+        "command_to_output_s": 13.883277300279588,
+        "wall_s": 21.885323000140488,
+        "command_to_output_range_s": [
+          12.592470800038427,
+          14.528042199555784
+        ],
+        "per_process_command_to_output_s": [
+          14.53,
+          12.59,
+          13.88
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n5",
+        "code": "elegant",
+        "config": "cpu-f64-o6s8b16",
+        "n_proc": 2,
+        "import_s": 1.3497192412614822e-06,
+        "build_s": 0.38328119996003807,
+        "cold_s": 0.08434664993546903,
+        "warm_median_s": 0.1195092499256134,
+        "overhead_s": 0.5155386503320187,
+        "command_to_output_s": 0.9831678499467671,
+        "wall_s": 1.1026770998723805,
+        "command_to_output_range_s": [
+          0.6089329002425075,
+          1.3574027996510267
+        ],
+        "per_process_command_to_output_s": [
+          1.36,
+          0.61
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n5",
+        "code": "slipstream",
+        "config": "cpu-f64-o6k8b16-compiled",
+        "n_proc": 2,
+        "import_s": 5.861363699892536,
+        "build_s": 0.031139250146225095,
+        "cold_s": 3.2746876997407526,
+        "warm_median_s": 0.2929490499664098,
+        "overhead_s": 1.5406910001765937,
+        "command_to_output_s": 10.707881649956107,
+        "wall_s": 11.000830699922517,
+        "command_to_output_range_s": [
+          10.305649900343269,
+          11.110113399568945
+        ],
+        "per_process_command_to_output_s": [
+          10.31,
+          11.11
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n5",
+        "code": "slipstream",
+        "config": "cuda-f32-o6k8b16",
+        "n_proc": 2,
+        "import_s": 5.611539150122553,
+        "build_s": 0.1468317499384284,
+        "cold_s": 0.14623810001648962,
+        "warm_median_s": 0.04755640006624162,
+        "overhead_s": 1.5102497998159379,
+        "command_to_output_s": 7.414858799893409,
+        "wall_s": 7.462415199959651,
+        "command_to_output_range_s": [
+          7.204824700020254,
+          7.624892899766564
+        ],
+        "per_process_command_to_output_s": [
+          7.62,
+          7.2
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n5",
+        "code": "slipstream",
+        "config": "cuda-f64-o6k8b16",
+        "n_proc": 2,
+        "import_s": 5.8049274501390755,
+        "build_s": 0.14695375016890466,
+        "cold_s": 0.3375903000123799,
+        "warm_median_s": 0.19372635008767247,
+        "overhead_s": 1.598400849616155,
+        "command_to_output_s": 7.887872349936515,
+        "wall_s": 8.081598700024188,
+        "command_to_output_range_s": [
+          7.8716565002687275,
+          7.904088199604303
+        ],
+        "per_process_command_to_output_s": [
+          7.87,
+          7.9
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n5",
+        "code": "xsuite",
+        "config": "cpu-f64-yosk8b16-exact",
+        "n_proc": 2,
+        "import_s": 1.108717194525525,
+        "build_s": 47.08482549886685,
+        "cold_s": 0.01611594611313194,
+        "warm_median_s": 0.014484948478639126,
+        "overhead_s": 4.204409511992708,
+        "command_to_output_s": 52.41406815149821,
+        "wall_s": 52.42855309997685,
+        "command_to_output_range_s": [
+          52.17747464799322,
+          52.650661655003205
+        ],
+        "per_process_command_to_output_s": [
+          52.18,
+          52.65
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n50",
+        "code": "elegant",
+        "config": "cpu-f64-o6s8b16",
+        "n_proc": 2,
+        "import_s": 1.1997763067483902e-06,
+        "build_s": 0.02849529986269772,
+        "cold_s": 0.44394210004247725,
+        "warm_median_s": 0.43203669996000826,
+        "overhead_s": 0.49639835045672953,
+        "command_to_output_s": 0.9688369501382113,
+        "wall_s": 1.4008736500982195,
+        "command_to_output_range_s": [
+          0.9640805004164577,
+          0.9735933998599648
+        ],
+        "per_process_command_to_output_s": [
+          0.97,
+          0.96
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n50",
+        "code": "slipstream",
+        "config": "cpu-f64-o6k8b16-compiled",
+        "n_proc": 2,
+        "import_s": 6.524487050017342,
+        "build_s": 0.048040849855169654,
+        "cold_s": 16.39758240012452,
+        "warm_median_s": 0.40795204997994006,
+        "overhead_s": 1.8455544002354145,
+        "command_to_output_s": 24.815664700232446,
+        "wall_s": 25.223616750212386,
+        "command_to_output_range_s": [
+          11.026735900435597,
+          38.604593500029296
+        ],
+        "per_process_command_to_output_s": [
+          11.03,
+          38.6
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n50",
+        "code": "slipstream",
+        "config": "cuda-f32-o6k8b16",
+        "n_proc": 2,
+        "import_s": 5.823829700006172,
+        "build_s": 0.15977320005185902,
+        "cold_s": 0.14971465012058616,
+        "warm_median_s": 0.0484481998719275,
+        "overhead_s": 1.51265690010041,
+        "command_to_output_s": 7.645974450279027,
+        "wall_s": 7.694422650150955,
+        "command_to_output_range_s": [
+          7.492419899906963,
+          7.799529000651091
+        ],
+        "per_process_command_to_output_s": [
+          7.49,
+          7.8
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n50",
+        "code": "slipstream",
+        "config": "cuda-f64-o6k8b16",
+        "n_proc": 2,
+        "import_s": 6.050393149955198,
+        "build_s": 0.16305899992585182,
+        "cold_s": 0.3222299499902874,
+        "warm_median_s": 0.20537809981033206,
+        "overhead_s": 1.4841150003485382,
+        "command_to_output_s": 8.019797100219876,
+        "wall_s": 8.225175200030208,
+        "command_to_output_range_s": [
+          7.94854070013389,
+          8.091053500305861
+        ],
+        "per_process_command_to_output_s": [
+          7.95,
+          8.09
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n50",
+        "code": "xsuite",
+        "config": "cpu-f64-yosk8b16-exact",
+        "n_proc": 2,
+        "import_s": 1.0806283690035343,
+        "build_s": 47.6858994984068,
+        "cold_s": 0.12837821361608803,
+        "warm_median_s": 0.1253102250630036,
+        "overhead_s": 4.3355058442102745,
+        "command_to_output_s": 53.230411925236695,
+        "wall_s": 53.3557221502997,
+        "command_to_output_range_s": [
+          52.35577762615867,
+          54.10504622431472
+        ],
+        "per_process_command_to_output_s": [
+          54.11,
+          52.36
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n500",
+        "code": "elegant",
+        "config": "cpu-f64-o6s8b16",
+        "n_proc": 2,
+        "import_s": 1.050066202878952e-06,
+        "build_s": 0.030480050249025226,
+        "cold_s": 4.079732850193977,
+        "warm_median_s": 4.070153650129214,
+        "overhead_s": 0.5254321994725615,
+        "command_to_output_s": 4.635646149981767,
+        "wall_s": 8.70579980011098,
+        "command_to_output_range_s": [
+          4.610817300155759,
+          4.660474999807775
+        ],
+        "per_process_command_to_output_s": [
+          4.66,
+          4.61
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n500",
+        "code": "slipstream",
+        "config": "cpu-f64-o6k8b16-compiled",
+        "n_proc": 2,
+        "import_s": 5.636227049864829,
+        "build_s": 0.032161149894818664,
+        "cold_s": 15.737240549875423,
+        "warm_median_s": 1.5975806000642478,
+        "overhead_s": 1.6209331501740962,
+        "command_to_output_s": 23.026561899809167,
+        "wall_s": 24.624142499873415,
+        "command_to_output_range_s": [
+          11.81539489980787,
+          34.23772889981046
+        ],
+        "per_process_command_to_output_s": [
+          11.82,
+          34.24
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n500",
+        "code": "slipstream",
+        "config": "cuda-f32-o6k8b16",
+        "n_proc": 2,
+        "import_s": 5.559250750113279,
+        "build_s": 0.16521960007958114,
+        "cold_s": 0.15673094987869263,
+        "warm_median_s": 0.05311294994316995,
+        "overhead_s": 1.4699873998761177,
+        "command_to_output_s": 7.35118869994767,
+        "wall_s": 7.40430164989084,
+        "command_to_output_range_s": [
+          7.344187099952251,
+          7.3581902999430895
+        ],
+        "per_process_command_to_output_s": [
+          7.34,
+          7.36
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n500",
+        "code": "slipstream",
+        "config": "cuda-f64-o6k8b16",
+        "n_proc": 2,
+        "import_s": 5.746470999903977,
+        "build_s": 0.16592749999836087,
+        "cold_s": 0.6657732999883592,
+        "warm_median_s": 0.5554864499717951,
+        "overhead_s": 1.3909536502324045,
+        "command_to_output_s": 7.9691254501231015,
+        "wall_s": 8.524611900094897,
+        "command_to_output_range_s": [
+          7.804880600422621,
+          8.133370299823582
+        ],
+        "per_process_command_to_output_s": [
+          8.13,
+          7.8
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n500",
+        "code": "xsuite",
+        "config": "cpu-f64-yosk8b16-exact",
+        "n_proc": 2,
+        "import_s": 1.027053668978624,
+        "build_s": 45.21789421304129,
+        "cold_s": 1.2305817699525505,
+        "warm_median_s": 1.221941640600562,
+        "overhead_s": 4.210960707743652,
+        "command_to_output_s": 51.68649035971612,
+        "wall_s": 52.90843200031668,
+        "command_to_output_range_s": [
+          51.06931720627472,
+          52.30366351315752
+        ],
+        "per_process_command_to_output_s": [
+          52.3,
+          51.07
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n5000",
+        "code": "elegant",
+        "config": "cpu-f64-o6s8b16",
+        "n_proc": 2,
+        "import_s": 1.0498333722352982e-06,
+        "build_s": 0.05018615000881255,
+        "cold_s": 42.355687000090256,
+        "warm_median_s": 42.55308789992705,
+        "overhead_s": 0.7751537500880659,
+        "command_to_output_s": 43.18102795002051,
+        "wall_s": 85.73411584994756,
+        "command_to_output_range_s": [
+          43.07276159990579,
+          43.289294300135225
+        ],
+        "per_process_command_to_output_s": [
+          43.29,
+          43.07
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n5000",
+        "code": "slipstream",
+        "config": "cpu-f64-o6k8b16-compiled",
+        "n_proc": 2,
+        "import_s": 5.536106999963522,
+        "build_s": 0.03334489976987243,
+        "cold_s": 26.048714300151914,
+        "warm_median_s": 12.633799549890682,
+        "overhead_s": 1.8699794502463192,
+        "command_to_output_s": 33.48814565013163,
+        "wall_s": 46.12194520002231,
+        "command_to_output_range_s": [
+          23.13097340008244,
+          43.84531790018082
+        ],
+        "per_process_command_to_output_s": [
+          23.13,
+          43.85
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n5000",
+        "code": "slipstream",
+        "config": "cuda-f32-o6k8b16",
+        "n_proc": 2,
+        "import_s": 5.579680599970743,
+        "build_s": 0.1862274499144405,
+        "cold_s": 0.15784255019389093,
+        "warm_median_s": 0.057005750015378,
+        "overhead_s": 2.170829450013116,
+        "command_to_output_s": 8.09458005009219,
+        "wall_s": 8.151585800107569,
+        "command_to_output_range_s": [
+          7.960304199717939,
+          8.228855900466442
+        ],
+        "per_process_command_to_output_s": [
+          7.96,
+          8.23
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n5000",
+        "code": "slipstream",
+        "config": "cuda-f64-o6k8b16",
+        "n_proc": 2,
+        "import_s": 5.521939700003713,
+        "build_s": 0.17558449995703995,
+        "cold_s": 0.6794432499445975,
+        "warm_median_s": 0.5557038001716137,
+        "overhead_s": 1.7647742996923625,
+        "command_to_output_s": 8.141741749597713,
+        "wall_s": 8.697445549769327,
+        "command_to_output_range_s": [
+          7.979041799437255,
+          8.304441699758172
+        ],
+        "per_process_command_to_output_s": [
+          8.3,
+          7.98
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n5000",
+        "code": "xsuite",
+        "config": "cpu-f64-yosk8b16-exact",
+        "n_proc": 2,
+        "import_s": 0.9834543564356863,
+        "build_s": 44.084432297968306,
+        "cold_s": 12.29495255148504,
+        "warm_median_s": 12.339820218505338,
+        "overhead_s": 4.484942975686863,
+        "command_to_output_s": 61.847782181575894,
+        "wall_s": 74.18760240008123,
+        "command_to_output_range_s": [
+          61.67672979203053,
+          62.01883457112126
+        ],
+        "per_process_command_to_output_s": [
+          62.02,
+          61.68
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n50000",
+        "code": "elegant",
+        "config": "cpu-f64-o6s8b16",
+        "n_proc": 1,
+        "import_s": 1.0998919606208801e-06,
+        "build_s": 0.22087139962241054,
+        "cold_s": 427.00677850004286,
+        "warm_median_s": 427.464533300139,
+        "overhead_s": 3.1518170004710555,
+        "command_to_output_s": 430.3794680000283,
+        "wall_s": 857.8440013001673,
+        "command_to_output_range_s": [
+          430.3794680000283,
+          430.3794680000283
+        ],
+        "per_process_command_to_output_s": [
+          430.38
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n50000",
+        "code": "slipstream",
+        "config": "cpu-f64-o6k8b16-compiled",
+        "n_proc": 2,
+        "import_s": 5.644427900202572,
+        "build_s": 0.033242850098758936,
+        "cold_s": 149.21608544979244,
+        "warm_median_s": 127.76950064999983,
+        "overhead_s": 4.334483499871567,
+        "command_to_output_s": 159.22823969996534,
+        "wall_s": 286.99774034996517,
+        "command_to_output_range_s": [
+          156.14619869971648,
+          162.3102807002142
+        ],
+        "per_process_command_to_output_s": [
+          156.15,
+          162.31
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n50000",
+        "code": "slipstream",
+        "config": "cuda-f32-o6k8b16",
+        "n_proc": 2,
+        "import_s": 6.169530550017953,
+        "build_s": 0.18624214990995824,
+        "cold_s": 0.4703881999012083,
+        "warm_median_s": 0.3555725999176502,
+        "overhead_s": 9.918366950238124,
+        "command_to_output_s": 16.744527850067243,
+        "wall_s": 17.100100449984893,
+        "command_to_output_range_s": [
+          16.185668000020087,
+          17.3033877001144
+        ],
+        "per_process_command_to_output_s": [
+          17.3,
+          16.19
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n50000",
+        "code": "slipstream",
+        "config": "cuda-f64-o6k8b16",
+        "n_proc": 2,
+        "import_s": 6.230651649879292,
+        "build_s": 0.1791617500130087,
+        "cold_s": 5.654471249785274,
+        "warm_median_s": 5.556011450011283,
+        "overhead_s": 4.468642350053415,
+        "command_to_output_s": 16.53292699973099,
+        "wall_s": 22.088938449742272,
+        "command_to_output_range_s": [
+          16.101182899903506,
+          16.964671099558473
+        ],
+        "per_process_command_to_output_s": [
+          16.96,
+          16.1
+        ]
+      },
+      {
+        "campaign": "2026-10-27_scaling",
+        "case": "ring_scale_n50000",
+        "code": "xsuite",
+        "config": "cpu-f64-yosk8b16-exact",
+        "n_proc": 1,
+        "import_s": 0.9753150600008667,
+        "build_s": 43.99772483110428,
+        "cold_s": 122.77726190397516,
+        "warm_median_s": 122.38512290501967,
+        "overhead_s": 7.010060899890959,
+        "command_to_output_s": 174.76036269497126,
+        "wall_s": 297.14548559999093,
+        "command_to_output_range_s": [
+          174.76036269497126,
+          174.76036269497126
+        ],
+        "per_process_command_to_output_s": [
+          174.76
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n1000000",
+        "code": "slipstream",
+        "config": "cuda-f32-3d128t1c10-r100-mfix",
+        "n_proc": 2,
+        "import_s": 6.223441450158134,
+        "build_s": 5.356708499835804,
+        "cold_s": 25.84021780011244,
+        "warm_median_s": 24.203367749927565,
+        "overhead_s": 3.068781099980697,
+        "command_to_output_s": 40.489148850087076,
+        "wall_s": 64.69251660001464,
+        "command_to_output_range_s": [
+          40.445711500011384,
+          40.53258620016277
+        ],
+        "per_process_command_to_output_s": [
+          40.53,
+          40.45
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n1000000",
+        "code": "slipstream",
+        "config": "cuda-f32-3d32t1c10-r100-mfix",
+        "n_proc": 2,
+        "import_s": 6.624720650259405,
+        "build_s": 5.638498899992555,
+        "cold_s": 13.706555149983615,
+        "warm_median_s": 11.873182350071147,
+        "overhead_s": 3.336248749634251,
+        "command_to_output_s": 29.306023449869826,
+        "wall_s": 41.17920579994097,
+        "command_to_output_range_s": [
+          28.405768599826843,
+          30.20627829991281
+        ],
+        "per_process_command_to_output_s": [
+          28.41,
+          30.21
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n1000000",
+        "code": "slipstream",
+        "config": "cuda-f32-3d64t1c10-r100-mfix",
+        "n_proc": 2,
+        "import_s": 6.5306730000302196,
+        "build_s": 5.755101149901748,
+        "cold_s": 18.124926699791104,
+        "warm_median_s": 13.364178749965504,
+        "overhead_s": 3.299830250442028,
+        "command_to_output_s": 33.7105311001651,
+        "wall_s": 47.0747098501306,
+        "command_to_output_range_s": [
+          30.427111300174147,
+          36.99395090015605
+        ],
+        "per_process_command_to_output_s": [
+          36.99,
+          30.43
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n2000",
+        "code": "astra",
+        "config": "cpu-f64-3d128h1.4",
+        "n_proc": 1,
+        "import_s": 1.900363713502884e-06,
+        "build_s": 0.022286000195890665,
+        "cold_s": 514.379561400041,
+        "warm_median_s": null,
+        "overhead_s": 0.7266195993870497,
+        "command_to_output_s": 515.1284688999876,
+        "wall_s": 515.1284688999876,
+        "command_to_output_range_s": [
+          515.1284688999876,
+          515.1284688999876
+        ],
+        "per_process_command_to_output_s": [
+          515.13
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n2000",
+        "code": "astra",
+        "config": "cpu-f64-3d32h1.4",
+        "n_proc": 1,
+        "import_s": 1.300126314163208e-06,
+        "build_s": 0.020216200035065413,
+        "cold_s": 8.688369499985129,
+        "warm_median_s": null,
+        "overhead_s": 0.6716481000185013,
+        "command_to_output_s": 9.38023510016501,
+        "wall_s": 9.38023510016501,
+        "command_to_output_range_s": [
+          9.38023510016501,
+          9.38023510016501
+        ],
+        "per_process_command_to_output_s": [
+          9.38
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n2000",
+        "code": "astra",
+        "config": "cpu-f64-3d64h1.4",
+        "n_proc": 1,
+        "import_s": 1.400243490934372e-06,
+        "build_s": 0.018602900207042694,
+        "cold_s": 52.699012599885464,
+        "warm_median_s": null,
+        "overhead_s": 0.5599273997358978,
+        "command_to_output_s": 53.277544300071895,
+        "wall_s": 53.277544300071895,
+        "command_to_output_range_s": [
+          53.277544300071895,
+          53.277544300071895
+        ],
+        "per_process_command_to_output_s": [
+          53.28
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n2000",
+        "code": "slipstream",
+        "config": "cpu-f64-3d32t1c1-mfix",
+        "n_proc": 1,
+        "import_s": 5.4519040999002755,
+        "build_s": 0.016489599831402302,
+        "cold_s": 44.94507519993931,
+        "warm_median_s": null,
+        "overhead_s": 1.414408600423485,
+        "command_to_output_s": 51.82787750009447,
+        "wall_s": 51.82787750009447,
+        "command_to_output_range_s": [
+          51.82787750009447,
+          51.82787750009447
+        ],
+        "per_process_command_to_output_s": [
+          51.83
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n2000",
+        "code": "slipstream",
+        "config": "cuda-f32-3d128t1c10-r100-mfix",
+        "n_proc": 2,
+        "import_s": 6.194661849876866,
+        "build_s": 0.11202499992214143,
+        "cold_s": 16.583542099921033,
+        "warm_median_s": 15.066461349837482,
+        "overhead_s": 1.5969079004134983,
+        "command_to_output_s": 24.48713685013354,
+        "wall_s": 39.55359819997102,
+        "command_to_output_range_s": [
+          24.128727200441062,
+          24.845546499826014
+        ],
+        "per_process_command_to_output_s": [
+          24.13,
+          24.85
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n2000",
+        "code": "slipstream",
+        "config": "cuda-f32-3d32t1c10-r100-mfix",
+        "n_proc": 2,
+        "import_s": 5.957098500104621,
+        "build_s": 0.09555389988236129,
+        "cold_s": 4.466513949912041,
+        "warm_median_s": 2.9167555002495646,
+        "overhead_s": 1.68980494979769,
+        "command_to_output_s": 12.208971299696714,
+        "wall_s": 15.125726799946278,
+        "command_to_output_range_s": [
+          12.05662789940834,
+          12.361314699985087
+        ],
+        "per_process_command_to_output_s": [
+          12.06,
+          12.36
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n2000",
+        "code": "slipstream",
+        "config": "cuda-f32-3d64t1c10-r100-mfix",
+        "n_proc": 2,
+        "import_s": 6.997080349829048,
+        "build_s": 0.17575365002267063,
+        "cold_s": 8.189338049851358,
+        "warm_median_s": 4.77441249997355,
+        "overhead_s": 1.8568835502956063,
+        "command_to_output_s": 17.219055599998683,
+        "wall_s": 21.993468099972233,
+        "command_to_output_range_s": [
+          17.161203499883413,
+          17.276907700113952
+        ],
+        "per_process_command_to_output_s": [
+          17.28,
+          17.16
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n200000",
+        "code": "astra",
+        "config": "cpu-f64-3d128h1.4",
+        "n_proc": 1,
+        "import_s": 1.8998980522155762e-06,
+        "build_s": 0.9008892001584172,
+        "cold_s": 868.9673051000573,
+        "warm_median_s": null,
+        "overhead_s": 1.2486565997824073,
+        "command_to_output_s": 871.1168527998962,
+        "wall_s": 871.1168527998962,
+        "command_to_output_range_s": [
+          871.1168527998962,
+          871.1168527998962
+        ],
+        "per_process_command_to_output_s": [
+          871.12
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n200000",
+        "code": "astra",
+        "config": "cpu-f64-3d32h1.4",
+        "n_proc": 1,
+        "import_s": 2.3995526134967804e-06,
+        "build_s": 0.9193458999507129,
+        "cold_s": 329.89057860011235,
+        "warm_median_s": null,
+        "overhead_s": 0.9344226005487144,
+        "command_to_output_s": 331.7443495001644,
+        "wall_s": 331.7443495001644,
+        "command_to_output_range_s": [
+          331.7443495001644,
+          331.7443495001644
+        ],
+        "per_process_command_to_output_s": [
+          331.74
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n200000",
+        "code": "astra",
+        "config": "cpu-f64-3d64h1.4",
+        "n_proc": 1,
+        "import_s": 1.5995465219020844e-06,
+        "build_s": 0.9565407000482082,
+        "cold_s": 411.3999439002946,
+        "warm_median_s": null,
+        "overhead_s": 1.0262429001741111,
+        "command_to_output_s": 413.38272910006344,
+        "wall_s": 413.38272910006344,
+        "command_to_output_range_s": [
+          413.38272910006344,
+          413.38272910006344
+        ],
+        "per_process_command_to_output_s": [
+          413.38
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n200000",
+        "code": "slipstream",
+        "config": "cuda-f32-3d128t1c10-r100-mfix",
+        "n_proc": 2,
+        "import_s": 5.926787950098515,
+        "build_s": 1.037051399704069,
+        "cold_s": 17.231287899892777,
+        "warm_median_s": 16.151708099991083,
+        "overhead_s": 1.8904101003427058,
+        "command_to_output_s": 26.085537350038067,
+        "wall_s": 42.23724545002915,
+        "command_to_output_range_s": [
+          25.75577270053327,
+          26.415301999542862
+        ],
+        "per_process_command_to_output_s": [
+          26.42,
+          25.76
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n200000",
+        "code": "slipstream",
+        "config": "cuda-f32-3d32t1c10-r100-mfix",
+        "n_proc": 2,
+        "import_s": 6.2025341999251395,
+        "build_s": 1.1179353999905288,
+        "cold_s": 5.605179550126195,
+        "warm_median_s": 3.6798825000878423,
+        "overhead_s": 1.8907586997374892,
+        "command_to_output_s": 14.816407849779353,
+        "wall_s": 18.496290349867195,
+        "command_to_output_range_s": [
+          14.758684499654919,
+          14.874131199903786
+        ],
+        "per_process_command_to_output_s": [
+          14.87,
+          14.76
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n200000",
+        "code": "slipstream",
+        "config": "cuda-f32-3d64t1c10-r100-mfix",
+        "n_proc": 2,
+        "import_s": 6.155821200227365,
+        "build_s": 1.0257854999508709,
+        "cold_s": 9.804525750223547,
+        "warm_median_s": 4.630773450015113,
+        "overhead_s": 1.967116049490869,
+        "command_to_output_s": 18.953248499892652,
+        "wall_s": 23.584021949907765,
+        "command_to_output_range_s": [
+          15.4483997002244,
+          22.458097299560905
+        ],
+        "per_process_command_to_output_s": [
+          22.46,
+          15.45
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n200000s1",
+        "code": "slipstream",
+        "config": "cuda-f32-3d128t1c10-r100-mfix",
+        "n_proc": 1,
+        "import_s": 6.9367042002268136,
+        "build_s": 1.605187099892646,
+        "cold_s": 19.799099599942565,
+        "warm_median_s": null,
+        "overhead_s": 2.1386105995625257,
+        "command_to_output_s": 30.47960149962455,
+        "wall_s": 30.47960149962455,
+        "command_to_output_range_s": [
+          30.47960149962455,
+          30.47960149962455
+        ],
+        "per_process_command_to_output_s": [
+          30.48
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n200000s1",
+        "code": "slipstream",
+        "config": "cuda-f32-3d32t1c10-r100-mfix",
+        "n_proc": 1,
+        "import_s": 6.850999699905515,
+        "build_s": 1.4113103998824954,
+        "cold_s": 7.080294200219214,
+        "warm_median_s": null,
+        "overhead_s": 2.131066099740565,
+        "command_to_output_s": 17.47367039974779,
+        "wall_s": 17.47367039974779,
+        "command_to_output_range_s": [
+          17.47367039974779,
+          17.47367039974779
+        ],
+        "per_process_command_to_output_s": [
+          17.47
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n200000s1",
+        "code": "slipstream",
+        "config": "cuda-f32-3d64t1c10-r100-mfix",
+        "n_proc": 1,
+        "import_s": 7.12115570018068,
+        "build_s": 1.7856052001006901,
+        "cold_s": 8.78002620022744,
+        "warm_median_s": null,
+        "overhead_s": 2.169203599449247,
+        "command_to_output_s": 19.855990699958056,
+        "wall_s": 19.855990699958056,
+        "command_to_output_range_s": [
+          19.855990699958056,
+          19.855990699958056
+        ],
+        "per_process_command_to_output_s": [
+          19.86
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n200000s2",
+        "code": "slipstream",
+        "config": "cuda-f32-3d128t1c10-r100-mfix",
+        "n_proc": 1,
+        "import_s": 6.691538400016725,
+        "build_s": 1.618859600275755,
+        "cold_s": 19.3367880997248,
+        "warm_median_s": null,
+        "overhead_s": 2.08524139970541,
+        "command_to_output_s": 29.73242749972269,
+        "wall_s": 29.73242749972269,
+        "command_to_output_range_s": [
+          29.73242749972269,
+          29.73242749972269
+        ],
+        "per_process_command_to_output_s": [
+          29.73
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n200000s2",
+        "code": "slipstream",
+        "config": "cuda-f32-3d32t1c10-r100-mfix",
+        "n_proc": 1,
+        "import_s": 6.96583790006116,
+        "build_s": 1.7913077999837697,
+        "cold_s": 7.810378400143236,
+        "warm_median_s": null,
+        "overhead_s": 2.1379750999622047,
+        "command_to_output_s": 18.70549920015037,
+        "wall_s": 18.70549920015037,
+        "command_to_output_range_s": [
+          18.70549920015037,
+          18.70549920015037
+        ],
+        "per_process_command_to_output_s": [
+          18.71
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n200000s2",
+        "code": "slipstream",
+        "config": "cuda-f32-3d64t1c10-r100-mfix",
+        "n_proc": 1,
+        "import_s": 6.619654499925673,
+        "build_s": 1.6507017998956144,
+        "cold_s": 8.244179300032556,
+        "warm_median_s": null,
+        "overhead_s": 2.0271217999979854,
+        "command_to_output_s": 18.54165739985183,
+        "wall_s": 18.54165739985183,
+        "command_to_output_range_s": [
+          18.54165739985183,
+          18.54165739985183
+        ],
+        "per_process_command_to_output_s": [
+          18.54
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n20000s1",
+        "code": "slipstream",
+        "config": "cuda-f32-3d128t1c10-r100-mfix",
+        "n_proc": 1,
+        "import_s": 6.99281940003857,
+        "build_s": 0.24538150010630488,
+        "cold_s": 18.86633519968018,
+        "warm_median_s": null,
+        "overhead_s": 1.882530600298196,
+        "command_to_output_s": 27.98706670012325,
+        "wall_s": 27.98706670012325,
+        "command_to_output_range_s": [
+          27.98706670012325,
+          27.98706670012325
+        ],
+        "per_process_command_to_output_s": [
+          27.99
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n20000s1",
+        "code": "slipstream",
+        "config": "cuda-f32-3d32t1c10-r100-mfix",
+        "n_proc": 1,
+        "import_s": 8.280745500233024,
+        "build_s": 0.28691310016438365,
+        "cold_s": 24.46698829997331,
+        "warm_median_s": null,
+        "overhead_s": 2.2331473999656737,
+        "command_to_output_s": 35.26779430033639,
+        "wall_s": 35.26779430033639,
+        "command_to_output_range_s": [
+          35.26779430033639,
+          35.26779430033639
+        ],
+        "per_process_command_to_output_s": [
+          35.27
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n20000s1",
+        "code": "slipstream",
+        "config": "cuda-f32-3d64t1c10-r100-mfix",
+        "n_proc": 1,
+        "import_s": 6.3149921000003815,
+        "build_s": 0.2478328999131918,
+        "cold_s": 6.959273600019515,
+        "warm_median_s": null,
+        "overhead_s": 1.924386499915272,
+        "command_to_output_s": 15.44648509984836,
+        "wall_s": 15.44648509984836,
+        "command_to_output_range_s": [
+          15.44648509984836,
+          15.44648509984836
+        ],
+        "per_process_command_to_output_s": [
+          15.45
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n20000s2",
+        "code": "slipstream",
+        "config": "cuda-f32-3d128t1c10-r100-mfix",
+        "n_proc": 1,
+        "import_s": 6.866802500095218,
+        "build_s": 0.29610890010371804,
+        "cold_s": 19.21177860023454,
+        "warm_median_s": null,
+        "overhead_s": 1.740755499806255,
+        "command_to_output_s": 28.11544550023973,
+        "wall_s": 28.11544550023973,
+        "command_to_output_range_s": [
+          28.11544550023973,
+          28.11544550023973
+        ],
+        "per_process_command_to_output_s": [
+          28.12
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n20000s2",
+        "code": "slipstream",
+        "config": "cuda-f32-3d32t1c10-r100-mfix",
+        "n_proc": 1,
+        "import_s": 6.920404099859297,
+        "build_s": 0.2499052002094686,
+        "cold_s": 6.438155199866742,
+        "warm_median_s": null,
+        "overhead_s": 1.816570300143212,
+        "command_to_output_s": 15.42503480007872,
+        "wall_s": 15.42503480007872,
+        "command_to_output_range_s": [
+          15.42503480007872,
+          15.42503480007872
+        ],
+        "per_process_command_to_output_s": [
+          15.43
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n20000s2",
+        "code": "slipstream",
+        "config": "cuda-f32-3d64t1c10-r100-mfix",
+        "n_proc": 1,
+        "import_s": 7.077220999635756,
+        "build_s": 0.26445830008015037,
+        "cold_s": 7.667678999714553,
+        "warm_median_s": null,
+        "overhead_s": 1.9137612008489668,
+        "command_to_output_s": 16.923119500279427,
+        "wall_s": 16.923119500279427,
+        "command_to_output_range_s": [
+          16.923119500279427,
+          16.923119500279427
+        ],
+        "per_process_command_to_output_s": [
+          16.92
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n2000s1",
+        "code": "slipstream",
+        "config": "cuda-f32-3d128t1c10-r100-mfix",
+        "n_proc": 1,
+        "import_s": 6.68327229982242,
+        "build_s": 0.11670920019969344,
+        "cold_s": 17.817984799854457,
+        "warm_median_s": null,
+        "overhead_s": 1.6868452997878194,
+        "command_to_output_s": 26.30481159966439,
+        "wall_s": 26.30481159966439,
+        "command_to_output_range_s": [
+          26.30481159966439,
+          26.30481159966439
+        ],
+        "per_process_command_to_output_s": [
+          26.3
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n2000s1",
+        "code": "slipstream",
+        "config": "cuda-f32-3d32t1c10-r100-mfix",
+        "n_proc": 1,
+        "import_s": 6.470476199872792,
+        "build_s": 0.11491100024431944,
+        "cold_s": 6.842983299866319,
+        "warm_median_s": null,
+        "overhead_s": 1.7180114001967013,
+        "command_to_output_s": 15.146381900180131,
+        "wall_s": 15.146381900180131,
+        "command_to_output_range_s": [
+          15.146381900180131,
+          15.146381900180131
+        ],
+        "per_process_command_to_output_s": [
+          15.15
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n2000s1",
+        "code": "slipstream",
+        "config": "cuda-f32-3d64t1c10-r100-mfix",
+        "n_proc": 1,
+        "import_s": 6.847127600107342,
+        "build_s": 0.16896540019661188,
+        "cold_s": 7.615441900212318,
+        "warm_median_s": null,
+        "overhead_s": 1.7750746994279325,
+        "command_to_output_s": 16.406609599944204,
+        "wall_s": 16.406609599944204,
+        "command_to_output_range_s": [
+          16.406609599944204,
+          16.406609599944204
+        ],
+        "per_process_command_to_output_s": [
+          16.41
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n2000s2",
+        "code": "slipstream",
+        "config": "cuda-f32-3d128t1c10-r100-mfix",
+        "n_proc": 1,
+        "import_s": 6.883995700161904,
+        "build_s": 0.11877330020070076,
+        "cold_s": 19.222937699873,
+        "warm_median_s": null,
+        "overhead_s": 1.7306170999072492,
+        "command_to_output_s": 27.956323800142854,
+        "wall_s": 27.956323800142854,
+        "command_to_output_range_s": [
+          27.956323800142854,
+          27.956323800142854
+        ],
+        "per_process_command_to_output_s": [
+          27.96
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n2000s2",
+        "code": "slipstream",
+        "config": "cuda-f32-3d32t1c10-r100-mfix",
+        "n_proc": 1,
+        "import_s": 7.024617400020361,
+        "build_s": 0.1080420003272593,
+        "cold_s": 6.951244599651545,
+        "warm_median_s": null,
+        "overhead_s": 1.8199734003283083,
+        "command_to_output_s": 15.903877400327474,
+        "wall_s": 15.903877400327474,
+        "command_to_output_range_s": [
+          15.903877400327474,
+          15.903877400327474
+        ],
+        "per_process_command_to_output_s": [
+          15.9
+        ]
+      },
+      {
+        "campaign": "2026-10-28_inj_scaling",
+        "case": "sc_drift_n2000s2",
+        "code": "slipstream",
+        "config": "cuda-f32-3d64t1c10-r100-mfix",
+        "n_proc": 1,
+        "import_s": 7.0433299001306295,
+        "build_s": 0.11577920010313392,
+        "cold_s": 7.563543799798936,
+        "warm_median_s": null,
+        "overhead_s": 1.8514712997712195,
+        "command_to_output_s": 16.57412419980392,
+        "wall_s": 16.57412419980392,
+        "command_to_output_range_s": [
+          16.57412419980392,
+          16.57412419980392
+        ],
+        "per_process_command_to_output_s": [
+          16.57
+        ]
+      },
+      {
+        "campaign": "2026-10-28_precision",
+        "case": "ring_tunes",
+        "code": "slipstream",
+        "config": "cuda-f32ds-hybrid-o6k8b16",
+        "n_proc": 3,
+        "import_s": 6.23746469989419,
+        "build_s": 2.6652436000294983,
+        "cold_s": 31.099558500107378,
+        "warm_median_s": 2.8960354498121887,
+        "overhead_s": 2.1399327008984983,
+        "command_to_output_s": 41.90625359956175,
+        "wall_s": 47.650739199947566,
+        "command_to_output_range_s": [
+          41.44958130037412,
+          153.6060927999206
+        ],
+        "per_process_command_to_output_s": [
+          41.45,
+          41.91,
+          153.61
+        ]
+      },
+      {
+        "campaign": "bx",
+        "case": "ring_tunes",
+        "code": "bmadx",
+        "config": "cpu-f64-q1s16",
+        "n_proc": 1,
+        "import_s": 1.6379390340298414,
+        "build_s": 0.022837360040284693,
+        "cold_s": 39.315134512027726,
+        "warm_median_s": 39.45354308397509,
+        "overhead_s": 0.9320793099468574,
+        "command_to_output_s": 41.90799021604471,
+        "wall_s": 81.3615333000198,
+        "command_to_output_range_s": [
+          41.90799021604471,
+          41.90799021604471
+        ],
+        "per_process_command_to_output_s": [
+          41.91
+        ]
+      },
+      {
+        "campaign": "bx",
+        "case": "ring_tunes",
+        "code": "bmadx",
+        "config": "cpu-f64-q1s4",
+        "n_proc": 1,
+        "import_s": 0.7275994999799877,
+        "build_s": 0.006112886941991746,
+        "cold_s": 17.851675634039566,
+        "warm_median_s": 18.98719409806654,
+        "overhead_s": 0.8719793810741976,
+        "command_to_output_s": 19.457367402035743,
+        "wall_s": 38.44456150010228,
+        "command_to_output_range_s": [
+          19.457367402035743,
+          19.457367402035743
+        ],
+        "per_process_command_to_output_s": [
+          19.46
+        ]
+      },
+      {
+        "campaign": "demo_R1",
+        "case": "ring_tunes",
+        "code": "elegant",
+        "config": "cpu-f64-o4s8b16",
+        "n_proc": 1,
+        "import_s": 1.0998919606208801e-06,
+        "build_s": 0.027451700065284967,
+        "cold_s": 0.4143530000001192,
+        "warm_median_s": 0.39538680016994476,
+        "overhead_s": 0.4682215000502765,
+        "command_to_output_s": 0.9100273000076413,
+        "wall_s": 1.305414100177586,
+        "command_to_output_range_s": [
+          0.9100273000076413,
+          0.9100273000076413
+        ],
+        "per_process_command_to_output_s": [
+          0.91
+        ]
+      },
+      {
+        "campaign": "jt",
+        "case": "ring_tunes",
+        "code": "jutrack",
+        "config": "cpu-f64-n8b16",
+        "n_proc": 1,
+        "import_s": 4.817064799834043,
+        "build_s": 2.6520795999094844,
+        "cold_s": 1.2525931997224689,
+        "warm_median_s": 0.21360820019617677,
+        "overhead_s": 0.5619409000501037,
+        "command_to_output_s": 9.2836784995161,
+        "wall_s": 9.497286699712276,
+        "command_to_output_range_s": [
+          9.2836784995161,
+          9.2836784995161
+        ],
+        "per_process_command_to_output_s": [
+          9.28
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "bmadx",
+        "config": "cpu-f64-q1s16",
+        "n_proc": 1,
+        "import_s": 0.6960123890312389,
+        "build_s": 0.005471509997732937,
+        "cold_s": 39.06870110810269,
+        "warm_median_s": 39.06644146097824,
+        "overhead_s": 0.7446885319659486,
+        "command_to_output_s": 40.51487353909761,
+        "wall_s": 79.58131500007585,
+        "command_to_output_range_s": [
+          40.51487353909761,
+          40.51487353909761
+        ],
+        "per_process_command_to_output_s": [
+          40.51
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "bmadx",
+        "config": "cpu-f64-q1s256",
+        "n_proc": 1,
+        "import_s": 0.6774011329980567,
+        "build_s": 0.0047109449515119195,
+        "cold_s": 436.3305576679995,
+        "warm_median_s": 448.5010618630331,
+        "overhead_s": 0.8065939910011366,
+        "command_to_output_s": 437.81926373695023,
+        "wall_s": 886.3203255999833,
+        "command_to_output_range_s": [
+          437.81926373695023,
+          437.81926373695023
+        ],
+        "per_process_command_to_output_s": [
+          437.82
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "bmadx",
+        "config": "cpu-f64-q1s4",
+        "n_proc": 1,
+        "import_s": 0.6944653750397265,
+        "build_s": 0.005355795030482113,
+        "cold_s": 17.091945718973875,
+        "warm_median_s": 17.7773141679354,
+        "overhead_s": 0.7512145427754149,
+        "command_to_output_s": 18.5429814318195,
+        "wall_s": 36.3202955997549,
+        "command_to_output_range_s": [
+          18.5429814318195,
+          18.5429814318195
+        ],
+        "per_process_command_to_output_s": [
+          18.54
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "bmadx",
+        "config": "cpu-f64-q1s64",
+        "n_proc": 1,
+        "import_s": 1.0204631740925834,
+        "build_s": 0.007840891950763762,
+        "cold_s": 121.60965019708965,
+        "warm_median_s": 121.12859546509571,
+        "overhead_s": 0.7332416718127206,
+        "command_to_output_s": 123.37119593494572,
+        "wall_s": 244.49979140004143,
+        "command_to_output_range_s": [
+          123.37119593494572,
+          123.37119593494572
+        ],
+        "per_process_command_to_output_s": [
+          123.37
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "cheetah",
+        "config": "cpu-f64-dri4",
+        "n_proc": 1,
+        "import_s": 2.232698400039226,
+        "build_s": 0.005398099776357412,
+        "cold_s": 58.99229469988495,
+        "warm_median_s": 59.96922850003466,
+        "overhead_s": 0.8364940006285906,
+        "command_to_output_s": 62.066885200329125,
+        "wall_s": 122.03611370036379,
+        "command_to_output_range_s": [
+          62.066885200329125,
+          62.066885200329125
+        ],
+        "per_process_command_to_output_s": [
+          62.07
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "cheetah",
+        "config": "cpu-f64-lin1",
+        "n_proc": 1,
+        "import_s": 2.289551000110805,
+        "build_s": 0.005743799731135368,
+        "cold_s": 2.086072400212288,
+        "warm_median_s": 1.4957255003973842,
+        "overhead_s": 0.8044404997490346,
+        "command_to_output_s": 5.185807699803263,
+        "wall_s": 6.681533200200647,
+        "command_to_output_range_s": [
+          5.185807699803263,
+          5.185807699803263
+        ],
+        "per_process_command_to_output_s": [
+          5.19
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "cheetah",
+        "config": "cpu-f64-sec1",
+        "n_proc": 1,
+        "import_s": 3.0656634997576475,
+        "build_s": 0.005511899944394827,
+        "cold_s": 17.096613000147045,
+        "warm_median_s": 17.898575900122523,
+        "overhead_s": 0.7666547000408173,
+        "command_to_output_s": 20.934443099889904,
+        "wall_s": 38.83301900001243,
+        "command_to_output_range_s": [
+          20.934443099889904,
+          20.934443099889904
+        ],
+        "per_process_command_to_output_s": [
+          20.93
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "elegant",
+        "config": "cpu-f64-o2s4b8",
+        "n_proc": 1,
+        "import_s": 1.0998919606208801e-06,
+        "build_s": 0.9399230000562966,
+        "cold_s": 1.0117552001029253,
+        "warm_median_s": 0.1700861002318561,
+        "overhead_s": 0.47399349976330996,
+        "command_to_output_s": 2.4256727998144925,
+        "wall_s": 2.5957589000463486,
+        "command_to_output_range_s": [
+          2.4256727998144925,
+          2.4256727998144925
+        ],
+        "per_process_command_to_output_s": [
+          2.43
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "elegant",
+        "config": "cpu-f64-o4s4b8",
+        "n_proc": 1,
+        "import_s": 1.200009137392044e-06,
+        "build_s": 0.02489509992301464,
+        "cold_s": 0.2776208999566734,
+        "warm_median_s": 0.26209900015965104,
+        "overhead_s": 0.3947598999366164,
+        "command_to_output_s": 0.6972770998254418,
+        "wall_s": 0.9593760999850929,
+        "command_to_output_range_s": [
+          0.6972770998254418,
+          0.6972770998254418
+        ],
+        "per_process_command_to_output_s": [
+          0.7
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "elegant",
+        "config": "cpu-f64-o4s8b16",
+        "n_proc": 1,
+        "import_s": 1.2996606528759003e-06,
+        "build_s": 0.021510499995201826,
+        "cold_s": 0.39846939966082573,
+        "warm_median_s": 0.38572630006819963,
+        "overhead_s": 0.40153750078752637,
+        "command_to_output_s": 0.8215187001042068,
+        "wall_s": 1.2072450001724064,
+        "command_to_output_range_s": [
+          0.8215187001042068,
+          0.8215187001042068
+        ],
+        "per_process_command_to_output_s": [
+          0.82
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "elegant",
+        "config": "cpu-f64-o6s16b32",
+        "n_proc": 1,
+        "import_s": 1.0998919606208801e-06,
+        "build_s": 0.021350299939513206,
+        "cold_s": 1.309580999892205,
+        "warm_median_s": 1.2961932998150587,
+        "overhead_s": 0.4109367006458342,
+        "command_to_output_s": 1.741869100369513,
+        "wall_s": 3.0380624001845717,
+        "command_to_output_range_s": [
+          1.741869100369513,
+          1.741869100369513
+        ],
+        "per_process_command_to_output_s": [
+          1.74
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "elegant",
+        "config": "cpu-f64-o6s8b16",
+        "n_proc": 1,
+        "import_s": 9.0012326836586e-07,
+        "build_s": 0.022167500108480453,
+        "cold_s": 0.7131973998621106,
+        "warm_median_s": 0.7118993001058698,
+        "overhead_s": 0.4241537996567786,
+        "command_to_output_s": 1.159519599750638,
+        "wall_s": 1.8714188998565078,
+        "command_to_output_range_s": [
+          1.159519599750638,
+          1.159519599750638
+        ],
+        "per_process_command_to_output_s": [
+          1.16
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "jutrack",
+        "config": "cpu-f64-n16b32",
+        "n_proc": 1,
+        "import_s": 1.31366019975394,
+        "build_s": 2.4488633000291884,
+        "cold_s": 1.4613239001482725,
+        "warm_median_s": 0.43830829998478293,
+        "overhead_s": 0.5222213002853096,
+        "command_to_output_s": 5.746068700216711,
+        "wall_s": 6.1843770002014935,
+        "command_to_output_range_s": [
+          5.746068700216711,
+          5.746068700216711
+        ],
+        "per_process_command_to_output_s": [
+          5.75
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "jutrack",
+        "config": "cpu-f64-n32b64",
+        "n_proc": 1,
+        "import_s": 1.3672779998742044,
+        "build_s": 2.577289099805057,
+        "cold_s": 1.8132926998659968,
+        "warm_median_s": 0.7825917000882328,
+        "overhead_s": 0.5092720007523894,
+        "command_to_output_s": 6.267131800297648,
+        "wall_s": 7.0497235003858805,
+        "command_to_output_range_s": [
+          6.267131800297648,
+          6.267131800297648
+        ],
+        "per_process_command_to_output_s": [
+          6.27
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "jutrack",
+        "config": "cpu-f64-n4b8",
+        "n_proc": 1,
+        "import_s": 1.3397051002830267,
+        "build_s": 2.3944981996901333,
+        "cold_s": 1.1571396002545953,
+        "warm_median_s": 0.129551500082016,
+        "overhead_s": 0.4724910999648273,
+        "command_to_output_s": 5.363834000192583,
+        "wall_s": 5.493385500274599,
+        "command_to_output_range_s": [
+          5.363834000192583,
+          5.363834000192583
+        ],
+        "per_process_command_to_output_s": [
+          5.36
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "jutrack",
+        "config": "cpu-f64-n8b16",
+        "n_proc": 1,
+        "import_s": 3.99040720006451,
+        "build_s": 2.637473000213504,
+        "cold_s": 1.2036719000898302,
+        "warm_median_s": 0.22094579972326756,
+        "overhead_s": 0.4906194997020066,
+        "command_to_output_s": 8.32217160006985,
+        "wall_s": 8.543117399793118,
+        "command_to_output_range_s": [
+          8.32217160006985,
+          8.32217160006985
+        ],
+        "per_process_command_to_output_s": [
+          8.32
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "slipstream",
+        "config": "cuda-f32-o4k4b8",
+        "n_proc": 1,
+        "import_s": 5.827627100050449,
+        "build_s": 0.14173160027712584,
+        "cold_s": 0.38917559990659356,
+        "warm_median_s": 0.2646419000811875,
+        "overhead_s": 1.3412269996479154,
+        "command_to_output_s": 7.699761299882084,
+        "wall_s": 7.964403199963272,
+        "command_to_output_range_s": [
+          7.699761299882084,
+          7.699761299882084
+        ],
+        "per_process_command_to_output_s": [
+          7.7
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "slipstream",
+        "config": "cuda-f32-o6k16b32",
+        "n_proc": 1,
+        "import_s": 6.193579299841076,
+        "build_s": 0.23630390036851168,
+        "cold_s": 1.3519462998956442,
+        "warm_median_s": 1.1828364999964833,
+        "overhead_s": 1.3168680998496711,
+        "command_to_output_s": 9.098697599954903,
+        "wall_s": 10.281534099951386,
+        "command_to_output_range_s": [
+          9.098697599954903,
+          9.098697599954903
+        ],
+        "per_process_command_to_output_s": [
+          9.1
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "slipstream",
+        "config": "cuda-f32-o6k8b16",
+        "n_proc": 1,
+        "import_s": 5.616523900069296,
+        "build_s": 0.15129039995372295,
+        "cold_s": 0.7706419001333416,
+        "warm_median_s": 0.6558797000907362,
+        "overhead_s": 1.305613899603486,
+        "command_to_output_s": 7.844070099759847,
+        "wall_s": 8.499949799850583,
+        "command_to_output_range_s": [
+          7.844070099759847,
+          7.844070099759847
+        ],
+        "per_process_command_to_output_s": [
+          7.84
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "slipstream",
+        "config": "cuda-f64-o4k4b8",
+        "n_proc": 1,
+        "import_s": 5.7226963001303375,
+        "build_s": 0.1451795999892056,
+        "cold_s": 1.097740299999714,
+        "warm_median_s": 0.9575912998989224,
+        "overhead_s": 1.3806262002326548,
+        "command_to_output_s": 8.346242400351912,
+        "wall_s": 9.303833700250834,
+        "command_to_output_range_s": [
+          8.346242400351912,
+          8.346242400351912
+        ],
+        "per_process_command_to_output_s": [
+          8.35
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "slipstream",
+        "config": "cuda-f64-o6k16b32",
+        "n_proc": 1,
+        "import_s": 5.76414049975574,
+        "build_s": 0.18709539994597435,
+        "cold_s": 5.650195899885148,
+        "warm_median_s": 5.553981899749488,
+        "overhead_s": 1.3507961006835103,
+        "command_to_output_s": 12.952227900270373,
+        "wall_s": 18.50620980001986,
+        "command_to_output_range_s": [
+          12.952227900270373,
+          12.952227900270373
+        ],
+        "per_process_command_to_output_s": [
+          12.95
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "slipstream",
+        "config": "cuda-f64-o6k8b16",
+        "n_proc": 1,
+        "import_s": 5.5925841997377574,
+        "build_s": 0.16174509981647134,
+        "cold_s": 3.05471139959991,
+        "warm_median_s": 2.9459918001666665,
+        "overhead_s": 1.419767800718546,
+        "command_to_output_s": 10.228808499872684,
+        "wall_s": 13.174800300039351,
+        "command_to_output_range_s": [
+          10.228808499872684,
+          10.228808499872684
+        ],
+        "per_process_command_to_output_s": [
+          10.23
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "xsuite",
+        "config": "cpu-f64-teak2b4",
+        "n_proc": 1,
+        "import_s": 1.0154785880586132,
+        "build_s": 46.52079863194376,
+        "cold_s": 0.040860459906980395,
+        "warm_median_s": 0.04089274990838021,
+        "overhead_s": 0.8208401701413095,
+        "command_to_output_s": 48.397977850050665,
+        "wall_s": 48.438870599959046,
+        "command_to_output_range_s": [
+          48.397977850050665,
+          48.397977850050665
+        ],
+        "per_process_command_to_output_s": [
+          48.4
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "xsuite",
+        "config": "cpu-f64-yosk16b32",
+        "n_proc": 1,
+        "import_s": 1.0980179948965088,
+        "build_s": 46.3890354760224,
+        "cold_s": 0.2898768640588969,
+        "warm_median_s": 0.28959448903333396,
+        "overhead_s": 0.7969030757667497,
+        "command_to_output_s": 48.573833410744555,
+        "wall_s": 48.86342789977789,
+        "command_to_output_range_s": [
+          48.573833410744555,
+          48.573833410744555
+        ],
+        "per_process_command_to_output_s": [
+          48.57
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "xsuite",
+        "config": "cpu-f64-yosk2b4",
+        "n_proc": 1,
+        "import_s": 2.1593585399677977,
+        "build_s": 45.16909115295857,
+        "cold_s": 0.09223276493139565,
+        "warm_median_s": 0.09993729193229228,
+        "overhead_s": 0.9428530500736088,
+        "command_to_output_s": 48.363535507931374,
+        "wall_s": 48.463472799863666,
+        "command_to_output_range_s": [
+          48.363535507931374,
+          48.363535507931374
+        ],
+        "per_process_command_to_output_s": [
+          48.36
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "xsuite",
+        "config": "cpu-f64-yosk4b8",
+        "n_proc": 1,
+        "import_s": 1.0195863459957764,
+        "build_s": 46.10665015899576,
+        "cold_s": 0.11296022403985262,
+        "warm_median_s": 0.11158493696711957,
+        "overhead_s": 0.7968371344031766,
+        "command_to_output_s": 48.03603386343457,
+        "wall_s": 48.14761880040169,
+        "command_to_output_range_s": [
+          48.03603386343457,
+          48.03603386343457
+        ],
+        "per_process_command_to_output_s": [
+          48.04
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "ring_tunes",
+        "code": "xsuite",
+        "config": "cpu-f64-yosk8b16",
+        "n_proc": 1,
+        "import_s": 0.9962352939182892,
+        "build_s": 45.960528890020214,
+        "cold_s": 0.19149662007112056,
+        "warm_median_s": 0.19111998903099447,
+        "overhead_s": 0.7206701070535928,
+        "command_to_output_s": 47.86893091106322,
+        "wall_s": 48.06005090009421,
+        "command_to_output_range_s": [
+          47.86893091106322,
+          47.86893091106322
+        ],
+        "per_process_command_to_output_s": [
+          47.87
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "sc_drift",
+        "code": "astra",
+        "config": "cpu-f64-3d32h1.4",
+        "n_proc": 1,
+        "import_s": 8.00006091594696e-07,
+        "build_s": 0.09818490035831928,
+        "cold_s": 36.063895400147885,
+        "warm_median_s": 35.65042780013755,
+        "overhead_s": 0.4624981991946697,
+        "command_to_output_s": 36.624579299706966,
+        "wall_s": 72.27500709984452,
+        "command_to_output_range_s": [
+          36.624579299706966,
+          36.624579299706966
+        ],
+        "per_process_command_to_output_s": [
+          36.62
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "sc_drift",
+        "code": "astra",
+        "config": "cpu-f64-n16l32h3.5",
+        "n_proc": 1,
+        "import_s": 1.0998919606208801e-06,
+        "build_s": 0.10175210004672408,
+        "cold_s": 21.638506499584764,
+        "warm_median_s": 21.810849900357425,
+        "overhead_s": 0.4615599000826478,
+        "command_to_output_s": 22.201819599606097,
+        "wall_s": 44.01266949996352,
+        "command_to_output_range_s": [
+          22.201819599606097,
+          22.201819599606097
+        ],
+        "per_process_command_to_output_s": [
+          22.2
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "sc_drift",
+        "code": "astra",
+        "config": "cpu-f64-n32l64h1.4",
+        "n_proc": 1,
+        "import_s": 9.0012326836586e-07,
+        "build_s": 0.10027369996532798,
+        "cold_s": 58.447764799930155,
+        "warm_median_s": 58.30549880024046,
+        "overhead_s": 0.4683129000477493,
+        "command_to_output_s": 59.0163523000665,
+        "wall_s": 117.32185110030696,
+        "command_to_output_range_s": [
+          59.0163523000665,
+          59.0163523000665
+        ],
+        "per_process_command_to_output_s": [
+          59.02
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "sc_drift",
+        "code": "cheetah",
+        "config": "cpu-f64-g16s1",
+        "n_proc": 1,
+        "import_s": 2.204118300229311,
+        "build_s": 0.009864300023764372,
+        "cold_s": 1.8549290001392365,
+        "warm_median_s": 1.3139940002001822,
+        "overhead_s": 0.8926266995258629,
+        "command_to_output_s": 4.961538299918175,
+        "wall_s": 6.275532300118357,
+        "command_to_output_range_s": [
+          4.961538299918175,
+          4.961538299918175
+        ],
+        "per_process_command_to_output_s": [
+          4.96
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "sc_drift",
+        "code": "cheetah",
+        "config": "cpu-f64-g32s2",
+        "n_proc": 1,
+        "import_s": 2.261418600101024,
+        "build_s": 0.018063699826598167,
+        "cold_s": 5.1513268002308905,
+        "warm_median_s": 4.802512600086629,
+        "overhead_s": 0.8249570997431874,
+        "command_to_output_s": 8.2557661999017,
+        "wall_s": 13.05827879998833,
+        "command_to_output_range_s": [
+          8.2557661999017,
+          8.2557661999017
+        ],
+        "per_process_command_to_output_s": [
+          8.26
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "sc_drift",
+        "code": "cheetah",
+        "config": "cpu-f64-g64s4",
+        "n_proc": 1,
+        "import_s": 2.3144017001613975,
+        "build_s": 0.035313600208610296,
+        "cold_s": 49.30859659984708,
+        "warm_median_s": 48.30196150019765,
+        "overhead_s": 0.9822439993731678,
+        "command_to_output_s": 52.640555899590254,
+        "wall_s": 100.9425173997879,
+        "command_to_output_range_s": [
+          52.640555899590254,
+          52.640555899590254
+        ],
+        "per_process_command_to_output_s": [
+          52.64
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "sc_drift",
+        "code": "cheetah",
+        "config": "cuda-f32-g16s1",
+        "n_proc": 1,
+        "import_s": 2.2176184998825192,
+        "build_s": 0.10216039977967739,
+        "cold_s": 1.6118471999652684,
+        "warm_median_s": 0.8398167998529971,
+        "overhead_s": 0.9235192006453872,
+        "command_to_output_s": 4.855145300272852,
+        "wall_s": 5.694962100125849,
+        "command_to_output_range_s": [
+          4.855145300272852,
+          4.855145300272852
+        ],
+        "per_process_command_to_output_s": [
+          4.86
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "sc_drift",
+        "code": "cheetah",
+        "config": "cuda-f32-g32s2",
+        "n_proc": 1,
+        "import_s": 2.28673949977383,
+        "build_s": 0.12359669990837574,
+        "cold_s": 2.689792000222951,
+        "warm_median_s": 1.6631740001030266,
+        "overhead_s": 0.8843302000313997,
+        "command_to_output_s": 5.984458399936557,
+        "wall_s": 7.6476324000395834,
+        "command_to_output_range_s": [
+          5.984458399936557,
+          5.984458399936557
+        ],
+        "per_process_command_to_output_s": [
+          5.98
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "sc_drift",
+        "code": "gpt",
+        "config": "cpu-f64-mesh-acc4",
+        "n_proc": 1,
+        "import_s": 1.000240445137024e-06,
+        "build_s": 0.15518329991027713,
+        "cold_s": 13.018190699629486,
+        "warm_median_s": 2.8473972999490798,
+        "overhead_s": 0.4712664005346596,
+        "command_to_output_s": 13.644641400314867,
+        "wall_s": 16.492038700263947,
+        "command_to_output_range_s": [
+          13.644641400314867,
+          13.644641400314867
+        ],
+        "per_process_command_to_output_s": [
+          13.64
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "sc_drift",
+        "code": "gpt",
+        "config": "cpu-f64-mesh-acc6",
+        "n_proc": 1,
+        "import_s": 1.3997778296470642e-06,
+        "build_s": 0.14636249979957938,
+        "cold_s": 3.1875840998254716,
+        "warm_median_s": 2.8036883999593556,
+        "overhead_s": 0.41906180093064904,
+        "command_to_output_s": 3.7530098003335297,
+        "wall_s": 6.556698200292885,
+        "command_to_output_range_s": [
+          3.7530098003335297,
+          3.7530098003335297
+        ],
+        "per_process_command_to_output_s": [
+          3.75
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "sc_drift",
+        "code": "gpt",
+        "config": "cpu-f64-tree-acc6",
+        "n_proc": 1,
+        "import_s": 9.0012326836586e-07,
+        "build_s": 0.15116210002452135,
+        "cold_s": 595.2220764998347,
+        "warm_median_s": 597.7347119003534,
+        "overhead_s": 1.109426399692893,
+        "command_to_output_s": 596.4826658996753,
+        "wall_s": 1194.2173778000288,
+        "command_to_output_range_s": [
+          596.4826658996753,
+          596.4826658996753
+        ],
+        "per_process_command_to_output_s": [
+          596.48
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "sc_drift",
+        "code": "impactx",
+        "config": "cpu-f64-gauss3d-s4",
+        "n_proc": 1,
+        "import_s": 0.11074093403294683,
+        "build_s": 0.000693643931299448,
+        "cold_s": 5.505406192038208,
+        "warm_median_s": 5.464038336998783,
+        "overhead_s": 0.5382033932255581,
+        "command_to_output_s": 6.155044163228013,
+        "wall_s": 11.619082500226796,
+        "command_to_output_range_s": [
+          6.155044163228013,
+          6.155044163228013
+        ],
+        "per_process_command_to_output_s": [
+          6.16
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "sc_drift",
+        "code": "impactx",
+        "config": "cpu-f64-mg16x20s1",
+        "n_proc": 1,
+        "import_s": 0.08132250001654029,
+        "build_s": 0.0006923420587554574,
+        "cold_s": 0.5671758989337832,
+        "warm_median_s": 0.5634550009854138,
+        "overhead_s": 0.5734424582915381,
+        "command_to_output_s": 1.222633199300617,
+        "wall_s": 1.7860882002860308,
+        "command_to_output_range_s": [
+          1.222633199300617,
+          1.222633199300617
+        ],
+        "per_process_command_to_output_s": [
+          1.22
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "sc_drift",
+        "code": "impactx",
+        "config": "cpu-f64-mg32x40s2",
+        "n_proc": 1,
+        "import_s": 0.0909334069583565,
+        "build_s": 0.0007348509971052408,
+        "cold_s": 4.379346770932898,
+        "warm_median_s": 4.437721063965,
+        "overhead_s": 0.7177421069936827,
+        "command_to_output_s": 5.188757135882042,
+        "wall_s": 9.626478199847043,
+        "command_to_output_range_s": [
+          5.188757135882042,
+          5.188757135882042
+        ],
+        "per_process_command_to_output_s": [
+          5.19
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "sc_drift",
+        "code": "impactx",
+        "config": "cpu-f64-mg64x80s4",
+        "n_proc": 1,
+        "import_s": 0.09187368594575673,
+        "build_s": 0.0006830650381743908,
+        "cold_s": 66.709363361937,
+        "warm_median_s": 66.36192698008381,
+        "overhead_s": 0.5644285068847239,
+        "command_to_output_s": 67.36634861980565,
+        "wall_s": 133.72827559988946,
+        "command_to_output_range_s": [
+          67.36634861980565,
+          67.36634861980565
+        ],
+        "per_process_command_to_output_s": [
+          67.37
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cpu-f64-3d32t1c1",
+        "n_proc": 1,
+        "import_s": 5.559364300221205,
+        "build_s": 0.10819990001618862,
+        "cold_s": 93.91194589994848,
+        "warm_median_s": 93.44228280009702,
+        "overhead_s": 1.29943470004946,
+        "command_to_output_s": 100.87894480023533,
+        "wall_s": 194.32122760033235,
+        "command_to_output_range_s": [
+          100.87894480023533,
+          100.87894480023533
+        ],
+        "per_process_command_to_output_s": [
+          100.88
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cpu-f64-r16z64t4c10",
+        "n_proc": 1,
+        "import_s": 5.579780099913478,
+        "build_s": 0.10163420019671321,
+        "cold_s": 2.7761372001841664,
+        "warm_median_s": 2.8628230998292565,
+        "overhead_s": 1.27826530020684,
+        "command_to_output_s": 9.735816800501198,
+        "wall_s": 12.598639900330454,
+        "command_to_output_range_s": [
+          9.735816800501198,
+          9.735816800501198
+        ],
+        "per_process_command_to_output_s": [
+          9.74
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cpu-f64-r32z128t2c5",
+        "n_proc": 1,
+        "import_s": 5.549466700293124,
+        "build_s": 0.10448979958891869,
+        "cold_s": 6.111552500165999,
+        "warm_median_s": 6.127346699591726,
+        "overhead_s": 1.2545613003894687,
+        "command_to_output_s": 13.02007030043751,
+        "wall_s": 19.147417000029236,
+        "command_to_output_range_s": [
+          13.02007030043751,
+          13.02007030043751
+        ],
+        "per_process_command_to_output_s": [
+          13.02
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cpu-f64-r64z256t0.5c1",
+        "n_proc": 1,
+        "import_s": 5.525556600186974,
+        "build_s": 0.1047482998110354,
+        "cold_s": 58.88958190008998,
+        "warm_median_s": 57.853826200123876,
+        "overhead_s": 1.2607425996102393,
+        "command_to_output_s": 65.78062939969823,
+        "wall_s": 123.6344555998221,
+        "command_to_output_range_s": [
+          65.78062939969823,
+          65.78062939969823
+        ],
+        "per_process_command_to_output_s": [
+          65.78
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cpu-f64-r64z256t1c2",
+        "n_proc": 1,
+        "import_s": 5.990664700046182,
+        "build_s": 0.1266902000643313,
+        "cold_s": 19.74824310000986,
+        "warm_median_s": 19.315656899940223,
+        "overhead_s": 1.2737644999288023,
+        "command_to_output_s": 27.139362500049174,
+        "wall_s": 46.455019399989396,
+        "command_to_output_range_s": [
+          27.139362500049174,
+          27.139362500049174
+        ],
+        "per_process_command_to_output_s": [
+          27.14
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-r16z64t4c10",
+        "n_proc": 1,
+        "import_s": 5.4052988002076745,
+        "build_s": 0.1949225002899766,
+        "cold_s": 6.439318800345063,
+        "warm_median_s": 1.263497999869287,
+        "overhead_s": 1.8673222991637886,
+        "command_to_output_s": 13.906862400006503,
+        "wall_s": 15.17036039987579,
+        "command_to_output_range_s": [
+          13.906862400006503,
+          13.906862400006503
+        ],
+        "per_process_command_to_output_s": [
+          13.91
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-r32z128t2c5",
+        "n_proc": 1,
+        "import_s": 5.5565514001064,
+        "build_s": 0.20598259987309575,
+        "cold_s": 28.89161039981991,
+        "warm_median_s": 3.01148260012269,
+        "overhead_s": 1.6339768003672361,
+        "command_to_output_s": 36.28812120016664,
+        "wall_s": 39.29960380028933,
+        "command_to_output_range_s": [
+          36.28812120016664,
+          36.28812120016664
+        ],
+        "per_process_command_to_output_s": [
+          36.29
+        ]
+      },
+      {
+        "campaign": "R0",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-r64z256t1c2",
+        "n_proc": 1,
+        "import_s": 5.3680428001098335,
+        "build_s": 0.1814521998167038,
+        "cold_s": 13.306561800185591,
+        "warm_median_s": 9.677198600023985,
+        "overhead_s": 1.554402600042522,
+        "command_to_output_s": 20.41045940015465,
+        "wall_s": 30.087658000178635,
+        "command_to_output_range_s": [
+          20.41045940015465,
+          20.41045940015465
+        ],
+        "per_process_command_to_output_s": [
+          20.41
+        ]
+      },
+      {
+        "campaign": "scratch",
+        "case": "ring_tunes",
+        "code": "cheetah",
+        "config": "cpu-f64-lin1",
+        "n_proc": 1,
+        "import_s": 2.408709700219333,
+        "build_s": 0.0057334997691214085,
+        "cold_s": 2.2074230001308024,
+        "warm_median_s": 1.4946293998509645,
+        "overhead_s": 1.079672500025481,
+        "command_to_output_s": 5.701538700144738,
+        "wall_s": 7.1961680999957025,
+        "command_to_output_range_s": [
+          5.701538700144738,
+          5.701538700144738
+        ],
+        "per_process_command_to_output_s": [
+          5.7
+        ]
+      },
+      {
+        "campaign": "scratch",
+        "case": "ring_tunes",
+        "code": "elegant",
+        "config": "cpu-f64-o4s4b8",
+        "n_proc": 1,
+        "import_s": 1.300126314163208e-06,
+        "build_s": 0.0397512000054121,
+        "cold_s": 0.2971791001036763,
+        "warm_median_s": 0.262849900405854,
+        "overhead_s": 0.4681751993484795,
+        "command_to_output_s": 0.8051067995838821,
+        "wall_s": 1.067956699989736,
+        "command_to_output_range_s": [
+          0.8051067995838821,
+          0.8051067995838821
+        ],
+        "per_process_command_to_output_s": [
+          0.81
+        ]
+      },
+      {
+        "campaign": "scratch",
+        "case": "ring_tunes",
+        "code": "slipstream",
+        "config": "cuda-f32-o4k4b8",
+        "n_proc": 1,
+        "import_s": 6.236125899944454,
+        "build_s": 0.172100099734962,
+        "cold_s": 0.42249480029568076,
+        "warm_median_s": 0.2954180999659002,
+        "overhead_s": 1.674910900183022,
+        "command_to_output_s": 8.50563170015812,
+        "wall_s": 8.80104980012402,
+        "command_to_output_range_s": [
+          8.50563170015812,
+          8.50563170015812
+        ],
+        "per_process_command_to_output_s": [
+          8.51
+        ]
+      },
+      {
+        "campaign": "scratch",
+        "case": "ring_tunes",
+        "code": "xsuite",
+        "config": "cpu-f64-yosk2b4",
+        "n_proc": 1,
+        "import_s": 1.1642736149951816,
+        "build_s": 47.74063452705741,
+        "cold_s": 0.09302660496905446,
+        "warm_median_s": 0.09237219800706953,
+        "overhead_s": 0.8927390548633412,
+        "command_to_output_s": 49.89067380188499,
+        "wall_s": 49.983045999892056,
+        "command_to_output_range_s": [
+          49.89067380188499,
+          49.89067380188499
+        ],
+        "per_process_command_to_output_s": [
+          49.89
+        ]
+      },
+      {
+        "campaign": "sctest",
+        "case": "sc_drift",
+        "code": "astra",
+        "config": "cpu-f64-n16l32h3.5",
+        "n_proc": 1,
+        "import_s": 1.000240445137024e-06,
+        "build_s": 0.10798930004239082,
+        "cold_s": 21.391468199901283,
+        "warm_median_s": 21.657945400103927,
+        "overhead_s": 0.48758129961788654,
+        "command_to_output_s": 21.987039799802005,
+        "wall_s": 43.64498519990593,
+        "command_to_output_range_s": [
+          21.987039799802005,
+          21.987039799802005
+        ],
+        "per_process_command_to_output_s": [
+          21.99
+        ]
+      },
+      {
+        "campaign": "sctest",
+        "case": "sc_drift",
+        "code": "cheetah",
+        "config": "cpu-f64-g16s1",
+        "n_proc": 1,
+        "import_s": 2.2565796999260783,
+        "build_s": 0.009842600207775831,
+        "cold_s": 1.8526371996849775,
+        "warm_median_s": 1.3226803001016378,
+        "overhead_s": 0.8489214004948735,
+        "command_to_output_s": 4.967980900313705,
+        "wall_s": 6.290661200415343,
+        "command_to_output_range_s": [
+          4.967980900313705,
+          4.967980900313705
+        ],
+        "per_process_command_to_output_s": [
+          4.97
+        ]
+      },
+      {
+        "campaign": "sctest",
+        "case": "sc_drift",
+        "code": "cheetah",
+        "config": "cuda-f32-g16s1",
+        "n_proc": 1,
+        "import_s": 2.2603774000890553,
+        "build_s": 0.1227911002933979,
+        "cold_s": 1.6768259000964463,
+        "warm_median_s": 0.7819366003386676,
+        "overhead_s": 0.8619140991941094,
+        "command_to_output_s": 4.921908499673009,
+        "wall_s": 5.7038451000116765,
+        "command_to_output_range_s": [
+          4.921908499673009,
+          4.921908499673009
+        ],
+        "per_process_command_to_output_s": [
+          4.92
+        ]
+      },
+      {
+        "campaign": "sctest",
+        "case": "sc_drift",
+        "code": "gpt",
+        "config": "cpu-f64-mesh-acc5",
+        "n_proc": 1,
+        "import_s": 1.200009137392044e-06,
+        "build_s": 0.15591019997373223,
+        "cold_s": 2.8667354001663625,
+        "warm_median_s": 2.7403230001218617,
+        "overhead_s": 0.45858579967170954,
+        "command_to_output_s": 3.4812325998209417,
+        "wall_s": 6.221555599942803,
+        "command_to_output_range_s": [
+          3.4812325998209417,
+          3.4812325998209417
+        ],
+        "per_process_command_to_output_s": [
+          3.48
+        ]
+      },
+      {
+        "campaign": "sctest",
+        "case": "sc_drift",
+        "code": "impactx",
+        "config": "cpu-f64-mg16x20s1",
+        "n_proc": 1,
+        "import_s": 0.07405312010087073,
+        "build_s": 0.0007825079374015331,
+        "cold_s": 0.5819346859352663,
+        "warm_median_s": 0.562906815088354,
+        "overhead_s": 0.5284678710158914,
+        "command_to_output_s": 1.18523818498943,
+        "wall_s": 1.748145000077784,
+        "command_to_output_range_s": [
+          1.18523818498943,
+          1.18523818498943
+        ],
+        "per_process_command_to_output_s": [
+          1.19
+        ]
+      },
+      {
+        "campaign": "sctest",
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cpu-f64-r32z128t2c5",
+        "n_proc": 1,
+        "import_s": 5.4226778000593185,
+        "build_s": 0.11113670002669096,
+        "cold_s": 5.802702100016177,
+        "warm_median_s": 5.833344799932092,
+        "overhead_s": 1.38804280012846,
+        "command_to_output_s": 12.724559400230646,
+        "wall_s": 18.55790420016274,
+        "command_to_output_range_s": [
+          12.724559400230646,
+          12.724559400230646
+        ],
+        "per_process_command_to_output_s": [
+          12.72
+        ]
+      },
+      {
+        "campaign": "smoke",
+        "case": "ring_tunes",
+        "code": "cheetah",
+        "config": "cpu-f64-lin1",
+        "n_proc": 1,
+        "import_s": 2.40407790010795,
+        "build_s": 0.005477500148117542,
+        "cold_s": 1.9226843998767436,
+        "warm_median_s": 1.3298386996611953,
+        "overhead_s": 0.8171507003717124,
+        "command_to_output_s": 5.1493905005045235,
+        "wall_s": 6.479229200165719,
+        "command_to_output_range_s": [
+          5.1493905005045235,
+          5.1493905005045235
+        ],
+        "per_process_command_to_output_s": [
+          5.15
+        ]
+      },
+      {
+        "campaign": "smoke",
+        "case": "ring_tunes",
+        "code": "cheetah",
+        "config": "cuda-f32-sec1",
+        "n_proc": 1,
+        "import_s": 2.5006793001666665,
+        "build_s": 0.11317999986931682,
+        "cold_s": 69.85663710022345,
+        "warm_median_s": 66.57327149994671,
+        "overhead_s": 1.2075178995728493,
+        "command_to_output_s": 73.67801429983228,
+        "wall_s": 140.251285799779,
+        "command_to_output_range_s": [
+          73.67801429983228,
+          73.67801429983228
+        ],
+        "per_process_command_to_output_s": [
+          73.68
+        ]
+      },
+      {
+        "campaign": "smoke",
+        "case": "ring_tunes",
+        "code": "elegant",
+        "config": "cpu-f64-o4s4b8",
+        "n_proc": 1,
+        "import_s": 8.00006091594696e-07,
+        "build_s": 0.7675588997080922,
+        "cold_s": 0.9815108003094792,
+        "warm_median_s": 0.2558836000971496,
+        "overhead_s": 0.41428219992667437,
+        "command_to_output_s": 2.1633526999503374,
+        "wall_s": 2.419236300047487,
+        "command_to_output_range_s": [
+          2.1633526999503374,
+          2.1633526999503374
+        ],
+        "per_process_command_to_output_s": [
+          2.16
+        ]
+      },
+      {
+        "campaign": "smoke",
+        "case": "ring_tunes",
+        "code": "slipstream",
+        "config": "cpu-f64-o4k4b8",
+        "n_proc": 1,
+        "import_s": 6.705611000303179,
+        "build_s": 0.013456099666655064,
+        "cold_s": 73.32982930028811,
+        "warm_median_s": 71.20465850038454,
+        "overhead_s": 1.5403012996539474,
+        "command_to_output_s": 81.58919769991189,
+        "wall_s": 152.79385620029643,
+        "command_to_output_range_s": [
+          81.58919769991189,
+          81.58919769991189
+        ],
+        "per_process_command_to_output_s": [
+          81.59
+        ]
+      },
+      {
+        "campaign": "smoke",
+        "case": "ring_tunes",
+        "code": "slipstream",
+        "config": "cuda-f32-o4k4b8",
+        "n_proc": 1,
+        "import_s": 6.894465900026262,
+        "build_s": 0.16111340001225471,
+        "cold_s": 0.44046480022370815,
+        "warm_median_s": 0.26535659981891513,
+        "overhead_s": 1.743225899990648,
+        "command_to_output_s": 9.239270000252873,
+        "wall_s": 9.504626600071788,
+        "command_to_output_range_s": [
+          9.239270000252873,
+          9.239270000252873
+        ],
+        "per_process_command_to_output_s": [
+          9.24
+        ]
+      },
+      {
+        "campaign": "smoke",
+        "case": "ring_tunes",
+        "code": "xsuite",
+        "config": "cpu-f64-yosk4b8",
+        "n_proc": 1,
+        "import_s": 1.5625260419910774,
+        "build_s": 47.40152629802469,
+        "cold_s": 0.11739510798361152,
+        "warm_median_s": 0.11392602894920856,
+        "overhead_s": 1.0183258228935301,
+        "command_to_output_s": 50.09977327089291,
+        "wall_s": 50.21369929984212,
+        "command_to_output_range_s": [
+          50.09977327089291,
+          50.09977327089291
+        ],
+        "per_process_command_to_output_s": [
+          50.1
+        ]
+      },
+      {
+        "campaign": "smoke",
+        "case": "ring_tunes",
+        "code": "xsuite",
+        "config": "cuda-f64-yosk4b8",
+        "n_proc": 1,
+        "import_s": 1.186160712968558,
+        "build_s": 404.47073654900305,
+        "cold_s": 3.230497668031603,
+        "warm_median_s": 2.7491129590198398,
+        "overhead_s": 2.060824811225757,
+        "command_to_output_s": 410.94821974122897,
+        "wall_s": 413.6973327002488,
+        "command_to_output_range_s": [
+          410.94821974122897,
+          410.94821974122897
+        ],
+        "per_process_command_to_output_s": [
+          410.95
+        ]
+      }
+    ]
+  },
+  "controlled": {
+    "note": "cold = empty compile cache in a new directory, warm1/warm2 = the cache that process populated; one call per process",
+    "rows": [
+      {
+        "case": "ring_tunes",
+        "code": "slipstream",
+        "config": "cpu-f64-o6k8b16-compiled",
+        "state": "cold",
+        "import_s": 5.506953599862754,
+        "build_s": 0.043790599796921015,
+        "cold_s": 58.35398390004411,
+        "warm_median_s": null,
+        "n_warm": 0,
+        "wall_s": 65.6894640000537,
+        "overhead_s": 1.784735900349915,
+        "command_to_output_s": 65.6894640000537
+      },
+      {
+        "case": "ring_tunes",
+        "code": "slipstream",
+        "config": "cpu-f64-o6k8b16-compiled",
+        "state": "warm1",
+        "import_s": 5.529707899782807,
+        "build_s": 0.032229399774223566,
+        "cold_s": 8.877887099981308,
+        "warm_median_s": null,
+        "n_warm": 0,
+        "wall_s": 15.930509800091386,
+        "overhead_s": 1.4906854005530477,
+        "command_to_output_s": 15.930509800091386
+      },
+      {
+        "case": "ring_tunes",
+        "code": "slipstream",
+        "config": "cpu-f64-o6k8b16-compiled",
+        "state": "warm2",
+        "import_s": 5.668630100321025,
+        "build_s": 0.03420270001515746,
+        "cold_s": 8.622811200097203,
+        "warm_median_s": null,
+        "n_warm": 0,
+        "wall_s": 15.740691400133073,
+        "overhead_s": 1.415047399699688,
+        "command_to_output_s": 15.740691400133073
+      },
+      {
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-3d64t1c10-r100-mfix",
+        "state": "cold",
+        "import_s": 6.056195700075477,
+        "build_s": 0.2136927000246942,
+        "cold_s": 10.591425300110132,
+        "warm_median_s": null,
+        "n_warm": 0,
+        "wall_s": 18.52402950031683,
+        "overhead_s": 1.6627158001065254,
+        "command_to_output_s": 18.52402950031683
+      },
+      {
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-3d64t1c10-r100-mfix",
+        "state": "warm1",
+        "import_s": 5.693109599873424,
+        "build_s": 0.19515699986368418,
+        "cold_s": 6.0304300002753735,
+        "warm_median_s": null,
+        "n_warm": 0,
+        "wall_s": 13.53513910016045,
+        "overhead_s": 1.6164425001479685,
+        "command_to_output_s": 13.53513910016045
+      },
+      {
+        "case": "sc_drift",
+        "code": "slipstream",
+        "config": "cuda-f32-3d64t1c10-r100-mfix",
+        "state": "warm2",
+        "import_s": 5.494769300334156,
+        "build_s": 0.21109650004655123,
+        "cold_s": 5.675044099800289,
+        "warm_median_s": null,
+        "n_warm": 0,
+        "wall_s": 12.92288349987939,
+        "overhead_s": 1.5419735996983945,
+        "command_to_output_s": 12.92288349987939
+      },
+      {
+        "case": "ring_tunes",
+        "code": "slipstream",
+        "config": "cuda-f32-o6k8b16",
+        "state": "cold",
+        "import_s": 5.593863500282168,
+        "build_s": 0.15606489963829517,
+        "cold_s": 0.7711994997225702,
+        "warm_median_s": null,
+        "n_warm": 0,
+        "wall_s": 7.884437700267881,
+        "overhead_s": 1.3633098006248474,
+        "command_to_output_s": 7.884437700267881
+      },
+      {
+        "case": "ring_tunes",
+        "code": "slipstream",
+        "config": "cuda-f32-o6k8b16",
+        "state": "warm1",
+        "import_s": 5.640337799675763,
+        "build_s": 0.15614219987764955,
+        "cold_s": 0.7782224002294242,
+        "warm_median_s": null,
+        "n_warm": 0,
+        "wall_s": 7.938264699652791,
+        "overhead_s": 1.3635622998699546,
+        "command_to_output_s": 7.938264699652791
+      },
+      {
+        "case": "ring_tunes",
+        "code": "slipstream",
+        "config": "cuda-f32-o6k8b16",
+        "state": "warm2",
+        "import_s": 5.904164399951696,
+        "build_s": 0.1558713000267744,
+        "cold_s": 0.7774113002233207,
+        "warm_median_s": null,
+        "n_warm": 0,
+        "wall_s": 8.248955300077796,
+        "overhead_s": 1.4115082998760045,
+        "command_to_output_s": 8.248955300077796
+      },
+      {
+        "case": "ring_tunes",
+        "code": "slipstream",
+        "config": "cuda-f64-o6k8b16",
+        "state": "cold",
+        "import_s": 5.407739700283855,
+        "build_s": 0.15897510014474392,
+        "cold_s": 3.0599881997331977,
+        "warm_median_s": null,
+        "n_warm": 0,
+        "wall_s": 9.956375499721617,
+        "overhead_s": 1.3296724995598197,
+        "command_to_output_s": 9.956375499721617
+      },
+      {
+        "case": "ring_tunes",
+        "code": "slipstream",
+        "config": "cuda-f64-o6k8b16",
+        "state": "warm1",
+        "import_s": 5.558737799990922,
+        "build_s": 0.15486919973045588,
+        "cold_s": 3.062641999684274,
+        "warm_median_s": null,
+        "n_warm": 0,
+        "wall_s": 10.163421200122684,
+        "overhead_s": 1.387172200717032,
+        "command_to_output_s": 10.163421200122684
+      },
+      {
+        "case": "ring_tunes",
+        "code": "slipstream",
+        "config": "cuda-f64-o6k8b16",
+        "state": "warm2",
+        "import_s": 5.643136500380933,
+        "build_s": 0.17449560016393661,
+        "cold_s": 3.0634826002642512,
+        "warm_median_s": null,
+        "n_warm": 0,
+        "wall_s": 10.46844940027222,
+        "overhead_s": 1.5873346994630992,
+        "command_to_output_s": 10.46844940027222
+      },
+      {
+        "case": "ring_tunes",
+        "code": "xsuite",
+        "config": "cuda-f64-yosk8b16-exact",
+        "state": "cold",
+        "import_s": 1.5420321919955313,
+        "build_s": 310.41983049502596,
+        "cold_s": 6.885177802992985,
+        "warm_median_s": null,
+        "n_warm": 0,
+        "wall_s": 324.93540519988164,
+        "overhead_s": 6.0883647098671645,
+        "command_to_output_s": 324.93540519988164
+      },
+      {
+        "case": "ring_tunes",
+        "code": "xsuite",
+        "config": "cuda-f64-yosk8b16-exact",
+        "state": "warm1",
+        "import_s": 1.1749468850903213,
+        "build_s": 308.3138269050978,
+        "cold_s": 5.091943236999214,
+        "warm_median_s": null,
+        "n_warm": 0,
+        "wall_s": 321.0775672001764,
+        "overhead_s": 6.49685017298907,
+        "command_to_output_s": 321.0775672001764
+      }
+    ]
+  }
+}

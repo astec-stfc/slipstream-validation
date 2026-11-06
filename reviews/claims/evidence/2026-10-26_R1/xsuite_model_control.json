@@ -1,0 +1,1713 @@
+{
+  "design": {
+    "classification": "exploratory adapter model correction; original R1 preserved",
+    "cases": {
+      "ring_tunes": [
+        "cpu-f64-yosk8b16-exact",
+        "cpu-f64-yosk16b32-exact",
+        "cuda-f64-yosk8b16-exact"
+      ],
+      "ring_grad": [
+        "cpu-f64-yosk8b16-exact"
+      ]
+    },
+    "reference_campaign": "2026-10-26_R1",
+    "procs": 3,
+    "repeats": 2,
+    "threads": 1,
+    "change": "Force Drift exact and Sextupole drift-kick-drift-exact; other settings and error gates unchanged",
+    "source_evidence": "installed xtrack beam_elements/elements_src/drift.h: adaptive resolves to expanded unless XTRACK_USE_EXACT_DRIFTS is defined"
+  },
+  "rows": [
+    {
+      "case": "ring_tunes",
+      "config": "cpu-f64-yosk8b16-exact",
+      "jobs": [
+        {
+          "result": {
+            "schema": 1,
+            "code": "xsuite",
+            "case": "ring_tunes",
+            "config": {
+              "name": "cpu-f64-yosk8b16-exact",
+              "device": "cpu",
+              "dtype": "float64",
+              "integrator": "yoshida4",
+              "n_kicks": 8,
+              "n_kicks_bend": 16,
+              "explicit_exact": true
+            },
+            "rank": 9,
+            "job": {
+              "case_path": "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/cases/ring_tunes.json",
+              "config": "cpu-f64-yosk8b16-exact",
+              "repeats": 2,
+              "threads": 1,
+              "out_dir": "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/results/2026-10-26_R1_Xsuite_exact/ring_tunes/xsuite/cpu-f64-yosk8b16-exact/p0"
+            },
+            "status": "ok",
+            "warnings": [],
+            "provenance": {
+              "host": "DDAST0117",
+              "platform": "Linux-6.18.35.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+              "python": "3.12.13",
+              "cpu_count": 16,
+              "threads_env": {
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "NUMBA_NUM_THREADS": "1"
+              },
+              "gpu": {
+                "name": "NVIDIA GeForce RTX 3050",
+                "driver_version": "616.56",
+                "memory.total": "8192 MiB",
+                "clocks.sm": "210 MHz",
+                "clocks.max.sm": "2100 MHz",
+                "power.draw": "3.40 W",
+                "power.limit": "130.00 W",
+                "temperature.gpu": "31"
+              },
+              "argv": [
+                "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/workers/w_xsuite.py",
+                "--job",
+                "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/results/2026-10-26_R1_Xsuite_exact/ring_tunes/xsuite/cpu-f64-yosk8b16-exact/p0/job.json"
+              ],
+              "time_utc": "2026-10-26T13:39:18Z"
+            },
+            "case_sha256": "ef1c851cc69bc6d2711367a12d4406fff93ee8ffe7191898954cfd6fb16508cb",
+            "lattice_sha256": "919291d4e0945645bbdc1faea617d487714e4c9d2eb13ab5cb5be3c88e57c798",
+            "source_sha256": {
+              "analyse.py": "1c2fccfd63acce2b768a3e011d2551b4665b37743accc4453613a9626e8008f8",
+              "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
+              "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
+              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+              "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
+              "probe_elements.py": "23b991e9d6fb17ddc366150d6a2b5e811258027e7f51079b169a0390b6dd4770",
+              "publish_study.py": "f0436a075cacc8169251f6346c290f38ed41c1aa0a409a612d7d4d6be6520d19",
+              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
+              "test_study.py": "ea9a162317bdf488f1f262e6b3752bc15685c1844af61fad5371379b5e77ad97",
+              "workers/astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "workers/impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
+              "workers/w_astra.py": "4d584407fd1a9d4b16903368a6e59ef819145d1d491a65095c73ff8d100da52a",
+              "workers/w_bmadx.py": "080b3fe82730bc3bf695655f36d731d33298bcf2fb68fb1ab8866afd5f9e462c",
+              "workers/w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
+              "workers/w_cheetah_sc.py": "8251bfcc773ac5ac7eb8d823e6c10c41a7f82e30a975404ae96687c11d21ba71",
+              "workers/w_elegant.py": "bb5b91830c8a9fc99c3b4c5a24062dc08f6c28b18e2868a2c776eff9ed87794a",
+              "workers/w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
+              "workers/w_helix.py": "43458bd3ccd109227b9f08ce1dbb06b38af23094f5013aaad7f33d78569d7830",
+              "workers/w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
+              "workers/w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
+              "workers/w_ocelot_sc.py": "009633bc28acbf20b0e816513d5e2600e1b6534f090dbb12a334d71863d29165",
+              "workers/w_slipstream.py": "872932f8e6c035c5cf5f6c3a48803b807552959ab257ad077b9f211be4a55ad9",
+              "workers/w_slipstream_sc.py": "019dab41b516f87f84cd24759615593b05f0967a861ceed9d98976bc18b4208e",
+              "workers/w_xsuite.py": "8605a1c54be4ac28bb613e585e1beae4860424fdef10aa1d26197493756f96fe",
+              "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
+            },
+            "inventory": {
+              "model": {
+                "n": 104,
+                "length": 48.00000000000002,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257901,
+                "k2L_abs": 32.0
+              },
+              "reference": {
+                "n": 104,
+                "length": 48.0,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257905,
+                "k2L_abs": 32.0
+              }
+            },
+            "versions": {
+              "xtrack": "0.111.6",
+              "xfields": "0.27.2",
+              "xobjects": "0.6.10"
+            },
+            "timing": {
+              "import_s": 1.5642316529992968,
+              "build_s": 44.32770177186467,
+              "cold_s": 0.19973700703121722,
+              "warm_s": {
+                "n": 2,
+                "median": 0.1993928279262036,
+                "q1": 0.1987249164376408,
+                "q3": 0.20006073941476643,
+                "min": 0.19805700494907796,
+                "max": 0.20072865090332925,
+                "samples": [
+                  0.19805700494907796,
+                  0.20072865090332925
+                ]
+              }
+            },
+            "memory": {
+              "rss_peak_bytes": 516730880
+            },
+            "repeat_maxdiff": 0.0,
+            "tbt_shape": [
+              5,
+              1024,
+              4
+            ]
+          },
+          "dq_ref": 8.126936212715652e-06,
+          "map_components": [
+            2.5330365278040945e-07,
+            2.3373989689514513e-07,
+            6.287918608504587e-08,
+            2.3964652172414613e-09
+          ]
+        },
+        {
+          "result": {
+            "schema": 1,
+            "code": "xsuite",
+            "case": "ring_tunes",
+            "config": {
+              "name": "cpu-f64-yosk8b16-exact",
+              "device": "cpu",
+              "dtype": "float64",
+              "integrator": "yoshida4",
+              "n_kicks": 8,
+              "n_kicks_bend": 16,
+              "explicit_exact": true
+            },
+            "rank": 9,
+            "job": {
+              "case_path": "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/cases/ring_tunes.json",
+              "config": "cpu-f64-yosk8b16-exact",
+              "repeats": 2,
+              "threads": 1,
+              "out_dir": "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/results/2026-10-26_R1_Xsuite_exact/ring_tunes/xsuite/cpu-f64-yosk8b16-exact/p1"
+            },
+            "status": "ok",
+            "warnings": [],
+            "provenance": {
+              "host": "DDAST0117",
+              "platform": "Linux-6.18.35.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+              "python": "3.12.13",
+              "cpu_count": 16,
+              "threads_env": {
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "NUMBA_NUM_THREADS": "1"
+              },
+              "gpu": {
+                "name": "NVIDIA GeForce RTX 3050",
+                "driver_version": "616.56",
+                "memory.total": "8192 MiB",
+                "clocks.sm": "1950 MHz",
+                "clocks.max.sm": "2100 MHz",
+                "power.draw": "26.14 W",
+                "power.limit": "130.00 W",
+                "temperature.gpu": "35"
+              },
+              "argv": [
+                "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/workers/w_xsuite.py",
+                "--job",
+                "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/results/2026-10-26_R1_Xsuite_exact/ring_tunes/xsuite/cpu-f64-yosk8b16-exact/p1/job.json"
+              ],
+              "time_utc": "2026-10-26T13:35:53Z"
+            },
+            "case_sha256": "ef1c851cc69bc6d2711367a12d4406fff93ee8ffe7191898954cfd6fb16508cb",
+            "lattice_sha256": "919291d4e0945645bbdc1faea617d487714e4c9d2eb13ab5cb5be3c88e57c798",
+            "source_sha256": {
+              "analyse.py": "1c2fccfd63acce2b768a3e011d2551b4665b37743accc4453613a9626e8008f8",
+              "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
+              "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
+              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+              "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
+              "probe_elements.py": "23b991e9d6fb17ddc366150d6a2b5e811258027e7f51079b169a0390b6dd4770",
+              "publish_study.py": "f0436a075cacc8169251f6346c290f38ed41c1aa0a409a612d7d4d6be6520d19",
+              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
+              "test_study.py": "ea9a162317bdf488f1f262e6b3752bc15685c1844af61fad5371379b5e77ad97",
+              "workers/astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "workers/impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
+              "workers/w_astra.py": "4d584407fd1a9d4b16903368a6e59ef819145d1d491a65095c73ff8d100da52a",
+              "workers/w_bmadx.py": "080b3fe82730bc3bf695655f36d731d33298bcf2fb68fb1ab8866afd5f9e462c",
+              "workers/w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
+              "workers/w_cheetah_sc.py": "8251bfcc773ac5ac7eb8d823e6c10c41a7f82e30a975404ae96687c11d21ba71",
+              "workers/w_elegant.py": "bb5b91830c8a9fc99c3b4c5a24062dc08f6c28b18e2868a2c776eff9ed87794a",
+              "workers/w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
+              "workers/w_helix.py": "43458bd3ccd109227b9f08ce1dbb06b38af23094f5013aaad7f33d78569d7830",
+              "workers/w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
+              "workers/w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
+              "workers/w_ocelot_sc.py": "009633bc28acbf20b0e816513d5e2600e1b6534f090dbb12a334d71863d29165",
+              "workers/w_slipstream.py": "872932f8e6c035c5cf5f6c3a48803b807552959ab257ad077b9f211be4a55ad9",
+              "workers/w_slipstream_sc.py": "019dab41b516f87f84cd24759615593b05f0967a861ceed9d98976bc18b4208e",
+              "workers/w_xsuite.py": "8605a1c54be4ac28bb613e585e1beae4860424fdef10aa1d26197493756f96fe",
+              "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
+            },
+            "inventory": {
+              "model": {
+                "n": 104,
+                "length": 48.00000000000002,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257901,
+                "k2L_abs": 32.0
+              },
+              "reference": {
+                "n": 104,
+                "length": 48.0,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257905,
+                "k2L_abs": 32.0
+              }
+            },
+            "versions": {
+              "xtrack": "0.111.6",
+              "xfields": "0.27.2",
+              "xobjects": "0.6.10"
+            },
+            "timing": {
+              "import_s": 1.7707424559630454,
+              "build_s": 44.021341372979805,
+              "cold_s": 0.19907285505905747,
+              "warm_s": {
+                "n": 2,
+                "median": 0.19707361108157784,
+                "q1": 0.19704332208493724,
+                "q3": 0.19710390007821843,
+                "min": 0.19701303308829665,
+                "max": 0.19713418907485902,
+                "samples": [
+                  0.19701303308829665,
+                  0.19713418907485902
+                ]
+              }
+            },
+            "memory": {
+              "rss_peak_bytes": 516497408
+            },
+            "repeat_maxdiff": 0.0,
+            "tbt_shape": [
+              5,
+              1024,
+              4
+            ]
+          },
+          "dq_ref": 8.126936212715652e-06,
+          "map_components": [
+            2.5330365278040945e-07,
+            2.3373989689514513e-07,
+            6.287918608504587e-08,
+            2.3964652172414613e-09
+          ]
+        },
+        {
+          "result": {
+            "schema": 1,
+            "code": "xsuite",
+            "case": "ring_tunes",
+            "config": {
+              "name": "cpu-f64-yosk8b16-exact",
+              "device": "cpu",
+              "dtype": "float64",
+              "integrator": "yoshida4",
+              "n_kicks": 8,
+              "n_kicks_bend": 16,
+              "explicit_exact": true
+            },
+            "rank": 9,
+            "job": {
+              "case_path": "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/cases/ring_tunes.json",
+              "config": "cpu-f64-yosk8b16-exact",
+              "repeats": 2,
+              "threads": 1,
+              "out_dir": "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/results/2026-10-26_R1_Xsuite_exact/ring_tunes/xsuite/cpu-f64-yosk8b16-exact/p2"
+            },
+            "status": "ok",
+            "warnings": [],
+            "provenance": {
+              "host": "DDAST0117",
+              "platform": "Linux-6.18.35.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+              "python": "3.12.13",
+              "cpu_count": 16,
+              "threads_env": {
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "NUMBA_NUM_THREADS": "1"
+              },
+              "gpu": {
+                "name": "NVIDIA GeForce RTX 3050",
+                "driver_version": "616.56",
+                "memory.total": "8192 MiB",
+                "clocks.sm": "210 MHz",
+                "clocks.max.sm": "2100 MHz",
+                "power.draw": "3.27 W",
+                "power.limit": "130.00 W",
+                "temperature.gpu": "31"
+              },
+              "argv": [
+                "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/workers/w_xsuite.py",
+                "--job",
+                "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/results/2026-10-26_R1_Xsuite_exact/ring_tunes/xsuite/cpu-f64-yosk8b16-exact/p2/job.json"
+              ],
+              "time_utc": "2026-10-26T13:38:26Z"
+            },
+            "case_sha256": "ef1c851cc69bc6d2711367a12d4406fff93ee8ffe7191898954cfd6fb16508cb",
+            "lattice_sha256": "919291d4e0945645bbdc1faea617d487714e4c9d2eb13ab5cb5be3c88e57c798",
+            "source_sha256": {
+              "analyse.py": "1c2fccfd63acce2b768a3e011d2551b4665b37743accc4453613a9626e8008f8",
+              "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
+              "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
+              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+              "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
+              "probe_elements.py": "23b991e9d6fb17ddc366150d6a2b5e811258027e7f51079b169a0390b6dd4770",
+              "publish_study.py": "f0436a075cacc8169251f6346c290f38ed41c1aa0a409a612d7d4d6be6520d19",
+              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
+              "test_study.py": "ea9a162317bdf488f1f262e6b3752bc15685c1844af61fad5371379b5e77ad97",
+              "workers/astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "workers/impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
+              "workers/w_astra.py": "4d584407fd1a9d4b16903368a6e59ef819145d1d491a65095c73ff8d100da52a",
+              "workers/w_bmadx.py": "080b3fe82730bc3bf695655f36d731d33298bcf2fb68fb1ab8866afd5f9e462c",
+              "workers/w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
+              "workers/w_cheetah_sc.py": "8251bfcc773ac5ac7eb8d823e6c10c41a7f82e30a975404ae96687c11d21ba71",
+              "workers/w_elegant.py": "bb5b91830c8a9fc99c3b4c5a24062dc08f6c28b18e2868a2c776eff9ed87794a",
+              "workers/w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
+              "workers/w_helix.py": "43458bd3ccd109227b9f08ce1dbb06b38af23094f5013aaad7f33d78569d7830",
+              "workers/w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
+              "workers/w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
+              "workers/w_ocelot_sc.py": "009633bc28acbf20b0e816513d5e2600e1b6534f090dbb12a334d71863d29165",
+              "workers/w_slipstream.py": "872932f8e6c035c5cf5f6c3a48803b807552959ab257ad077b9f211be4a55ad9",
+              "workers/w_slipstream_sc.py": "019dab41b516f87f84cd24759615593b05f0967a861ceed9d98976bc18b4208e",
+              "workers/w_xsuite.py": "8605a1c54be4ac28bb613e585e1beae4860424fdef10aa1d26197493756f96fe",
+              "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
+            },
+            "inventory": {
+              "model": {
+                "n": 104,
+                "length": 48.00000000000002,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257901,
+                "k2L_abs": 32.0
+              },
+              "reference": {
+                "n": 104,
+                "length": 48.0,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257905,
+                "k2L_abs": 32.0
+              }
+            },
+            "versions": {
+              "xtrack": "0.111.6",
+              "xfields": "0.27.2",
+              "xobjects": "0.6.10"
+            },
+            "timing": {
+              "import_s": 1.5226292531006038,
+              "build_s": 44.54769787797704,
+              "cold_s": 0.20097763184458017,
+              "warm_s": {
+                "n": 2,
+                "median": 0.20050470810383558,
+                "q1": 0.2003461766289547,
+                "q3": 0.20066323957871646,
+                "min": 0.20018764515407383,
+                "max": 0.20082177105359733,
+                "samples": [
+                  0.20082177105359733,
+                  0.20018764515407383
+                ]
+              }
+            },
+            "memory": {
+              "rss_peak_bytes": 516349952
+            },
+            "repeat_maxdiff": 0.0,
+            "tbt_shape": [
+              5,
+              1024,
+              4
+            ]
+          },
+          "dq_ref": 8.126936212715652e-06,
+          "map_components": [
+            2.5330365278040945e-07,
+            2.3373989689514513e-07,
+            6.287918608504587e-08,
+            2.3964652172414613e-09
+          ]
+        }
+      ],
+      "n_ok": 3,
+      "warm_s": 0.1993928279262036,
+      "dq_ref": 8.126936212715652e-06,
+      "map_components": [
+        2.5330365278040945e-07,
+        2.3373989689514513e-07,
+        6.287918608504587e-08,
+        2.3964652172414613e-09
+      ],
+      "pass": true
+    },
+    {
+      "case": "ring_tunes",
+      "config": "cpu-f64-yosk16b32-exact",
+      "jobs": [
+        {
+          "result": {
+            "schema": 1,
+            "code": "xsuite",
+            "case": "ring_tunes",
+            "config": {
+              "name": "cpu-f64-yosk16b32-exact",
+              "device": "cpu",
+              "dtype": "float64",
+              "integrator": "yoshida4",
+              "n_kicks": 16,
+              "n_kicks_bend": 32,
+              "explicit_exact": true
+            },
+            "rank": 10,
+            "job": {
+              "case_path": "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/cases/ring_tunes.json",
+              "config": "cpu-f64-yosk16b32-exact",
+              "repeats": 2,
+              "threads": 1,
+              "out_dir": "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/results/2026-10-26_R1_Xsuite_exact/ring_tunes/xsuite/cpu-f64-yosk16b32-exact/p0"
+            },
+            "status": "ok",
+            "warnings": [],
+            "provenance": {
+              "host": "DDAST0117",
+              "platform": "Linux-6.18.35.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+              "python": "3.12.13",
+              "cpu_count": 16,
+              "threads_env": {
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "NUMBA_NUM_THREADS": "1"
+              },
+              "gpu": {
+                "name": "NVIDIA GeForce RTX 3050",
+                "driver_version": "616.56",
+                "memory.total": "8192 MiB",
+                "clocks.sm": "210 MHz",
+                "clocks.max.sm": "2100 MHz",
+                "power.draw": "6.97 W",
+                "power.limit": "130.00 W",
+                "temperature.gpu": "34"
+              },
+              "argv": [
+                "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/workers/w_xsuite.py",
+                "--job",
+                "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/results/2026-10-26_R1_Xsuite_exact/ring_tunes/xsuite/cpu-f64-yosk16b32-exact/p0/job.json"
+              ],
+              "time_utc": "2026-10-26T13:23:48Z"
+            },
+            "case_sha256": "ef1c851cc69bc6d2711367a12d4406fff93ee8ffe7191898954cfd6fb16508cb",
+            "lattice_sha256": "919291d4e0945645bbdc1faea617d487714e4c9d2eb13ab5cb5be3c88e57c798",
+            "source_sha256": {
+              "analyse.py": "1c2fccfd63acce2b768a3e011d2551b4665b37743accc4453613a9626e8008f8",
+              "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
+              "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
+              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+              "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
+              "probe_elements.py": "23b991e9d6fb17ddc366150d6a2b5e811258027e7f51079b169a0390b6dd4770",
+              "publish_study.py": "f0436a075cacc8169251f6346c290f38ed41c1aa0a409a612d7d4d6be6520d19",
+              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
+              "test_study.py": "ea9a162317bdf488f1f262e6b3752bc15685c1844af61fad5371379b5e77ad97",
+              "workers/astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "workers/impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
+              "workers/w_astra.py": "4d584407fd1a9d4b16903368a6e59ef819145d1d491a65095c73ff8d100da52a",
+              "workers/w_bmadx.py": "080b3fe82730bc3bf695655f36d731d33298bcf2fb68fb1ab8866afd5f9e462c",
+              "workers/w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
+              "workers/w_cheetah_sc.py": "8251bfcc773ac5ac7eb8d823e6c10c41a7f82e30a975404ae96687c11d21ba71",
+              "workers/w_elegant.py": "bb5b91830c8a9fc99c3b4c5a24062dc08f6c28b18e2868a2c776eff9ed87794a",
+              "workers/w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
+              "workers/w_helix.py": "43458bd3ccd109227b9f08ce1dbb06b38af23094f5013aaad7f33d78569d7830",
+              "workers/w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
+              "workers/w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
+              "workers/w_ocelot_sc.py": "009633bc28acbf20b0e816513d5e2600e1b6534f090dbb12a334d71863d29165",
+              "workers/w_slipstream.py": "872932f8e6c035c5cf5f6c3a48803b807552959ab257ad077b9f211be4a55ad9",
+              "workers/w_slipstream_sc.py": "019dab41b516f87f84cd24759615593b05f0967a861ceed9d98976bc18b4208e",
+              "workers/w_xsuite.py": "8605a1c54be4ac28bb613e585e1beae4860424fdef10aa1d26197493756f96fe",
+              "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
+            },
+            "inventory": {
+              "model": {
+                "n": 104,
+                "length": 48.00000000000002,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257901,
+                "k2L_abs": 32.0
+              },
+              "reference": {
+                "n": 104,
+                "length": 48.0,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257905,
+                "k2L_abs": 32.0
+              }
+            },
+            "versions": {
+              "xtrack": "0.111.6",
+              "xfields": "0.27.2",
+              "xobjects": "0.6.10"
+            },
+            "timing": {
+              "import_s": 1.590351880993694,
+              "build_s": 44.56580717698671,
+              "cold_s": 0.30662222718819976,
+              "warm_s": {
+                "n": 2,
+                "median": 0.3019476750632748,
+                "q1": 0.30185177602106705,
+                "q3": 0.30204357410548255,
+                "min": 0.3017558769788593,
+                "max": 0.3021394731476903,
+                "samples": [
+                  0.3021394731476903,
+                  0.3017558769788593
+                ]
+              }
+            },
+            "memory": {
+              "rss_peak_bytes": 516448256
+            },
+            "repeat_maxdiff": 0.0,
+            "tbt_shape": [
+              5,
+              1024,
+              4
+            ]
+          },
+          "dq_ref": 2.5098554224112224e-06,
+          "map_components": [
+            2.0031820365667974e-07,
+            1.2213635936604225e-07,
+            2.04835833547733e-08,
+            5.097684300505931e-10
+          ]
+        },
+        {
+          "result": {
+            "schema": 1,
+            "code": "xsuite",
+            "case": "ring_tunes",
+            "config": {
+              "name": "cpu-f64-yosk16b32-exact",
+              "device": "cpu",
+              "dtype": "float64",
+              "integrator": "yoshida4",
+              "n_kicks": 16,
+              "n_kicks_bend": 32,
+              "explicit_exact": true
+            },
+            "rank": 10,
+            "job": {
+              "case_path": "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/cases/ring_tunes.json",
+              "config": "cpu-f64-yosk16b32-exact",
+              "repeats": 2,
+              "threads": 1,
+              "out_dir": "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/results/2026-10-26_R1_Xsuite_exact/ring_tunes/xsuite/cpu-f64-yosk16b32-exact/p1"
+            },
+            "status": "ok",
+            "warnings": [],
+            "provenance": {
+              "host": "DDAST0117",
+              "platform": "Linux-6.18.35.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+              "python": "3.12.13",
+              "cpu_count": 16,
+              "threads_env": {
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "NUMBA_NUM_THREADS": "1"
+              },
+              "gpu": {
+                "name": "NVIDIA GeForce RTX 3050",
+                "driver_version": "616.56",
+                "memory.total": "8192 MiB",
+                "clocks.sm": "210 MHz",
+                "clocks.max.sm": "2100 MHz",
+                "power.draw": "3.41 W",
+                "power.limit": "130.00 W",
+                "temperature.gpu": "32"
+              },
+              "argv": [
+                "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/workers/w_xsuite.py",
+                "--job",
+                "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/results/2026-10-26_R1_Xsuite_exact/ring_tunes/xsuite/cpu-f64-yosk16b32-exact/p1/job.json"
+              ],
+              "time_utc": "2026-10-26T13:36:44Z"
+            },
+            "case_sha256": "ef1c851cc69bc6d2711367a12d4406fff93ee8ffe7191898954cfd6fb16508cb",
+            "lattice_sha256": "919291d4e0945645bbdc1faea617d487714e4c9d2eb13ab5cb5be3c88e57c798",
+            "source_sha256": {
+              "analyse.py": "1c2fccfd63acce2b768a3e011d2551b4665b37743accc4453613a9626e8008f8",
+              "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
+              "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
+              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+              "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
+              "probe_elements.py": "23b991e9d6fb17ddc366150d6a2b5e811258027e7f51079b169a0390b6dd4770",
+              "publish_study.py": "f0436a075cacc8169251f6346c290f38ed41c1aa0a409a612d7d4d6be6520d19",
+              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
+              "test_study.py": "ea9a162317bdf488f1f262e6b3752bc15685c1844af61fad5371379b5e77ad97",
+              "workers/astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "workers/impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
+              "workers/w_astra.py": "4d584407fd1a9d4b16903368a6e59ef819145d1d491a65095c73ff8d100da52a",
+              "workers/w_bmadx.py": "080b3fe82730bc3bf695655f36d731d33298bcf2fb68fb1ab8866afd5f9e462c",
+              "workers/w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
+              "workers/w_cheetah_sc.py": "8251bfcc773ac5ac7eb8d823e6c10c41a7f82e30a975404ae96687c11d21ba71",
+              "workers/w_elegant.py": "bb5b91830c8a9fc99c3b4c5a24062dc08f6c28b18e2868a2c776eff9ed87794a",
+              "workers/w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
+              "workers/w_helix.py": "43458bd3ccd109227b9f08ce1dbb06b38af23094f5013aaad7f33d78569d7830",
+              "workers/w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
+              "workers/w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
+              "workers/w_ocelot_sc.py": "009633bc28acbf20b0e816513d5e2600e1b6534f090dbb12a334d71863d29165",
+              "workers/w_slipstream.py": "872932f8e6c035c5cf5f6c3a48803b807552959ab257ad077b9f211be4a55ad9",
+              "workers/w_slipstream_sc.py": "019dab41b516f87f84cd24759615593b05f0967a861ceed9d98976bc18b4208e",
+              "workers/w_xsuite.py": "8605a1c54be4ac28bb613e585e1beae4860424fdef10aa1d26197493756f96fe",
+              "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
+            },
+            "inventory": {
+              "model": {
+                "n": 104,
+                "length": 48.00000000000002,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257901,
+                "k2L_abs": 32.0
+              },
+              "reference": {
+                "n": 104,
+                "length": 48.0,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257905,
+                "k2L_abs": 32.0
+              }
+            },
+            "versions": {
+              "xtrack": "0.111.6",
+              "xfields": "0.27.2",
+              "xobjects": "0.6.10"
+            },
+            "timing": {
+              "import_s": 1.5669513521715999,
+              "build_s": 44.950407766969875,
+              "cold_s": 0.30303843901492655,
+              "warm_s": {
+                "n": 2,
+                "median": 0.30423454544506967,
+                "q1": 0.3035024261334911,
+                "q3": 0.30496666475664824,
+                "min": 0.3027703068219125,
+                "max": 0.3056987840682268,
+                "samples": [
+                  0.3027703068219125,
+                  0.3056987840682268
+                ]
+              }
+            },
+            "memory": {
+              "rss_peak_bytes": 516587520
+            },
+            "repeat_maxdiff": 0.0,
+            "tbt_shape": [
+              5,
+              1024,
+              4
+            ]
+          },
+          "dq_ref": 2.5098554224112224e-06,
+          "map_components": [
+            2.0031820365667974e-07,
+            1.2213635936604225e-07,
+            2.04835833547733e-08,
+            5.097684300505931e-10
+          ]
+        },
+        {
+          "result": {
+            "schema": 1,
+            "code": "xsuite",
+            "case": "ring_tunes",
+            "config": {
+              "name": "cpu-f64-yosk16b32-exact",
+              "device": "cpu",
+              "dtype": "float64",
+              "integrator": "yoshida4",
+              "n_kicks": 16,
+              "n_kicks_bend": 32,
+              "explicit_exact": true
+            },
+            "rank": 10,
+            "job": {
+              "case_path": "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/cases/ring_tunes.json",
+              "config": "cpu-f64-yosk16b32-exact",
+              "repeats": 2,
+              "threads": 1,
+              "out_dir": "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/results/2026-10-26_R1_Xsuite_exact/ring_tunes/xsuite/cpu-f64-yosk16b32-exact/p2"
+            },
+            "status": "ok",
+            "warnings": [],
+            "provenance": {
+              "host": "DDAST0117",
+              "platform": "Linux-6.18.35.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+              "python": "3.12.13",
+              "cpu_count": 16,
+              "threads_env": {
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "NUMBA_NUM_THREADS": "1"
+              },
+              "gpu": {
+                "name": "NVIDIA GeForce RTX 3050",
+                "driver_version": "616.56",
+                "memory.total": "8192 MiB",
+                "clocks.sm": "210 MHz",
+                "clocks.max.sm": "2100 MHz",
+                "power.draw": "3.25 W",
+                "power.limit": "130.00 W",
+                "temperature.gpu": "31"
+              },
+              "argv": [
+                "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/workers/w_xsuite.py",
+                "--job",
+                "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/results/2026-10-26_R1_Xsuite_exact/ring_tunes/xsuite/cpu-f64-yosk16b32-exact/p2/job.json"
+              ],
+              "time_utc": "2026-10-26T13:37:35Z"
+            },
+            "case_sha256": "ef1c851cc69bc6d2711367a12d4406fff93ee8ffe7191898954cfd6fb16508cb",
+            "lattice_sha256": "919291d4e0945645bbdc1faea617d487714e4c9d2eb13ab5cb5be3c88e57c798",
+            "source_sha256": {
+              "analyse.py": "1c2fccfd63acce2b768a3e011d2551b4665b37743accc4453613a9626e8008f8",
+              "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
+              "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
+              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+              "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
+              "probe_elements.py": "23b991e9d6fb17ddc366150d6a2b5e811258027e7f51079b169a0390b6dd4770",
+              "publish_study.py": "f0436a075cacc8169251f6346c290f38ed41c1aa0a409a612d7d4d6be6520d19",
+              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
+              "test_study.py": "ea9a162317bdf488f1f262e6b3752bc15685c1844af61fad5371379b5e77ad97",
+              "workers/astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "workers/impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
+              "workers/w_astra.py": "4d584407fd1a9d4b16903368a6e59ef819145d1d491a65095c73ff8d100da52a",
+              "workers/w_bmadx.py": "080b3fe82730bc3bf695655f36d731d33298bcf2fb68fb1ab8866afd5f9e462c",
+              "workers/w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
+              "workers/w_cheetah_sc.py": "8251bfcc773ac5ac7eb8d823e6c10c41a7f82e30a975404ae96687c11d21ba71",
+              "workers/w_elegant.py": "bb5b91830c8a9fc99c3b4c5a24062dc08f6c28b18e2868a2c776eff9ed87794a",
+              "workers/w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
+              "workers/w_helix.py": "43458bd3ccd109227b9f08ce1dbb06b38af23094f5013aaad7f33d78569d7830",
+              "workers/w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
+              "workers/w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
+              "workers/w_ocelot_sc.py": "009633bc28acbf20b0e816513d5e2600e1b6534f090dbb12a334d71863d29165",
+              "workers/w_slipstream.py": "872932f8e6c035c5cf5f6c3a48803b807552959ab257ad077b9f211be4a55ad9",
+              "workers/w_slipstream_sc.py": "019dab41b516f87f84cd24759615593b05f0967a861ceed9d98976bc18b4208e",
+              "workers/w_xsuite.py": "8605a1c54be4ac28bb613e585e1beae4860424fdef10aa1d26197493756f96fe",
+              "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
+            },
+            "inventory": {
+              "model": {
+                "n": 104,
+                "length": 48.00000000000002,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257901,
+                "k2L_abs": 32.0
+              },
+              "reference": {
+                "n": 104,
+                "length": 48.0,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257905,
+                "k2L_abs": 32.0
+              }
+            },
+            "versions": {
+              "xtrack": "0.111.6",
+              "xfields": "0.27.2",
+              "xobjects": "0.6.10"
+            },
+            "timing": {
+              "import_s": 1.5245458870194852,
+              "build_s": 44.306543801911175,
+              "cold_s": 0.30838543199934065,
+              "warm_s": {
+                "n": 2,
+                "median": 0.30648942687548697,
+                "q1": 0.3061111983843148,
+                "q3": 0.30686765536665916,
+                "min": 0.3057329698931426,
+                "max": 0.30724588385783136,
+                "samples": [
+                  0.3057329698931426,
+                  0.30724588385783136
+                ]
+              }
+            },
+            "memory": {
+              "rss_peak_bytes": 516370432
+            },
+            "repeat_maxdiff": 0.0,
+            "tbt_shape": [
+              5,
+              1024,
+              4
+            ]
+          },
+          "dq_ref": 2.5098554224112224e-06,
+          "map_components": [
+            2.0031820365667974e-07,
+            1.2213635936604225e-07,
+            2.04835833547733e-08,
+            5.097684300505931e-10
+          ]
+        }
+      ],
+      "n_ok": 3,
+      "warm_s": 0.30423454544506967,
+      "dq_ref": 2.5098554224112224e-06,
+      "map_components": [
+        2.0031820365667974e-07,
+        1.2213635936604225e-07,
+        2.04835833547733e-08,
+        5.097684300505931e-10
+      ],
+      "pass": true
+    },
+    {
+      "case": "ring_tunes",
+      "config": "cuda-f64-yosk8b16-exact",
+      "jobs": [
+        {
+          "result": {
+            "schema": 1,
+            "code": "xsuite",
+            "case": "ring_tunes",
+            "config": {
+              "name": "cuda-f64-yosk8b16-exact",
+              "device": "cuda",
+              "dtype": "float64",
+              "integrator": "yoshida4",
+              "n_kicks": 8,
+              "n_kicks_bend": 16,
+              "explicit_exact": true
+            },
+            "rank": 8,
+            "job": {
+              "case_path": "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/cases/ring_tunes.json",
+              "config": "cuda-f64-yosk8b16-exact",
+              "repeats": 2,
+              "threads": 1,
+              "out_dir": "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/results/2026-10-26_R1_Xsuite_exact/ring_tunes/xsuite/cuda-f64-yosk8b16-exact/p0"
+            },
+            "status": "ok",
+            "warnings": [],
+            "provenance": {
+              "host": "DDAST0117",
+              "platform": "Linux-6.18.35.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+              "python": "3.12.13",
+              "cpu_count": 16,
+              "threads_env": {
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "NUMBA_NUM_THREADS": "1"
+              },
+              "gpu": {
+                "name": "NVIDIA GeForce RTX 3050",
+                "driver_version": "616.56",
+                "memory.total": "8192 MiB",
+                "clocks.sm": "210 MHz",
+                "clocks.max.sm": "2100 MHz",
+                "power.draw": "6.93 W",
+                "power.limit": "130.00 W",
+                "temperature.gpu": "34"
+              },
+              "argv": [
+                "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/workers/w_xsuite.py",
+                "--job",
+                "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/results/2026-10-26_R1_Xsuite_exact/ring_tunes/xsuite/cuda-f64-yosk8b16-exact/p0/job.json"
+              ],
+              "time_utc": "2026-10-26T13:24:39Z"
+            },
+            "case_sha256": "ef1c851cc69bc6d2711367a12d4406fff93ee8ffe7191898954cfd6fb16508cb",
+            "lattice_sha256": "919291d4e0945645bbdc1faea617d487714e4c9d2eb13ab5cb5be3c88e57c798",
+            "source_sha256": {
+              "analyse.py": "1c2fccfd63acce2b768a3e011d2551b4665b37743accc4453613a9626e8008f8",
+              "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
+              "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
+              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+              "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
+              "probe_elements.py": "23b991e9d6fb17ddc366150d6a2b5e811258027e7f51079b169a0390b6dd4770",
+              "publish_study.py": "f0436a075cacc8169251f6346c290f38ed41c1aa0a409a612d7d4d6be6520d19",
+              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
+              "test_study.py": "ea9a162317bdf488f1f262e6b3752bc15685c1844af61fad5371379b5e77ad97",
+              "workers/astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "workers/impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
+              "workers/w_astra.py": "4d584407fd1a9d4b16903368a6e59ef819145d1d491a65095c73ff8d100da52a",
+              "workers/w_bmadx.py": "080b3fe82730bc3bf695655f36d731d33298bcf2fb68fb1ab8866afd5f9e462c",
+              "workers/w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
+              "workers/w_cheetah_sc.py": "8251bfcc773ac5ac7eb8d823e6c10c41a7f82e30a975404ae96687c11d21ba71",
+              "workers/w_elegant.py": "bb5b91830c8a9fc99c3b4c5a24062dc08f6c28b18e2868a2c776eff9ed87794a",
+              "workers/w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
+              "workers/w_helix.py": "43458bd3ccd109227b9f08ce1dbb06b38af23094f5013aaad7f33d78569d7830",
+              "workers/w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
+              "workers/w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
+              "workers/w_ocelot_sc.py": "009633bc28acbf20b0e816513d5e2600e1b6534f090dbb12a334d71863d29165",
+              "workers/w_slipstream.py": "872932f8e6c035c5cf5f6c3a48803b807552959ab257ad077b9f211be4a55ad9",
+              "workers/w_slipstream_sc.py": "019dab41b516f87f84cd24759615593b05f0967a861ceed9d98976bc18b4208e",
+              "workers/w_xsuite.py": "8605a1c54be4ac28bb613e585e1beae4860424fdef10aa1d26197493756f96fe",
+              "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
+            },
+            "inventory": {
+              "model": {
+                "n": 104,
+                "length": 48.00000000000002,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257901,
+                "k2L_abs": 32.0
+              },
+              "reference": {
+                "n": 104,
+                "length": 48.0,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257905,
+                "k2L_abs": 32.0
+              }
+            },
+            "versions": {
+              "xtrack": "0.111.6",
+              "xfields": "0.27.2",
+              "xobjects": "0.6.10"
+            },
+            "timing": {
+              "import_s": 1.5099613720085472,
+              "build_s": 316.11880946718156,
+              "cold_s": 5.1361425279174,
+              "warm_s": {
+                "n": 2,
+                "median": 4.759577841963619,
+                "q1": 4.759409182937816,
+                "q3": 4.759746500989422,
+                "min": 4.759240523912013,
+                "max": 4.759915160015225,
+                "samples": [
+                  4.759240523912013,
+                  4.759915160015225
+                ]
+              }
+            },
+            "memory": {
+              "rss_peak_bytes": 2177486848,
+              "cuda_pool_total_bytes": 3626496
+            },
+            "repeat_maxdiff": 0.0,
+            "tbt_shape": [
+              5,
+              1024,
+              4
+            ]
+          },
+          "dq_ref": 8.126953352949329e-06,
+          "map_components": [
+            2.5330365235887164e-07,
+            2.3373989674465787e-07,
+            6.287918607886592e-08,
+            2.396465216997516e-09
+          ]
+        },
+        {
+          "result": {
+            "schema": 1,
+            "code": "xsuite",
+            "case": "ring_tunes",
+            "config": {
+              "name": "cuda-f64-yosk8b16-exact",
+              "device": "cuda",
+              "dtype": "float64",
+              "integrator": "yoshida4",
+              "n_kicks": 8,
+              "n_kicks_bend": 16,
+              "explicit_exact": true
+            },
+            "rank": 8,
+            "job": {
+              "case_path": "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/cases/ring_tunes.json",
+              "config": "cuda-f64-yosk8b16-exact",
+              "repeats": 2,
+              "threads": 1,
+              "out_dir": "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/results/2026-10-26_R1_Xsuite_exact/ring_tunes/xsuite/cuda-f64-yosk8b16-exact/p1"
+            },
+            "status": "ok",
+            "warnings": [],
+            "provenance": {
+              "host": "DDAST0117",
+              "platform": "Linux-6.18.35.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+              "python": "3.12.13",
+              "cpu_count": 16,
+              "threads_env": {
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "NUMBA_NUM_THREADS": "1"
+              },
+              "gpu": {
+                "name": "NVIDIA GeForce RTX 3050",
+                "driver_version": "616.56",
+                "memory.total": "8192 MiB",
+                "clocks.sm": "210 MHz",
+                "clocks.max.sm": "2100 MHz",
+                "power.draw": "3.16 W",
+                "power.limit": "130.00 W",
+                "temperature.gpu": "30"
+              },
+              "argv": [
+                "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/workers/w_xsuite.py",
+                "--job",
+                "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/results/2026-10-26_R1_Xsuite_exact/ring_tunes/xsuite/cuda-f64-yosk8b16-exact/p1/job.json"
+              ],
+              "time_utc": "2026-10-26T13:40:09Z"
+            },
+            "case_sha256": "ef1c851cc69bc6d2711367a12d4406fff93ee8ffe7191898954cfd6fb16508cb",
+            "lattice_sha256": "919291d4e0945645bbdc1faea617d487714e4c9d2eb13ab5cb5be3c88e57c798",
+            "source_sha256": {
+              "analyse.py": "1c2fccfd63acce2b768a3e011d2551b4665b37743accc4453613a9626e8008f8",
+              "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
+              "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
+              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+              "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
+              "probe_elements.py": "23b991e9d6fb17ddc366150d6a2b5e811258027e7f51079b169a0390b6dd4770",
+              "publish_study.py": "f0436a075cacc8169251f6346c290f38ed41c1aa0a409a612d7d4d6be6520d19",
+              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
+              "test_study.py": "ea9a162317bdf488f1f262e6b3752bc15685c1844af61fad5371379b5e77ad97",
+              "workers/astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "workers/impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
+              "workers/w_astra.py": "4d584407fd1a9d4b16903368a6e59ef819145d1d491a65095c73ff8d100da52a",
+              "workers/w_bmadx.py": "080b3fe82730bc3bf695655f36d731d33298bcf2fb68fb1ab8866afd5f9e462c",
+              "workers/w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
+              "workers/w_cheetah_sc.py": "8251bfcc773ac5ac7eb8d823e6c10c41a7f82e30a975404ae96687c11d21ba71",
+              "workers/w_elegant.py": "bb5b91830c8a9fc99c3b4c5a24062dc08f6c28b18e2868a2c776eff9ed87794a",
+              "workers/w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
+              "workers/w_helix.py": "43458bd3ccd109227b9f08ce1dbb06b38af23094f5013aaad7f33d78569d7830",
+              "workers/w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
+              "workers/w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
+              "workers/w_ocelot_sc.py": "009633bc28acbf20b0e816513d5e2600e1b6534f090dbb12a334d71863d29165",
+              "workers/w_slipstream.py": "872932f8e6c035c5cf5f6c3a48803b807552959ab257ad077b9f211be4a55ad9",
+              "workers/w_slipstream_sc.py": "019dab41b516f87f84cd24759615593b05f0967a861ceed9d98976bc18b4208e",
+              "workers/w_xsuite.py": "8605a1c54be4ac28bb613e585e1beae4860424fdef10aa1d26197493756f96fe",
+              "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
+            },
+            "inventory": {
+              "model": {
+                "n": 104,
+                "length": 48.00000000000002,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257901,
+                "k2L_abs": 32.0
+              },
+              "reference": {
+                "n": 104,
+                "length": 48.0,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257905,
+                "k2L_abs": 32.0
+              }
+            },
+            "versions": {
+              "xtrack": "0.111.6",
+              "xfields": "0.27.2",
+              "xobjects": "0.6.10"
+            },
+            "timing": {
+              "import_s": 1.5440134569071233,
+              "build_s": 317.90132585912943,
+              "cold_s": 5.044629296986386,
+              "warm_s": {
+                "n": 2,
+                "median": 4.760091964970343,
+                "q1": 4.759751938458066,
+                "q3": 4.760431991482619,
+                "min": 4.75941191194579,
+                "max": 4.760772017994896,
+                "samples": [
+                  4.760772017994896,
+                  4.75941191194579
+                ]
+              }
+            },
+            "memory": {
+              "rss_peak_bytes": 2181476352,
+              "cuda_pool_total_bytes": 3626496
+            },
+            "repeat_maxdiff": 0.0,
+            "tbt_shape": [
+              5,
+              1024,
+              4
+            ]
+          },
+          "dq_ref": 8.126953352949329e-06,
+          "map_components": [
+            2.5330365235887164e-07,
+            2.3373989674465787e-07,
+            6.287918607886592e-08,
+            2.396465216997516e-09
+          ]
+        },
+        {
+          "result": {
+            "schema": 1,
+            "code": "xsuite",
+            "case": "ring_tunes",
+            "config": {
+              "name": "cuda-f64-yosk8b16-exact",
+              "device": "cuda",
+              "dtype": "float64",
+              "integrator": "yoshida4",
+              "n_kicks": 8,
+              "n_kicks_bend": 16,
+              "explicit_exact": true
+            },
+            "rank": 8,
+            "job": {
+              "case_path": "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/cases/ring_tunes.json",
+              "config": "cuda-f64-yosk8b16-exact",
+              "repeats": 2,
+              "threads": 1,
+              "out_dir": "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/results/2026-10-26_R1_Xsuite_exact/ring_tunes/xsuite/cuda-f64-yosk8b16-exact/p2"
+            },
+            "status": "ok",
+            "warnings": [],
+            "provenance": {
+              "host": "DDAST0117",
+              "platform": "Linux-6.18.35.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+              "python": "3.12.13",
+              "cpu_count": 16,
+              "threads_env": {
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "NUMBA_NUM_THREADS": "1"
+              },
+              "gpu": {
+                "name": "NVIDIA GeForce RTX 3050",
+                "driver_version": "616.56",
+                "memory.total": "8192 MiB",
+                "clocks.sm": "1950 MHz",
+                "clocks.max.sm": "2100 MHz",
+                "power.draw": "25.67 W",
+                "power.limit": "130.00 W",
+                "temperature.gpu": "36"
+              },
+              "argv": [
+                "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/workers/w_xsuite.py",
+                "--job",
+                "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/results/2026-10-26_R1_Xsuite_exact/ring_tunes/xsuite/cuda-f64-yosk8b16-exact/p2/job.json"
+              ],
+              "time_utc": "2026-10-26T13:30:16Z"
+            },
+            "case_sha256": "ef1c851cc69bc6d2711367a12d4406fff93ee8ffe7191898954cfd6fb16508cb",
+            "lattice_sha256": "919291d4e0945645bbdc1faea617d487714e4c9d2eb13ab5cb5be3c88e57c798",
+            "source_sha256": {
+              "analyse.py": "1c2fccfd63acce2b768a3e011d2551b4665b37743accc4453613a9626e8008f8",
+              "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
+              "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
+              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+              "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
+              "probe_elements.py": "23b991e9d6fb17ddc366150d6a2b5e811258027e7f51079b169a0390b6dd4770",
+              "publish_study.py": "f0436a075cacc8169251f6346c290f38ed41c1aa0a409a612d7d4d6be6520d19",
+              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
+              "test_study.py": "ea9a162317bdf488f1f262e6b3752bc15685c1844af61fad5371379b5e77ad97",
+              "workers/astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "workers/impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
+              "workers/w_astra.py": "4d584407fd1a9d4b16903368a6e59ef819145d1d491a65095c73ff8d100da52a",
+              "workers/w_bmadx.py": "080b3fe82730bc3bf695655f36d731d33298bcf2fb68fb1ab8866afd5f9e462c",
+              "workers/w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
+              "workers/w_cheetah_sc.py": "8251bfcc773ac5ac7eb8d823e6c10c41a7f82e30a975404ae96687c11d21ba71",
+              "workers/w_elegant.py": "bb5b91830c8a9fc99c3b4c5a24062dc08f6c28b18e2868a2c776eff9ed87794a",
+              "workers/w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
+              "workers/w_helix.py": "43458bd3ccd109227b9f08ce1dbb06b38af23094f5013aaad7f33d78569d7830",
+              "workers/w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
+              "workers/w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
+              "workers/w_ocelot_sc.py": "009633bc28acbf20b0e816513d5e2600e1b6534f090dbb12a334d71863d29165",
+              "workers/w_slipstream.py": "872932f8e6c035c5cf5f6c3a48803b807552959ab257ad077b9f211be4a55ad9",
+              "workers/w_slipstream_sc.py": "019dab41b516f87f84cd24759615593b05f0967a861ceed9d98976bc18b4208e",
+              "workers/w_xsuite.py": "8605a1c54be4ac28bb613e585e1beae4860424fdef10aa1d26197493756f96fe",
+              "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
+            },
+            "inventory": {
+              "model": {
+                "n": 104,
+                "length": 48.00000000000002,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257901,
+                "k2L_abs": 32.0
+              },
+              "reference": {
+                "n": 104,
+                "length": 48.0,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257905,
+                "k2L_abs": 32.0
+              }
+            },
+            "versions": {
+              "xtrack": "0.111.6",
+              "xfields": "0.27.2",
+              "xobjects": "0.6.10"
+            },
+            "timing": {
+              "import_s": 1.743343599839136,
+              "build_s": 314.6297153090127,
+              "cold_s": 5.116212656022981,
+              "warm_s": {
+                "n": 2,
+                "median": 4.7607799174729735,
+                "q1": 4.760671476717107,
+                "q3": 4.76088835822884,
+                "min": 4.7605630359612405,
+                "max": 4.760996798984706,
+                "samples": [
+                  4.7605630359612405,
+                  4.760996798984706
+                ]
+              }
+            },
+            "memory": {
+              "rss_peak_bytes": 2178613248,
+              "cuda_pool_total_bytes": 3626496
+            },
+            "repeat_maxdiff": 0.0,
+            "tbt_shape": [
+              5,
+              1024,
+              4
+            ]
+          },
+          "dq_ref": 8.126953352949329e-06,
+          "map_components": [
+            2.5330365235887164e-07,
+            2.3373989674465787e-07,
+            6.287918607886592e-08,
+            2.396465216997516e-09
+          ]
+        }
+      ],
+      "n_ok": 3,
+      "warm_s": 4.760091964970343,
+      "dq_ref": 8.126953352949329e-06,
+      "map_components": [
+        2.5330365235887164e-07,
+        2.3373989674465787e-07,
+        6.287918607886592e-08,
+        2.396465216997516e-09
+      ],
+      "pass": true
+    },
+    {
+      "case": "ring_grad",
+      "config": "cpu-f64-yosk8b16-exact",
+      "jobs": [
+        {
+          "result": {
+            "schema": 1,
+            "code": "xsuite",
+            "case": "ring_grad",
+            "config": {
+              "name": "cpu-f64-yosk8b16-exact",
+              "device": "cpu",
+              "dtype": "float64",
+              "integrator": "yoshida4",
+              "n_kicks": 8,
+              "n_kicks_bend": 16,
+              "explicit_exact": true
+            },
+            "rank": 9,
+            "job": {
+              "case_path": "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/cases/ring_grad.json",
+              "config": "cpu-f64-yosk8b16-exact",
+              "repeats": 2,
+              "threads": 1,
+              "out_dir": "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/results/2026-10-26_R1_Xsuite_exact/ring_grad/xsuite/cpu-f64-yosk8b16-exact/p0"
+            },
+            "status": "ok",
+            "warnings": [],
+            "provenance": {
+              "host": "DDAST0117",
+              "platform": "Linux-6.18.35.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+              "python": "3.12.13",
+              "cpu_count": 16,
+              "threads_env": {
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "NUMBA_NUM_THREADS": "1"
+              },
+              "gpu": {
+                "name": "NVIDIA GeForce RTX 3050",
+                "driver_version": "616.56",
+                "memory.total": "8192 MiB",
+                "clocks.sm": "210 MHz",
+                "clocks.max.sm": "2100 MHz",
+                "power.draw": "3.46 W",
+                "power.limit": "130.00 W",
+                "temperature.gpu": "31"
+              },
+              "argv": [
+                "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/workers/w_xsuite.py",
+                "--job",
+                "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/results/2026-10-26_R1_Xsuite_exact/ring_grad/xsuite/cpu-f64-yosk8b16-exact/p0/job.json"
+              ],
+              "time_utc": "2026-10-26T13:48:59Z"
+            },
+            "case_sha256": "fbbf0a76fe2454460bc52be2ab1b140bdcdb63532afea28a8749c750e006046a",
+            "lattice_sha256": "919291d4e0945645bbdc1faea617d487714e4c9d2eb13ab5cb5be3c88e57c798",
+            "source_sha256": {
+              "analyse.py": "1c2fccfd63acce2b768a3e011d2551b4665b37743accc4453613a9626e8008f8",
+              "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
+              "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
+              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+              "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
+              "probe_elements.py": "23b991e9d6fb17ddc366150d6a2b5e811258027e7f51079b169a0390b6dd4770",
+              "publish_study.py": "f0436a075cacc8169251f6346c290f38ed41c1aa0a409a612d7d4d6be6520d19",
+              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
+              "test_study.py": "ea9a162317bdf488f1f262e6b3752bc15685c1844af61fad5371379b5e77ad97",
+              "workers/astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "workers/impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
+              "workers/w_astra.py": "4d584407fd1a9d4b16903368a6e59ef819145d1d491a65095c73ff8d100da52a",
+              "workers/w_bmadx.py": "080b3fe82730bc3bf695655f36d731d33298bcf2fb68fb1ab8866afd5f9e462c",
+              "workers/w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
+              "workers/w_cheetah_sc.py": "8251bfcc773ac5ac7eb8d823e6c10c41a7f82e30a975404ae96687c11d21ba71",
+              "workers/w_elegant.py": "bb5b91830c8a9fc99c3b4c5a24062dc08f6c28b18e2868a2c776eff9ed87794a",
+              "workers/w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
+              "workers/w_helix.py": "43458bd3ccd109227b9f08ce1dbb06b38af23094f5013aaad7f33d78569d7830",
+              "workers/w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
+              "workers/w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
+              "workers/w_ocelot_sc.py": "009633bc28acbf20b0e816513d5e2600e1b6534f090dbb12a334d71863d29165",
+              "workers/w_slipstream.py": "872932f8e6c035c5cf5f6c3a48803b807552959ab257ad077b9f211be4a55ad9",
+              "workers/w_slipstream_sc.py": "019dab41b516f87f84cd24759615593b05f0967a861ceed9d98976bc18b4208e",
+              "workers/w_xsuite.py": "8605a1c54be4ac28bb613e585e1beae4860424fdef10aa1d26197493756f96fe",
+              "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
+            },
+            "inventory": {
+              "model": {
+                "n": 104,
+                "length": 48.00000000000002,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257901,
+                "k2L_abs": 32.0
+              },
+              "reference": {
+                "n": 104,
+                "length": 48.0,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257905,
+                "k2L_abs": 32.0
+              }
+            },
+            "forward_s": 0.0047113841865211725,
+            "fd_s": {
+              "0.01": 0.03933179494924843,
+              "0.001": 0.03842372796498239,
+              "0.0001": 0.03825736604630947,
+              "1e-05": 0.040707339998334646
+            },
+            "versions": {
+              "xtrack": "0.111.6",
+              "xfields": "0.27.2",
+              "xobjects": "0.6.10"
+            },
+            "timing": {
+              "import_s": 1.4952457749750465,
+              "build_s": 43.699865927919745
+            },
+            "memory": {
+              "rss_peak_bytes": 528351232
+            }
+          },
+          "rel_fro": 0.001541805350991313,
+          "rel_col": 0.01862575121660883
+        },
+        {
+          "result": {
+            "schema": 1,
+            "code": "xsuite",
+            "case": "ring_grad",
+            "config": {
+              "name": "cpu-f64-yosk8b16-exact",
+              "device": "cpu",
+              "dtype": "float64",
+              "integrator": "yoshida4",
+              "n_kicks": 8,
+              "n_kicks_bend": 16,
+              "explicit_exact": true
+            },
+            "rank": 9,
+            "job": {
+              "case_path": "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/cases/ring_grad.json",
+              "config": "cpu-f64-yosk8b16-exact",
+              "repeats": 2,
+              "threads": 1,
+              "out_dir": "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/results/2026-10-26_R1_Xsuite_exact/ring_grad/xsuite/cpu-f64-yosk8b16-exact/p1"
+            },
+            "status": "ok",
+            "warnings": [],
+            "provenance": {
+              "host": "DDAST0117",
+              "platform": "Linux-6.18.35.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+              "python": "3.12.13",
+              "cpu_count": 16,
+              "threads_env": {
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "NUMBA_NUM_THREADS": "1"
+              },
+              "gpu": {
+                "name": "NVIDIA GeForce RTX 3050",
+                "driver_version": "616.56",
+                "memory.total": "8192 MiB",
+                "clocks.sm": "210 MHz",
+                "clocks.max.sm": "2100 MHz",
+                "power.draw": "3.51 W",
+                "power.limit": "130.00 W",
+                "temperature.gpu": "32"
+              },
+              "argv": [
+                "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/workers/w_xsuite.py",
+                "--job",
+                "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/results/2026-10-26_R1_Xsuite_exact/ring_grad/xsuite/cpu-f64-yosk8b16-exact/p1/job.json"
+              ],
+              "time_utc": "2026-10-26T13:45:51Z"
+            },
+            "case_sha256": "fbbf0a76fe2454460bc52be2ab1b140bdcdb63532afea28a8749c750e006046a",
+            "lattice_sha256": "919291d4e0945645bbdc1faea617d487714e4c9d2eb13ab5cb5be3c88e57c798",
+            "source_sha256": {
+              "analyse.py": "1c2fccfd63acce2b768a3e011d2551b4665b37743accc4453613a9626e8008f8",
+              "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
+              "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
+              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+              "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
+              "probe_elements.py": "23b991e9d6fb17ddc366150d6a2b5e811258027e7f51079b169a0390b6dd4770",
+              "publish_study.py": "f0436a075cacc8169251f6346c290f38ed41c1aa0a409a612d7d4d6be6520d19",
+              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
+              "test_study.py": "ea9a162317bdf488f1f262e6b3752bc15685c1844af61fad5371379b5e77ad97",
+              "workers/astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "workers/impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
+              "workers/w_astra.py": "4d584407fd1a9d4b16903368a6e59ef819145d1d491a65095c73ff8d100da52a",
+              "workers/w_bmadx.py": "080b3fe82730bc3bf695655f36d731d33298bcf2fb68fb1ab8866afd5f9e462c",
+              "workers/w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
+              "workers/w_cheetah_sc.py": "8251bfcc773ac5ac7eb8d823e6c10c41a7f82e30a975404ae96687c11d21ba71",
+              "workers/w_elegant.py": "bb5b91830c8a9fc99c3b4c5a24062dc08f6c28b18e2868a2c776eff9ed87794a",
+              "workers/w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
+              "workers/w_helix.py": "43458bd3ccd109227b9f08ce1dbb06b38af23094f5013aaad7f33d78569d7830",
+              "workers/w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
+              "workers/w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
+              "workers/w_ocelot_sc.py": "009633bc28acbf20b0e816513d5e2600e1b6534f090dbb12a334d71863d29165",
+              "workers/w_slipstream.py": "872932f8e6c035c5cf5f6c3a48803b807552959ab257ad077b9f211be4a55ad9",
+              "workers/w_slipstream_sc.py": "019dab41b516f87f84cd24759615593b05f0967a861ceed9d98976bc18b4208e",
+              "workers/w_xsuite.py": "8605a1c54be4ac28bb613e585e1beae4860424fdef10aa1d26197493756f96fe",
+              "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
+            },
+            "inventory": {
+              "model": {
+                "n": 104,
+                "length": 48.00000000000002,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257901,
+                "k2L_abs": 32.0
+              },
+              "reference": {
+                "n": 104,
+                "length": 48.0,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257905,
+                "k2L_abs": 32.0
+              }
+            },
+            "forward_s": 0.005069884937256575,
+            "fd_s": {
+              "0.01": 0.039095566142350435,
+              "0.001": 0.038880862994119525,
+              "0.0001": 0.038683255203068256,
+              "1e-05": 0.03898480907082558
+            },
+            "versions": {
+              "xtrack": "0.111.6",
+              "xfields": "0.27.2",
+              "xobjects": "0.6.10"
+            },
+            "timing": {
+              "import_s": 1.4955262958537787,
+              "build_s": 44.45854234392755
+            },
+            "memory": {
+              "rss_peak_bytes": 527446016
+            }
+          },
+          "rel_fro": 0.001541805350991313,
+          "rel_col": 0.01862575121660883
+        },
+        {
+          "result": {
+            "schema": 1,
+            "code": "xsuite",
+            "case": "ring_grad",
+            "config": {
+              "name": "cpu-f64-yosk8b16-exact",
+              "device": "cpu",
+              "dtype": "float64",
+              "integrator": "yoshida4",
+              "n_kicks": 8,
+              "n_kicks_bend": 16,
+              "explicit_exact": true
+            },
+            "rank": 9,
+            "job": {
+              "case_path": "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/cases/ring_grad.json",
+              "config": "cpu-f64-yosk8b16-exact",
+              "repeats": 2,
+              "threads": 1,
+              "out_dir": "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/results/2026-10-26_R1_Xsuite_exact/ring_grad/xsuite/cpu-f64-yosk8b16-exact/p2"
+            },
+            "status": "ok",
+            "warnings": [],
+            "provenance": {
+              "host": "DDAST0117",
+              "platform": "Linux-6.18.35.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+              "python": "3.12.13",
+              "cpu_count": 16,
+              "threads_env": {
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "NUMBA_NUM_THREADS": "1"
+              },
+              "gpu": {
+                "name": "NVIDIA GeForce RTX 3050",
+                "driver_version": "616.56",
+                "memory.total": "8192 MiB",
+                "clocks.sm": "210 MHz",
+                "clocks.max.sm": "2100 MHz",
+                "power.draw": "3.49 W",
+                "power.limit": "130.00 W",
+                "temperature.gpu": "31"
+              },
+              "argv": [
+                "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/workers/w_xsuite.py",
+                "--job",
+                "/mnt/d/GitHub/neg_coating_rwi/slipstream_dev/reports/Slipstream/benchmarks/results/2026-10-26_R1_Xsuite_exact/ring_grad/xsuite/cpu-f64-yosk8b16-exact/p2/job.json"
+              ],
+              "time_utc": "2026-10-26T13:47:25Z"
+            },
+            "case_sha256": "fbbf0a76fe2454460bc52be2ab1b140bdcdb63532afea28a8749c750e006046a",
+            "lattice_sha256": "919291d4e0945645bbdc1faea617d487714e4c9d2eb13ab5cb5be3c88e57c798",
+            "source_sha256": {
+              "analyse.py": "1c2fccfd63acce2b768a3e011d2551b4665b37743accc4453613a9626e8008f8",
+              "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
+              "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
+              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+              "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
+              "probe_elements.py": "23b991e9d6fb17ddc366150d6a2b5e811258027e7f51079b169a0390b6dd4770",
+              "publish_study.py": "f0436a075cacc8169251f6346c290f38ed41c1aa0a409a612d7d4d6be6520d19",
+              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
+              "test_study.py": "ea9a162317bdf488f1f262e6b3752bc15685c1844af61fad5371379b5e77ad97",
+              "workers/astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "workers/impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
+              "workers/w_astra.py": "4d584407fd1a9d4b16903368a6e59ef819145d1d491a65095c73ff8d100da52a",
+              "workers/w_bmadx.py": "080b3fe82730bc3bf695655f36d731d33298bcf2fb68fb1ab8866afd5f9e462c",
+              "workers/w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
+              "workers/w_cheetah_sc.py": "8251bfcc773ac5ac7eb8d823e6c10c41a7f82e30a975404ae96687c11d21ba71",
+              "workers/w_elegant.py": "bb5b91830c8a9fc99c3b4c5a24062dc08f6c28b18e2868a2c776eff9ed87794a",
+              "workers/w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
+              "workers/w_helix.py": "43458bd3ccd109227b9f08ce1dbb06b38af23094f5013aaad7f33d78569d7830",
+              "workers/w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
+              "workers/w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
+              "workers/w_ocelot_sc.py": "009633bc28acbf20b0e816513d5e2600e1b6534f090dbb12a334d71863d29165",
+              "workers/w_slipstream.py": "872932f8e6c035c5cf5f6c3a48803b807552959ab257ad077b9f211be4a55ad9",
+              "workers/w_slipstream_sc.py": "019dab41b516f87f84cd24759615593b05f0967a861ceed9d98976bc18b4208e",
+              "workers/w_xsuite.py": "8605a1c54be4ac28bb613e585e1beae4860424fdef10aa1d26197493756f96fe",
+              "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
+            },
+            "inventory": {
+              "model": {
+                "n": 104,
+                "length": 48.00000000000002,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257901,
+                "k2L_abs": 32.0
+              },
+              "reference": {
+                "n": 104,
+                "length": 48.0,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257905,
+                "k2L_abs": 32.0
+              }
+            },
+            "forward_s": 0.005180494161322713,
+            "fd_s": {
+              "0.01": 0.03894813312217593,
+              "0.001": 0.038493272149935365,
+              "0.0001": 0.03917987598106265,
+              "1e-05": 0.038155979942530394
+            },
+            "versions": {
+              "xtrack": "0.111.6",
+              "xfields": "0.27.2",
+              "xobjects": "0.6.10"
+            },
+            "timing": {
+              "import_s": 1.554967544041574,
+              "build_s": 43.883783736033365
+            },
+            "memory": {
+              "rss_peak_bytes": 527495168
+            }
+          },
+          "rel_fro": 0.001541805350991313,
+          "rel_col": 0.01862575121660883
+        }
+      ],
+      "n_ok": 3,
+      "fd_s": 0.03891112335259095,
+      "rel_fro": 0.001541805350991313,
+      "rel_col": 0.01862575121660883
+    }
+  ]
+}

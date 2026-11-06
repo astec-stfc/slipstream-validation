@@ -1,0 +1,407 @@
+{
+  "mass_convention_offset_eV": 43.30273141014206,
+  "design": {
+    "date": "2026-10-27",
+    "procs": 2,
+    "repeats": 1,
+    "threads": 1,
+    "charge_scale": 1e-06,
+    "note": "Control: negligible space charge. Differences from ASTRA at q0 are not space-charge-solver differences. No pass gate."
+  },
+  "case_sha256": "591287ca7aea70c552a067d78e2de307c109c3e1030473c79700897c7274ef9f",
+  "analysis_sha256": "49db4f921aa81e2fc20871026f3b8c1a0abe1707c6ba55af8767d034db4af5da",
+  "rows": [
+    {
+      "code": "astra",
+      "config": "cpu-f64-3d32h1.4",
+      "n_recorded": 2,
+      "n_ok": 2,
+      "jobs": [
+        {
+          "result_sha256": "edeadf1b891d2cb3dbac3087863e71c18cc58866d6f08f48efde57665cdc436c",
+          "status": "ok",
+          "warm_s": 37.48486279975623,
+          "artifact_sha256": "149596a102a6d191d59fd3ec4c9e1972949b39ad1cfe65437f8cd2f0b52feeac"
+        },
+        {
+          "result_sha256": "1ac398b19dfe2f62168ea8a346ea49f2d5e17cfe5aaaf2b9ce626ae0f0b2f57f",
+          "status": "ok",
+          "warm_s": 34.472660600207746,
+          "artifact_sha256": "149596a102a6d191d59fd3ec4c9e1972949b39ad1cfe65437f8cd2f0b52feeac"
+        }
+      ],
+      "q0_vs_astra_q0": {
+        "size": 0.0,
+        "length": 0.0,
+        "emit": 0.0,
+        "spread": 0.0
+      },
+      "q20_vs_astra_q20": {
+        "size": 0.0,
+        "length": 0.0,
+        "emit": 0.0,
+        "spread": 0.0
+      },
+      "own_q0_vs_q20": {
+        "size": 0.37745920030230745,
+        "length": 0.00794899890427343,
+        "emit": 0.48847728132631635,
+        "spread": 0.17857250187828708
+      },
+      "spread_q0_eV": 5466.599999999999,
+      "spread_q20_eV": 6655.0,
+      "dEkin_q0_eV": 0.0,
+      "dEkin_q20_eV": 100.0,
+      "field_energy_gain_eV": 27.551623782638018,
+      "run_to_run_q0": {
+        "size": 0.0,
+        "length": 0.0,
+        "emit": 0.0,
+        "spread": 0.0
+      }
+    },
+    {
+      "code": "slipstream",
+      "config": "cuda-f32-3d32t1c10-r100",
+      "n_recorded": 2,
+      "n_ok": 2,
+      "jobs": [
+        {
+          "result_sha256": "cc68f546686c3a35d8935b8565f4b53cf38984183e999befff070fc07ac49a33",
+          "status": "ok",
+          "warm_s": 3.5723461001180112,
+          "artifact_sha256": "8d39ab6ed906c34ce22aa8ad4c14d603ff77ef71b029fb95f35cf8a3cd2b0c65"
+        },
+        {
+          "result_sha256": "f1d75f531f155c26e2b37eeb762bbe4318059fe7060f4ec62665fda9c10a644b",
+          "status": "ok",
+          "warm_s": 2.7782304999418557,
+          "artifact_sha256": "8d39ab6ed906c34ce22aa8ad4c14d603ff77ef71b029fb95f35cf8a3cd2b0c65"
+        }
+      ],
+      "q0_vs_astra_q0": {
+        "size": 3.5223615343617394e-05,
+        "length": 2.9714945815282692e-05,
+        "emit": 7.582918424609746e-05,
+        "spread": 2.851260461622891e-05
+      },
+      "q20_vs_astra_q20": {
+        "size": 0.0004996508079813319,
+        "length": 0.00014982639685373204,
+        "emit": 0.0006548968109728008,
+        "spread": 0.008556320600062471
+      },
+      "own_q0_vs_q20": {
+        "size": 0.37712710272558525,
+        "length": 0.007776732511276033,
+        "emit": 0.4885485389189549,
+        "spread": 0.17145982547756658
+      },
+      "spread_q0_eV": 5466.7558670043945,
+      "spread_q20_eV": 6598.057686406584,
+      "dEkin_q0_eV": 42.3981017479673,
+      "dEkin_q20_eV": 72.19670693855733,
+      "field_energy_gain_eV": 27.505344505414335,
+      "run_to_run_q0": {
+        "size": 0.0,
+        "length": 0.0,
+        "emit": 0.0,
+        "spread": 0.0
+      }
+    },
+    {
+      "code": "slipstream",
+      "config": "cpu-f64-3d32t1c1",
+      "n_recorded": 2,
+      "n_ok": 2,
+      "jobs": [
+        {
+          "result_sha256": "b86d9776186da870b3a76708c742c51793899fc99ae86039148a4ec526dda67b",
+          "status": "ok",
+          "warm_s": 91.06246110005304,
+          "artifact_sha256": "331e6d8a214f48542457b87f6246c538c83ff3591be317f7f5f076128c123d9f"
+        },
+        {
+          "result_sha256": "c8d3382e663403cab09d52bf01d372bf9dc95d282f013a62c10a49b23471ca97",
+          "status": "ok",
+          "warm_s": 95.6628740997985,
+          "artifact_sha256": "331e6d8a214f48542457b87f6246c538c83ff3591be317f7f5f076128c123d9f"
+        }
+      ],
+      "q0_vs_astra_q0": {
+        "size": 3.4652129222921e-05,
+        "length": 2.9857776318885755e-05,
+        "emit": 7.594719552309111e-05,
+        "spread": 2.811055567931953e-05
+      },
+      "q20_vs_astra_q20": {
+        "size": 0.0005770173981950425,
+        "length": 0.00015154573528812322,
+        "emit": 0.0007024691985410272,
+        "spread": 0.008588077463230238
+      },
+      "own_q0_vs_q20": {
+        "size": 0.3770795679212019,
+        "length": 0.007774043565775471,
+        "emit": 0.4884847367612813,
+        "spread": 0.17143361882994784
+      },
+      "spread_q0_eV": 5466.753669163676,
+      "spread_q20_eV": 6597.846344482203,
+      "dEkin_q0_eV": 43.30273350607604,
+      "dEkin_q20_eV": 72.67863200604916,
+      "field_energy_gain_eV": 27.50130500778484,
+      "run_to_run_q0": {
+        "size": 0.0,
+        "length": 0.0,
+        "emit": 0.0,
+        "spread": 0.0
+      }
+    },
+    {
+      "code": "slipstream",
+      "config": "cuda-f32-r32z128t2c5",
+      "n_recorded": 2,
+      "n_ok": 2,
+      "jobs": [
+        {
+          "result_sha256": "b9a920bb3e1057eb2ad81e4067aa663a42866f2eff18503ed4463ccb537fdbc5",
+          "status": "ok",
+          "warm_s": 2.9654112001881003,
+          "artifact_sha256": "1b7a76c79cf785715f85fbb8fa704d8efc6208b9aa971f0e3feb724613cacc3a"
+        },
+        {
+          "result_sha256": "de2a7348cb1a32162f5e7a631230149339345c0327acab60a4ef5f1f722cbe4e",
+          "status": "ok",
+          "warm_s": 2.4935375000350177,
+          "artifact_sha256": "1b7a76c79cf785715f85fbb8fa704d8efc6208b9aa971f0e3feb724613cacc3a"
+        }
+      ],
+      "q0_vs_astra_q0": {
+        "size": 3.4692941175843044e-05,
+        "length": 3.0122329843127215e-05,
+        "emit": 7.588006547241464e-05,
+        "spread": 2.851260461622891e-05
+      },
+      "q20_vs_astra_q20": {
+        "size": 0.0037439724059795455,
+        "length": 0.0019336171789356518,
+        "emit": 0.014610012267571677,
+        "spread": 0.06344606173251123
+      },
+      "own_q0_vs_q20": {
+        "size": 0.3797611116792158,
+        "length": 0.006003374106490055,
+        "emit": 0.4897332554455852,
+        "spread": 0.12290057668352518
+      },
+      "spread_q0_eV": 5466.7558670043945,
+      "spread_q20_eV": 6232.766459170138,
+      "dEkin_q0_eV": 42.3981017479673,
+      "dEkin_q20_eV": 72.43884271476418,
+      "field_energy_gain_eV": 27.466247140855998,
+      "run_to_run_q0": {
+        "size": 0.0,
+        "length": 0.0,
+        "emit": 0.0,
+        "spread": 0.0
+      }
+    },
+    {
+      "code": "cheetah",
+      "config": "cpu-f64-g32s2",
+      "n_recorded": 2,
+      "n_ok": 2,
+      "jobs": [
+        {
+          "result_sha256": "c2e1d5ee21f204c19b617844a7ef66a42f56e22bb32075890a3010420d5e07e9",
+          "status": "ok",
+          "warm_s": 4.604500200133771,
+          "artifact_sha256": "dc89aab50c40d216d7b91bd7505d6512cdd076ac36bdddc82a8da3d5a18ce213"
+        },
+        {
+          "result_sha256": "6408226b9ae26ca8e7dab4a57129457fd870ee5f61f8f6b95265b64d9e6a244d",
+          "status": "ok",
+          "warm_s": 4.553427800070494,
+          "artifact_sha256": "dc89aab50c40d216d7b91bd7505d6512cdd076ac36bdddc82a8da3d5a18ce213"
+        }
+      ],
+      "q0_vs_astra_q0": {
+        "size": 3.546043401920945e-05,
+        "length": 2.9838886403236026e-05,
+        "emit": 6.559882462161065e-05,
+        "spread": 2.0116381148144054e-05
+      },
+      "q20_vs_astra_q20": {
+        "size": 0.0009844799526858305,
+        "length": 6.72701168952022e-05,
+        "emit": 0.016984364201376733,
+        "spread": 0.002148911395766513
+      },
+      "own_q0_vs_q20": {
+        "size": 0.3775784509063397,
+        "length": 0.007857709129180124,
+        "emit": 0.496414838510334,
+        "spread": 0.17678696585944112
+      },
+      "spread_q0_eV": 5466.709968209184,
+      "spread_q20_eV": 6640.698994661174,
+      "dEkin_q0_eV": 0.0004480946809053421,
+      "dEkin_q20_eV": 404.6305126314983,
+      "field_energy_gain_eV": 27.522596711833124,
+      "run_to_run_q0": {
+        "size": 0.0,
+        "length": 0.0,
+        "emit": 0.0,
+        "spread": 0.0
+      }
+    },
+    {
+      "code": "ocelot",
+      "config": "cpu-f64-g32s2",
+      "n_recorded": 2,
+      "n_ok": 2,
+      "jobs": [
+        {
+          "result_sha256": "d21af2f8e1978d6943b3ad0efb58eb3cee4f582f1a6212d3cd4eee8c7e0a8d1a",
+          "status": "ok",
+          "warm_s": 3.121338600292802,
+          "artifact_sha256": "a789407ee740cfa582065cf739a80fec3ff69bcde0a2eceef26df3dc1a445e3c"
+        },
+        {
+          "result_sha256": "17ccbc80cf5c9e766119b5ad89632dfe805e7890d75126b7d9215ddc3c5b8a1b",
+          "status": "ok",
+          "warm_s": 2.8632687996141613,
+          "artifact_sha256": "a789407ee740cfa582065cf739a80fec3ff69bcde0a2eceef26df3dc1a445e3c"
+        }
+      ],
+      "q0_vs_astra_q0": {
+        "size": 3.4626397973113906e-05,
+        "length": 2.9857680578854407e-05,
+        "emit": 6.553163984310967e-05,
+        "spread": 2.0116486468249427e-05
+      },
+      "q20_vs_astra_q20": {
+        "size": 0.004810555436934358,
+        "length": 0.00012293565309413093,
+        "emit": 0.014213846028210074,
+        "spread": 0.003104631139950497
+      },
+      "own_q0_vs_q20": {
+        "size": 0.3804195908317232,
+        "length": 0.00801330833444469,
+        "emit": 0.4936694411161393,
+        "spread": 0.18109836515921954
+      },
+      "spread_q0_eV": 5466.709968784927,
+      "spread_q20_eV": 6675.661320236371,
+      "dEkin_q0_eV": 2.6067718863487244e-06,
+      "dEkin_q20_eV": 2.336896170862019,
+      "field_energy_gain_eV": 27.788395986155006,
+      "run_to_run_q0": {
+        "size": 0.0,
+        "length": 0.0,
+        "emit": 0.0,
+        "spread": 0.0
+      }
+    },
+    {
+      "code": "gpt",
+      "config": "cpu-f64-mesh-acc6",
+      "n_recorded": 2,
+      "n_ok": 2,
+      "jobs": [
+        {
+          "result_sha256": "2c870703513ba6ea073278e4e5ce259ecbf0bb86d1a8460d0ffb17d186aba701",
+          "status": "ok",
+          "warm_s": 2.610796600114554,
+          "artifact_sha256": "55dc72f1fe58d971d39febea42cdebd0287757c58e8e3653e77c91eb1acf8ef6"
+        },
+        {
+          "result_sha256": "f8fb9798ca590da163b5d188ba4cbdaf60ad747628fdff3b36c6e16c68ff711a",
+          "status": "ok",
+          "warm_s": 2.5455811000429094,
+          "artifact_sha256": "55dc72f1fe58d971d39febea42cdebd0287757c58e8e3653e77c91eb1acf8ef6"
+        }
+      ],
+      "q0_vs_astra_q0": {
+        "size": 9.995002498734614e-05,
+        "length": 5.021340697958312e-05,
+        "emit": 0.00010086406885665203,
+        "spread": 0.00019916675813127382
+      },
+      "q20_vs_astra_q20": {
+        "size": 0.00658935783283334,
+        "length": 0.0018926187867317381,
+        "emit": 0.024514811031665078,
+        "spread": 0.06860747355371895
+      },
+      "own_q0_vs_q20": {
+        "size": 0.3815110276865321,
+        "length": 0.006087824351297391,
+        "emit": 0.4994951194883877,
+        "spread": 0.11788953009068434
+      },
+      "spread_q0_eV": 5467.688765,
+      "spread_q20_eV": 6198.4172635,
+      "dEkin_q0_eV": 0.0,
+      "dEkin_q20_eV": 0.0,
+      "field_energy_gain_eV": 27.654947016500763,
+      "run_to_run_q0": {
+        "size": 0.0,
+        "length": 0.0,
+        "emit": 0.0,
+        "spread": 0.0
+      }
+    },
+    {
+      "code": "impactx",
+      "config": "cpu-f64-mg32x40s2",
+      "n_recorded": 2,
+      "n_ok": 2,
+      "jobs": [
+        {
+          "result_sha256": "533d70580e7d192de6d55c2658e15422f43f398b2820fd4ab0c2ab19b64bdab1",
+          "status": "ok",
+          "warm_s": 4.4766617368441075,
+          "artifact_sha256": "a8febd04037e3b6eaa03a963ad2e15e1289d2a3ef70aff5c02ed937431cd21f2"
+        },
+        {
+          "result_sha256": "7e8e58661bcdffcd4db9af9be55dac64f5b356136c5d6e413b068ddaf88bf47b",
+          "status": "ok",
+          "warm_s": 4.374375882092863,
+          "artifact_sha256": "a8febd04037e3b6eaa03a963ad2e15e1289d2a3ef70aff5c02ed937431cd21f2"
+        }
+      ],
+      "q0_vs_astra_q0": {
+        "size": 3.668177542663757e-05,
+        "length": 2.985674588658152e-05,
+        "emit": 6.637975471899927e-05,
+        "spread": 2.0116341161389105e-05
+      },
+      "q20_vs_astra_q20": {
+        "size": 0.004137530553743951,
+        "length": 0.00246932958747155,
+        "emit": 0.007810824142439423,
+        "spread": 0.08607463086204352
+      },
+      "own_q0_vs_q20": {
+        "size": 0.3756847773835473,
+        "length": 0.005468609768416504,
+        "emit": 0.486966031002392,
+        "spread": 0.10119135546886432
+      },
+      "spread_q0_eV": 5466.709967990592,
+      "spread_q20_eV": 6082.1733316131,
+      "dEkin_q0_eV": 5.3085386753082275e-08,
+      "dEkin_q20_eV": 0.3137597218155861,
+      "field_energy_gain_eV": 27.09192907334963,
+      "run_to_run_q0": {
+        "size": 0.0,
+        "length": 0.0,
+        "emit": 0.0,
+        "spread": 0.0
+      }
+    }
+  ]
+}

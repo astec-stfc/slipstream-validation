@@ -1,0 +1,62 @@
+# How each code is reached on a machine.  Committed values are what a fresh Linux host with Docker needs; copy to
+# bench.local.toml (not committed) to change them for one machine, its values win.  Nothing else in the repository
+# holds a machine path.
+#
+#   platform  docker | linux | wsl | windows | archived | skip
+#               docker    the worker runs in the validation image (docker/Dockerfile); Docker is in WSL when the runner is on Windows
+#               linux     this machine is Linux and the code is in the active Python
+#               wsl       the runner is on Windows: the worker runs in a WSL conda environment
+#               windows   native Windows, in the Python of [python].windows
+#               archived  the code cannot run here (licence, build); the frozen result in reviews/*/evidence/ is the reference
+#               skip      not used on this machine
+#   probe     exe:NAME | file:PATH | py:MODULE; only looked up, the runner never starts a code to find out
+
+platform = "docker"
+
+[docker]
+image = "slipstream-validation:local"
+gpus = false          # true adds --gpus all; accuracy cases do not need it, the timing cases do
+threads = 1           # OMP/MKL/torch threads per worker; the paper's protocol is one thread
+runs = ""             # where raw output goes as the daemon sees the path; empty: runs/ in this repository
+
+[paths]
+slipstream = ""       # checkout of Slipstream to test (required: the image does not carry it, the repository is private)
+
+[codes.slipstream]
+probe = "py:slipstream"
+
+[codes.elegant]
+probe = "exe:docker"
+# the paper cites elegant 2026.3.0; the image builds elegant-2026.1.0.  Results record the version they came from.
+
+[codes.astra]
+probe = "exe:docker"
+
+[codes.ocelot]
+probe = "py:ocelot"
+
+[codes.xsuite]
+probe = "py:xtrack"      # CPU in the image; the GPU rows of the paper need cupy and are tier 2
+
+[codes.cheetah]
+probe = "py:cheetah"
+
+[codes.gpt]
+platform = "archived"
+note = "licensed; set platform = \"windows\" and the path in bench.local.toml on a machine that has it"
+
+[codes.impactx]
+platform = "archived"
+note = "conda-forge build; set platform = \"wsl\" and the environment in bench.local.toml"
+
+[codes.jutrack]
+platform = "archived"
+note = "Julia 1.10.4 and the JuTrack.jl checkout of the paper"
+
+[codes.bmadx]
+platform = "archived"
+note = "python 3.14 environment with the Bmad-X checkout; could join the image later"
+
+[codes.helix]
+platform = "archived"
+note = "separate conda environment"

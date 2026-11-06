@@ -1,0 +1,52 @@
+{
+  "design": {
+    "date": "2026-10-28",
+    "interval_s": 0.025,
+    "note": "One process per configuration, one repeat; /proc resident set summed over the tree; sampling can miss sub-25 ms spikes; CPU settings only"
+  },
+  "analysis_sha256": "a75dfc9363c723c80fd19102d313449efd8eb11077a6ef65fa28061f1adc5ef5",
+  "rows": [
+    {
+      "code": "xsuite",
+      "case": "ring_tunes",
+      "config": "cpu-f64-yosk8b16-exact",
+      "status": "ok",
+      "wall_s": 56.37902523507364,
+      "max_processes": 4,
+      "baseline_tree_mb": 472.20703125,
+      "tree_peak_mb": 987.0703125,
+      "own_peak_mb": 498.9453125,
+      "harness_rss_mb": 491.31640625,
+      "children_extra_mb": 488.125,
+      "incremental_over_baseline_mb": 514.86328125
+    },
+    {
+      "code": "bmadx",
+      "case": "ring_tunes",
+      "config": "cpu-f64-q1s64",
+      "status": "ok",
+      "wall_s": 253.92645095614716,
+      "max_processes": 2,
+      "baseline_tree_mb": 247.30078125,
+      "tree_peak_mb": 262.40234375,
+      "own_peak_mb": 262.40234375,
+      "harness_rss_mb": 261.01953125,
+      "children_extra_mb": 0.0,
+      "incremental_over_baseline_mb": 15.1015625
+    },
+    {
+      "code": "impactx",
+      "case": "sc_drift",
+      "config": "cpu-f64-mg32x40s2",
+      "status": "ok",
+      "wall_s": 13.84087492711842,
+      "max_processes": 2,
+      "baseline_tree_mb": 60.6328125,
+      "tree_peak_mb": 162.30859375,
+      "own_peak_mb": 65.29296875,
+      "harness_rss_mb": 65.26953125,
+      "children_extra_mb": 97.015625,
+      "incremental_over_baseline_mb": 101.67578125
+    }
+  ]
+}

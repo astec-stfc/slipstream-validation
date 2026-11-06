@@ -1,0 +1,96 @@
+{
+  "design": {
+    "date": "2026-10-27",
+    "z_stop_m": 0.3,
+    "note": "Short-drift probe of the effective ASTRA 3-D mesh; the full-drift 96^3 and 128^3 outputs were byte-identical"
+  },
+  "analysis_sha256": "d422b60bddb3b0f1aaff6dbd128c86f7fd431f829f295a2182bd9d22d186ef6f",
+  "rows": [
+    {
+      "n3d": 48,
+      "echoed_nxf": 48,
+      "sigma_x_mm": 0.50305,
+      "emit_x": 0.30829,
+      "sigma_E_keV": 5.4816,
+      "ekin_MeV": 5.0
+    },
+    {
+      "n3d": 64,
+      "echoed_nxf": 64,
+      "sigma_x_mm": 0.50305,
+      "emit_x": 0.30829,
+      "sigma_E_keV": 5.4816,
+      "ekin_MeV": 5.0,
+      "change_vs_previous": {
+        "sigma_x_mm": 0.0,
+        "emit_x": 0.0,
+        "sigma_E_keV": 0.0
+      }
+    },
+    {
+      "n3d": 72,
+      "echoed_nxf": 72,
+      "sigma_x_mm": 0.50305,
+      "emit_x": 0.30829,
+      "sigma_E_keV": 5.4816,
+      "ekin_MeV": 5.0,
+      "change_vs_previous": {
+        "sigma_x_mm": 0.0,
+        "emit_x": 0.0,
+        "sigma_E_keV": 0.0
+      }
+    },
+    {
+      "n3d": 80,
+      "echoed_nxf": 80,
+      "sigma_x_mm": 0.50305,
+      "emit_x": 0.30829,
+      "sigma_E_keV": 5.4816,
+      "ekin_MeV": 5.0,
+      "change_vs_previous": {
+        "sigma_x_mm": 0.0,
+        "emit_x": 0.0,
+        "sigma_E_keV": 0.0
+      }
+    },
+    {
+      "n3d": 88,
+      "echoed_nxf": 88,
+      "sigma_x_mm": 0.50305,
+      "emit_x": 0.30829,
+      "sigma_E_keV": 5.4816,
+      "ekin_MeV": 5.0,
+      "change_vs_previous": {
+        "sigma_x_mm": 0.0,
+        "emit_x": 0.0,
+        "sigma_E_keV": 0.0
+      }
+    },
+    {
+      "n3d": 96,
+      "echoed_nxf": 96,
+      "sigma_x_mm": 0.50307,
+      "emit_x": 0.30885,
+      "sigma_E_keV": 5.4824,
+      "ekin_MeV": 5.0,
+      "change_vs_previous": {
+        "sigma_x_mm": 3.975747937584733e-05,
+        "emit_x": 0.0018164715041032954,
+        "sigma_E_keV": 0.00014594279042613688
+      }
+    },
+    {
+      "n3d": 128,
+      "echoed_nxf": 128,
+      "sigma_x_mm": 0.50307,
+      "emit_x": 0.30885,
+      "sigma_E_keV": 5.4824,
+      "ekin_MeV": 5.0,
+      "change_vs_previous": {
+        "sigma_x_mm": 0.0,
+        "emit_x": 0.0,
+        "sigma_E_keV": 0.0
+      }
+    }
+  ]
+}

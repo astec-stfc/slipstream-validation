@@ -1,0 +1,38 @@
+{
+  "design": {
+    "date": "2026-10-27",
+    "procs": 3,
+    "step": 0.001,
+    "note": "Same Jacobian output timed through the adapter FD path, an endpoint-only FD path and AD; one CPU thread; medians of warm calls"
+  },
+  "analysis_sha256": "1b3eb15b2a4b843a98f0f2583da918ee39c47ad9c9e5363bfc36726c550c3850",
+  "rows": [
+    {
+      "config": "cpu-f64-o6k8b16",
+      "n_ok": 1,
+      "fd_adapter_s": 68.74619239987805,
+      "fd_endpoint_s": 66.8467883002013,
+      "forward_s": 6.97540199989453,
+      "forward_graph_s": 16.41706069977954,
+      "fd_adapter_vs_endpoint_fro": 0.0,
+      "single_step_fd_error_vs_best": {
+        "0.01": 0.8997856161316672,
+        "0.001": 0.09162510332338823,
+        "0.0001": 0.0009533594613771758,
+        "1e-05": 9.533594613742623e-06,
+        "ad": 3.882380795134705e-09
+      }
+    },
+    {
+      "config": "cpu-f64-o6k8b16-compiled",
+      "n_ok": 3,
+      "fd_adapter_s": 2.2194782998412848,
+      "fd_endpoint_s": 2.0377445998601615,
+      "forward_s": 0.20269780000671744,
+      "forward_graph_s": 0.32676290022209287,
+      "ad_s": 1.8822093000635505,
+      "ad_vs_fd_endpoint_fro": 0.09992139781949745,
+      "fd_adapter_vs_endpoint_fro": 0.0
+    }
+  ]
+}

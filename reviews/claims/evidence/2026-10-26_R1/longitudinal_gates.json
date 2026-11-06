@@ -1,0 +1,230 @@
+{
+  "design": {
+    "spread_gate": 0.05,
+    "gain_gate_eV": 5.0,
+    "gain_reference_eV": 30.97857989463955,
+    "reference": "ASTRA cpu-f64-3d128h1.4 (station table for spread, particle file for gain)",
+    "note": "Declared in this script, not in the frozen case file; the original case gates (size 3%, length 3%, emittance 5%) are unchanged.",
+    "insensitive_spread_gate_range": [
+      0.02050974695929294,
+      0.0689112307134762
+    ],
+    "insensitive_gain_gate_range_eV": [
+      4.467200608924031,
+      28.641683723777533
+    ]
+  },
+  "case_sha256": "ea7f7278673acc0746f2df757ab6ed10a9253426f4756a02b9847ae3fd84ba08",
+  "analysis_sha256": "613f6853dbd5513a59c916f6a649ebc39bc0aeaacdb9d984b66241f4cf0c9f15",
+  "rows": [
+    {
+      "code": "astra",
+      "config": "cpu-f64-3d32h1.4",
+      "family": "primary",
+      "spread_vs_astra128": 0.012024940617577197,
+      "gain_eV": 35.44578050356358,
+      "gain_dev_eV": 4.467200608924031,
+      "gain_source": "particle file",
+      "pass_spread": true,
+      "pass_gain": true
+    },
+    {
+      "code": "astra",
+      "config": "cpu-f64-n64l128h0.7",
+      "family": "primary",
+      "spread_vs_astra128": 0.003607482185273051,
+      "gain_eV": 100.0,
+      "gain_dev_eV": 69.02142010536045,
+      "gain_source": "table (100 eV quantised): gain gate not assessable",
+      "pass_spread": true,
+      "pass_gain": null
+    },
+    {
+      "code": "cheetah",
+      "config": "cpu-f64-g32s2",
+      "family": "primary",
+      "spread_vs_astra128": 0.014148011481417182,
+      "gain_eV": 404.6305126314983,
+      "gain_dev_eV": 373.6519327368587,
+      "gain_source": "table",
+      "pass_spread": true,
+      "pass_gain": false
+    },
+    {
+      "code": "cheetah",
+      "config": "cpu-f64-g64s4",
+      "family": "primary",
+      "spread_vs_astra128": 0.004100226828867802,
+      "gain_eV": 221.87943212501705,
+      "gain_dev_eV": 190.9008522303775,
+      "gain_source": "table",
+      "pass_spread": true,
+      "pass_gain": false
+    },
+    {
+      "code": "gpt",
+      "config": "cpu-f64-mesh-acc5",
+      "family": "primary",
+      "spread_vs_astra128": 0.07980741337589067,
+      "gain_eV": 0.0,
+      "gain_dev_eV": -30.97857989463955,
+      "gain_source": "table",
+      "pass_spread": false,
+      "pass_gain": false
+    },
+    {
+      "code": "gpt",
+      "config": "cpu-f64-mesh-acc6",
+      "family": "primary",
+      "spread_vs_astra128": 0.07980741337589067,
+      "gain_eV": 0.0,
+      "gain_dev_eV": -30.97857989463955,
+      "gain_source": "table",
+      "pass_spread": false,
+      "pass_gain": false
+    },
+    {
+      "code": "impactx",
+      "config": "cpu-f64-mg32x40s2",
+      "family": "primary",
+      "spread_vs_astra128": 0.09706452915482477,
+      "gain_eV": 0.3137597218155861,
+      "gain_dev_eV": -30.664820172823966,
+      "gain_source": "table",
+      "pass_spread": false,
+      "pass_gain": false
+    },
+    {
+      "code": "impactx",
+      "config": "cpu-f64-mg64x80s4",
+      "family": "primary",
+      "spread_vs_astra128": 0.08358551446966259,
+      "gain_eV": 0.25386132299900055,
+      "gain_dev_eV": -30.72471857164055,
+      "gain_source": "table",
+      "pass_spread": false,
+      "pass_gain": false
+    },
+    {
+      "code": "ocelot",
+      "config": "cpu-f64-g32s2",
+      "family": "primary",
+      "spread_vs_astra128": 0.008957642482724086,
+      "gain_eV": 2.336896170862019,
+      "gain_dev_eV": -28.641683723777533,
+      "gain_source": "table",
+      "pass_spread": true,
+      "pass_gain": false
+    },
+    {
+      "code": "ocelot",
+      "config": "cpu-f64-g64s4",
+      "family": "primary",
+      "spread_vs_astra128": 0.0024919691374772016,
+      "gain_eV": 1.0244079269468784,
+      "gain_dev_eV": -29.954171967692673,
+      "gain_source": "table",
+      "pass_spread": true,
+      "pass_gain": false
+    },
+    {
+      "code": "slipstream",
+      "config": "cpu-f64-3d32t1c1",
+      "family": "primary",
+      "spread_vs_astra128": 0.02050974695929294,
+      "gain_eV": 72.67863200604916,
+      "gain_dev_eV": 41.700052111409605,
+      "gain_source": "table",
+      "pass_spread": true,
+      "pass_gain": false
+    },
+    {
+      "code": "slipstream",
+      "config": "cuda-f32-r32z128t2c5",
+      "family": "primary",
+      "spread_vs_astra128": 0.07470806722533585,
+      "gain_eV": 72.43884271476418,
+      "gain_dev_eV": 41.460262820124626,
+      "gain_source": "table",
+      "pass_spread": false,
+      "pass_gain": false
+    },
+    {
+      "code": "slipstream",
+      "config": "cuda-f32-r64z256t1c2",
+      "family": "primary",
+      "spread_vs_astra128": 0.0689112307134762,
+      "gain_eV": 73.86935418937355,
+      "gain_dev_eV": 42.890774294734,
+      "gain_source": "table",
+      "pass_spread": false,
+      "pass_gain": false
+    },
+    {
+      "code": "astra",
+      "config": "cpu-f64-3d64h1.4",
+      "family": "ladder",
+      "spread_vs_astra128": 0.002211995249406257,
+      "gain_eV": 27.849179266020656,
+      "gain_dev_eV": -3.129400628618896,
+      "gain_source": "particle file",
+      "pass_spread": true,
+      "pass_gain": true
+    },
+    {
+      "code": "astra",
+      "config": "cpu-f64-3d128h1.4",
+      "family": "ladder",
+      "spread_vs_astra128": 0.0,
+      "gain_eV": 30.97857989463955,
+      "gain_dev_eV": 0.0,
+      "gain_source": "particle file",
+      "pass_spread": true,
+      "pass_gain": true
+    },
+    {
+      "code": "slipstream",
+      "config": "cuda-f32-3d32t1c10-r100-mfix",
+      "family": "ladder (mass-fixed)",
+      "spread_vs_astra128": 0.0204798315913797,
+      "gain_eV": 29.046661318279803,
+      "gain_dev_eV": -1.9319185763597488,
+      "gain_source": "table",
+      "pass_spread": true,
+      "pass_gain": true
+    },
+    {
+      "code": "slipstream",
+      "config": "cuda-f32-3d64t1c10-r100-mfix",
+      "family": "ladder (mass-fixed)",
+      "spread_vs_astra128": 0.005817751597673886,
+      "gain_eV": 30.477172792889178,
+      "gain_dev_eV": -0.5014071017503738,
+      "gain_source": "table",
+      "pass_spread": true,
+      "pass_gain": true
+    },
+    {
+      "code": "slipstream",
+      "config": "cuda-f32-3d96t1c10-r100-mfix",
+      "family": "ladder (mass-fixed)",
+      "spread_vs_astra128": 0.0027736881959511336,
+      "gain_eV": 30.235038951039314,
+      "gain_dev_eV": -0.7435409436002374,
+      "gain_source": "table",
+      "pass_spread": true,
+      "pass_gain": true
+    },
+    {
+      "code": "slipstream",
+      "config": "cuda-f32-3d128t1c10-r100-mfix",
+      "family": "ladder (mass-fixed)",
+      "spread_vs_astra128": 0.0014481714985041087,
+      "gain_eV": 30.477172792889178,
+      "gain_dev_eV": -0.5014071017503738,
+      "gain_source": "table",
+      "pass_spread": true,
+      "pass_gain": true
+    }
+  ]
+}

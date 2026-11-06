@@ -1,0 +1,78 @@
+{
+  "method": "Static spherical Gaussian grid density; analytic free-space radial electric field. No particles, time stepping, Lorentz transform or fitted injector box.",
+  "sigma_m": 0.001,
+  "charge_C": 1e-12,
+  "radius_sigma": [
+    0.5,
+    1.0,
+    2.0,
+    3.0
+  ],
+  "expected_V_per_m": [
+    1109.4088615779494,
+    1786.2583309610127,
+    1659.4073456312585,
+    969.3664924986241
+  ],
+  "source_sha256": "47796a92f201d9a2bbd8a67700facb208b9f140e5fb1ac400cfd9d5a6af94bcf",
+  "solver_sha256": "c3fbf99b662c45caa51102fee9efca22967c693a404695fbd677005654f8fdf6",
+  "torch_version": "2.14.0+cu132",
+  "device": "cpu",
+  "dtype": "float64",
+  "rows": [
+    {
+      "n": 17,
+      "half_box_sigma": 4,
+      "cell_sigma": 0.5,
+      "charge_fraction": 0.9999472473963081,
+      "field": [
+        1009.3713789093543,
+        1654.517807624046,
+        1620.5391241748675,
+        980.3674486480238
+      ],
+      "relative_error": [
+        0.09017187993821185,
+        0.07375222332264209,
+        0.023422953718217454,
+        0.01134860368553059
+      ]
+    },
+    {
+      "n": 25,
+      "half_box_sigma": 6,
+      "cell_sigma": 0.5,
+      "charge_fraction": 0.9999999991709833,
+      "field": [
+        1009.3712974348357,
+        1654.5173954412594,
+        1620.5361450469109,
+        980.3559726756363
+      ],
+      "relative_error": [
+        0.09017195337778983,
+        0.07375245407470055,
+        0.023424749014570923,
+        0.011336765054345888
+      ]
+    },
+    {
+      "n": 33,
+      "half_box_sigma": 4,
+      "cell_sigma": 0.25,
+      "charge_fraction": 0.9998938438660998,
+      "field": [
+        1082.5493856304522,
+        1751.3532260188142,
+        1649.8775005148295,
+        972.3784920551512
+      ],
+      "relative_error": [
+        0.024210619617094142,
+        0.01954090533110031,
+        0.005742920893726522,
+        0.003107183485126841
+      ]
+    }
+  ]
+}

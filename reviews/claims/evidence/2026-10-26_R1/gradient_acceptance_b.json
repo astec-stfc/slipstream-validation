@@ -1,0 +1,236 @@
+{
+  "design": {
+    "limits": {
+      "e_abs": 0.001,
+      "e_rel": 0.01,
+      "floor": 0.001
+    },
+    "unit_variants": [
+      "SI (m, rad)",
+      "mm, mrad",
+      "x,y in mm; px,py in rad",
+      "x,y in um; px,py in mrad"
+    ],
+    "reference": "corrected elegant cpu-f64-o6s16b32 central difference R(0.0001,1e-05)",
+    "scales": {
+      "theta0": [
+        -0.7678415218043021,
+        5.0602022474686,
+        -6.515853025684272,
+        20.0,
+        -20.0
+      ],
+      "sigma": [
+        0.010425829662554854,
+        0.0026204551703357592,
+        0.0019552418372175786,
+        0.00022981150964705816
+      ],
+      "sigma_note": "rms over the first 40 turns of the exact native CPU float64 trajectory of the launch",
+      "launch": {
+        "x0": [
+          -0.006
+        ],
+        "px0": 0.0002,
+        "y0": -0.002,
+        "py0": -0.0001,
+        "delta": 0.003
+      },
+      "knobs": [
+        "Q1.k1",
+        "Q2S.k1",
+        "Q3S.k1",
+        "S1.k2",
+        "S2.k2"
+      ]
+    },
+    "note": "Limits declared before the analysis; raw ranges show how the inherited norms move with the unit choice."
+  },
+  "case_sha256": "cf9fbdb9682419affbb48ff60064142de7b46e2bf223dd70f920fb703fd867ed",
+  "analysis_sha256": "475ed030098c45eec7e596689b75f9d33774bf4900910160bd8ef35094528617",
+  "Sref": [
+    [
+      -50.40600610480621,
+      1598.8389915638857,
+      -558.0284034873727,
+      11.391926265858702,
+      -2.462260651023997
+    ],
+    [
+      41.50573348761734,
+      -1328.0444810089361,
+      459.9891196463421,
+      -9.5143924480264,
+      2.0367598374057705
+    ],
+    [
+      111.36050176423414,
+      264.61175978922694,
+      587.2191917360533,
+      -2.9978733451809347,
+      3.569642447154587
+    ],
+    [
+      58.32455451692355,
+      -424.1421243192151,
+      390.9302409894722,
+      -5.298560213879591,
+      2.1363423164805275
+    ]
+  ],
+  "rows": [
+    {
+      "code": "bmadx",
+      "config": "cpu-f64-q1s16",
+      "mode": "fd",
+      "n": 2,
+      "e_abs": 0.36135600421184005,
+      "e_rel": 1.3730726339958628,
+      "passed": false,
+      "raw_fro": 0.1539236726135268,
+      "raw_col": 0.1877287126715728,
+      "raw_fro_unit_spread": 1.1305536392187474,
+      "raw_col_unit_spread": 1.0560194631132125,
+      "traj_gap": 0.9017417189070183,
+      "n_below_floor": 0,
+      "max_invariance_gap": 0.0,
+      "e_over_traj": 0.4007311590838138
+    },
+    {
+      "code": "bmadx",
+      "config": "cpu-f64-q1s16",
+      "mode": "ad",
+      "n": 2,
+      "e_abs": 0.36135609471875063,
+      "e_rel": 1.3730725224008127,
+      "passed": false,
+      "raw_fro": 0.15392365304237435,
+      "raw_col": 0.18772871751834622,
+      "raw_fro_unit_spread": 1.1305537417807396,
+      "raw_col_unit_spread": 1.056019455061494,
+      "traj_gap": 0.9017417189070183,
+      "n_below_floor": 0,
+      "max_invariance_gap": 0.0,
+      "e_over_traj": 0.40073125945280935
+    },
+    {
+      "code": "cheetah",
+      "config": "cpu-f64-dri4",
+      "mode": "fd",
+      "n": 2,
+      "e_abs": 0.027560907275875915,
+      "e_rel": 0.04898961257063061,
+      "passed": false,
+      "raw_fro": 0.008490193583695436,
+      "raw_col": 0.008631700046843249,
+      "raw_fro_unit_spread": 1.6102847202358506,
+      "raw_col_unit_spread": 1.5176328413214417,
+      "traj_gap": 0.044590962337046056,
+      "n_below_floor": 0,
+      "max_invariance_gap": 0.0,
+      "e_over_traj": 0.6180828094167051
+    },
+    {
+      "code": "cheetah",
+      "config": "cpu-f64-dri4",
+      "mode": "ad",
+      "n": 2,
+      "e_abs": 0.027560905067164757,
+      "e_rel": 0.04898983672653525,
+      "passed": false,
+      "raw_fro": 0.008490188966454025,
+      "raw_col": 0.008631650537161781,
+      "raw_fro_unit_spread": 1.6102860291338361,
+      "raw_col_unit_spread": 1.5176382937161983,
+      "traj_gap": 0.044590962337046056,
+      "n_below_floor": 0,
+      "max_invariance_gap": 0.0,
+      "e_over_traj": 0.6180827598839962
+    },
+    {
+      "code": "elegant",
+      "config": "cpu-f64-o6s16b32",
+      "mode": "fd",
+      "n": 2,
+      "e_abs": 0.0,
+      "e_rel": 0.0,
+      "passed": true,
+      "raw_fro": 0.0,
+      "raw_col": 0.0,
+      "raw_fro_unit_spread": 1.0,
+      "raw_col_unit_spread": 1.0,
+      "traj_gap": 0.0,
+      "n_below_floor": 0,
+      "max_invariance_gap": 2.8442348059178763e-16,
+      "e_over_traj": 0.0
+    },
+    {
+      "code": "jutrack",
+      "config": "cpu-f64-n16b32",
+      "mode": "fd",
+      "n": 2,
+      "e_abs": 1.423285301414895,
+      "e_rel": 2.3830623065195806,
+      "passed": false,
+      "raw_fro": 0.9450074677168242,
+      "raw_col": 0.9499830433131936,
+      "raw_fro_unit_spread": 1.0533082646208758,
+      "raw_col_unit_spread": 1.0529934163356778,
+      "traj_gap": 1.2662265625397717,
+      "n_below_floor": 0,
+      "max_invariance_gap": 2.220446049250313e-16,
+      "e_over_traj": 1.1240368378942376
+    },
+    {
+      "code": "slipstream",
+      "config": "cpu-f64-o6k8b16-compiled",
+      "mode": "fd",
+      "n": 2,
+      "e_abs": 3.3377864272556663e-07,
+      "e_rel": 9.652759296740395e-07,
+      "passed": true,
+      "raw_fro": 1.0891608943590072e-07,
+      "raw_col": 1.9093454207518504e-07,
+      "raw_fro_unit_spread": 1.484553918800061,
+      "raw_col_unit_spread": 1.0738087055885706,
+      "traj_gap": 5.450480054942617e-07,
+      "n_below_floor": 0,
+      "max_invariance_gap": 1.422117496463135e-16,
+      "e_over_traj": 0.6123839356551516
+    },
+    {
+      "code": "slipstream",
+      "config": "cpu-f64-o6k8b16-compiled",
+      "mode": "ad",
+      "n": 2,
+      "e_abs": 3.353993697741528e-07,
+      "e_rel": 8.27881899340387e-07,
+      "passed": true,
+      "raw_fro": 1.1312254565213398e-07,
+      "raw_col": 1.9085458072543997e-07,
+      "raw_fro_unit_spread": 1.4243350799496226,
+      "raw_col_unit_spread": 1.0737299091332726,
+      "traj_gap": 5.450480054942617e-07,
+      "n_below_floor": 0,
+      "max_invariance_gap": 0.0,
+      "e_over_traj": 0.6153574848329281
+    },
+    {
+      "code": "xsuite",
+      "config": "cpu-f64-yosk8b16-exact",
+      "mode": "fd",
+      "n": 2,
+      "e_abs": 0.0014105485146773242,
+      "e_rel": 0.0041022235541460575,
+      "passed": false,
+      "raw_fro": 0.0004586739767861751,
+      "raw_col": 0.0007970778831509793,
+      "raw_fro_unit_spread": 1.4887887117175163,
+      "raw_col_unit_spread": 1.0693560557276,
+      "traj_gap": 0.002304118744795,
+      "n_below_floor": 0,
+      "max_invariance_gap": 1.4224732503009818e-16,
+      "e_over_traj": 0.612185686116981
+    }
+  ]
+}

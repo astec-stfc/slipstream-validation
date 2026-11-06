@@ -1,0 +1,15 @@
+{
+  "xtrack_version": "0.111.6",
+  "primary_R1_configuration": {
+    "Drift": "adaptive",
+    "Quadrupole": "drift-kick-drift-exact",
+    "Sextupole": "adaptive",
+    "Bend": "bend-kick-bend"
+  },
+  "installed_source": "xtrack/beam_elements/elements_src/drift.h",
+  "source_behavior": "When XTRACK_USE_EXACT_DRIFTS is not defined, adaptive Drift model 0 resolves to expanded model 1; exact is model 2.",
+  "default_line_exact_drift_flag": "unset",
+  "supported_explicit_models_verified_by_construction": ["Drift:exact", "Sextupole:drift-kick-drift-exact"],
+  "control": "xsuite_model_control.py: force those two explicit settings, retain all other inputs/rungs/gates, repeat on CPU/CUDA after primary campaign.",
+  "classification": "Prospectively declared follow-up after finding adapter model mismatch; original R1 results remain archived. No claim about the correction's numerical outcome before execution."
+}

@@ -1,0 +1,41 @@
+{
+  "design": {
+    "date": "2026-10-27",
+    "deck": "ASTRA 3-D, 1.4 ps; meshes in each row (n3d)",
+    "mass_eV": 511003.0,
+    "note": "Mean kinetic energy from full-precision particle files at ZSTOP against the input file; fixed z, not fixed t"
+  },
+  "analysis_sha256": "5040f54b42028f5de2dc9a93ebb8b117c5b553995b03062764cad63b853eb6cf",
+  "rows": {
+    "sc_drift": {
+      "charge_C": -2e-11,
+      "n3d": 32,
+      "phase_space_file": "sc_drift.0300.001",
+      "n_particles": 20000,
+      "ekin_initial_eV": 5000039.668667119,
+      "ekin_final_eV": 5000075.114447623,
+      "gain_eV": 35.44578050356358,
+      "zemit_table_gain_eV": 99.99999999976694
+    },
+    "sc_drift_q0": {
+      "charge_C": -1.9999999999999998e-17,
+      "n3d": 32,
+      "phase_space_file": "sc_drift.0300.001",
+      "n_particles": 20000,
+      "ekin_initial_eV": 5000039.668667119,
+      "ekin_final_eV": 5000039.668676433,
+      "gain_eV": 9.3141570687294e-06,
+      "zemit_table_gain_eV": 0.0
+    },
+    "sc_drift_3d64": {
+      "charge_C": -2e-11,
+      "n3d": 64,
+      "phase_space_file": "sc_drift.0300.001",
+      "n_particles": 20000,
+      "ekin_initial_eV": 5000039.668667119,
+      "ekin_final_eV": 5000067.517846385,
+      "gain_eV": 27.849179266020656,
+      "zemit_table_gain_eV": 99.99999999976694
+    }
+  }
+}

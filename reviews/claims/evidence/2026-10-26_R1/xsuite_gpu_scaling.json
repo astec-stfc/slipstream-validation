@@ -1,0 +1,374 @@
+{
+  "design": {
+    "date": "2026-10-29",
+    "turns": 64,
+    "ns": [
+      5,
+      50,
+      500,
+      5000,
+      50000
+    ],
+    "note": "Same host and session for the two Slipstream GPU settings and Xsuite GPU; CPU rows are the stored 27 October one-thread runs. Xsuite GPU: line built once per process, then each N with one cold and three warm calls; cupy CUB reduction accelerator disabled (CUPY_ACCELERATORS empty) because its NVRTC compile failed.",
+    "xsuite_processes": 2,
+    "failures": []
+  },
+  "xsuite_gpu_build": {
+    "import_s": [
+      1.5725936919916421,
+      1.133593502920121
+    ],
+    "build_s": [
+      314.43457206105813,
+      309.658492106013
+    ],
+    "versions": {
+      "xtrack": "0.111.6",
+      "xfields": "0.27.2",
+      "xobjects": "0.6.10"
+    }
+  },
+  "analysis_sha256": "2c9d1ca9fe77809bb7563c0cc147986c4e137623d4fed781e970666bb4db9dd6",
+  "rows": [
+    {
+      "n": 5,
+      "slipstream_gpu_f32": {
+        "n_ok": 2,
+        "warm_s": 0.04695437476038933,
+        "warm_range_s": [
+          0.04630674980580807,
+          0.04760199971497059
+        ],
+        "cold_s": 0.1527422999497503,
+        "per_particle_turn_us": 146.73242112621665,
+        "first5_vs_elegant": {
+          "x_m": 5.640804036090644e-06,
+          "px": 1.2242521214820851e-06,
+          "y_m": 1.2157463776592704e-07,
+          "py": 3.534286952080231e-08
+        },
+        "speedup_over_xsuite_gpu": 6.966356632251471
+      },
+      "slipstream_gpu_f64": {
+        "n_ok": 2,
+        "warm_s": 0.19158792484086007,
+        "warm_range_s": [
+          0.18982344982214272,
+          0.19335239985957742
+        ],
+        "cold_s": 0.4583365498110652,
+        "per_particle_turn_us": 598.7122651276877,
+        "first5_vs_elegant": {
+          "x_m": 1.1340178975981913e-08,
+          "px": 2.1170957255085138e-09,
+          "y_m": 4.5268015112223323e-10,
+          "py": 1.093058052111049e-10
+        },
+        "speedup_over_xsuite_gpu": 1.7073149067038607
+      },
+      "xsuite_gpu_f64": {
+        "n_ok": 2,
+        "warm_s": 0.32710092002525926,
+        "warm_range_s": [
+          0.32659293711185455,
+          0.32760890293866396
+        ],
+        "per_particle_turn_us": 1022.1903750789352,
+        "cold_s": 0.5902098785154521,
+        "first5_vs_elegant": {
+          "x_m": 3.5812140265088256e-05,
+          "px": 7.394589338419405e-06,
+          "y_m": 1.0615465716100293e-06,
+          "py": 3.21397695132142e-07
+        }
+      },
+      "xsuite_cpu_exact_1thread": {
+        "warm_s": 0.014484948478639126,
+        "per_particle_turn_us": 45.26546399574727,
+        "source": "particle_scaling_control.json (27 October)"
+      },
+      "slipstream_cpu_compiled_1thread": {
+        "warm_s": 0.2929490499664098,
+        "per_particle_turn_us": 915.4657811450306,
+        "source": "particle_scaling_control.json (27 October)"
+      },
+      "elegant_1thread": {
+        "warm_s": 0.1195092499256134,
+        "per_particle_turn_us": 373.4664060175419,
+        "source": "particle_scaling_control.json (27 October)"
+      }
+    },
+    {
+      "n": 50,
+      "slipstream_gpu_f32": {
+        "n_ok": 2,
+        "warm_s": 0.04804622509982437,
+        "warm_range_s": [
+          0.04676730022765696,
+          0.04932514997199178
+        ],
+        "cold_s": 0.15060304990038276,
+        "per_particle_turn_us": 15.014445343695115,
+        "first5_vs_elegant": {
+          "x_m": 5.640804036090644e-06,
+          "px": 1.2242521214820851e-06,
+          "y_m": 1.2157463776592704e-07,
+          "py": 3.534286952080231e-08
+        },
+        "speedup_over_xsuite_gpu": 7.768356426039809
+      },
+      "slipstream_gpu_f64": {
+        "n_ok": 2,
+        "warm_s": 0.20302449993323535,
+        "warm_range_s": [
+          0.20223085000179708,
+          0.20381814986467361
+        ],
+        "cold_s": 0.31782879983074963,
+        "per_particle_turn_us": 63.445156229136046,
+        "first5_vs_elegant": {
+          "x_m": 1.1340178975981913e-08,
+          "px": 2.1170957255085138e-09,
+          "y_m": 4.5268015112223323e-10,
+          "py": 1.093058052111049e-10
+        },
+        "speedup_over_xsuite_gpu": 1.8383998070376526
+      },
+      "xsuite_gpu_f64": {
+        "n_ok": 2,
+        "warm_s": 0.37324020150117576,
+        "warm_range_s": [
+          0.37210441404022276,
+          0.37437598896212876
+        ],
+        "per_particle_turn_us": 116.63756296911743,
+        "cold_s": 0.3740571270463988,
+        "first5_vs_elegant": {
+          "x_m": 3.5812140265088256e-05,
+          "px": 7.394589338419405e-06,
+          "y_m": 1.0615465716100293e-06,
+          "py": 3.21397695132142e-07
+        }
+      },
+      "xsuite_cpu_exact_1thread": {
+        "warm_s": 0.1253102250630036,
+        "per_particle_turn_us": 39.159445332188625,
+        "source": "particle_scaling_control.json (27 October)"
+      },
+      "slipstream_cpu_compiled_1thread": {
+        "warm_s": 0.40795204997994006,
+        "per_particle_turn_us": 127.48501561873127,
+        "source": "particle_scaling_control.json (27 October)"
+      },
+      "elegant_1thread": {
+        "warm_s": 0.43203669996000826,
+        "per_particle_turn_us": 135.01146873750258,
+        "source": "particle_scaling_control.json (27 October)"
+      }
+    },
+    {
+      "n": 500,
+      "slipstream_gpu_f32": {
+        "n_ok": 2,
+        "warm_s": 0.05253905011340976,
+        "warm_range_s": [
+          0.05246990011073649,
+          0.052608200116083026
+        ],
+        "cold_s": 0.15598864969797432,
+        "per_particle_turn_us": 1.641845316044055,
+        "first5_vs_elegant": {
+          "x_m": 5.640804036090644e-06,
+          "px": 1.2242521214820851e-06,
+          "y_m": 1.2157463776592704e-07,
+          "py": 3.534286952080231e-08
+        },
+        "speedup_over_xsuite_gpu": 17.265819169515925
+      },
+      "slipstream_gpu_f64": {
+        "n_ok": 2,
+        "warm_s": 0.5554292750312015,
+        "warm_range_s": [
+          0.5553049501031637,
+          0.5555535999592394
+        ],
+        "cold_s": 0.6662733999546617,
+        "per_particle_turn_us": 17.357164844725048,
+        "first5_vs_elegant": {
+          "x_m": 1.1340178975981913e-08,
+          "px": 2.1170957255085138e-09,
+          "y_m": 4.5268015112223323e-10,
+          "py": 1.093058052111049e-10
+        },
+        "speedup_over_xsuite_gpu": 1.6332047649906634
+      },
+      "xsuite_gpu_f64": {
+        "n_ok": 2,
+        "warm_s": 0.907129738596268,
+        "warm_range_s": [
+          0.9051722190342844,
+          0.9090872581582516
+        ],
+        "per_particle_turn_us": 28.347804331133375,
+        "cold_s": 0.9091729689389467,
+        "first5_vs_elegant": {
+          "x_m": 3.5812140265088256e-05,
+          "px": 7.394589338419405e-06,
+          "y_m": 1.0615465716100293e-06,
+          "py": 3.21397695132142e-07
+        }
+      },
+      "xsuite_cpu_exact_1thread": {
+        "warm_s": 1.221941640600562,
+        "per_particle_turn_us": 38.185676268767565,
+        "source": "particle_scaling_control.json (27 October)"
+      },
+      "slipstream_cpu_compiled_1thread": {
+        "warm_s": 1.5975806000642478,
+        "per_particle_turn_us": 49.924393752007745,
+        "source": "particle_scaling_control.json (27 October)"
+      },
+      "elegant_1thread": {
+        "warm_s": 4.070153650129214,
+        "per_particle_turn_us": 127.19230156653794,
+        "source": "particle_scaling_control.json (27 October)"
+      }
+    },
+    {
+      "n": 5000,
+      "slipstream_gpu_f32": {
+        "n_ok": 2,
+        "warm_s": 0.05556084995623678,
+        "warm_range_s": [
+          0.05491855018772185,
+          0.05620314972475171
+        ],
+        "cold_s": 0.1597542497329414,
+        "per_particle_turn_us": 0.17362765611323994,
+        "first5_vs_elegant": {
+          "x_m": 5.640804036090644e-06,
+          "px": 1.2242521214820851e-06,
+          "y_m": 1.2157463776592704e-07,
+          "py": 3.534286952080231e-08
+        },
+        "speedup_over_xsuite_gpu": 16.503791090981085
+      },
+      "slipstream_gpu_f64": {
+        "n_ok": 2,
+        "warm_s": 0.5583341000601649,
+        "warm_range_s": [
+          0.5582530000247061,
+          0.5584152000956237
+        ],
+        "cold_s": 0.682734299916774,
+        "per_particle_turn_us": 1.7447940626880154,
+        "first5_vs_elegant": {
+          "x_m": 1.1340178975981913e-08,
+          "px": 2.1170957255085138e-09,
+          "y_m": 4.5268015112223323e-10,
+          "py": 1.093058052111049e-10
+        },
+        "speedup_over_xsuite_gpu": 1.6423225097952412
+      },
+      "xsuite_gpu_f64": {
+        "n_ok": 2,
+        "warm_s": 0.9169646605150774,
+        "warm_range_s": [
+          0.9143920610658824,
+          0.9195372599642724
+        ],
+        "per_particle_turn_us": 2.865514564109617,
+        "cold_s": 1.0186913760844618,
+        "first5_vs_elegant": {
+          "x_m": 3.5812140265088256e-05,
+          "px": 7.394589338419405e-06,
+          "y_m": 1.0615465716100293e-06,
+          "py": 3.21397695132142e-07
+        }
+      },
+      "xsuite_cpu_exact_1thread": {
+        "warm_s": 12.339820218505338,
+        "per_particle_turn_us": 38.56193818282918,
+        "source": "particle_scaling_control.json (27 October)"
+      },
+      "slipstream_cpu_compiled_1thread": {
+        "warm_s": 12.633799549890682,
+        "per_particle_turn_us": 39.48062359340838,
+        "source": "particle_scaling_control.json (27 October)"
+      },
+      "elegant_1thread": {
+        "warm_s": 42.55308789992705,
+        "per_particle_turn_us": 132.97839968727203,
+        "source": "particle_scaling_control.json (27 October)"
+      }
+    },
+    {
+      "n": 50000,
+      "slipstream_gpu_f32": {
+        "n_ok": 2,
+        "warm_s": 0.33703927509486675,
+        "warm_range_s": [
+          0.33655230002477765,
+          0.33752625016495585
+        ],
+        "cold_s": 0.4446805501356721,
+        "per_particle_turn_us": 0.10532477346714586,
+        "first5_vs_elegant": {
+          "x_m": 5.640804036090644e-06,
+          "px": 1.2242521214820851e-06,
+          "y_m": 1.2157463776592704e-07,
+          "py": 3.534286952080231e-08
+        },
+        "speedup_over_xsuite_gpu": 26.59663983645107
+      },
+      "slipstream_gpu_f64": {
+        "n_ok": 2,
+        "warm_s": 5.559777699992992,
+        "warm_range_s": [
+          5.55454170005396,
+          5.565013699932024
+        ],
+        "cold_s": 5.659464350203052,
+        "per_particle_turn_us": 1.73743053124781,
+        "first5_vs_elegant": {
+          "x_m": 1.1340178975981913e-08,
+          "px": 2.1170957255085138e-09,
+          "y_m": 4.5268015112223323e-10,
+          "py": 1.093058052111049e-10
+        },
+        "speedup_over_xsuite_gpu": 1.6123148611585718
+      },
+      "xsuite_gpu_f64": {
+        "n_ok": 2,
+        "warm_s": 8.964112210436724,
+        "warm_range_s": [
+          8.951391896000132,
+          8.976832524873316
+        ],
+        "per_particle_turn_us": 2.8012850657614763,
+        "cold_s": 9.168570632115006,
+        "first5_vs_elegant": {
+          "x_m": 3.5812140265088256e-05,
+          "px": 7.394589338419405e-06,
+          "y_m": 1.0615465716100293e-06,
+          "py": 3.21397695132142e-07
+        }
+      },
+      "xsuite_cpu_exact_1thread": {
+        "warm_s": 122.38512290501967,
+        "per_particle_turn_us": 38.24535090781865,
+        "source": "particle_scaling_control.json (27 October)"
+      },
+      "slipstream_cpu_compiled_1thread": {
+        "warm_s": 127.76950064999983,
+        "per_particle_turn_us": 39.927968953124946,
+        "source": "particle_scaling_control.json (27 October)"
+      },
+      "elegant_1thread": {
+        "warm_s": 427.464533300139,
+        "per_particle_turn_us": 133.58266665629344,
+        "source": "particle_scaling_control.json (27 October)"
+      }
+    }
+  ]
+}
