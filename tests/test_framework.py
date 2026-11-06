@@ -1,5 +1,4 @@
 """Tier 0: the cases, the workers, bench.toml and the archived evidence agree.  No simulation code is started."""
-import pathlib
 import tomllib
 
 import pytest
@@ -39,8 +38,40 @@ def test_plan_lists_jobs_for_the_image_codes_only():
 
 
 @pytest.mark.tier0
-def test_every_ring_tunes_job_has_an_archived_row_to_compare_with():
-    old = check.archived_ring_tunes()
-    for code, names in CASES["ring_tunes"]["image"].items():
-        for n in names:
-            assert check.ALIASES.get((code, n), (code, n)) in old, (code, n)
+def test_every_image_job_has_an_archived_row_to_compare_with():
+    assert set(check.CASES) == set(CASES)
+    for cid, c in CASES.items():
+        old = check.archived(cid)
+        for code, names in c["image"].items():
+            for n in names:
+                found = (code, n) in old or check.ALIASES.get((code, n)) in old
+                assert found or (cid, code, n) in check.NOREF_OK, (cid, code, n)
+
+
+GOOD = dict(code="slipstream", config="cpu-f64-o6k8b16", status="ok", dq_ref="1.6e-9")
+
+
+@pytest.mark.tier0
+def test_the_gate_can_fail():
+    old = dict(dq_ref="1.6e-9")
+    judge = lambda x, o=old, case="ring_tunes", code="slipstream", cfg="c", lim={}: check.judge(case, code, cfg, x, o, lim)[0]  # noqa: E731
+    assert judge(GOOD) == "ok"
+    assert judge(dict(GOOD, dq_ref="1.7e-9")) == "ok"                    # inside the floor
+    assert judge(dict(GOOD, dq_ref="5e-6")) == "MOVED"                   # a 3000-fold change in the tune error
+    assert judge(dict(GOOD, dq_ref="")) == "FAILED"                      # job produced no number
+    assert judge(dict(GOOD, status="error")) == "FAILED"
+    assert judge(GOOD, o=None) == "NOREF"
+    # ratchet: 30 % of a value above the floor moves, 20 % does not
+    big = dict(ad_vs_fd_fro="1e-6", ad_vs_fd_col="1e-6", rel_fro="1e-3", rel_col="1e-3", dy0="1e-3")
+    assert judge(dict(big, rel_fro="1.2e-3"), big, "ring_grad") == "ok"
+    assert judge(dict(big, rel_fro="1.3e-3"), big, "ring_grad") == "MOVED"
+    # absolute limit of the case beats the archive: the archive itself may not break G11
+    assert judge(dict(big, ad_vs_fd_fro="2e-5"), dict(big, ad_vs_fd_fro="2e-5"), "ring_grad", lim={"jac_rel": 1e-5}) == "LIMIT"
+    # a flag that changed
+    sc = dict(size_vs_ref="0.01", length_vs_ref="0.01", emit_vs_ref="0.01", spread_vs_ref="0.01", dEkin_change_eV="50", **{"pass": "True"})
+    assert judge(dict(sc, **{"pass": "False"}), sc, "sc_drift") == "MOVED"
+    # a known difference is XFAIL and says why; the same move on another row is not
+    key = ("ring_grad", "slipstream", "cpu-f64-o6k8b16")
+    moved = dict(big, rel_fro="1e-6", rel_col="1e-6", dy0="1e-6")
+    assert check.judge(*key, moved, big, {})[0] == "XFAIL"
+    assert check.judge("ring_grad", "xsuite", "cpu-f64-yosk8b16", moved, big, {})[0] == "MOVED"

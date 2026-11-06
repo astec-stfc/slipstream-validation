@@ -1,15 +1,18 @@
 """Read a campaign: analyse it with the review's own script, then compare it with the archived evidence of the paper.
 
-    python -m slipstream_validation.check compare pc1 --case ring_tunes
+    python -m slipstream_validation.check compare pc1                      # every case in the campaign
+    python -m slipstream_validation.check compare pc1 --case ring_grad     # one case
 
-A configuration agrees when its error against the case's reference moved by no more than REL of the archived value or ABS, whichever
-is larger.  That is a ratchet, not a target: it comes from one host pair (this PC, native GPU or WSL against the image) and is to be
-re-measured from a second host.  Wall times are printed beside each other and never gated, because they do not reproduce between hosts.
-A difference that has an explanation goes into KNOWN with the reason (and an issue number when there is one); it is then XFAIL, not hidden.
+A metric agrees when it moved by no more than REL of the archived value or the case's floor, whichever is larger.  That is a ratchet,
+not a target: it comes from one host pair (this PC, native GPU or WSL against the image) and is to be re-measured from a second host.
+A case may also have an absolute limit from its json (ring_grad: AD against its own central difference, `jac_rel`).  Wall times are
+printed beside each other and never gated, because they do not reproduce between hosts.  A difference that has an explanation goes
+into KNOWN with the reason; it is then XFAIL, not hidden.
 """
 import argparse
 import csv
 import json
+import os
 import pathlib
 import subprocess
 import sys
@@ -17,14 +20,45 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 BENCH = ROOT / "reviews" / "benchmark"
 EVIDENCE = ROOT / "reviews" / "claims" / "evidence" / "2026-10-26_R1"
-REL, ABS = 0.25, 1e-9
+REL = 0.25
+
+# What is compared per case: the metrics (two-sided ratchet), the floor below which a difference is numerical noise, flags that must
+# be equal, the timing column that is only printed, and absolute limits {metric: key of the case's `tolerance`}.
+# Rung-to-rung columns (`*_vs_prev`) are left out: they depend on which rungs a campaign ran.
+CASES = {
+    "ring_tunes": dict(metrics=["dq_ref"], floor=1e-9, time="warm_s"),
+    "ring_grad": dict(metrics=["ad_vs_fd_fro", "ad_vs_fd_col", "rel_fro", "rel_col", "dy0"], floor=1e-9, time="fd_s",
+                      limit={"ad_vs_fd_fro": "jac_rel"}),
+    "sc_drift": dict(metrics=["size_vs_ref", "length_vs_ref", "emit_vs_ref", "spread_vs_ref", "dEkin_change_eV"], floor=1e-9,
+                     flags=["pass"], time="warm_s"),
+    "linear_fodo": dict(metrics=["position_abs_m", "momentum_abs"], floor=1e-15, flags=["pass"], time="warm_s"),
+}
+ANALYSIS = {"ring_tunes": "analyse.py", "ring_grad": "analyse_grad.py", "sc_drift": "analyse_sc.py", "linear_fodo": "analyse_transport.py"}
 
 # the image has no GPU in a plain run: the same model on the CPU is compared with the archived GPU row of the same name
 ALIASES = {("slipstream", "cpu-f64-o6k8b16"): ("slipstream", "cuda-f64-o6k8b16"),
-           ("slipstream", "cpu-f64-o6k16b32"): ("slipstream", "cuda-f64-o6k16b32")}
-KNOWN: dict = {}   # (case, code, config) -> reason
+           ("slipstream", "cpu-f64-o6k16b32"): ("slipstream", "cuda-f64-o6k16b32"),
+           ("slipstream", "cpu-f64-r32z128t2c5"): ("slipstream", "cuda-f32-r32z128t2c5"),     # f64 on the CPU against f32 on the GPU
+           ("slipstream", "cpu-f64-r64z256t1c2"): ("slipstream", "cuda-f32-r64z256t1c2")}
+# image jobs that have no archived row on purpose (a rung added after the archived campaign)
+NOREF_OK = {("sc_drift", "astra", "cpu-f64-3d64h1.4")}
 
-ANALYSIS = {"ring_tunes": "analyse.py", "ring_grad": "analyse_grad.py", "sc_drift": "analyse_sc.py", "linear_fodo": "analyse_transport.py"}
+_REF_MOVED = ("the archived elegant reference moved: a rerun of the same case gives y0 5.2e-7 and Jacobian 2.3e-4 (absolute) away, in the image "
+              "(elegant 2026.1.0) and in native Windows (2026.3.0), which agree to 6e-14, while Slipstream and Xsuite reproduce their archived "
+              "arrays (1e-15 and exactly); cause not isolated, the archived w_elegant.py differs by hash from the file now")
+KNOWN: dict = {   # (case, code, config, metric) -> reason
+    ("ring_grad", "slipstream", "cpu-f64-o6k8b16", "rel_fro"): _REF_MOVED,
+    ("ring_grad", "slipstream", "cpu-f64-o6k8b16", "rel_col"): _REF_MOVED,
+    ("ring_grad", "slipstream", "cpu-f64-o6k8b16", "dy0"): _REF_MOVED,
+    ("ring_grad", "cheetah", "cpu-f64-dri4", "rel_col"): _REF_MOVED,
+}
+
+
+def num(x):
+    try:
+        return float(x)
+    except (TypeError, ValueError):
+        return None
 
 
 def archived_ring_tunes() -> dict:
@@ -38,37 +72,83 @@ def archived_ring_tunes() -> dict:
     return out
 
 
-ARCHIVED = {"ring_tunes": archived_ring_tunes}
+def archived_csv(case: str) -> dict:
+    """The archived summary of the case: one row per (code, config), the first of the three processes (accuracy is the same in all)."""
+    out = {}
+    for r in csv.DictReader((EVIDENCE / f"{case}.csv").open()):
+        out.setdefault((r["code"], r["config"]), r)
+    return out
+
+
+def archived(case: str) -> dict:
+    return archived_ring_tunes() if case == "ring_tunes" else archived_csv(case)
+
+
+def judge(case, code, cfg, x, o, limits):
+    """Status of one new summary row x against the archived row o (None: no archive), the moved metrics and the limit breaches."""
+    spec = CASES[case]
+    moved, why = [], []   # (metric, archived, new); text
+    failed = x.get("status", "ok") != "ok" or bool(x.get("error")) or (
+        o is not None and any(num(x.get(m)) is None and num(o.get(m)) is not None for m in spec["metrics"]))
+    for m in spec["metrics"]:
+        n, a = num(x.get(m)), num(o.get(m)) if o else None
+        if n is not None and a is not None and abs(n - a) > max(REL * abs(a), spec["floor"]):
+            moved.append((m, a, n))
+    for m in spec.get("flags", []):
+        if o is not None and str(x.get(m)) != str(o.get(m)):
+            moved.append((m, o.get(m), x.get(m)))
+    for m, key in spec.get("limit", {}).items():
+        n = num(x.get(m))
+        if n is not None and key in limits and n > limits[key]:
+            why.append(f"{m} {n:.3g} above the limit {key} = {limits[key]:g}")
+    if failed:
+        status = "FAILED"
+    elif why:
+        status = "LIMIT"
+    elif moved and all((case, code, cfg, m) in KNOWN for m, _, _ in moved):
+        status = "XFAIL"
+    elif moved:
+        status = "MOVED"
+    else:
+        status = "ok" if o is not None else "new" if (case, code, cfg) in NOREF_OK else "NOREF"
+    return status, moved, why
 
 
 def compare(tag: str, case: str, results: pathlib.Path) -> int:
-    if case not in ARCHIVED:
-        sys.exit(f"no archived evidence is wired for {case} yet (ring_tunes only)")
-    subprocess.run([sys.executable, str(BENCH / ANALYSIS[case]), "--campaign", tag, "--case", case],
-                   check=True, capture_output=True, env={**__import__("os").environ, "SSV_RESULTS": str(results), "PYTHONDONTWRITEBYTECODE": "1"})
-    new = {(r["code"], r["config"]): r for r in csv.DictReader((results / tag / case / "summary.csv").open())}
-    old = ARCHIVED[case]()
+    spec = CASES[case]
+    r = subprocess.run([sys.executable, str(BENCH / ANALYSIS[case]), "--campaign", tag, "--case", case], capture_output=True, text=True,
+                       env={**os.environ, "SSV_RESULTS": str(results), "PYTHONDONTWRITEBYTECODE": "1"})
+    if r.returncode:
+        print(f"{case}: the analysis script failed\n{r.stderr[-800:]}")
+        return 1
+    new = {(x["code"], x["config"]): x for x in csv.DictReader((results / tag / case / "summary.csv").open())}
+    old = archived(case)
+    limits = json.loads((BENCH / "cases" / f"{case}.json").read_text()).get("tolerance", {})
     env = json.loads((results / tag / "environment.json").read_text()) if (results / tag / "environment.json").exists() else {}
-    print(f"{tag}: image {str(env.get('image_id'))[:19]}  slipstream {str(env.get('slipstream', {}).get('commit'))[:12]}  case {case}")
-    print(f"{'code':10} {'config':26} {'archived dq':>12} {'new dq':>12} {'status':8} {'warm archived':>14} {'warm new':>9}")
+    print(f"\n{case}  campaign {tag}  image {str(env.get('image_id'))[:19]}  slipstream {str(env.get('slipstream', {}).get('commit'))[:12]}")
+    print(f"{'code':10} {'config':26} {'status':7} {'largest change':44} {'time archived':>13} {'time new':>9}")
     bad = 0
-    for (code, cfg), r in sorted(new.items()):
-        key = ALIASES.get((code, cfg), (code, cfg))
-        o = old.get(key)
-        if not r.get("dq_ref") or o is None:
-            status = "NOREF" if o is None else "FAILED"
-            bad += status == "FAILED"
-            print(f"{code:10} {cfg:26} {'-':>12} {'-':>12} {status:8}")
-            continue
-        n, a = float(r["dq_ref"]), float(o["dq_ref"])
-        ok = abs(n - a) <= max(REL * abs(a), ABS)
-        status = "ok" if ok else ("XFAIL" if (case, code, cfg) in KNOWN else "MOVED")
-        bad += status == "MOVED"
-        w_old = f"{float(o['warm_s']):.3g}" if o.get("warm_s") not in (None, "") else "-"
-        w_new = f"{float(r['warm_s']):.3g}" if r.get("warm_s") else "-"
-        print(f"{code:10} {cfg:26} {a:12.3e} {n:12.3e} {status:8} {w_old:>14} {w_new:>9}" + (f"   ({KNOWN[(case, code, cfg)]})" if status == "XFAIL" else ""))
-    print(f"tolerance: max({REL:g} * archived, {ABS:g}) in absolute tune error; times are not gated")
-    return 1 if bad else 0
+    for (code, cfg), x in sorted(new.items()):
+        o = old.get((code, cfg)) or old.get(ALIASES.get((code, cfg), ()))   # an alias only where the archive has no row of that name
+        status, moved, why = judge(case, code, cfg, x, o, limits)
+        bad += status in ("FAILED", "LIMIT", "MOVED")
+        change = max(((abs(num(x[m]) - num(o[m])) / (abs(num(o[m])) or 1), m, num(o[m]), num(x[m])) for m in spec["metrics"]
+                      if o and num(x.get(m)) is not None and num(o.get(m)) is not None), default=None)
+        text = f"{change[1]} {change[2]:.3e} -> {change[3]:.3e}" if change else "-"
+        if o is not None and (code, cfg) not in old:
+            text += f"  [vs {ALIASES[(code, cfg)][1]}]"
+        t_old, t_new = (num(o.get(spec["time"])) if o else None), num(x.get(spec["time"]))
+        g = lambda v: "-" if v is None else format(v, ".3g")  # noqa: E731
+        print(f"{code:10} {cfg:26} {status:7} {text:44} {g(t_old):>13} {g(t_new):>9}")
+        for m, a, n in moved:
+            print(f"    {m}: archived {a} -> new {n}")
+        for reason in dict.fromkeys(KNOWN[(case, code, cfg, m)] for m, _, _ in moved if (case, code, cfg, m) in KNOWN):
+            print(f"    known: {reason}")
+        for w in why:
+            print(f"    {w}")
+    only = sorted({c for c, _ in old} - {c for c, _ in new})
+    print(f"archived, not rerun here: {', '.join(only) or 'none'}")
+    return bad
 
 
 def main(argv=None):
@@ -76,10 +156,17 @@ def main(argv=None):
     sub = ap.add_subparsers(dest="cmd", required=True)
     c = sub.add_parser("compare")
     c.add_argument("tag")
-    c.add_argument("--case", default="ring_tunes")
+    c.add_argument("--case", action="append", choices=list(CASES), help="default: every case that has results in the campaign")
     c.add_argument("--results", default=str(ROOT / "results"))
     a = ap.parse_args(argv)
-    sys.exit(compare(a.tag, a.case, pathlib.Path(a.results)))
+    res = pathlib.Path(a.results)
+    cases = a.case or [k for k in CASES if (res / a.tag / k).is_dir()]
+    if not cases:
+        sys.exit(f"no case folder in {res / a.tag}")
+    bad = sum(compare(a.tag, k, res) for k in cases)
+    print("\n" + (f"{bad} row(s) need attention" if bad else "all rows agree with the archive") +
+          f"; tolerance max({REL:g} * archived, floor of the case); times are not gated")
+    sys.exit(1 if bad else 0)
 
 
 if __name__ == "__main__":
