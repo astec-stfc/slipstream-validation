@@ -1,0 +1,13 @@
+{
+  "id": "ring_tunes",
+  "title": "Amplitude-dependent betatron tunes on the illustrative 48 m MLS-inspired ring",
+  "gate": "G2 (ring), G1 (conventions: first-turn residuals)",
+  "lattice": "mls_ring.json",
+  "energy_eV": 629e6,
+  "mass_eV": 510998.95,
+  "particles": {"x0": [1e-3, 2e-3, 4e-3, 6e-3, 8e-3], "y0": 1e-3, "delta": 0.0},
+  "turns": 1024,
+  "tune_windows": {"x": [0.18, 0.1], "y": [0.23, 0.1]},
+  "tolerance": {"tune_abs": 1e-5, "onturn_abs": 1e-8},
+  "reference": {"code": "elegant", "note": "continuity anchor; the cross-code spread of the finest configurations is reported next to it"}
+}

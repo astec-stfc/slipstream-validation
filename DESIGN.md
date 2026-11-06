@@ -98,7 +98,7 @@ review READMEs' gate tables, one row each, with the tolerance and the tier.
 4. `python -m slipstream_validation.check compare archived pc2` lists what moved beyond the cross-host tolerance; `check report pc2` writes the markdown tables with the host, versions and image id on top.
 5. Send back `results/pc2/` (compact JSON) or commit it under `reviews/benchmark/evidence/`.
 
-Steps 3 and 4 do not exist yet (section 9, phase 2).
+Steps 3 and 4 exist for `ring_tunes` (section 10, phase 3); the other cases run and analyse but have no archived loader in `check.py` yet.
 
 ## 8. What moves from the report folder
 
@@ -140,15 +140,40 @@ Consequences:
 
 | Phase | Work | Effort |
 | --- | --- | --- |
-| 1 | Scaffold, `claims` review, tier-0 CI, this document (done except CI and `AGENTS.md`) | done |
-| 2 | Port `benchmarks/run.py` to the `docker` platform (workers are already environment-neutral: they import numpy only and exchange the benchmark standard frame), `bench.toml`, `runner`, `check compare` and `report` | 1 day |
-| 3 | First image campaign on this PC: ring tunes and `sc_drift` in Slipstream, elegant, ASTRA, Ocelot, Xsuite and Cheetah; compare with `2026-10-26_R1`; settle the elegant and ASTRA version question | 1 day plus runtime |
+| 1 | Scaffold, `claims` review, tier-0 CI, this document | done |
+| 2 | Port `benchmarks/run.py` to the `docker` platform: `runner.py` (checkout, plan, run), `check.py` (compare), `bench.toml`, `reviews/benchmark/` with cases, workers and analysis. Workers are unchanged (they exchange the benchmark standard frame). `check report` (markdown tables) still to do | done, 6 Nov |
+| 3 | First image campaign on this PC. `ring_tunes` done (below). Still to run and wire: `sc_drift` (Slipstream, ASTRA, Cheetah, Ocelot), `ring_grad`, `linear_fodo`, and the ASTRA Linux against Windows build question | `sc_drift` about half a day |
 | 4 | Second PC: the same campaign; cross-host tolerances; replace the unreproducible performance wording | 0.5 day plus a machine |
 | 5 | `injector` review with ASTRA in the image and GPT archived | 1 to 2 days |
+
+### First image campaign: `ring_tunes`, 6 November 2026
+
+Tag `pc1`: this PC, Docker in WSL, the validation image, Slipstream `50a12dc` from a `git archive` export, CPU only, one process per
+configuration, nine jobs. All nine agree with the archived `2026-10-26_R1` tune errors (`check compare pc1`):
+
+| Code | Configuration | Archived dq | Image dq |
+| --- | --- | --- | --- |
+| elegant | o6s8b16 | 3.817e-9 | 3.817e-9 |
+| Slipstream | o6k8b16 (CPU f64; archived row is GPU f64) | 1.630e-9 | 1.625e-9 |
+| Slipstream | o6k16b32 (CPU f64; archived row is GPU f64) | 3.59e-11 | 4.2e-11 |
+| Xsuite | yosk8b16 | 2.899e-4 | 2.899e-4 |
+| Xsuite | yosk8b16-exact | 6.863e-6 | 6.863e-6 |
+| Xsuite | yosk16b32-exact | 6.025e-7 | 6.025e-7 |
+| Cheetah | dri16 | 1.040e-4 | 1.040e-4 |
+| Cheetah | lin1 | 3.359e-3 | 3.359e-3 |
+
+What it shows:
+
+1. **The elegant version does not matter for this case.** The image's 2026.1.0 gives the same tune errors as the paper's 2026.3.0 to four figures. The version difference stays worth one sentence in the paper, but needs no rebuild for `ring_tunes`.
+2. **Different library versions, same numbers.** Xsuite is 0.111.0 here and 0.111.6 in the archive, torch 2.13 against 2.14, Cheetah 0.8.4 in both. The runs agree to the digits shown, except Slipstream's 1e-11 level, which is float64 noise on a different device.
+3. **The first campaign was not a timing result.** Wall times differ greatly and mean nothing across devices (Slipstream CPU eager, one thread, 124 s against 2.9 s on the GPU). They are printed side by side and never gated.
+4. **The other three cases also run in the image.** `sc_drift` (Slipstream 3 configurations, ASTRA 3, Cheetah 2, Ocelot 2), `ring_grad` (Slipstream, elegant, Xsuite, Cheetah) and `linear_fodo` (Slipstream, 2 configurations): 16 more jobs, 25 in total, all ok, and their analysis scripts produce their tables. Only `ring_tunes` has an archived loader in `check.py`, so only it is compared with the archive by a command; the others need that wiring. The ASTRA used is the Linux serial build of the image, not the Windows 4.0 build of the paper, so the `sc_drift` comparison is also the first cross-build check of ASTRA.
+5. **A wrong guess caught by a check:** `cases.toml` first carried configuration names taken from the study's globs, and five were not real. Listing each worker's configurations in the image (`--list`) found them before a run did. A tier-1 test that does this belongs in the next step.
+6. **Three traps found and fixed:** Xsuite compiles C kernels into its working directory, so the container's working directory is `/tmp` and the repository is mounted read-only; a worker keeps its traceback in `result.json`, not on stderr, so the runner prints that; the Ocelot worker asked for the distribution `ocelot-collab` while the image has the same code as `ocelot-desy`.
 
 ## 11. Open decisions
 
 1. **Public or private?** The remote exists with an Apache 2.0 licence. The archived evidence includes GPT output and CLARA-derived numbers; confirm that is releasable before the repository is public.
-2. **elegant version.** Rebuild the image at 2026.3.0 (cleanest) or state 2026.1.0 in the paper.
+2. **elegant version.** `ring_tunes` is unaffected (identical to four figures). Rebuild at 2026.3.0 only if a later case, such as CSR or the Pelegant baseline, shows a difference.
 3. **Package tests and CI.** Whether the Slipstream repository adds the markers of section 9 (a change to the package, not done here).
 4. **Data deposit.** The raw results (1.8 GB benchmark, 12 GB story output) need a persistent identifier for R4; this repository holds the compact part only.

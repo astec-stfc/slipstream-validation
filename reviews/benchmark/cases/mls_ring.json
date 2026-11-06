@@ -1,0 +1,590 @@
+{
+ "id": "mls_ring",
+ "note": "illustrative 48 m MLS-inspired DBA ring, sector bends (e1 = e2 = 0), thick elements",
+ "source": "slipstream_examples/nonlinear_optimisation.py:mls_specs()",
+ "elements": [
+  {
+   "name": "STRAIGHT",
+   "kind": "drift",
+   "length": 6.0
+  },
+  {
+   "name": "DA",
+   "kind": "drift",
+   "length": 0.3
+  },
+  {
+   "name": "Q3L",
+   "kind": "quad",
+   "length": 0.2,
+   "k1": -2.847681806285773
+  },
+  {
+   "name": "S1",
+   "kind": "sext",
+   "length": 0.1,
+   "k2": 20.0
+  },
+  {
+   "name": "DB",
+   "kind": "drift",
+   "length": 0.3
+  },
+  {
+   "name": "Q2L",
+   "kind": "quad",
+   "length": 0.2,
+   "k1": 3.29122194477513
+  },
+  {
+   "name": "DC",
+   "kind": "drift",
+   "length": 0.325
+  },
+  {
+   "name": "B",
+   "kind": "bend",
+   "length": 1.3,
+   "angle": 0.7853981633974483
+  },
+  {
+   "name": "DD",
+   "kind": "drift",
+   "length": 0.3
+  },
+  {
+   "name": "S2",
+   "kind": "sext",
+   "length": 0.1,
+   "k2": -20.0
+  },
+  {
+   "name": "Q1",
+   "kind": "quad",
+   "length": 0.2,
+   "k1": -0.7678415218043021
+  },
+  {
+   "name": "S3",
+   "kind": "sext",
+   "length": 0.1,
+   "k2": 0.0
+  },
+  {
+   "name": "DE",
+   "kind": "drift",
+   "length": 0.4
+  },
+  {
+   "name": "O",
+   "kind": "drift",
+   "length": 0.1
+  },
+  {
+   "name": "DE",
+   "kind": "drift",
+   "length": 0.4
+  },
+  {
+   "name": "S3",
+   "kind": "sext",
+   "length": 0.1,
+   "k2": 0.0
+  },
+  {
+   "name": "Q1",
+   "kind": "quad",
+   "length": 0.2,
+   "k1": -0.7678415218043021
+  },
+  {
+   "name": "S2",
+   "kind": "sext",
+   "length": 0.1,
+   "k2": -20.0
+  },
+  {
+   "name": "DD",
+   "kind": "drift",
+   "length": 0.3
+  },
+  {
+   "name": "B",
+   "kind": "bend",
+   "length": 1.3,
+   "angle": 0.7853981633974483
+  },
+  {
+   "name": "DC",
+   "kind": "drift",
+   "length": 0.325
+  },
+  {
+   "name": "Q2S",
+   "kind": "quad",
+   "length": 0.2,
+   "k1": 5.0602022474686
+  },
+  {
+   "name": "DB",
+   "kind": "drift",
+   "length": 0.3
+  },
+  {
+   "name": "S1",
+   "kind": "sext",
+   "length": 0.1,
+   "k2": 20.0
+  },
+  {
+   "name": "Q3S",
+   "kind": "quad",
+   "length": 0.2,
+   "k1": -6.515853025684272
+  },
+  {
+   "name": "DA",
+   "kind": "drift",
+   "length": 0.3
+  },
+  {
+   "name": "STRAIGHT",
+   "kind": "drift",
+   "length": 2.5
+  },
+  {
+   "name": "DA",
+   "kind": "drift",
+   "length": 0.3
+  },
+  {
+   "name": "Q3S",
+   "kind": "quad",
+   "length": 0.2,
+   "k1": -6.515853025684272
+  },
+  {
+   "name": "S1",
+   "kind": "sext",
+   "length": 0.1,
+   "k2": 20.0
+  },
+  {
+   "name": "DB",
+   "kind": "drift",
+   "length": 0.3
+  },
+  {
+   "name": "Q2S",
+   "kind": "quad",
+   "length": 0.2,
+   "k1": 5.0602022474686
+  },
+  {
+   "name": "DC",
+   "kind": "drift",
+   "length": 0.325
+  },
+  {
+   "name": "B",
+   "kind": "bend",
+   "length": 1.3,
+   "angle": 0.7853981633974483
+  },
+  {
+   "name": "DD",
+   "kind": "drift",
+   "length": 0.3
+  },
+  {
+   "name": "S2",
+   "kind": "sext",
+   "length": 0.1,
+   "k2": -20.0
+  },
+  {
+   "name": "Q1",
+   "kind": "quad",
+   "length": 0.2,
+   "k1": -0.7678415218043021
+  },
+  {
+   "name": "S3",
+   "kind": "sext",
+   "length": 0.1,
+   "k2": 0.0
+  },
+  {
+   "name": "DE",
+   "kind": "drift",
+   "length": 0.4
+  },
+  {
+   "name": "O",
+   "kind": "drift",
+   "length": 0.1
+  },
+  {
+   "name": "DE",
+   "kind": "drift",
+   "length": 0.4
+  },
+  {
+   "name": "S3",
+   "kind": "sext",
+   "length": 0.1,
+   "k2": 0.0
+  },
+  {
+   "name": "Q1",
+   "kind": "quad",
+   "length": 0.2,
+   "k1": -0.7678415218043021
+  },
+  {
+   "name": "S2",
+   "kind": "sext",
+   "length": 0.1,
+   "k2": -20.0
+  },
+  {
+   "name": "DD",
+   "kind": "drift",
+   "length": 0.3
+  },
+  {
+   "name": "B",
+   "kind": "bend",
+   "length": 1.3,
+   "angle": 0.7853981633974483
+  },
+  {
+   "name": "DC",
+   "kind": "drift",
+   "length": 0.325
+  },
+  {
+   "name": "Q2L",
+   "kind": "quad",
+   "length": 0.2,
+   "k1": 3.29122194477513
+  },
+  {
+   "name": "DB",
+   "kind": "drift",
+   "length": 0.3
+  },
+  {
+   "name": "S1",
+   "kind": "sext",
+   "length": 0.1,
+   "k2": 20.0
+  },
+  {
+   "name": "Q3L",
+   "kind": "quad",
+   "length": 0.2,
+   "k1": -2.847681806285773
+  },
+  {
+   "name": "DA",
+   "kind": "drift",
+   "length": 0.3
+  },
+  {
+   "name": "STRAIGHT",
+   "kind": "drift",
+   "length": 6.0
+  },
+  {
+   "name": "DA",
+   "kind": "drift",
+   "length": 0.3
+  },
+  {
+   "name": "Q3L",
+   "kind": "quad",
+   "length": 0.2,
+   "k1": -2.847681806285773
+  },
+  {
+   "name": "S1",
+   "kind": "sext",
+   "length": 0.1,
+   "k2": 20.0
+  },
+  {
+   "name": "DB",
+   "kind": "drift",
+   "length": 0.3
+  },
+  {
+   "name": "Q2L",
+   "kind": "quad",
+   "length": 0.2,
+   "k1": 3.29122194477513
+  },
+  {
+   "name": "DC",
+   "kind": "drift",
+   "length": 0.325
+  },
+  {
+   "name": "B",
+   "kind": "bend",
+   "length": 1.3,
+   "angle": 0.7853981633974483
+  },
+  {
+   "name": "DD",
+   "kind": "drift",
+   "length": 0.3
+  },
+  {
+   "name": "S2",
+   "kind": "sext",
+   "length": 0.1,
+   "k2": -20.0
+  },
+  {
+   "name": "Q1",
+   "kind": "quad",
+   "length": 0.2,
+   "k1": -0.7678415218043021
+  },
+  {
+   "name": "S3",
+   "kind": "sext",
+   "length": 0.1,
+   "k2": 0.0
+  },
+  {
+   "name": "DE",
+   "kind": "drift",
+   "length": 0.4
+  },
+  {
+   "name": "O",
+   "kind": "drift",
+   "length": 0.1
+  },
+  {
+   "name": "DE",
+   "kind": "drift",
+   "length": 0.4
+  },
+  {
+   "name": "S3",
+   "kind": "sext",
+   "length": 0.1,
+   "k2": 0.0
+  },
+  {
+   "name": "Q1",
+   "kind": "quad",
+   "length": 0.2,
+   "k1": -0.7678415218043021
+  },
+  {
+   "name": "S2",
+   "kind": "sext",
+   "length": 0.1,
+   "k2": -20.0
+  },
+  {
+   "name": "DD",
+   "kind": "drift",
+   "length": 0.3
+  },
+  {
+   "name": "B",
+   "kind": "bend",
+   "length": 1.3,
+   "angle": 0.7853981633974483
+  },
+  {
+   "name": "DC",
+   "kind": "drift",
+   "length": 0.325
+  },
+  {
+   "name": "Q2S",
+   "kind": "quad",
+   "length": 0.2,
+   "k1": 5.0602022474686
+  },
+  {
+   "name": "DB",
+   "kind": "drift",
+   "length": 0.3
+  },
+  {
+   "name": "S1",
+   "kind": "sext",
+   "length": 0.1,
+   "k2": 20.0
+  },
+  {
+   "name": "Q3S",
+   "kind": "quad",
+   "length": 0.2,
+   "k1": -6.515853025684272
+  },
+  {
+   "name": "DA",
+   "kind": "drift",
+   "length": 0.3
+  },
+  {
+   "name": "STRAIGHT",
+   "kind": "drift",
+   "length": 2.5
+  },
+  {
+   "name": "DA",
+   "kind": "drift",
+   "length": 0.3
+  },
+  {
+   "name": "Q3S",
+   "kind": "quad",
+   "length": 0.2,
+   "k1": -6.515853025684272
+  },
+  {
+   "name": "S1",
+   "kind": "sext",
+   "length": 0.1,
+   "k2": 20.0
+  },
+  {
+   "name": "DB",
+   "kind": "drift",
+   "length": 0.3
+  },
+  {
+   "name": "Q2S",
+   "kind": "quad",
+   "length": 0.2,
+   "k1": 5.0602022474686
+  },
+  {
+   "name": "DC",
+   "kind": "drift",
+   "length": 0.325
+  },
+  {
+   "name": "B",
+   "kind": "bend",
+   "length": 1.3,
+   "angle": 0.7853981633974483
+  },
+  {
+   "name": "DD",
+   "kind": "drift",
+   "length": 0.3
+  },
+  {
+   "name": "S2",
+   "kind": "sext",
+   "length": 0.1,
+   "k2": -20.0
+  },
+  {
+   "name": "Q1",
+   "kind": "quad",
+   "length": 0.2,
+   "k1": -0.7678415218043021
+  },
+  {
+   "name": "S3",
+   "kind": "sext",
+   "length": 0.1,
+   "k2": 0.0
+  },
+  {
+   "name": "DE",
+   "kind": "drift",
+   "length": 0.4
+  },
+  {
+   "name": "O",
+   "kind": "drift",
+   "length": 0.1
+  },
+  {
+   "name": "DE",
+   "kind": "drift",
+   "length": 0.4
+  },
+  {
+   "name": "S3",
+   "kind": "sext",
+   "length": 0.1,
+   "k2": 0.0
+  },
+  {
+   "name": "Q1",
+   "kind": "quad",
+   "length": 0.2,
+   "k1": -0.7678415218043021
+  },
+  {
+   "name": "S2",
+   "kind": "sext",
+   "length": 0.1,
+   "k2": -20.0
+  },
+  {
+   "name": "DD",
+   "kind": "drift",
+   "length": 0.3
+  },
+  {
+   "name": "B",
+   "kind": "bend",
+   "length": 1.3,
+   "angle": 0.7853981633974483
+  },
+  {
+   "name": "DC",
+   "kind": "drift",
+   "length": 0.325
+  },
+  {
+   "name": "Q2L",
+   "kind": "quad",
+   "length": 0.2,
+   "k1": 3.29122194477513
+  },
+  {
+   "name": "DB",
+   "kind": "drift",
+   "length": 0.3
+  },
+  {
+   "name": "S1",
+   "kind": "sext",
+   "length": 0.1,
+   "k2": 20.0
+  },
+  {
+   "name": "Q3L",
+   "kind": "quad",
+   "length": 0.2,
+   "k1": -2.847681806285773
+  },
+  {
+   "name": "DA",
+   "kind": "drift",
+   "length": 0.3
+  }
+ ],
+ "inventory": {
+  "n": 104,
+  "length": 48.0,
+  "angle": 6.283185307179586,
+  "k1L_abs": 15.400513654257905,
+  "k2L_abs": 32.0
+ }
+}

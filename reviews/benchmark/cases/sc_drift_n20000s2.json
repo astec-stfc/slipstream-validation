@@ -1,0 +1,56 @@
+{
+ "id": "sc_drift_n20000s2",
+ "kind": "stations",
+ "title": "Free-space space-charge expansion of a 5 MeV, 20 pC Gaussian electron bunch in a 3 m drift (20000 macroparticles, seed copy 2)",
+ "gate": "control (seed control; no pass gate)",
+ "lattice": "sc_drift_lat.json",
+ "kinetic_eV": 5000000.0,
+ "energy_eV": 5510998.95,
+ "mass_eV": 510998.95,
+ "charge_C": -2e-11,
+ "particles": {
+  "file": "sc_drift_n20000s2.npz",
+  "frame": "lab_fixed_t"
+ },
+ "turns": 1,
+ "stations_m": [
+  0.0,
+  0.1,
+  0.2,
+  0.3,
+  0.4,
+  0.5,
+  0.6,
+  0.7,
+  0.8,
+  0.9,
+  1.0,
+  1.2,
+  1.4,
+  1.6,
+  1.8,
+  2.0,
+  2.25,
+  2.5,
+  2.75,
+  3.0
+ ],
+ "columns": [
+  "z_m",
+  "sigma_x_m",
+  "sigma_y_m",
+  "sigma_z_m",
+  "eps_nx_m",
+  "eps_ny_m",
+  "ekin_eV",
+  "sigma_E_eV"
+ ],
+ "tolerance": {
+  "sigma_rel": 0.03,
+  "eps_rel": 0.05
+ },
+ "reference": {
+  "code": "astra",
+  "note": "a peer, not truth: GPT pairwise (spacecharge3D) is the second reference; the spread of the finest settings of all codes is reported next to it"
+ }
+}

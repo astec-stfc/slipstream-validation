@@ -17,5 +17,8 @@ FROM ${SIMCODES_IMAGE}
 # soliday.sdds is Slipstream's [sdds] extra, installed by its CI too
 RUN pip install --no-cache-dir pytest soliday.sdds
 ENV MPLBACKEND=Agg
+# elegant, the SDDS tools its worker calls, and ASTRA; the benchmark workers read these two variables
+ENV PATH=/simcodes/SDDS/bin/Linux-x86_64:/simcodes/elegant/bin/Linux-x86_64:$PATH
+ENV BENCH_ELEGANT_EXE=elegant BENCH_ASTRA_EXE=/simcodes/Astra-serial/Astra
 ENTRYPOINT ["/bin/bash"]
 WORKDIR /work

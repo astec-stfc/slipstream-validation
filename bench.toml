@@ -17,7 +17,8 @@ platform = "docker"
 image = "slipstream-validation:local"
 gpus = false          # true adds --gpus all; accuracy cases do not need it, the timing cases do
 threads = 1           # OMP/MKL/torch threads per worker; the paper's protocol is one thread
-runs = ""             # where raw output goes as the daemon sees the path; empty: runs/ in this repository
+wsl_distro = ""       # the runner is on Windows and Docker is in this WSL distribution (Ubuntu-22.04); empty: docker is on this machine
+user = ""             # uid:gid the worker runs as; empty: the runner's on Linux, root through WSL
 
 [paths]
 slipstream = ""       # checkout of Slipstream to test (required: the image does not carry it, the repository is private)

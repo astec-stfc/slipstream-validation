@@ -1,0 +1,38 @@
+# Which worker file serves which kind of case, per code.  A case names its kind in cases.toml.  Paths are relative to this folder.
+# Machine paths and platforms are not here: they are in bench.toml.
+
+[slipstream]
+ring = "workers/w_slipstream.py"
+sc_drift = "workers/w_slipstream_sc.py"
+linear_fodo = "workers/w_slipstream.py"
+
+[elegant]
+ring = "workers/w_elegant.py"
+
+[xsuite]
+ring = "workers/w_xsuite.py"
+
+[cheetah]
+ring = "workers/w_cheetah.py"
+sc_drift = "workers/w_cheetah_sc.py"
+
+[ocelot]
+sc_drift = "workers/w_ocelot_sc.py"
+
+[astra]
+sc_drift = "workers/w_astra.py"
+
+[gpt]
+sc_drift = "workers/w_gpt.py"
+
+[impactx]
+sc_drift = "workers/w_impactx.py"
+
+[jutrack]
+ring = "workers/w_jutrack.py"
+
+[bmadx]
+ring = "workers/w_bmadx.py"
+
+[helix]
+linear_fodo = "workers/w_helix.py"

@@ -1,0 +1,11 @@
+{
+ "id": "sc_drift_lat",
+ "note": "field-free drift",
+ "elements": [
+  {
+   "name": "D",
+   "kind": "drift",
+   "length": 3.0
+  }
+ ]
+}

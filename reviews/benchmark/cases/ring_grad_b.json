@@ -1,0 +1,54 @@
+{
+  "id": "ring_grad_b",
+  "kind": "grad",
+  "title": "Second Jacobian coverage case: different launch (x, y, px, py, delta all nonzero) and the short-quadrupole families on the MLS-inspired ring",
+  "gate": "G11, G12 (coverage extension of ring_grad; same limits, no new tolerance)",
+  "lattice": "mls_ring.json",
+  "energy_eV": 629000000.0,
+  "mass_eV": 510998.95,
+  "particles": {
+    "x0": [
+      -0.006
+    ],
+    "px0": 0.0002,
+    "y0": -0.002,
+    "py0": -0.0001,
+    "delta": 0.003
+  },
+  "turns": 40,
+  "knobs": [
+    {
+      "family": "Q1",
+      "kind": "k1"
+    },
+    {
+      "family": "Q2S",
+      "kind": "k1"
+    },
+    {
+      "family": "Q3S",
+      "kind": "k1"
+    },
+    {
+      "family": "S1",
+      "kind": "k2"
+    },
+    {
+      "family": "S2",
+      "kind": "k2"
+    }
+  ],
+  "fd_rel_steps": [
+    0.01,
+    0.001,
+    0.0001,
+    1e-05
+  ],
+  "tolerance": {
+    "jac_rel": 1e-05
+  },
+  "reference": {
+    "code": "elegant",
+    "note": "the finest elegant rung with a central difference at the best step; each code's AD is also compared with its own best central difference"
+  }
+}

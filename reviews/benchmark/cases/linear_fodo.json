@@ -1,0 +1,8 @@
+{
+  "id": "linear_fodo", "kind": "transport",
+  "title": "Linear-limit transverse transport through a 1 m FODO at 3 MeV proton kinetic energy",
+  "lattice": "linear_fodo_lat.json", "energy_eV": 941272088.16, "mass_eV": 938272088.16,
+  "particles": {"x0": [1e-7, 0, 0, 0], "px0": [0, 1e-7, 0, 0], "y0": [0, 0, 1e-7, 0], "py0": [0, 0, 0, 1e-7]},
+  "turns": 2, "tolerance": {"position_abs_m": 1e-11, "momentum_abs": 1e-11},
+  "reference": {"code": "analytic", "note": "Independent thick-quadrupole cos/sin and cosh/sinh matrices, in the paraxial on-momentum limit"}
+}

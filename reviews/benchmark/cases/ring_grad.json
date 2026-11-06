@@ -1,0 +1,21 @@
+{
+  "id": "ring_grad",
+  "kind": "grad",
+  "title": "Jacobian of the tracked state with respect to magnet-family strengths on the illustrative 48 m MLS-inspired ring",
+  "gate": "G11, G12",
+  "lattice": "mls_ring.json",
+  "energy_eV": 629e6,
+  "mass_eV": 510998.95,
+  "particles": {"x0": [4e-3], "y0": 1e-3, "delta": 0.0},
+  "turns": 40,
+  "knobs": [
+    {"family": "Q1", "kind": "k1"},
+    {"family": "Q2L", "kind": "k1"},
+    {"family": "Q3L", "kind": "k1"},
+    {"family": "S1", "kind": "k2"},
+    {"family": "S2", "kind": "k2"}
+  ],
+  "fd_rel_steps": [1e-2, 1e-3, 1e-4, 1e-5],
+  "tolerance": {"jac_rel": 1e-5},
+  "reference": {"code": "elegant", "note": "the finest elegant rung with a central difference at the best step; each code's AD is also compared with its own best central difference"}
+}

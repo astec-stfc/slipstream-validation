@@ -1,0 +1,11 @@
+{
+  "id": "linear_fodo_lat",
+  "note": "1 m hard-edge proton FODO; k1=G/Brho; zero edges, collective effects and RF",
+  "elements": [
+    {"name": "D1", "kind": "drift", "length": 0.2},
+    {"name": "QF", "kind": "quad", "length": 0.1, "k1": 32.0},
+    {"name": "D2", "kind": "drift", "length": 0.4},
+    {"name": "QD", "kind": "quad", "length": 0.1, "k1": -32.0},
+    {"name": "D3", "kind": "drift", "length": 0.2}
+  ]
+}
