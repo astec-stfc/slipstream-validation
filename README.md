@@ -43,7 +43,7 @@ python -m slipstream_validation.check compare pc2
 | Review | What it checks | Needs | State |
 | --- | --- | --- | --- |
 | [claims](reviews/claims/) | every number quoted in the paper follows from the archived evidence | numpy | runs (tier 0) |
-| [benchmark](reviews/benchmark/) | the four frozen cases (ring tunes, five-knob Jacobian, space-charge drift, linear FODO) across the codes | the image | all four cases run and are compared with the archive by `check compare`; one documented exception (the archived elegant `ring_grad` reference) |
+| [benchmark](reviews/benchmark/) | the four frozen cases (ring tunes, five-knob Jacobian, space-charge drift, linear FODO) across the codes | the image | all four cases run and are compared with the archive by `check compare`; one documented exception (a `ring_grad` metric that depends on the elegant build) |
 | injector | CLARA 20, 100 and 250 pC against refined ASTRA and GPT | the image, GPT archived | planned |
 
 ## Licence

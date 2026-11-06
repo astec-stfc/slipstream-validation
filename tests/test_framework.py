@@ -72,6 +72,7 @@ def test_the_gate_can_fail():
     assert judge(dict(sc, **{"pass": "False"}), sc, "sc_drift") == "MOVED"
     # a known difference is XFAIL and says why; the same move on another row is not
     key = ("ring_grad", "slipstream", "cpu-f64-o6k8b16")
-    moved = dict(big, rel_fro="1e-6", rel_col="1e-6", dy0="1e-6")
+    moved = dict(big, rel_col="1e-6")
     assert check.judge(*key, moved, big, {})[0] == "XFAIL"
+    assert check.judge(*key, dict(moved, rel_fro="1e-6"), big, {})[0] == "MOVED"        # one unexplained metric spoils it
     assert check.judge("ring_grad", "xsuite", "cpu-f64-yosk8b16", moved, big, {})[0] == "MOVED"

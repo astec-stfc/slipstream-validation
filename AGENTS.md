@@ -27,7 +27,8 @@ and the failing case stays as `xfail` with the issue number in the reason.
 - A background job started with `nohup ... &` inside a `wsl.exe` call is killed when the call returns. Run the whole `wsl.exe` command as a background task of your tool, and write its output to a file with `python -u`.
 - The conda environment on the Windows workstation imports Slipstream from `C:\...\Documents\GitHub\slipstream`, not from the `neg_coating_rwi` submodule. Set `PYTHONPATH` to the checkout under test.
 - On Windows, set `CXX=clang-cl` before any `torch.compile` run. In the image `g++` is used and needs nothing.
-- The image carries elegant 2026.1.0; the paper cites 2026.3.0. A result records the version it came from.
+- The image carries elegant 2026.1.0; the paper cites 2026.3.0. A result records the version it came from. The two differ by 7.6e-9 in the `ring_grad` finite-difference Jacobian (endpoint state 6e-14), visible only in a worst-column error.
+- The tables of `2026-10-26_R1` (`ring_grad.csv`, `ring_tunes.csv`) are the superseded elegant reference (before the 27 October `p_central` fix). Compare with `corrected_reference.json`; a "moved reference" in an archived table is first a question of which table.
 - `wsl.exe` expands `$VAR` in its arguments: put multi-command WSL work in a script. Set `MSYS_NO_PATHCONV=1` for Docker paths from Git Bash.
 
 ## Style

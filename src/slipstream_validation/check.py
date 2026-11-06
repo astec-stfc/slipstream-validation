@@ -43,14 +43,11 @@ ALIASES = {("slipstream", "cpu-f64-o6k8b16"): ("slipstream", "cuda-f64-o6k8b16")
 # image jobs that have no archived row on purpose (a rung added after the archived campaign)
 NOREF_OK = {("sc_drift", "astra", "cpu-f64-3d64h1.4")}
 
-_REF_MOVED = ("the archived elegant reference moved: a rerun of the same case gives y0 5.2e-7 and Jacobian 2.3e-4 (absolute) away, in the image "
-              "(elegant 2026.1.0) and in native Windows (2026.3.0), which agree to 6e-14, while Slipstream and Xsuite reproduce their archived "
-              "arrays (1e-15 and exactly); cause not isolated, the archived w_elegant.py differs by hash from the file now")
+_ELEGANT_BUILD = ("the image's elegant 2026.1.0 gives a finite-difference Jacobian 7.6e-9 (absolute) away from the paper's 2026.3.0 (endpoint state "
+                  "6e-14); the worst-column error of Slipstream is 4.7e-5 against 2026.3.0 and 2.1e-5 against 2026.1.0, the difference of two "
+                  "numbers that small; native 2026.3.0 with this worker reproduces the archived row exactly")
 KNOWN: dict = {   # (case, code, config, metric) -> reason
-    ("ring_grad", "slipstream", "cpu-f64-o6k8b16", "rel_fro"): _REF_MOVED,
-    ("ring_grad", "slipstream", "cpu-f64-o6k8b16", "rel_col"): _REF_MOVED,
-    ("ring_grad", "slipstream", "cpu-f64-o6k8b16", "dy0"): _REF_MOVED,
-    ("ring_grad", "cheetah", "cpu-f64-dri4", "rel_col"): _REF_MOVED,
+    ("ring_grad", "slipstream", "cpu-f64-o6k8b16", "rel_col"): _ELEGANT_BUILD,
 }
 
 
@@ -80,8 +77,17 @@ def archived_csv(case: str) -> dict:
     return out
 
 
+def archived_ring_grad() -> dict:
+    """The corrected `ring_grad` table (campaign 2026-10-27_momentum: elegant p_central matches input p/(mc)).  The CSV of 2026-10-26_R1
+    holds the superseded elegant reference and is not used."""
+    out = {}
+    for r in json.loads((EVIDENCE / "corrected_reference.json").read_text())["ring_grad"]:
+        out.setdefault((r["code"], r["config"]), r)
+    return out
+
+
 def archived(case: str) -> dict:
-    return archived_ring_tunes() if case == "ring_tunes" else archived_csv(case)
+    return {"ring_tunes": archived_ring_tunes, "ring_grad": archived_ring_grad}.get(case, lambda: archived_csv(case))()
 
 
 def judge(case, code, cfg, x, o, limits):
