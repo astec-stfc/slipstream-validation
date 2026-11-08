@@ -36,3 +36,6 @@ ring = "workers/w_bmadx.py"
 
 [helix]
 linear_fodo = "workers/w_helix.py"
+
+[scibmad]
+ring = "workers/w_scibmad.py"

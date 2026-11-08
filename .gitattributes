@@ -1,0 +1,7 @@
+# Shell scripts and the Dockerfile are read by Linux (a CRLF breaks `set -o pipefail`); binary arrays are never converted.
+# Case files and evidence are left to the checkout's own line-ending setting: the hashes in the archived results were taken on a
+# Windows checkout (CRLF) of these files, and reanalysis controls that assert them (corrected_reference.py, cpu_control.py, ...) are meant
+# for that workstation; a new campaign records the hashes of the files it ran with.
+*.sh text eol=lf
+Dockerfile text eol=lf
+*.npz binary

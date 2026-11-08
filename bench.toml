@@ -1,15 +1,19 @@
-# How each code is reached on a machine.  Committed values are what a fresh Linux host with Docker needs; copy to
-# bench.local.toml (not committed) to change them for one machine, its values win.  Nothing else in the repository
-# holds a machine path.
+# How each code is reached on a machine.  The committed values are what a fresh Linux host needs; copy this file to
+# bench.local.toml (not committed) to change them for one machine, its values win.  Nothing else in the repository holds a
+# machine path.  bench.local.example.toml shows the settings of a Windows workstation with WSL.
 #
-#   platform  docker | linux | wsl | windows | archived | skip
+#   platform  docker | conda | wsl | windows | linux | archived | skip
 #               docker    the worker runs in the validation image (docker/Dockerfile); Docker is in WSL when the runner is on Windows
-#               linux     this machine is Linux and the code is in the active Python
-#               wsl       the runner is on Windows: the worker runs in a WSL conda environment
-#               windows   native Windows, in the Python of [python].windows
+#               conda     the worker runs in the conda environment `conda_env` of this Linux machine (envs/NAME.yml; setup/install_envs.sh)
+#               wsl       the runner is on Windows: the worker runs in `conda_env` of the WSL distribution [wsl].distro
+#               windows   native Windows: `python` is the interpreter, executables come from `env`
+#               linux     the worker runs in the Python that runs the runner
 #               archived  the code cannot run here (licence, build); the frozen result in reviews/*/evidence/ is the reference
 #               skip      not used on this machine
-#   probe     exe:NAME | file:PATH | py:MODULE; only looked up, the runner never starts a code to find out
+#   python    interpreter: windows/linux platforms, or the one inside the image (docker) that has the code
+#   env       extra environment variables of the worker (paths of executables and Julia projects)
+#   timeout   seconds per job
+#   repos     git trees whose commit and dirty state are archived with a campaign
 
 platform = "docker"
 
@@ -19,45 +23,70 @@ gpus = false          # true adds --gpus all; accuracy cases do not need it, the
 threads = 1           # OMP/MKL/torch threads per worker; the paper's protocol is one thread
 wsl_distro = ""       # the runner is on Windows and Docker is in this WSL distribution (Ubuntu-22.04); empty: docker is on this machine
 user = ""             # uid:gid the worker runs as; empty: the runner's on Linux, root through WSL
+runs = ""             # where campaigns are written; empty: results/ of this repository
+
+[wsl]
+distro = "Ubuntu-22.04"
+conda_base = "~/miniforge3"
+
+[conda]
+base = "~/miniforge3"
 
 [paths]
-slipstream = ""       # checkout of Slipstream to test (required: the image does not carry it, the repository is private)
+slipstream = ""       # checkout of Slipstream to test; required by the image (the repository is private, so the image cannot clone it)
 
+# ---- in the base image (simcodes: ASTRA, elegant, Xsuite, Cheetah, Ocelot)
 [codes.slipstream]
 probe = "py:slipstream"
 
 [codes.elegant]
-probe = "exe:docker"
-# the paper cites elegant 2026.3.0; the image builds elegant-2026.1.0.  Results record the version they came from.
+probe = "exe:elegant"
+# the paper cites elegant 2026.3.0; the image builds 2026.1.0.  Results record the version they came from.
 
 [codes.astra]
-probe = "exe:docker"
+probe = "exe:Astra"
 
 [codes.ocelot]
 probe = "py:ocelot"
-
-[codes.xsuite]
-probe = "py:xtrack"      # CPU in the image; the GPU rows of the paper need cupy and are tier 2
+env = { OCELOT_NUM_THREADS = "1" }
+timeout = 3600
 
 [codes.cheetah]
 probe = "py:cheetah"
+timeout = 7200   # drift_kick_drift is a Python loop per element: minutes per call
 
-[codes.gpt]
+[codes.xsuite]
+probe = "py:xtrack"     # CPU in the image; the GPU rows of the paper need cupy: envs/xsuite-gpu.yml, platform = "conda" (or "wsl") on a GPU host
+timeout = 3600          # the first CUDA process spends ~400 s in nvrtc
+
+# ---- the rest of the stack: conda environments from envs/*.yml, installed in the extended image (docker/Dockerfile)
+[codes.scibmad]
+python = "/opt/envs/scibmad/bin/python"
+env = { BENCH_SCIBMAD_JULIA = "/opt/envs/scibmad/libexec/scibmad/bin/julia" }
+timeout = 3600
+
+[codes.bmadx]
+python = "/opt/envs/bmadx/bin/python"
+timeout = 7200          # sextupole steps are a Python loop
+
+[codes.helix]
+python = "/opt/envs/helix/bin/python"
+
+# ---- archived on a Linux host for now (they run on the workstation: bench.local.toml sets their platform)
+[codes.jutrack]
 platform = "archived"
-note = "licensed; set platform = \"windows\" and the path in bench.local.toml on a machine that has it"
+note = "Enzyme, a JuTrack dependency, does not precompile with Julia 1.10.4 or 1.10.10 on Linux/WSL (`Missing Julia object for global`, 8 November 2026); it runs on Windows with Julia 1.10.4. setup/julia.sh and setup/jutrack.sh are the recipe to retry"
+env = { BENCH_JULIA = "~/julia-1.10.4/bin/julia", BENCH_JUTRACK = "~/JuTrack.jl" }
+timeout = 7200
 
 [codes.impactx]
 platform = "archived"
-note = "conda-forge build; set platform = \"wsl\" and the environment in bench.local.toml"
+note = "the sc_drift worker needs beam.at_fixed_t(), which is in ImpactX after the 26.10 release (commit 256c808f); conda-forge's 26.10 lacks it. The paper's run is a source build at e4279a4b (26.10 plus 20 commits). Use envs/impactx.yml once a release has it, or build the source"
+python = "/opt/envs/impactx/bin/python"
+timeout = 7200
 
-[codes.jutrack]
+# ---- licensed: the user installs it; the frozen result is the reference until then
+[codes.gpt]
 platform = "archived"
-note = "Julia 1.10.4 and the JuTrack.jl checkout of the paper"
-
-[codes.bmadx]
-platform = "archived"
-note = "python 3.14 environment with the Bmad-X checkout; could join the image later"
-
-[codes.helix]
-platform = "archived"
-note = "separate conda environment"
+note = "licensed; set platform = \"linux\" (or \"windows\"), BENCH_GPT_BIN and GPTLICENSE in bench.local.toml on a machine that has it"
+timeout = 7200

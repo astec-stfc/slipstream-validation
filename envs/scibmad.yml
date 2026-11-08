@@ -1,0 +1,12 @@
+# SciBmad (Julia): the conda distribution bundles Julia 1.12 and BeamTracking, Beamlines, GTPSA, ForwardDiff and JSON.
+# Paper setup: SciBmad 0.6.0+26.10.14 (BeamTracking 0.8.7, Beamlines 0.11.0, GTPSA 1.5.6).  The Julia launcher is
+# <env>/libexec/scibmad/bin/julia; set BENCH_SCIBMAD_JULIA to it (bench.toml does).  Installing SciBmad from the General
+# registry with Julia 1.10 fails (a Pkg extension bug), which is why it comes from this channel.
+name: ssv-scibmad
+channels:
+  - bmad-sim
+  - conda-forge
+dependencies:
+  - python=3.12
+  - numpy
+  - scibmad

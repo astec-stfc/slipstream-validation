@@ -2,7 +2,8 @@ results/
 runs/
 work/
 checkouts/
-bench.local.toml
 __pycache__/
 .pytest_cache/
 *.pyc
+bench*.local.toml
+!bench.local.example.toml

@@ -1,0 +1,12 @@
+# ImpactX on the CPU (OpenMP), double precision.  Paper setup: impactx 26.10, amrex 26.10, python 3.12.13, numpy 2.5.4 (a source
+# build); conda-forge has the same version as `nompi_dp`.  The CUDA build is a separate executable (`impactx_cuda`) and is not used
+# by the benchmark.
+name: ssv-impactx
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - numpy
+  - scipy
+  - pyyaml
+  - impactx=26.10=nompi_dp*

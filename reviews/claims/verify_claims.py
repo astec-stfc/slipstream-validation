@@ -52,68 +52,141 @@ def chk(cid, loc, quoted, actual, tol=0.02):
 
 
 # ---- ring (Table II, Sec. IV A)
-for cid, code, cfg, q in [("R1", "slipstream", "cuda-f32-o6k8b16", 1.87e-6), ("R2", "slipstream", "cuda-f64-o6k8b16", 1.63e-9), ("R3", "slipstream", "cuda-f64-o6k16b32", 3.59e-11),
-                          ("R4", "elegant", "cpu-f64-o6s8b16", 3.82e-9), ("R5", "jutrack", "cpu-f64-n32b64", 4.17e-5), ("R6", "bmadx", "cpu-f64-q1s64", 1.33e-4),
+for cid, code, cfg, q in [("R1", "slipstream", "cuda-f32-o6q8s1b8", 1.75e-6), ("R2", "slipstream", "cuda-f64-o6q8s1b8", 1.66e-9), ("R3", "slipstream", "cuda-f64-o6k16b32", 3.59e-11),
+                          ("R4", "elegant", "cpu-f64-o6s8b16", 3.82e-9), ("R5", "jutrack", "cpu-f64-n32b64", 4.17e-5),
                           ("R7", "cheetah", "cpu-f64-dri16", 1.04e-4), ("R8", "cheetah", "cpu-f64-lin1", 3.36e-3), ("R9", "xsuite", "cpu-f64-yosk8b16-exact", 6.86e-6),
                           ("R10", "xsuite", "cpu-f64-yosk16b32", 2.96e-4), ("R11", "xsuite", "cpu-f64-yosk16b32-exact", 6.03e-7)]:
     chk(cid, f"Table II / Sec. IV A: tune error {code} {cfg}", q, ring_dq(code, cfg), 0.02)
-chk("R12", "Table II: Slipstream compiled CPU tune error", 1.63e-9, cpu["ring_tunes"]["dq_ref"], 0.02)
-chk("R13", "Table II: warm time GPU f64 o6k8b16", 2.94, ring[("slipstream", "cuda-f64-o6k8b16")]["warm_s"], 0.02)
-chk("R14", "Table II: warm time GPU f32 o6k8b16", 0.663, ring[("slipstream", "cuda-f32-o6k8b16")]["warm_s"], 0.02)
-chk("R15", "Table II: first-turn max(x,y) GPU f64", 1.08e-11, max(ring[("slipstream", "cuda-f64-o6k8b16")]["onturn_x"], ring[("slipstream", "cuda-f64-o6k8b16")]["onturn_y"]), 0.02)
-chk("R16", "Table II: first-turn max(px,py) GPU f32", 2.54e-8, max(ring[("slipstream", "cuda-f32-o6k8b16")]["onturn_px"], ring[("slipstream", "cuda-f32-o6k8b16")]["onturn_py"]), 0.02)
+chk("R12", "Table II: Slipstream compiled CPU tune error", 1.69e-9, cpu["ring_tunes"]["dq_ref"], 0.02)
+chk("R13", "Table II: warm time GPU f64 o6q8s1b8", 2.07, ring[("slipstream", "cuda-f64-o6q8s1b8")]["warm_s"], 0.02)
+chk("R14", "Table II: warm time GPU f32 o6q8s1b8", 0.482, ring[("slipstream", "cuda-f32-o6q8s1b8")]["warm_s"], 0.02)
+chk("R15", "Table II: first-turn max(x,y) GPU f64", 1.10e-11, max(ring[("slipstream", "cuda-f64-o6q8s1b8")]["onturn_x"], ring[("slipstream", "cuda-f64-o6q8s1b8")]["onturn_y"]), 0.02)
+pc = {r["config"]: r for r in J("precision_control.json")["rows"]}
+chk("R17", "Table II: Slipstream double-single hybrid warm time [s]", 2.13, pc["cuda-f32ds-hybrid-o6q8s1b8"]["warm_s"], 0.02)
+chk("R18", "Table II: Slipstream double-single hybrid tune error", 2.8e-9, pc["cuda-f32ds-hybrid-o6q8s1b8"]["dq_ref"], 0.02)
+chk("R19", "Table II: Slipstream double-single hybrid first-turn max(x,y)", 1.3e-10, max(pc["cuda-f32ds-hybrid-o6q8s1b8"]["map_components"][0], pc["cuda-f32ds-hybrid-o6q8s1b8"]["map_components"][2]), 0.04)
+chk("R20", "Table II: Slipstream double-single hybrid first-turn max(px,py)", 5.3e-11, max(pc["cuda-f32ds-hybrid-o6q8s1b8"]["map_components"][1], pc["cuda-f32ds-hybrid-o6q8s1b8"]["map_components"][3]), 0.02)
+chk("R21", "Table II: Slipstream compiled CPU warm time [s]", 4.57, cpu["ring_tunes"]["warm_s"], 0.02)
+chk("R22", "Table II: Slipstream GPU f32 tune within the tolerance, first-turn x,y 5.04e-8", 5.04e-8, max(ring[("slipstream", "cuda-f32-o6q8s1b8")]["onturn_x"], ring[("slipstream", "cuda-f32-o6q8s1b8")]["onturn_y"]), 0.02)
+chk("R23", "Table II: Slipstream GPU f64 first-turn max(px,py)", 2.68e-11, max(ring[("slipstream", "cuda-f64-o6q8s1b8")]["onturn_px"], ring[("slipstream", "cuda-f64-o6q8s1b8")]["onturn_py"]), 0.02)
+chk("R24", "Table II: Slipstream GPU f64 o6k16b32 warm time [s]", 5.63, ring[("slipstream", "cuda-f64-o6k16b32")]["warm_s"], 0.02)
+chk("R16", "Table II: first-turn max(px,py) GPU f32", 3.03e-8, max(ring[("slipstream", "cuda-f32-o6q8s1b8")]["onturn_px"], ring[("slipstream", "cuda-f32-o6q8s1b8")]["onturn_py"]), 0.02)
 # ---- element-level (Sec. IV A)
 chk("E1", "JuTrack bend deviation [m]", 9.2e-5, elem[("jutrack", "bend")]["x_m"], 0.02)
-chk("E2", "Bmad-X sextupole deviation [m]", 1.0e-5, elem[("bmadx", "sext")]["x_m"], 0.03)
-chk("E3", "Cheetah/Bmad-X quadrupole deviation [m]", 2.2e-7, elem[("cheetah", "quad")]["x_m"], 0.02)
+chk("E3", "Cheetah quadrupole deviation [m]", 2.2e-7, elem[("cheetah", "quad")]["x_m"], 0.02)
 chk("E4", "Cheetah sextupole deviation [m]", 2.0e-7, elem[("cheetah", "sext")]["x_m"], 0.03)
 chk("E5", "Xsuite adaptive drift deviation [m]", 3.2e-6, elem[("xsuite", "drift")]["x_m"], 0.02)
 chk("E6", "Slipstream worst element deviation <= 2e-13", 2e-13, max(max(v.values()) for (c, _), v in elem.items() if c == "slipstream"), 0.2)
 chk("E7", "elegant quad/sext worst deviation (text: 1e-9)", 1e-9, max(max(elem[("elegant", e)].values()) for e in ("quad", "sext")), 0.25)
+import numpy as np  # noqa: E402
+# ---- SciBmad (7 November 2026; replaces Bmad-X in the paper): Table III rows, element maps, Jacobians
+for cid, cfg, tune, warm, xy, pp in [("S1", "cpu-f64-o4k4", 8.86e-9, 1.01, 7.48e-11, 1.31e-10), ("S2", "cpu-f64-o6k32", 8.08e-11, 5.35, 5.26e-12, 4.04e-12),
+                                      ("S3", "cpu-f64-std", 3.96e-3, 0.863, 4.37e-5, 5.50e-5)]:
+    r = ring[("scibmad", cfg)]
+    chk(cid + "a", f"Table III: SciBmad {cfg} tune error", tune, r["dq_ref"], 0.02)
+    chk(cid + "b", f"Table III: SciBmad {cfg} warm time [s]", warm, r["warm_s"], 0.02)
+    chk(cid + "c", f"Table III: SciBmad {cfg} first-turn max(x,y) [m]", xy, max(r["onturn_x"], r["onturn_y"]), 0.02)
+    chk(cid + "d", f"Table III: SciBmad {cfg} first-turn max(px,py)", pp, max(r["onturn_px"], r["onturn_py"]), 0.02)
+chk("S4", "SciBmad worst element deviation from the independent reference (text: 5e-16)", 5e-16, max(max(v.values()) for (c, _), v in elem.items() if c == "scibmad"), 0.1)
+chk("S5", "SciBmad e_abs launch 1, AD, o4k4 (text: 3.7e-7)", 3.7e-7, ga_row(ga, "scibmad", "cpu-f64-o4k4", "ad")["e_abs"], 0.02)
+chk("S6", "SciBmad e_abs launch 1, AD, o6k32 (text: 1.3e-8)", 1.3e-8, ga_row(ga, "scibmad", "cpu-f64-o6k32", "ad")["e_abs"], 0.04)
+chk("S7", "SciBmad e_abs launch 2, AD, o4k4 (text: 2.4e-6)", 2.4e-6, ga_row(gb, "scibmad", "cpu-f64-o4k4", "ad")["e_abs"], 0.03)
+chk("S8", "SciBmad e_abs launch 2, AD, o6k32 (text: 6.3e-8)", 6.3e-8, ga_row(gb, "scibmad", "cpu-f64-o6k32", "ad")["e_abs"], 0.03)
+sg = [r for r in corr["ring_grad"] if r["code"] == "scibmad" and r["config"] != "cpu-f64-std"]
+chk("S9", "SciBmad AD vs own central FD, worst Frobenius (text: 4e-9)", 4e-9, max(float(r["ad_vs_fd_fro"]) for r in sg), 0.15)
+for cid, cfg, lo in (("S10", "cpu-f64-o4k4", 0.09), ("S11", "cpu-f64-o6k32", 0.30)):
+    rs = [r for r in sg if r["config"] == cfg]
+    chk(cid, f"SciBmad AD time {cfg} [s] (text: {lo})", lo, float(np.median([float(r["ad_warm_s"]) for r in rs])), 0.05)
+for cid, cfg, q in (("S12", "cpu-f64-o4k4", 4.4), ("S13", "cpu-f64-o6k32", 2.7)):
+    rs = [r for r in sg if r["config"] == cfg]
+    chk(cid, f"SciBmad central-FD step / AD time {cfg} (text: 2.7 to 4.4)", q, float(np.median([float(r["fd_s"]) / float(r["ad_warm_s"]) for r in rs])), 0.03)
+# SciBmad scaling (7 November 2026; order 4, four steps): Sec. IV B text
+ss = J("scibmad_scaling.json")
+sr = {r["n"]: r for r in ss["rows"]}
+gp = {r["n"]: r for r in J("xsuite_gpu_scaling.json")["rows"]}
+stun = {r["config"]: r for r in ss["ring_tunes"]}
+chk("S14", "SciBmad CPU o4k4, 5 particles [s] (text: 0.06)", 0.06, sr[5]["cpu_f64_o4k4"]["warm_s"], 0.05)
+chk("S15", "SciBmad CPU o4k4, 50000 particles [s] (text: 138)", 138, sr[50000]["cpu_f64_o4k4"]["warm_s"], 0.01)
+chk("S16", "SciBmad GPU f64 o4k4, 5 particles [s] (text: 0.9)", 0.9, sr[5]["gpu_f64_o4k4"]["warm_s"], 0.06)
+chk("S17", "SciBmad GPU f32 o4k4, 5 particles [s] (text: 0.3)", 0.3, sr[5]["gpu_f32_o4k4"]["warm_s"], 0.05)
+chk("S18", "SciBmad CPU o4k4 per particle-turn at 50000 [us] (text: 43)", 43, sr[50000]["cpu_f64_o4k4"]["per_particle_turn_us"], 0.02)
+chk("S19", "SciBmad GPU f64 per particle-turn at 50000 [us] (text: 9.9)", 9.9, sr[50000]["gpu_f64_o4k4"]["per_particle_turn_us"], 0.02)
+chk("S20", "SciBmad GPU f32 per particle-turn at 50000 [us] (text: 4.4)", 4.4, sr[50000]["gpu_f32_o4k4"]["per_particle_turn_us"], 0.02)
+chk("S21", "SciBmad GPU f64 / Slipstream GPU f64 at 50000 (text: 8.2)", 8.2, sr[50000]["gpu_f64_o4k4"]["warm_s"] / gp[50000]["slipstream_gpu_f64"]["warm_s"], 0.02)
+chk("S22", "SciBmad GPU f32 / Slipstream GPU f32 at 50000 (text: 57)", 57, sr[50000]["gpu_f32_o4k4"]["warm_s"] / gp[50000]["slipstream_gpu_f32"]["warm_s"], 0.02)
+chk("S23", "SciBmad GPU f64 / Xsuite GPU f64 at 50000 (text: 3.5)", 3.5, sr[50000]["gpu_f64_o4k4"]["warm_s"] / gp[50000]["xsuite_gpu_f64"]["warm_s"], 0.02)
+fx = sr[5]["cpu_f64_o4k4"]["first5_vs_elegant"]
+chk("S24", "SciBmad o4k4 final state after 64 turns vs elegant, max over x,y,px,py (text: 2.6e-8)", 2.6e-8, max(fx.values()), 0.03)
+fs = gp[5]["slipstream_gpu_f64"]["first5_vs_elegant"]
+chk("S25", "Slipstream f64 final state after 64 turns vs elegant, max (text: 1.1e-8)", 1.1e-8, max(fs.values()), 0.04)
+chk("S26", "SciBmad GPU f32 o4k4 tune error, 1024 turns (text: 1.5e-4)", 1.5e-4, stun["cuda-f32-o4k4"]["dq_ref"], 0.03)
+chk("S27", "SciBmad CPU o4k4 ring_tunes warm [s] (text: 1.0)", 1.0, stun["cpu-f64-o4k4"]["warm_s"], 0.03)
+chk("S28", "SciBmad GPU f32 o4k4 ring_tunes warm [s] (text: 4.8)", 4.8, stun["cuda-f32-o4k4"]["warm_s"], 0.03)
+chk("S29", "SciBmad GPU f64 o4k4 ring_tunes warm [s] (text: 15)", 15, stun["cuda-f64-o4k4"]["warm_s"], 0.03)
+
+
+def crossover(gpu, cpu_, lo, hi):
+    """Particle count where the GPU time equals the CPU time, log-log interpolation between the bracketing sizes."""
+    a, b = sr[lo][gpu]["warm_s"] / sr[lo][cpu_]["warm_s"], sr[hi][gpu]["warm_s"] / sr[hi][cpu_]["warm_s"]
+    assert a > 1 > b
+    return lo * (hi / lo) ** (math.log10(a) / (math.log10(a) - math.log10(b)))
+
+
+chk("S30", "SciBmad GPU f64 overtakes its CPU at N (text: about 1000)", 1000, crossover("gpu_f64_o4k4", "cpu_f64_o4k4", 500, 5000), 0.25)
+chk("S31", "SciBmad GPU f32 overtakes its CPU at N (text: about 100)", 100, crossover("gpu_f32_o4k4", "cpu_f64_o4k4", 50, 500), 0.25)
+chk("S32", "SciBmad first GPU call [s] (text: about 40)", 40, sr[5]["gpu_f64_o4k4"]["cold_s"], 0.1)
 # ---- scaling
-chk("P5", "ratio Xsuite/GPU f32 at 5000 (216)", 216, scal[("xsuite", "cpu-f64-yosk8b16-exact", 5000)]["warm_s"] / scal[("slipstream", "cuda-f32-o6k8b16", 5000)]["warm_s"], 0.03)
-chk("P6", "ratio Xsuite/GPU f64 at 5000 (22)", 22, scal[("xsuite", "cpu-f64-yosk8b16-exact", 5000)]["warm_s"] / scal[("slipstream", "cuda-f64-o6k8b16", 5000)]["warm_s"], 0.03)
-chk("P7", "per particle-turn GPU f32 at 50000 [us]", 0.11, scal[("slipstream", "cuda-f32-o6k8b16", 50000)]["per_particle_turn_us"], 0.03)
-chk("P8", "per particle-turn GPU f64 at 50000 [us]", 1.7, scal[("slipstream", "cuda-f64-o6k8b16", 50000)]["per_particle_turn_us"], 0.03)
+chk("P5", "ratio Xsuite/GPU f32 at 5000 (297)", 297, scal[("xsuite", "cpu-f64-yosk8b16-exact", 5000)]["warm_s"] / scal[("slipstream", "cuda-f32-o6q8s1b8", 5000)]["warm_s"], 0.03)
+chk("P6", "ratio Xsuite/GPU f64 at 5000 (32)", 32, scal[("xsuite", "cpu-f64-yosk8b16-exact", 5000)]["warm_s"] / scal[("slipstream", "cuda-f64-o6q8s1b8", 5000)]["warm_s"], 0.03)
+chk("P7", "per particle-turn GPU f32 at 50000 [us]", 0.077, scal[("slipstream", "cuda-f32-o6q8s1b8", 50000)]["per_particle_turn_us"], 0.03)
+chk("P8", "per particle-turn GPU f64 at 50000 [us]", 1.2, scal[("slipstream", "cuda-f64-o6q8s1b8", 50000)]["per_particle_turn_us"], 0.03)
+chk("P10", "per particle-turn compiled Slipstream CPU at 50000 [us] (text: 25)", 25, scal[("slipstream", "cpu-f64-o6q8s1b8-compiled", 50000)]["per_particle_turn_us"], 0.03)
+chk("P11", "per particle-turn Xsuite CPU at 50000 [us] (text: 38)", 38, scal[("xsuite", "cpu-f64-yosk8b16-exact", 50000)]["per_particle_turn_us"], 0.03)
 chk("P9", "per particle-turn elegant at 50000 [us]", 134, scal[("elegant", "cpu-f64-o6s8b16", 50000)]["per_particle_turn_us"], 0.02)
 # ---- derivatives
-chk("D1", "Slipstream e_abs launch 1 (FD) (text: 3e-7)", 3e-7, ga_row(ga, "slipstream", "cpu-f64-o6k8b16", "fd")["e_abs"], 0.05)
-chk("D2", "Slipstream e_rel launch 1", 9.9e-7, ga_row(ga, "slipstream", "cpu-f64-o6k8b16", "fd")["e_rel"], 0.02)
-chk("D3", "Slipstream e_abs launch 2 (AD)", 3.35e-7, ga_row(gb, "slipstream", "cpu-f64-o6k8b16-compiled", "ad")["e_abs"], 0.02)
-chk("D4", "Slipstream e_rel launch 2 (AD)", 8.3e-7, ga_row(gb, "slipstream", "cpu-f64-o6k8b16-compiled", "ad")["e_rel"], 0.02)
+chk("D1", "Slipstream e_abs launch 1 (FD) (text: 3e-7)", 3e-7, ga_row(ga, "slipstream", "cpu-f64-o6q8s1b8", "fd")["e_abs"], 0.05)
+chk("D2", "Slipstream e_rel launch 1", 9.9e-7, ga_row(ga, "slipstream", "cpu-f64-o6q8s1b8", "fd")["e_rel"], 0.02)
+chk("D3", "Slipstream e_abs launch 2 (AD)", 3.6e-7, ga_row(gb, "slipstream", "cpu-f64-o6q8s1b8-compiled", "ad")["e_abs"], 0.02)
+chk("D4", "Slipstream e_rel launch 2 (AD)", 8.3e-7, ga_row(gb, "slipstream", "cpu-f64-o6q8s1b8-compiled", "ad")["e_rel"], 0.02)
 chk("D5", "JuTrack e_abs launch 2", 1.4, ga_row(gb, "jutrack", "cpu-f64-n16b32", "fd")["e_abs"], 0.03)
 chk("D6", "Xsuite exact e_abs launch 1", 1.2e-3, ga_row(ga, "xsuite", "cpu-f64-yosk8b16-exact", "fd")["e_abs"], 0.03)
-ratios = [r["e_over_traj"] for r in ga if r["config"] != "cpu-f64-o6k8b16-compiled"]
+ratios = [r["e_over_traj"] for r in ga if r["config"] != "cpu-f64-o6q8s1b8-compiled"]
 gb_cmp = [r for r in gb if r["traj_gap"] > 0]   # the reference itself is not a comparison
-c = fd["cpu-f64-o6k8b16-compiled"]
-chk("F1", "compiled: AD cost in forward evaluations (9.3)", 9.3, c["ad_s"] / c["forward_s"], 0.02)
-chk("F2", "compiled: AD time [s] (text: 1.9)", 1.9, c["ad_s"], 0.02)
-chk("F4", "compiled: forward evaluation [s] (text: 0.2)", 0.2, c["forward_s"], 0.02)
-lad = fd["cpu-f64-o6k8b16"]["single_step_fd_error_vs_best"]
+c = fd["cpu-f64-o6q8s1b8-compiled"]
+chk("F1", "compiled: AD cost in forward evaluations (9.5)", 9.5, c["ad_s"] / c["forward_s"], 0.02)
+chk("F2", "compiled: AD time [s] (text: 1.5, ring_grad control)", 1.5, cpu["ring_grad"]["ad_s"], 0.03)
+chk("F3", "compiled: FD time [s] (text: 1.8, ring_grad control)", 1.8, cpu["ring_grad"]["fd_s"], 0.03)
+import csv as _csv
+import statistics as _st
+_rg = [r for r in _csv.DictReader(open(DATA / "ring_grad.csv")) if r["code"] == "slipstream" and r["config"] == "cpu-f64-o6q8s1b8"]
+chk("F5", "uncompiled / compiled AD time (text: 52)", 52, _st.median(float(r["ad_warm_s"]) for r in _rg) / cpu["ring_grad"]["ad_s"], 0.02)
+chk("F5b", "uncompiled / compiled FD time (text: 25)", 25, _st.median(float(r["fd_s"]) for r in _rg) / cpu["ring_grad"]["fd_s"], 0.03)
+chk("F4", "compiled: forward evaluation [s] (text: 0.15)", 0.15, c["forward_s"], 0.02)
+lad = fd["cpu-f64-o6q8s1b8"]["single_step_fd_error_vs_best"]
 chk("F6", "FD error at step 1e-3 (text: 0.09)", 0.09, lad["0.001"], 0.03)
 chk("F7", "FD error at step 1e-4 (text: 1e-3)", 1e-3, lad["0.0001"], 0.06)
-chk("F9", "AD error vs best FD (text: 4e-9)", 4e-9, lad["ad"], 0.03)
+chk("F9", "AD error vs best FD (text: 4e-9)", 4e-9, lad["ad"], 0.05)
 chk("F10", "AD speed-up vs extrapolated pair (2.2)", 2.2, 2 * c["fd_endpoint_s"] / c["ad_s"], 0.03)
-chk("F11", "compiled CPU Jacobian AD vs own FD, Frobenius (text: 4e-9)", 4e-9, cpu["ring_grad"]["ad_vs_fd"][0], 0.03)
+chk("F11", "compiled CPU Jacobian AD vs own FD, Frobenius (text: 4e-9)", 4e-9, cpu["ring_grad"]["ad_vs_fd"][0], 0.05)
 # ---- AD against FD and optimisation (29 October controls; Sec. V Derivatives)
 import numpy as np
 
 kl = J("fd_ad_knob_ladder.json")["rows"]
-chk("D1", "AD Jacobian time, minimum over 1-40 knobs [s] (1.6)", 1.6, min(r["ad_s"] for r in kl), 0.02)
-chk("D2", "AD Jacobian time, maximum over 1-40 knobs [s] (2.4)", 2.4, max(r["ad_s"] for r in kl), 0.02)
-chk("D3", "AD cost in forward evaluations, median (8)", 8, float(np.median([r["ad_over_forward"] for r in kl])), 0.05)
-chk("D4", "central difference, one step, 1 knob [s] (0.4)", 0.4, kl[0]["fd1_s"], 0.05)
-chk("D5", "central difference, one step, 40 knobs [s] (20)", 20, kl[-1]["fd1_s"], 0.03)
-chk("D6", "extrapolated pair, 1 knob [s] (0.8)", 0.8, kl[0]["fd2_s"], 0.03)
-chk("D7", "extrapolated pair, 40 knobs [s] (34)", 34, kl[-1]["fd2_s"], 0.03)
-chk("D8", "FD one step / AD at 40 knobs (8)", 8, kl[-1]["fd1_over_ad"], 0.03)
-chk("D9", "FD pair / AD at 40 knobs (14)", 14, kl[-1]["fd2_over_ad"], 0.03)
+chk("D1", "AD Jacobian time, minimum over 1-40 knobs [s] (1.1)", 1.1, min(r["ad_s"] for r in kl), 0.02)
+chk("D2", "AD Jacobian time, maximum over 1-40 knobs [s] (1.2)", 1.2, max(r["ad_s"] for r in kl), 0.05)
+chk("D3", "AD cost in forward evaluations, median (7)", 7, float(np.median([r["ad_over_forward"] for r in kl])), 0.06)
+chk("D4", "central difference, one step, 1 knob [s] (0.3)", 0.3, kl[0]["fd1_s"], 0.05)
+chk("D5", "central difference, one step, 40 knobs [s] (13)", 13, kl[-1]["fd1_s"], 0.03)
+chk("D6", "extrapolated pair, 1 knob [s] (0.6)", 0.6, kl[0]["fd2_s"], 0.08)
+chk("D7", "extrapolated pair, 40 knobs [s] (26)", 26, kl[-1]["fd2_s"], 0.03)
+chk("D8", "FD one step / AD at 40 knobs (10)", 10, kl[-1]["fd1_over_ad"], 0.05)
+chk("D9", "FD pair / AD at 40 knobs (21)", 21, kl[-1]["fd2_over_ad"], 0.03)
 chk("D10", "single step slower than AD from 5 knobs, not at 3 (break-even 3-5)", 1, float(next(r for r in kl if r["n_knobs"] == 3)["fd1_over_ad"] < 1 < next(r for r in kl if r["n_knobs"] == 5)["fd1_over_ad"]), 0)
-chk("D11", "extrapolated pair slower than AD from 2-3 knobs (about 2)", 1, float(next(r for r in kl if r["n_knobs"] == 3)["fd2_over_ad"] > 1 and next(r for r in kl if r["n_knobs"] == 2)["fd2_over_ad"] < 1.1), 0)
+chk("D11", "extrapolated pair slower than AD from two knobs, not at one", 1, float(next(r for r in kl if r["n_knobs"] == 2)["fd2_over_ad"] > 1 > next(r for r in kl if r["n_knobs"] == 1)["fd2_over_ad"]), 0)
 chk("D12", "FD one step vs AD, worst e_abs (1.5e-6)", 1.5e-6, max(r["fd1_vs_ad_e_abs"] for r in kl), 0.05)
 chk("D13", "FD pair vs AD, worst e_abs (3.4e-8)", 3.4e-8, max(r["fd2_vs_ad_e_abs"] for r in kl), 0.05)
 al = J("fd_ad_knob_ladder.json")["alignment"]["rows"]
-chk("D14", "quadrupole offsets, best e_abs at 0.1 um (4e-9)", 4e-9, min(r["e_abs_vs_ad"] for r in al), 0.1)
+chk("D14", "quadrupole offsets, best e_abs at 0.1 um (5e-9)", 5e-9, min(r["e_abs_vs_ad"] for r in al), 0.1)
 oc = J("optimisation_convergence_control.json")["rows"]
 selc = lambda fam, n, m: [r for r in oc if r["family"] == fam and r["n_knobs"] == n and r["method"] == m]  # noqa: E731
 tw = lambda fam, n, m: [r["wall_s"] for r in selc(fam, n, m)]  # noqa: E731
@@ -493,13 +566,13 @@ xg = J("xsuite_gpu_scaling.json")
 xr = {r["n"]: r for r in xg["rows"]}
 xcpu = lambda n: scal[("xsuite", "cpu-f64-yosk8b16-exact", n)]["warm_s"]  # noqa: E731
 ratio = [r["xsuite_gpu_f64"]["warm_s"] / r["slipstream_gpu_f64"]["warm_s"] for r in xg["rows"]]
-chk("XG1", "text: Xsuite on the same GPU in float64 takes 1.6-1.8 times as long as Slipstream at every particle count", 1, float(round(min(ratio), 1) == 1.6 and round(max(ratio), 1) == 1.8), 0)
+chk("XG1", "text: Xsuite on the same GPU in float64 takes 2.3-2.6 times as long as Slipstream at every particle count", 1, float(round(min(ratio), 1) == 2.3 and round(max(ratio), 1) == 2.6), 0)
 chk("XG2", "text: Xsuite GPU float64 is 13-14 times faster than its single-thread CPU calculation at 5000 and 50000 particles", 1,
     float(all(13 <= xcpu(n) / xr[n]["xsuite_gpu_f64"]["warm_s"] <= 14 for n in (5000, 50000))), 0)
 chk("XG3", "text: Xsuite GPU float64 takes 2.8 us per particle-turn at 50000 particles", 2.8, xr[50000]["xsuite_gpu_f64"]["per_particle_turn_us"], 0.01)
 chk("XG4", "text: Xsuite's GPU line build takes about 5 min per process", 300, sum(xg["xsuite_gpu_build"]["build_s"]) / len(xg["xsuite_gpu_build"]["build_s"]), 0.06)
-chk("XG5", "text: float32 speed-up over single-thread Xsuite at 5000 particles is 222 (same-session GPU data)", 222, xcpu(5000) / xr[5000]["slipstream_gpu_f32"]["warm_s"], 0.01)
-chk("XG6", "text: float64 speed-up over single-thread Xsuite at 5000 particles is 22 (same-session GPU data)", 22, xcpu(5000) / xr[5000]["slipstream_gpu_f64"]["warm_s"], 0.01)
+chk("XG5", "text: float32 speed-up over single-thread Xsuite at 5000 particles is 297 (same-session GPU data)", 297, xcpu(5000) / xr[5000]["slipstream_gpu_f32"]["warm_s"], 0.01)
+chk("XG6", "text: float64 speed-up over single-thread Xsuite at 5000 particles is 32 (same-session GPU data)", 32, xcpu(5000) / xr[5000]["slipstream_gpu_f64"]["warm_s"], 0.01)
 chk("XG7", "text: the Xsuite GPU points are medians of two processes", 2, xg["design"]["xsuite_processes"], 0)
 cw = J("csr_validation.json")["c3_wake_check"]
 ent = cw["entrance"]

@@ -1,0 +1,17 @@
+# Xsuite with CuPy for the GPU rows of ring_tunes and the particle-count ladder (paper: WSL, RTX 3050, CUDA 13).
+# The first CUDA process spends about 400 s compiling kernels with nvrtc.
+name: ssv-xsuite-gpu
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - numpy>=2.0
+      - scipy>=1.14
+      - xtrack==0.111.6
+      - xfields==0.27.2
+      - xobjects==0.6.10
+      - xpart==0.23.18
+      - xdeps==0.10.20
+      - cupy-cuda13x>=14       # use cupy-cuda12x on a CUDA 12 driver

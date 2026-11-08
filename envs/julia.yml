@@ -1,0 +1,10 @@
+# The Python side of the JuTrack worker (numpy and git).  Julia itself is not conda-forge's: `bash setup/julia.sh` installs the
+# official Julia 1.10.4 (the paper's), `bash setup/jutrack.sh` JuTrack 1.5.0 at commit 5b5eebd.  Set BENCH_JULIA to the julia
+# executable and BENCH_JUTRACK to the checkout (bench.toml does for the image).
+name: ssv-julia
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - numpy
+  - git

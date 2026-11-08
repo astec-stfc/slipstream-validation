@@ -1,0 +1,70 @@
+# Example of bench.local.toml for a Windows workstation with WSL, the setup of the paper's timings (native executables, GPU).
+# Copy to bench.local.toml and replace the placeholders; the real file is not committed.  Values here win over bench.toml.
+# On a Linux host with Docker you need nothing: bench.toml is the default.  Use `SSV_BENCH=other.toml` to switch between profiles.
+#
+# Linux without Docker: set platform = "conda" and conda_env = "ssv-NAME" (envs/NAME.yml, setup/install_envs.sh) for the Python codes,
+# BENCH_ASTRA_EXE and BENCH_ELEGANT_EXE for the two executables, BENCH_JULIA and BENCH_JUTRACK for JuTrack.
+
+[docker]
+wsl_distro = "Ubuntu-22.04"   # Docker lives in this WSL distribution when the runner is on Windows
+
+[wsl]
+distro = "Ubuntu-22.04"
+
+[paths]
+slipstream = "C:/path/to/slipstream"      # the Slipstream under test (a checkout or `runner checkout` export)
+
+[codes.slipstream]
+platform = "windows"
+python = "C:/path/to/conda/envs/ENV/python.exe"
+env = { CXX = "clang-cl" }                # torch.compile on Windows
+repos = ["C:/path/to/slipstream"]         # git state is archived with the campaign
+
+[codes.cheetah]
+platform = "windows"
+python = "C:/path/to/conda/envs/ENV/python.exe"
+
+[codes.ocelot]
+platform = "windows"
+python = "C:/path/to/conda/envs/ENV/python.exe"
+
+[codes.elegant]
+platform = "windows"
+python = "C:/path/to/conda/envs/ENV/python.exe"
+env = { BENCH_ELEGANT_EXE = "C:/Program Files/APS/Elegant x64/elegant.exe" }
+
+[codes.astra]
+platform = "windows"
+python = "C:/path/to/conda/envs/ENV/python.exe"
+env = { BENCH_ASTRA_EXE = "C:/path/to/ASTRA/Astra.exe" }
+
+[codes.xsuite]
+platform = "wsl"
+conda_env = "ssv-xsuite-gpu"              # envs/xsuite-gpu.yml; CuPy for the GPU rows
+
+[codes.jutrack]
+platform = "windows"
+python = "C:/path/to/conda/envs/ENV/python.exe"
+env = { BENCH_JULIA = "C:/path/to/Julia-1.10.4/bin/julia.exe", BENCH_JUTRACK = "C:/path/to/JuTrack.jl" }
+
+[codes.scibmad]
+platform = "windows"
+python = "C:/path/to/conda/envs/ENV/python.exe"
+env = { BENCH_SCIBMAD_JULIA = "C:/path/to/miniconda3/envs/scibmad/libexec/scibmad/bin/julia.exe" }
+
+[codes.bmadx]
+platform = "wsl"
+conda_env = "ssv-bmadx"
+
+[codes.impactx]
+platform = "wsl"
+conda_env = "ssv-impactx"
+
+[codes.helix]
+platform = "windows"
+python = "C:/path/to/miniconda3/envs/helix/python.exe"
+
+[codes.gpt]                                # licensed: until this block exists the plan leaves GPT out
+platform = "windows"
+python = "C:/path/to/conda/envs/ENV/python.exe"
+env = { BENCH_GPT_BIN = "C:/Program Files/General Particle Tracer/bin" }   # and export GPTLICENSE

@@ -14,57 +14,57 @@
     "threads": 1,
     "note": "Warm times of one adapter call (tracking only, includes process or file overhead for elegant); not a throughput claim for other lattices or settings"
   },
-  "analysis_sha256": "262afa2ab866b6eaa345a0947531e5584ff56a791a48d7ba6d0309091f5e8d4f",
+  "analysis_sha256": "7961f9bfd20c89ffcfc6b2fadc938049f11cfdfdf7b21162673e95825a44f817",
   "rows": [
     {
       "n": 5,
       "code": "slipstream",
-      "config": "cuda-f64-o6k8b16",
+      "config": "cuda-f64-o6q8s1b8",
       "n_recorded": 2,
       "n_ok": 2,
-      "warm_s": 0.19372635008767247,
-      "cold_s": 0.3375903000123799,
-      "per_particle_turn_us": 605.3948440239765,
+      "warm_s": 0.14135990000795573,
+      "cold_s": 0.261628300009761,
+      "per_particle_turn_us": 441.74968752486166,
       "cuda_peak_mb": 0.2392578125,
       "first5_state_diff": {
-        "x_m": 1.1340178975981913e-08,
-        "px": 2.1170957255085138e-09,
-        "y_m": 4.5268015112223323e-10,
-        "py": 1.093058052111049e-10
+        "x_m": 1.0996506338324663e-08,
+        "px": 2.046070338764666e-09,
+        "y_m": 4.5202310915582605e-10,
+        "py": 1.0858428110653573e-10
       }
     },
     {
       "n": 5,
       "code": "slipstream",
-      "config": "cuda-f32-o6k8b16",
+      "config": "cuda-f32-o6q8s1b8",
       "n_recorded": 2,
       "n_ok": 2,
-      "warm_s": 0.04755640006624162,
-      "cold_s": 0.14623810001648962,
-      "per_particle_turn_us": 148.61375020700507,
+      "warm_s": 0.033937650005100295,
+      "cold_s": 0.13265120002324693,
+      "per_particle_turn_us": 106.05515626593842,
       "cuda_peak_mb": 0.2080078125,
       "first5_state_diff": {
-        "x_m": 5.640804036090644e-06,
-        "px": 1.2242521214820851e-06,
-        "y_m": 1.2157463776592704e-07,
-        "py": 3.534286952080231e-08
+        "x_m": 4.87223008138922e-06,
+        "px": 9.436911958791722e-07,
+        "y_m": 1.1010772856597396e-07,
+        "py": 3.536006725305427e-08
       }
     },
     {
       "n": 5,
       "code": "slipstream",
-      "config": "cpu-f64-o6k8b16-compiled",
+      "config": "cpu-f64-o6q8s1b8-compiled",
       "n_recorded": 2,
       "n_ok": 2,
-      "warm_s": 0.2929490499664098,
-      "cold_s": 3.2746876997407526,
-      "per_particle_turn_us": 915.4657811450306,
+      "warm_s": 0.30849854997359216,
+      "cold_s": 11.276202049979474,
+      "per_particle_turn_us": 964.0579686674755,
       "cuda_peak_mb": 0.0,
       "first5_state_diff": {
-        "x_m": 1.134017816629973e-08,
-        "px": 2.11709551907642e-09,
-        "y_m": 4.5268017703466515e-10,
-        "py": 1.0930580037285271e-10
+        "x_m": 1.0996504486941033e-08,
+        "px": 2.046069907469042e-09,
+        "y_m": 4.5202318895310595e-10,
+        "py": 1.0858428179771461e-10
       }
     },
     {
@@ -104,34 +104,34 @@
     {
       "n": 50,
       "code": "slipstream",
-      "config": "cuda-f64-o6k8b16",
+      "config": "cuda-f64-o6q8s1b8",
       "n_recorded": 2,
       "n_ok": 2,
-      "warm_s": 0.20537809981033206,
-      "cold_s": 0.3222299499902874,
-      "per_particle_turn_us": 64.18065619072877,
+      "warm_s": 0.1458518499857746,
+      "cold_s": 0.2450622999749612,
+      "per_particle_turn_us": 45.578703120554565,
       "cuda_peak_mb": 0.4248046875
     },
     {
       "n": 50,
       "code": "slipstream",
-      "config": "cuda-f32-o6k8b16",
+      "config": "cuda-f32-o6q8s1b8",
       "n_recorded": 2,
       "n_ok": 2,
-      "warm_s": 0.0484481998719275,
-      "cold_s": 0.14971465012058616,
-      "per_particle_turn_us": 15.140062459977344,
+      "warm_s": 0.03463804998318665,
+      "cold_s": 0.14008164999540895,
+      "per_particle_turn_us": 10.824390619745827,
       "cuda_peak_mb": 0.31982421875
     },
     {
       "n": 50,
       "code": "slipstream",
-      "config": "cpu-f64-o6k8b16-compiled",
+      "config": "cpu-f64-o6q8s1b8-compiled",
       "n_recorded": 2,
       "n_ok": 2,
-      "warm_s": 0.40795204997994006,
-      "cold_s": 16.39758240012452,
-      "per_particle_turn_us": 127.48501561873127,
+      "warm_s": 0.3915037500264589,
+      "cold_s": 8.176966950006317,
+      "per_particle_turn_us": 122.3449218832684,
       "cuda_peak_mb": 0.0
     },
     {
@@ -159,34 +159,34 @@
     {
       "n": 500,
       "code": "slipstream",
-      "config": "cuda-f64-o6k8b16",
+      "config": "cuda-f64-o6q8s1b8",
       "n_recorded": 2,
       "n_ok": 2,
-      "warm_s": 0.5554864499717951,
-      "cold_s": 0.6657732999883592,
-      "per_particle_turn_us": 17.358951561618596,
+      "warm_s": 0.37608120002551004,
+      "cold_s": 0.48424404999241233,
+      "per_particle_turn_us": 11.752537500797189,
       "cuda_peak_mb": 2.22314453125
     },
     {
       "n": 500,
       "code": "slipstream",
-      "config": "cuda-f32-o6k8b16",
+      "config": "cuda-f32-o6q8s1b8",
       "n_recorded": 2,
       "n_ok": 2,
-      "warm_s": 0.05311294994316995,
-      "cold_s": 0.15673094987869263,
-      "per_particle_turn_us": 1.659779685724061,
+      "warm_s": 0.03845540000475012,
+      "cold_s": 0.13361040002200752,
+      "per_particle_turn_us": 1.2017312501484412,
       "cuda_peak_mb": 1.662109375
     },
     {
       "n": 500,
       "code": "slipstream",
-      "config": "cpu-f64-o6k8b16-compiled",
+      "config": "cpu-f64-o6q8s1b8-compiled",
       "n_recorded": 2,
       "n_ok": 2,
-      "warm_s": 1.5975806000642478,
-      "cold_s": 15.737240549875423,
-      "per_particle_turn_us": 49.924393752007745,
+      "warm_s": 1.07451000000583,
+      "cold_s": 6.3617471999896225,
+      "per_particle_turn_us": 33.57843750018219,
       "cuda_peak_mb": 0.0
     },
     {
@@ -214,34 +214,34 @@
     {
       "n": 5000,
       "code": "slipstream",
-      "config": "cuda-f64-o6k8b16",
+      "config": "cuda-f64-o6q8s1b8",
       "n_recorded": 2,
       "n_ok": 2,
-      "warm_s": 0.5557038001716137,
-      "cold_s": 0.6794432499445975,
-      "per_particle_turn_us": 1.7365743755362928,
+      "warm_s": 0.3815739999699872,
+      "cold_s": 0.5094728000403848,
+      "per_particle_turn_us": 1.19241874990621,
       "cuda_peak_mb": 20.240234375
     },
     {
       "n": 5000,
       "code": "slipstream",
-      "config": "cuda-f32-o6k8b16",
+      "config": "cuda-f32-o6q8s1b8",
       "n_recorded": 2,
       "n_ok": 2,
-      "warm_s": 0.057005750015378,
-      "cold_s": 0.15784255019389093,
-      "per_particle_turn_us": 0.17814296879805624,
+      "warm_s": 0.04151460001594387,
+      "cold_s": 0.14450310001848266,
+      "per_particle_turn_us": 0.1297331250498246,
       "cuda_peak_mb": 15.08642578125
     },
     {
       "n": 5000,
       "code": "slipstream",
-      "config": "cpu-f64-o6k8b16-compiled",
+      "config": "cpu-f64-o6q8s1b8-compiled",
       "n_recorded": 2,
       "n_ok": 2,
-      "warm_s": 12.633799549890682,
-      "cold_s": 26.048714300151914,
-      "per_particle_turn_us": 39.48062359340838,
+      "warm_s": 8.10628035000991,
+      "cold_s": 13.400764849997358,
+      "per_particle_turn_us": 25.33212609378097,
       "cuda_peak_mb": 0.0
     },
     {
@@ -269,52 +269,52 @@
     {
       "n": 50000,
       "code": "slipstream",
-      "config": "cuda-f64-o6k8b16",
+      "config": "cuda-f64-o6q8s1b8",
       "n_recorded": 2,
       "n_ok": 2,
-      "warm_s": 5.556011450011283,
-      "cold_s": 5.654471249785274,
-      "per_particle_turn_us": 1.736253578128526,
+      "warm_s": 3.8215164499997627,
+      "cold_s": 3.929505699983565,
+      "per_particle_turn_us": 1.1942238906249258,
       "cuda_peak_mb": 201.63037109375,
       "first5_state_diff": {
-        "x_m": 1.1340178975981913e-08,
-        "px": 2.1170957255085138e-09,
-        "y_m": 4.5268015112223323e-10,
-        "py": 1.093058052111049e-10
+        "x_m": 1.0996506338324663e-08,
+        "px": 2.046070338764666e-09,
+        "y_m": 4.5202310915582605e-10,
+        "py": 1.0858428110653573e-10
       }
     },
     {
       "n": 50000,
       "code": "slipstream",
-      "config": "cuda-f32-o6k8b16",
+      "config": "cuda-f32-o6q8s1b8",
       "n_recorded": 2,
       "n_ok": 2,
-      "warm_s": 0.3555725999176502,
-      "cold_s": 0.4703881999012083,
-      "per_particle_turn_us": 0.1111164374742657,
+      "warm_s": 0.2435459500120487,
+      "cold_s": 0.35645770002156496,
+      "per_particle_turn_us": 0.07610810937876522,
       "cuda_peak_mb": 149.6689453125,
       "first5_state_diff": {
-        "x_m": 5.640804036090644e-06,
-        "px": 1.2242521214820851e-06,
-        "y_m": 1.2157463776592704e-07,
-        "py": 3.534286952080231e-08
+        "x_m": 4.87223008138922e-06,
+        "px": 9.436911958791722e-07,
+        "y_m": 1.1010772856597396e-07,
+        "py": 3.536006725305427e-08
       }
     },
     {
       "n": 50000,
       "code": "slipstream",
-      "config": "cpu-f64-o6k8b16-compiled",
+      "config": "cpu-f64-o6q8s1b8-compiled",
       "n_recorded": 2,
       "n_ok": 2,
-      "warm_s": 127.76950064999983,
-      "cold_s": 149.21608544979244,
-      "per_particle_turn_us": 39.927968953124946,
+      "warm_s": 80.81534919998376,
+      "cold_s": 85.2764591499872,
+      "per_particle_turn_us": 25.254796624994924,
       "cuda_peak_mb": 0.0,
       "first5_state_diff": {
-        "x_m": 1.134017816629973e-08,
-        "px": 2.11709551907642e-09,
-        "y_m": 4.5268017703466515e-10,
-        "py": 1.0930580037285271e-10
+        "x_m": 1.0996504486941033e-08,
+        "px": 2.046069907469042e-09,
+        "y_m": 4.5202318895310595e-10,
+        "py": 1.0858428179771461e-10
       }
     },
     {

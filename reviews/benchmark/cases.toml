@@ -1,39 +1,46 @@
-# The cases of this review and what a campaign on a PC with the image runs.  `kind` picks the worker in workers.toml.
-# `image` lists the configurations that run on CPU in the image; `gpu` the ones that need `gpus = true` in bench.local.toml.
-# A code that is not listed here (GPT, ImpactX, JuTrack, Bmad-X, HELIX) is archived: its result is in reviews/claims/evidence.
-# Configuration names are those of the workers (`--list`); the last of a code is its own converged rung.
-# The gate of a case is in its json (`tolerance`, `reference`) and in the README of the review.
+# The cases of this review and what a campaign runs on a machine that has the whole stack.  `kind` picks the worker in workers.toml.
+# `cpu` lists the configurations that run on a CPU (any platform); `gpu` the ones that need a GPU and `gpus = true` in bench.local.toml.
+# A code whose platform is `archived` (GPT without a licence) is left out of the plan: its frozen result is the reference.
+# Configuration names are those of the workers (`python -m slipstream_validation.runner plan benchmark --check` lists them);
+# the last configuration of a code is its own converged rung.  The gate of a case is in its json (`tolerance`, `reference`) and in the
+# README of the review.  The complete frozen design of the paper (more rungs, GPU, three processes) is `study.py`.
 
 [ring_tunes]
 kind = "ring"
 gates = ["G1", "G2", "G3"]
-image.slipstream = ["cpu-f64-o6k8b16", "cpu-f64-o6k16b32"]
-image.elegant = ["cpu-f64-o6s8b16", "cpu-f64-o6s16b32"]
-image.xsuite = ["cpu-f64-yosk8b16", "cpu-f64-yosk8b16-exact", "cpu-f64-yosk16b32-exact"]
-image.cheetah = ["cpu-f64-lin1", "cpu-f64-dri16"]
-gpu.slipstream = ["cuda-f32-o6k8b16", "cuda-f64-o6k8b16", "cuda-f64-o6k16b32"]
-archived = ["jutrack", "bmadx"]
+cpu.slipstream = ["cpu-f64-o6q8s1b8", "cpu-f64-o6k16b32"]
+cpu.elegant = ["cpu-f64-o6s8b16", "cpu-f64-o6s16b32"]
+cpu.xsuite = ["cpu-f64-yosk8b16", "cpu-f64-yosk8b16-exact", "cpu-f64-yosk16b32-exact"]
+cpu.cheetah = ["cpu-f64-lin1", "cpu-f64-dri16"]
+cpu.jutrack = ["cpu-f64-n16b32", "cpu-f64-n32b64"]
+cpu.scibmad = ["cpu-f64-o4k4", "cpu-f64-o6k32"]
+cpu.bmadx = ["cpu-f64-q1s16"]
+gpu.slipstream = ["cuda-f32-o6q8s1b8", "cuda-f64-o6q8s1b8", "cuda-f64-o6k16b32"]
+gpu.xsuite = ["cuda-f64-yosk8b16"]
 
 [ring_grad]
 kind = "ring"
 gates = ["G11"]
-image.slipstream = ["cpu-f64-o6k8b16"]
-image.elegant = ["cpu-f64-o6s16b32"]
-image.xsuite = ["cpu-f64-yosk8b16"]
-image.cheetah = ["cpu-f64-dri4"]
-archived = ["jutrack", "bmadx"]
+cpu.slipstream = ["cpu-f64-o6q8s1b8"]
+cpu.elegant = ["cpu-f64-o6s16b32"]
+cpu.xsuite = ["cpu-f64-yosk8b16"]
+cpu.cheetah = ["cpu-f64-dri4"]
+cpu.jutrack = ["cpu-f64-n16b32"]
+cpu.scibmad = ["cpu-f64-o4k4", "cpu-f64-o6k32"]
+cpu.bmadx = ["cpu-f64-q1s16"]
 
 [sc_drift]
 kind = "sc_drift"
 gates = ["G4"]
-image.slipstream = ["cpu-f64-r32z128t2c5", "cpu-f64-r64z256t1c2", "cpu-f64-3d32t1c1"]
-image.astra = ["cpu-f64-n64l128h0.7", "cpu-f64-3d32h1.4", "cpu-f64-3d64h1.4"]
-image.cheetah = ["cpu-f64-g32s2", "cpu-f64-g64s4"]
-image.ocelot = ["cpu-f64-g32s2", "cpu-f64-g64s4"]
-archived = ["gpt", "impactx"]
+cpu.slipstream = ["cpu-f64-r32z128t2c5", "cpu-f64-r64z256t1c2", "cpu-f64-3d32t1c1"]
+cpu.astra = ["cpu-f64-n64l128h0.7", "cpu-f64-3d32h1.4", "cpu-f64-3d64h1.4"]
+cpu.cheetah = ["cpu-f64-g32s2", "cpu-f64-g64s4"]
+cpu.ocelot = ["cpu-f64-g32s2", "cpu-f64-g64s4"]
+cpu.impactx = ["cpu-f64-mg32x40s2", "cpu-f64-mg64x80s4"]
+cpu.gpt = ["cpu-f64-mesh-acc5", "cpu-f64-mesh-acc6"]
 
 [linear_fodo]
 kind = "linear_fodo"
 gates = ["G1"]
-image.slipstream = ["cpu-f64-o4k4b8", "cpu-f64-o6k8b16"]
-archived = ["helix"]
+cpu.slipstream = ["cpu-f64-o4k4b8", "cpu-f64-o6k8b16"]
+cpu.helix = ["cpu-f64-linear"]

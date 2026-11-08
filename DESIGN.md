@@ -1,6 +1,6 @@
 # slipstream-validation: design
 
-Status: 6 November 2026. Scaffold. Tier 0 (the `claims` review) runs; the image, the benchmark port and the injector review are planned in section 9.
+Status: 8 November 2026. The `claims` review (tier 0) and the `benchmark` review run; the benchmark and validation work of the report folder has moved here (section 12); the injector review is planned.
 
 ## 1. What it is for
 
@@ -24,7 +24,7 @@ come from what Slipstream does.
 3. **A review is a folder** with the same skeleton, so the next one does not touch shared code.
 4. **Tiers.** What needs no simulation code runs in CI on every push; what needs codes runs in the image.
 5. **Accuracy reproduces, timing is reported.** *(new)* Accuracy observables (tunes, emittances, beam sizes, derivatives) must reproduce on another PC within a tolerance taken from the spread between hosts. Wall time and memory do not reproduce across hosts, so a second host adds a row beside the archived one and the gates on timing are ratios between codes on the same host.
-6. **Archived evidence for codes that cannot run.** *(new)* GPT (licence), ImpactX (conda build), JuTrack (Julia), HELIX and Bmad-X are not in the image. Their results are saved once, hashed, with the code version, and used as the reference. A machine that has the code sets `platform` in `bench.local.toml` and reruns it.
+6. **Archived evidence for codes that cannot run.** *(new)* GPT (licence), ImpactX (needs a source build) and JuTrack (Enzyme on Linux) are not in the image. Their results are saved once, hashed, with the code version, and used as the reference. A machine that has the code sets `platform` in `bench.local.toml` and reruns it.
 7. **No machine path in a committed file.** *(new)* `benchmarks/registry.toml` held `C:/Users/...` paths; they move to an uncommitted `bench.local.toml`.
 
 ## 3. Can the simcodes image give the same data on another PC?
@@ -41,7 +41,9 @@ Yes for accuracy, and for most of the codes. Not for everything, and not for tim
 | elegant | **2026.1.0** | **The paper cites 2026.3.0** | Rebuild the image with the newer tag, or narrow the claim to the version run. Decide before the first campaign |
 | ASTRA | Linux serial and parallel from DESY | The paper's runs used the Windows 4.0 (2022) build | Compare the two builds on `sc_drift` first; the parallel build also gives the 16-rank timings the CLARA study used |
 | GPT | no (licence) | n/a | Archived reference, or native Windows with a licence |
-| ImpactX, JuTrack, HELIX, Bmad-X | no | n/a | Archived reference; Bmad-X could join the image later (it installs with pip) |
+| Bmad-X, SciBmad, HELIX | conda environments in the extended image, built from `envs/*.yml` (8 Nov) | Bmad-X `563c825`, SciBmad 0.6.0+26.10.14 (Julia 1.12 inside), HELIX v1.20.0: the paper's versions | Run in the image and reproduce the archive |
+| JuTrack | no | Julia 1.10.4 on Windows | Enzyme, a dependency, does not precompile on Linux with Julia 1.10.4 or 1.10.10 (WSL and Docker, `Missing Julia object for global`). Archived on Linux; runs on the workstation's Windows platform |
+| ImpactX | no | a source build at `e4279a4b` (26.10 plus 20 commits) | `beam.at_fixed_t()`, which the worker needs, is not in conda-forge's 26.10. Archived on Linux until a release has it, or build the source |
 
 What this means for the paper's reproducibility item (R5 in `PLAN.md`): a second PC with Docker reproduces the accuracy gates and
 the figures that depend on them. Performance claims stay tied to the measured workstation unless a second GPU host reruns the
@@ -53,20 +55,22 @@ GPU, so tolerances for reruns are set from the spread between two hosts, not fro
 
 ```text
 slipstream-validation/
-├── README.md  DESIGN.md  AGENTS.md           what it is, why, rules for coding agents (AGENTS.md to be written)
-├── pyproject.toml                            package slipstream_validation; pytest markers
-├── bench.toml                                how each code is reached; copy to bench.local.toml (not committed)
-├── docker/Dockerfile                         simcodes image + Slipstream
-├── src/slipstream_validation/                (planned) runner.py, check.py, results.py, report.py
+├── README.md  DESIGN.md  AGENTS.md           what it is, why, rules for coding agents
+├── pyproject.toml  .gitattributes            package slipstream_validation; pytest markers; cases and evidence byte for byte
+├── bench.toml                                how each code is reached (platform per code); bench.local.toml (not committed) overrides it
+├── bench.local.example.toml                  the settings of a Windows workstation with WSL
+├── docker/Dockerfile  .dockerignore          simcodes image + conda environments of the extra codes (context: the repository root)
+├── envs/*.yml  setup/*.sh                    one conda environment file per code family; installers (also for a Linux host without Docker)
+├── src/slipstream_validation/                runner.py (plan, run, checkout; platforms), check.py (compare with the archive), export.py (to the report)
 ├── reviews/
-│   ├── claims/                               runs now: verify_claims.py, test_claims.py, evidence/
-│   ├── benchmark/                            (planned) cases/, workers/, cases.toml, gates/, evidence/
+│   ├── claims/                               verify_claims.py (453 quoted numbers), test_claims.py, evidence/ (compact, committed)
+│   ├── benchmark/                            cases/, workers/, cases.toml, workers.toml, analysis, 40-odd control scripts, run.py, study.py, codes/CODES.md
 │   └── injector/                             (planned) CLARA 20/100/250 pC, ASTRA and GPT archived
-├── tests/                                    (planned) tier-0 tests of the framework itself
-└── .github/workflows/tier0.yml               (planned) tier 0 on push and pull request
+├── tests/                                    tier-0 tests of the framework itself
+└── .github/workflows/tier0.yml               tier 0 on push and pull request
 ```
 
-Not committed: `results/`, `runs/`, `work/`, `checkouts/`, `bench.local.toml`. Committed evidence is compact (JSON, CSV, a few text
+Not committed: `results/`, `runs/`, `work/`, `checkouts/`, `bench*.local.toml`. Committed evidence is compact (JSON, CSV, a few text
 files; 4 MB today); raw arrays and run folders stay local, and the data-availability statement of the paper (R4) points to an
 archive deposit of them, not to this repository.
 
@@ -93,7 +97,7 @@ review READMEs' gate tables, one row each, with the tolerance and the tier.
 ## 7. How a second PC pulls, runs and reports
 
 1. `git clone` this repository and `docker pull ghcr.io/astec-stfc/simcodes-docker:master` (several GB, once).
-2. `docker build -t slipstream-validation:local -f docker/Dockerfile docker/` (seconds; adds pytest and soliday.sdds).
+2. `docker build -t slipstream-validation:local -f docker/Dockerfile .` (about 15 minutes and 15 GB on top of the simcodes image: pytest, soliday.sdds, and the conda environments of Bmad-X, SciBmad and HELIX). On a host without Docker: `bash setup/install_envs.sh` and `platform = "conda"` in `bench.local.toml`.
 3. `python -m slipstream_validation.runner run benchmark --execute --tag pc2`, with `--slipstream checkouts/slipstream-NAME` (a `git archive` export of the commit or branch to test; it needs read access to the Slipstream repository) and `gpus = true` in `bench.local.toml` on a GPU host.
 4. `python -m slipstream_validation.check compare archived pc2` lists what moved beyond the cross-host tolerance; `check report pc2` writes the markdown tables with the host, versions and image id on top.
 5. Send back `results/pc2/` (compact JSON) or commit it under `reviews/benchmark/evidence/`.
@@ -102,16 +106,15 @@ Steps 3 and 4 exist for all four cases (section 10, phase 3): `python -m slipstr
 
 ## 8. What moves from the report folder
 
-Copied, not moved: the report folder is untouched until the new repository has reproduced its numbers. Then the report keeps the
-manuscript, drafts, figures and builders, and points here for the evidence.
+Done on 8 November 2026 (section 12). The report keeps the manuscript, drafts, figures and builders, and reads the evidence from here.
 
-| Goes to this repository | Stays in the report folder |
+| Moved to this repository | Stays in the report folder |
 | --- | --- |
-| `data/2026-10-26_R1/` and the four CLARA files the claims need (done, `reviews/claims/evidence/`) | `overleaf_git/`, `drafts/`, `final/`, `overleaf/`, `figures/`, `references/` |
-| `benchmarks/` without `results/` (1.7 GB stays local) and with `registry.toml` rewritten as `bench.toml` | `build/`, `reference_reports/`, `sources/`, `archive/` |
-| `scripts/verify_*`, `validate_*`, `sc_validation.py` | `scripts/make_*` (figure makers), bibliography builders |
+| `data/2026-10-26_R1/` and the four CLARA files the claims need (`reviews/claims/evidence/`; the report's `data/` is now a copy made by `python -m slipstream_validation.export`) | `overleaf_git/`, `drafts/`, `final/`, `overleaf/`, `figures/`, `references/` |
+| `benchmarks/` without `results/`: harness, cases, workers, analysis, all control scripts, `BENCHMARK_STUDY.md`, `codes/CODES.md`, with `registry.toml` rewritten as `bench.toml` and the uncommitted `bench.local.toml`; 2.2 GB of `results/` copied (gitignored) | `build/`, `reference_reports/`, `sources/`, `archive/` |
+| the claims verifier (`scripts/verify_v8_numbers.py` is now `reviews/claims/verify_claims.py`) | `scripts/make_*` (figure makers; two of them read this repository through `scripts/validation_repo.py`), bibliography builders, `validate_vN.py` (draft checks), and the two audits of the 26 October study (`verify_study.py`, `verify_source_export.py`, kept as a record) |
 | `review/vN/claims.csv` as the archived reference of the claims | `review/` evidence of the draft reviews |
-| the CLARA convergence runners from `Stories/CLARA_InjectorConvergence/` (outputs, 12 GB, stay local) | the story write-ups |
+| not yet: the CLARA convergence runners and bridges of `Stories/CLARA_InjectorConvergence/` and `slipstream_dev/benchmark/` (outputs, 12 GB, stay local); six control scripts that read them are here but need `SSV_WORKBENCH` | the story write-ups |
 
 ## 9. Changes to the Slipstream package tests
 
@@ -143,8 +146,9 @@ Consequences:
 | 1 | Scaffold, `claims` review, tier-0 CI, this document | done |
 | 2 | Port `benchmarks/run.py` to the `docker` platform: `runner.py` (checkout, plan, run), `check.py` (compare), `bench.toml`, `reviews/benchmark/` with cases, workers and analysis. Workers are unchanged (they exchange the benchmark standard frame). `check report` (markdown tables) still to do | done, 6 Nov |
 | 3 | First image campaign on this PC. `ring_tunes` done (below). Still to run and wire: `sc_drift` (Slipstream, ASTRA, Cheetah, Ocelot), `ring_grad`, `linear_fodo`, and the ASTRA Linux against Windows build question | `sc_drift` about half a day |
-| 4 | Second PC: the same campaign; cross-host tolerances; replace the unreproducible performance wording | 0.5 day plus a machine |
-| 5 | `injector` review with ASTRA in the image and GPT archived | 1 to 2 days |
+| 3b | 8 Nov: the move from the report folder (section 12): harness, controls, results, platforms, environment files, extended image, claims against the current evidence | done |
+| 4 | Second PC: the same campaign on a Linux box with Docker (`docker build`, `runner run`, `check compare`); cross-host tolerances; replace the unreproducible performance wording | 0.5 day plus a machine |
+| 5 | `injector` review with ASTRA in the image and GPT archived; the CLARA and ELENA bridges that still need the workbench (`SSV_WORKBENCH`) | 1 to 2 days |
 
 ### First image campaign: `ring_tunes`, 6 November 2026
 
@@ -179,3 +183,53 @@ What it shows:
 2. **elegant version.** `ring_tunes` is unaffected (identical to four figures) and `ring_grad` moves in one metric only (Slipstream's worst-column error, 4.7e-5 against 2.1e-5; the Jacobians differ by 7.6e-9). Rebuild at 2026.3.0 if that XFAIL is to go, or if a later case, such as CSR or the Pelegant baseline, shows a difference.
 3. **Package tests and CI.** Whether the Slipstream repository adds the markers of section 9 (a change to the package, not done here).
 4. **Data deposit.** The raw results (1.8 GB benchmark, 12 GB story output) need a persistent identifier for R4; this repository holds the compact part only.
+5. **JuTrack on Linux.** Enzyme, a dependency of JuTrack, does not precompile with Julia 1.10.4 or 1.10.10 on WSL or in Docker (`Missing Julia object for global '+Core.Float64'`, with the default and the generic CPU target); it works on Windows with Julia 1.10.4 and the same Manifest. Options: find the cause (an Enzyme version in the Manifest against Linux LLVM), pin another Enzyme, or keep JuTrack archived on Linux. Until then the plan leaves it out of a plain Linux run. `setup/julia.sh` and `setup/jutrack.sh` are the recipe to retry.
+6. **ImpactX.** The `sc_drift` worker needs `beam.at_fixed_t()`, which conda-forge's 26.10 lacks (it came in with `256c808f`, after the release). The paper's run is a source build at `e4279a4b`. Either script the source build (compilers, CMake, AMReX from source: tens of minutes) or wait for the next release and use `envs/impactx.yml`.
+7. **Image size.** The extended image is 31.7 GB (the simcodes base is 16.7 GB; SciBmad's conda package alone is 1.2 GB). A second image for the extra codes would halve the pull for someone who needs only ASTRA and elegant; one image keeps one image id in every campaign. Revisit if the pull is a problem.
+8. **Report copy of the evidence.** `slipstream_dev/reports/Slipstream/data/` is a copy of `reviews/claims/evidence/` made by `export`; the figure scripts read it. If it should disappear, the scripts need the `validation_repo.py` indirection (two already have it).
+
+## 12. The move from the report folder, 8 November 2026
+
+Decision: every benchmark and validation run for the report is made here, on this PC and on a Linux server; the report folder keeps the
+manuscript and reads. This section records what was done and how it was checked, so the next person can tell what is trusted.
+
+### What moved
+
+| From `slipstream_dev/reports/Slipstream/` | To this repository |
+| --- | --- |
+| `benchmarks/` (117 tracked files) | `reviews/benchmark/`: `common.py`, `analyse*.py`, `cases/`, `workers/` (now with `w_scibmad.py`, `scibmad_server.jl` and the Slipstream 1.1.0 rungs of 7 November), `study.py`, `publish_study.py`, `test_study.py`, 45 control scripts, `prototypes/`, `codes/`, `BENCHMARK_STUDY.md`. `registry.toml` became `bench.toml` plus the uncommitted `bench.local.toml`; `launch/wsl_run.sh` became `launch/conda_run.sh`; the two `chain_*.ps1` pass launchers (Windows paths) were dropped |
+| `benchmarks/run.py` | `reviews/benchmark/run.py`, a thin layer over `runner.py` with the same command line and the `run.command / run.plat / run.REG` API the controls use |
+| `benchmarks/results/` (3.1 GB untracked) | `results/` (2.2 GB: the 54 campaigns of 26 October to 7 November; not the 867 MB of Slipstream 1.0.0 output, the 22 October rehearsals and two staging folders). The report's copy is left for the owner to delete |
+| `data/2026-10-26_R1/` | `reviews/claims/evidence/2026-10-26_R1/` (16 files updated, `scibmad_scaling.json` added); the report's `data/` is now a copy made by `python -m slipstream_validation.export` (a dry run reports 0 differences) |
+| `scripts/verify_v8_numbers.py` | `reviews/claims/verify_claims.py` (453 checks; it was 401 before the SciBmad and Slipstream 1.1.0 changes) |
+
+New in this repository for the move: `runner.py` now starts a worker on five platforms (`docker`, `conda`, `wsl`, `windows`, `linux`) behind one interface and resolves
+`--config` globs from each worker's `--list`; `plan --check` verifies every planned configuration exists; `envs/*.yml` and `setup/*.sh`; the extended image;
+`export.py`; `archived_sources.json`; `.gitattributes`; and tests of the commands each platform builds.
+
+### How it was checked (all on this PC, 8 November, Slipstream 1.1.0 `96607b5`)
+
+1. Tier 0: 8 tests pass; the 453 claims recompute from the current evidence.
+2. A control rerun from the copied raw output: `corrected_reference.py` with `SSV_EVIDENCE` pointing at a copy of the evidence writes a `corrected_reference.json` equal to the committed one in every number (only the hash of the script itself differs). `test_study.py`: 25 passed.
+3. Workstation platforms (native Windows, WSL; campaigns `ws1`, `ws2`): `ring_tunes` (elegant 2026.3.0, SciBmad, Xsuite, Slipstream, JuTrack), `ring_grad` (all eight code and rung rows, including Slipstream `o6q8s1b8`: `rel_fro` 4.108e-7, equal to the archive) and `linear_fodo` all agree with the archive. With native elegant 2026.3.0 the single `ring_grad` XFAIL of the image does not appear.
+4. The extended image (campaign `img2`): SciBmad (Julia 1.12 inside the conda package), Bmad-X (after `scipy` was added to its file: the first run failed with `No module named 'scipy'`), HELIX and the Slipstream FODO rungs run in it and reproduce the archive. The same Bmad-X, SciBmad and HELIX versions as the paper's.
+5. The full image campaign `img3` (32 jobs: every code the plan keeps on a plain Linux host) was started after the final build; compare it with `python -m slipstream_validation.check compare img3` when it has finished.
+
+### State per code
+
+| Code | Plain Linux host | This workstation | Notes |
+| --- | --- | --- | --- |
+| Slipstream | docker | windows | CPU rungs only without a card; `gpus = true` adds the GPU rows |
+| elegant | docker (2026.1.0) | windows (2026.3.0) | the paper cites 2026.3.0; open decision 2 |
+| ASTRA | docker (Linux serial 4.0) | windows (`Astra.exe`) | identical turn-by-turn moments on two rungs |
+| Xsuite, Cheetah, Ocelot | docker | wsl, windows, windows | GPU Xsuite: `envs/xsuite-gpu.yml` |
+| SciBmad, Bmad-X, HELIX | docker | windows, wsl, windows | the image carries them (`/opt/envs/*`) |
+| JuTrack | archived | windows | Enzyme does not precompile on Linux (open decision 5) |
+| ImpactX | archived | wsl (source build) | needs `beam.at_fixed_t()` (open decision 6) |
+| GPT | archived | windows | licence; install it yourself and set `platform`, `BENCH_GPT_BIN`, `GPTLICENSE` |
+
+### Not moved
+
+`Stories/CLARA_InjectorConvergence/` and `slipstream_dev/benchmark/` (the injector drivers, 12 GB of output) stay in the workbench until the injector review (phase 5). Six control scripts that read them
+(`clara_release_bridge.py`, `clara_gpt_profile.py`, `ibs_elena_bridge.py`, `injector_*_summary.py`) are here and need `SSV_WORKBENCH`. `scripts/validate_vN.py` (draft checks), the figure makers and
+the two audits of the 26 October study stay in the report.

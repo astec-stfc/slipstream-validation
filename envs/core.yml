@@ -1,0 +1,26 @@
+# Slipstream's dependencies, the codes that install with pip (Cheetah, Ocelot, Xsuite CPU) and pytest.  The setup of the paper's
+# workstation (WSL env astec-accelerator-models): python 3.12.13, torch 2.14.0+cu132, numpy 2.4.6.
+name: ssv-core
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - numpy>=2.0
+      - scipy>=1.14
+      - pandas>=2.0
+      - h5py>=3.8
+      - pyyaml>=6.0
+      - matplotlib>=3.6
+      - pytest
+      - soliday.sdds
+      - torch>=2.13            # CUDA wheels on Linux; the CPU rows do not need the card
+      - cheetah-accelerator==0.8.4
+      - ocelot-collab==26.6.1  # the image's DESY build is ocelot-desy 25.6.0: the same code, an older version
+      - xtrack==0.111.6
+      - xfields==0.27.2
+      - xobjects==0.6.10
+      - xpart==0.23.18
+      - xdeps==0.10.20
+      - openpmd-beamphysics

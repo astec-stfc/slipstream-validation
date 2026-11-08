@@ -28,6 +28,32 @@ import numpy as np
 
 ROOT = pathlib.Path(__file__).resolve().parent
 RESULTS = pathlib.Path(os.environ.get("SSV_RESULTS") or ROOT.parents[1] / "results")  # campaigns: results/TAG/CASE/CODE/CONFIG/pK
+# compact, committed outputs of the control scripts: EVIDENCE/TAG/name.json (git diff is the audit trail of a rerun)
+EVIDENCE = pathlib.Path(os.environ.get("SSV_EVIDENCE") or ROOT.parents[1] / "reviews" / "claims" / "evidence")
+# the neg_coating_rwi checkout (slipstream_dev, Stories) that the CLARA and ELENA bridges import from; unset elsewhere
+WORKBENCH = pathlib.Path(os.environ["SSV_WORKBENCH"]) if os.environ.get("SSV_WORKBENCH") else None
+
+
+def _slipstream_src():
+    """src folder of the Slipstream under test: SSV_SLIPSTREAM (a checkout), else where ``import slipstream`` would find it."""
+    if os.environ.get("SSV_SLIPSTREAM"):
+        return pathlib.Path(os.environ["SSV_SLIPSTREAM"]) / "src"
+    try:
+        import importlib.util
+        spec = importlib.util.find_spec("slipstream")
+        return pathlib.Path(spec.origin).parents[1] if spec and spec.origin else None
+    except Exception:  # noqa: BLE001
+        return None
+
+
+SLIPSTREAM_SRC = _slipstream_src()
+
+
+def cxx_env() -> dict:
+    """torch.compile on Windows needs clang-cl (AGENTS.md); on Linux the default g++ is right."""
+    return {"CXX": "clang-cl"} if os.name == "nt" else {}
+
+
 MC2_EV = 0.51099895e6
 SCHEMA = 1
 
@@ -39,6 +65,12 @@ def sha256(path) -> str:
 
 def load(path) -> dict:
     return json.loads(pathlib.Path(path).read_text())
+
+
+def archived_source_sha256(rel: str) -> str:
+    """sha256 a retained campaign recorded for ``rel`` (a file that was edited for the move to this repository), else the current file's."""
+    table = json.loads((ROOT / "archived_sources.json").read_text())
+    return table.get(rel) or sha256(ROOT / rel)
 
 
 def lattice_inventory(lat: dict) -> dict:
@@ -341,7 +373,9 @@ def run_worker(code, configs, build, track, sync=lambda dev: None, peak_mem=lamb
     out.mkdir(parents=True, exist_ok=True)
     case = load(job["case_path"])
     lat = load(ROOT / "cases" / case["lattice"])
-    cfg = next(c for c in configs if c["name"] == job["config"])
+    cfg = next((c for c in configs if c["name"] == job["config"]), None)
+    if cfg is None:
+        raise SystemExit(f"{code} has no configuration {job['config']!r}; it has {[c['name'] for c in configs]}")
     rec = dict(schema=SCHEMA, code=code, case=case["id"], config=cfg, rank=configs.index(cfg), job=job,
                status="error", warnings=[], provenance=provenance(), case_sha256=sha256(job["case_path"]),
                lattice_sha256=sha256(ROOT / "cases" / case["lattice"]))

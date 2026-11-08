@@ -1,0 +1,14 @@
+# HELIX (`linac_gen`), the proton/ion linac code used for the linear FODO control.  Paper setup: HELIX v1.20.0, commit 3709ffe.
+# It builds a pybind11 extension, so a C++ compiler is needed.
+name: ssv-helix
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - git
+  - cxx-compiler
+  - pytorch-cpu
+  - pip:
+      - numpy>=1.24
+      - git+https://github.com/Accel-Toolkit/HELIX.git@3709ffe

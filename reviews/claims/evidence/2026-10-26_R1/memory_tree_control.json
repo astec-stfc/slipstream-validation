@@ -3,42 +3,18 @@
     "date": "2026-10-27",
     "interval_s": 0.025,
     "gpu_interval_s": 0.25,
-    "note": "One process per configuration, one repeat; sampling can miss sub-25 ms spikes; WSL-hosted codes are not covered"
+    "note": "One process per configuration, one repeat; sampling can miss sub-25 ms spikes; WSL-hosted codes are not covered",
+    "reruns": [
+      {
+        "date": "2026-11-07",
+        "only": "slipstream/ring_tunes",
+        "campaign": "2026-11-07_memory_tree",
+        "note": "slipstream 1.1.0, o6q8s1"
+      }
+    ]
   },
-  "analysis_sha256": "0cdb6a0733bf9c8ad3c484227a3dd3595b6ebfbddfff928d878a57baaa4f16ca",
+  "analysis_sha256": "6d1d8caa3077b7a451d89ad94af65e4dbde74dba670ef3dac02ac59c2c7d9681",
   "rows": [
-    {
-      "code": "slipstream",
-      "case": "ring_tunes",
-      "config": "cpu-f64-o6k8b16-compiled",
-      "status": "ok",
-      "wall_s": 24.32981889974326,
-      "baseline_tree_mb": 743.51953125,
-      "tree_peak_mb": 901.1328125,
-      "own_peak_mb": 901.1328125,
-      "max_processes": 2,
-      "harness_rss_mb": 931.05078125,
-      "children_extra_mb": 0.0,
-      "incremental_over_baseline_mb": 157.61328125
-    },
-    {
-      "code": "slipstream",
-      "case": "ring_tunes",
-      "config": "cuda-f64-o6k8b16",
-      "status": "ok",
-      "wall_s": 13.659897999837995,
-      "baseline_tree_mb": 742.671875,
-      "tree_peak_mb": 1101.328125,
-      "own_peak_mb": 1101.328125,
-      "max_processes": 2,
-      "harness_rss_mb": 1100.76171875,
-      "children_extra_mb": 0.0,
-      "incremental_over_baseline_mb": 358.65625,
-      "gpu_device_increase_mb": 107.0,
-      "gpu_before_mb": 2100.0,
-      "torch_allocated_mb": 0.8544921875,
-      "torch_reserved_mb": 6.0
-    },
     {
       "code": "slipstream",
       "case": "sc_drift",
@@ -140,6 +116,38 @@
       "harness_rss_mb": 39.32421875,
       "children_extra_mb": 505.52734375,
       "incremental_over_baseline_mb": 35.22265625
+    },
+    {
+      "code": "slipstream",
+      "case": "ring_tunes",
+      "config": "cpu-f64-o6q8s1b8-compiled",
+      "status": "ok",
+      "wall_s": 22.23890830000164,
+      "baseline_tree_mb": 744.20703125,
+      "tree_peak_mb": 902.4296875,
+      "own_peak_mb": 902.4296875,
+      "max_processes": 2,
+      "harness_rss_mb": 932.40234375,
+      "children_extra_mb": 0.0,
+      "incremental_over_baseline_mb": 158.22265625
+    },
+    {
+      "code": "slipstream",
+      "case": "ring_tunes",
+      "config": "cuda-f64-o6q8s1b8",
+      "status": "ok",
+      "wall_s": 11.947798800014425,
+      "baseline_tree_mb": 743.8203125,
+      "tree_peak_mb": 1102.34765625,
+      "own_peak_mb": 1102.34765625,
+      "max_processes": 2,
+      "harness_rss_mb": 1101.78125,
+      "children_extra_mb": 0.0,
+      "incremental_over_baseline_mb": 358.52734375,
+      "gpu_device_increase_mb": 94.0,
+      "gpu_before_mb": 1640.0,
+      "torch_allocated_mb": 0.8544921875,
+      "torch_reserved_mb": 6.0
     }
   ]
 }

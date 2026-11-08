@@ -1,0 +1,11 @@
+{
+ "_note": "sha256 of the files as they were in slipstream_dev/reports/Slipstream/benchmarks when the archived campaigns ran. These files were edited for the move (machine paths and the RESULTS/EVIDENCE constants removed); results record the hash of the original, so a reanalysis that checks a retained campaign compares with this table (common.archived_source_sha256).",
+ "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+ "analyse.py": "1c2fccfd63acce2b768a3e011d2551b4665b37743accc4453613a9626e8008f8",
+ "workers/w_astra.py": "f995cbc4aa23f03a074058e4d185efb094e905bf0bd8cc2158bfe0df3aae99f8",
+ "workers/w_elegant.py": "89f607a640a46f32476182d5364d8f81d1f576571c318ac475ed4d9bde828191",
+ "workers/w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
+ "workers/w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
+ "workers/w_ocelot_sc.py": "3ea60dfca4e2ffe50a5856a6ccd51d13735ebee164b485a149c3aba8bb45aa15",
+ "workers/w_scibmad.py": "2fee28c40f7cff98d2f002f27385c9ba7d4456d545d0c838138d9d8eb6a92228"
+}

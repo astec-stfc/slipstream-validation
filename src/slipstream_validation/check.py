@@ -33,10 +33,15 @@ CASES = {
                      flags=["pass"], time="warm_s"),
     "linear_fodo": dict(metrics=["position_abs_m", "momentum_abs"], floor=1e-15, flags=["pass"], time="warm_s"),
 }
+# A campaign is compared only if it ran one of these rungs: the analysis measures every other row against the reference code's finest rung
+# that the campaign has, so without it a row would be compared with something other than the archived reference (or with itself).
+REFERENCE = {"ring_tunes": [("elegant", "cpu-f64-o6s16b32")], "ring_grad": [("elegant", "cpu-f64-o6s16b32")],
+             "sc_drift": [("astra", "cpu-f64-3d32h1.4"), ("astra", "cpu-f64-3d64h1.4")]}
 ANALYSIS = {"ring_tunes": "analyse.py", "ring_grad": "analyse_grad.py", "sc_drift": "analyse_sc.py", "linear_fodo": "analyse_transport.py"}
 
 # the image has no GPU in a plain run: the same model on the CPU is compared with the archived GPU row of the same name
-ALIASES = {("slipstream", "cpu-f64-o6k8b16"): ("slipstream", "cuda-f64-o6k8b16"),
+ALIASES = {("slipstream", "cpu-f64-o6q8s1b8"): ("slipstream", "cuda-f64-o6q8s1b8"),        # the paper's ring setting (Slipstream 1.1.0)
+           ("slipstream", "cpu-f64-o6k8b16"): ("slipstream", "cuda-f64-o6k8b16"),
            ("slipstream", "cpu-f64-o6k16b32"): ("slipstream", "cuda-f64-o6k16b32"),
            ("slipstream", "cpu-f64-r32z128t2c5"): ("slipstream", "cuda-f32-r32z128t2c5"),     # f64 on the CPU against f32 on the GPU
            ("slipstream", "cpu-f64-r64z256t1c2"): ("slipstream", "cuda-f32-r64z256t1c2")}
@@ -47,7 +52,7 @@ _ELEGANT_BUILD = ("the image's elegant 2026.1.0 gives a finite-difference Jacobi
                   "6e-14); the worst-column error of Slipstream is 4.7e-5 against 2026.3.0 and 2.1e-5 against 2026.1.0, the difference of two "
                   "numbers that small; native 2026.3.0 with this worker reproduces the archived row exactly")
 KNOWN: dict = {   # (case, code, config, metric) -> reason
-    ("ring_grad", "slipstream", "cpu-f64-o6k8b16", "rel_col"): _ELEGANT_BUILD,
+    ("ring_grad", "slipstream", "cpu-f64-o6q8s1b8", "rel_col"): _ELEGANT_BUILD,
 }
 
 
@@ -65,7 +70,7 @@ def archived_ring_tunes() -> dict:
         if r["case"] == "ring_tunes":
             out[("xsuite", r["config"])] = dict(dq_ref=r["dq_ref"], warm_s=r.get("warm_s"))
     cpu = {r["case"]: r for r in d["cpu"]["rows"]}["ring_tunes"]
-    out[("slipstream", "cpu-f64-o6k8b16-compiled")] = dict(dq_ref=cpu["dq_ref"], warm_s=cpu.get("warm_s"))
+    out[("slipstream", d["cpu"]["design"]["config"])] = dict(dq_ref=cpu["dq_ref"], warm_s=cpu.get("warm_s"))
     return out
 
 
@@ -120,8 +125,21 @@ def judge(case, code, cfg, x, o, limits):
     return status, moved, why
 
 
+def ran(results: pathlib.Path, tag: str, case: str) -> set:
+    """(code, config) of every job of the campaign that finished ok."""
+    out = set()
+    for f in (results / tag / case).glob("*/*/p*/result.json"):
+        if json.loads(f.read_text()).get("status") == "ok":
+            out.add((f.parents[2].name, f.parents[1].name))
+    return out
+
+
 def compare(tag: str, case: str, results: pathlib.Path) -> int:
     spec = CASES[case]
+    need = REFERENCE.get(case)
+    if need and not any(k in ran(results, tag, case) for k in need):
+        print(f"\n{case}: skipped, the campaign has no reference rung ({' or '.join(c + '/' + n for c, n in need)}); rerun with it to compare")
+        return 0
     r = subprocess.run([sys.executable, str(BENCH / ANALYSIS[case]), "--campaign", tag, "--case", case], capture_output=True, text=True,
                        env={**os.environ, "SSV_RESULTS": str(results), "PYTHONDONTWRITEBYTECODE": "1"})
     if r.returncode:

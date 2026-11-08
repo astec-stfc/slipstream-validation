@@ -2,7 +2,7 @@
   "design": {
     "classification": "post-baseline performance implementation control",
     "hypothesis": "Existing regional CPU compilation reduces eager dispatch while preserving maps/gradients",
-    "config": "cpu-f64-o6k8b16-compiled",
+    "config": "cpu-f64-o6q8s1b8-compiled",
     "procs": 3,
     "repeats": 2,
     "threads": 1,
@@ -19,21 +19,23 @@
             "code": "slipstream",
             "case": "ring_tunes",
             "config": {
-              "name": "cpu-f64-o6k8b16-compiled",
+              "name": "cpu-f64-o6q8s1b8-compiled",
               "device": "cpu",
               "dtype": "float64",
               "order": 6,
               "n_kicks": 8,
-              "n_kicks_bend": 16,
+              "n_kicks_quad": 8,
+              "n_kicks_sext": 1,
+              "n_kicks_bend": 8,
               "compile_cpu": true
             },
-            "rank": 11,
+            "rank": 36,
             "job": {
               "case_path": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\cases\\ring_tunes.json",
-              "config": "cpu-f64-o6k8b16-compiled",
+              "config": "cpu-f64-o6q8s1b8-compiled",
               "repeats": 2,
               "threads": 1,
-              "out_dir": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-26_R1_CPU_control\\ring_tunes\\slipstream\\cpu-f64-o6k8b16-compiled\\p0"
+              "out_dir": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-11-07_slipstream_v110\\ring_tunes\\slipstream\\cpu-f64-o6q8s1b8-compiled\\p0"
             },
             "status": "ok",
             "warnings": [],
@@ -52,18 +54,18 @@
                 "name": "NVIDIA GeForce RTX 3050",
                 "driver_version": "616.56",
                 "memory.total": "8192 MiB",
-                "clocks.sm": "210 MHz",
+                "clocks.sm": "1927 MHz",
                 "clocks.max.sm": "2100 MHz",
-                "power.draw": "4.23 W",
+                "power.draw": "27.40 W",
                 "power.limit": "130.00 W",
-                "temperature.gpu": "35"
+                "temperature.gpu": "42"
               },
               "argv": [
                 "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\workers\\w_slipstream.py",
                 "--job",
-                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-26_R1_CPU_control\\ring_tunes\\slipstream\\cpu-f64-o6k8b16-compiled\\p0\\job.json"
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-11-07_slipstream_v110\\ring_tunes\\slipstream\\cpu-f64-o6q8s1b8-compiled\\p0\\job.json"
               ],
-              "time_utc": "2026-10-26T15:13:26Z"
+              "time_utc": "2026-11-07T22:45:19Z"
             },
             "case_sha256": "ef1c851cc69bc6d2711367a12d4406fff93ee8ffe7191898954cfd6fb16508cb",
             "lattice_sha256": "919291d4e0945645bbdc1faea617d487714e4c9d2eb13ab5cb5be3c88e57c798",
@@ -72,30 +74,76 @@
               "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
               "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
               "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "astra_mesh_cap_probe.py": "d422b60bddb3b0f1aaff6dbd128c86f7fd431f829f295a2182bd9d22d186ef6f",
+              "astra_particle_energy_control.py": "5040f54b42028f5de2dc9a93ebb8b117c5b553995b03062764cad63b853eb6cf",
+              "astra_refinement.py": "0cb8281cd87ddbadbcedb788c146d40d0baa43bed308f1688deb898016ba4b5a",
+              "bend_attribution.py": "b21214f51a16352643bd80cff81ae986eaf81f3a26a22c0517c737afe5d9af65",
+              "charge_off_control.py": "49db4f921aa81e2fc20871026f3b8c1a0abe1707c6ba55af8767d034db4af5da",
+              "clara_gpt_profile.py": "063d613f857afa2e0a0da6d33d2a9260e661287ed2d71330a4f6e63a9b77750b",
+              "clara_release_bridge.py": "e70be3e82162ac802aab380bc9540dffa0d5c384e9e8cbd6cb3d5b0c62d18510",
               "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+              "convergence_extension.py": "937f838a7f3649cae8327b821816a70737429c4659f3e46cfccfe98483ef8949",
+              "corrected_reference.py": "bf09431be9c4e19ddb246838a7329ae1495d964dcfe1ac857389561285700b6d",
               "cpu_control.py": "f1bd1a8cd52a60c8186b7c3ee146842c2726ee576e03a5b30662005ac23e8068",
+              "element_attribution.py": "9236981407e92a1da5c855bb0506f599ecd023b6d705ccef0f4dede046f671cd",
+              "element_substitution_control.py": "c9ad256a6152c743a63a1be855db049804b2ff7672a7524f511ad4e46aff4f8e",
+              "fd_ad_endpoint_control.py": "1b3eb15b2a4b843a98f0f2583da918ee39c47ad9c9e5363bfc36726c550c3850",
+              "fd_ad_knob_ladder.py": "9beacddc2bff1695843852e7aa308ea251ae23e9166341b7c411a94de5864273",
               "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "gradient_acceptance.py": "fd76562ce9a2be244ec96ed1787f77ff3efa933d426644e21beece7c04f4bba4",
+              "ibs_elena_bridge.py": "2b8d027c556aa5c7f983ac18defabb607f5d9824588ac17f4815d634bf67c4b5",
+              "injector_ad_summary.py": "1a47959873e31f2065bcc0cc7afaded93670b5ecf48b0442ced4462a2906d20d",
+              "injector_cost_control.py": "492c9989b1b77c20ce631664ddecd837ef10ac1afffd7407e48fb88ebcec5397",
+              "injector_fd_analysis.py": "58d8eddff5173696af608064d6a8957156eff5e7067b28ae4e34db3cb6a3401b",
+              "injector_fd_full_analysis.py": "ae40d672c8efed872a8e85ad6a3176eb49194d9e45e4a7d7929bf7a77ae92687",
+              "injector_optimiser_summary.py": "e8251f5500792174ba218ec94ef7961fa2533a170ad97ba8ea1fe19011e1d7a2",
+              "injector_scaling_control.py": "dc54d2c65cfa4cf96b7ceab8f20722ee79f1e6e3ee31b7de3bf3b2fae1e14214",
+              "injector_step_control.py": "9051f856014f226898eceb1333d43a4c68eba15658fa6c4f5bea9f059db8e44a",
+              "injector_tolerance_summary.py": "2788ffef15ab5af7a390243218609ec774e395583461661c7f8828150cf9e807",
+              "launch\\wsl_tree_rss.py": "e62f3e2b5b57f61f4aed379d11776207914f1af11a17d11c520d21d65de8d373",
+              "longitudinal_gates.py": "613f6853dbd5513a59c916f6a649ebc39bc0aeaacdb9d984b66241f4cf0c9f15",
               "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
-              "probe_elements.py": "23b991e9d6fb17ddc366150d6a2b5e811258027e7f51079b169a0390b6dd4770",
-              "publish_study.py": "f0436a075cacc8169251f6346c290f38ed41c1aa0a409a612d7d4d6be6520d19",
+              "mass_fix_control.py": "b0ff5b5b65de012019bd162ff3cf928a5d29e0b0df1c6a0f4c8c58c5d01d418d",
+              "memory_tree_control.py": "0cdb6a0733bf9c8ad3c484227a3dd3595b6ebfbddfff928d878a57baaa4f16ca",
+              "memory_wsl_control.py": "a75dfc9363c723c80fd19102d313449efd8eb11077a6ef65fa28061f1adc5ef5",
+              "native_box_control.py": "9f60ef9c0e3ff80155e894faf4d062ad23265f2e45bbfe7306bff5c614403709",
+              "native_mesh_control.py": "f702745f0541522f62f0351dd933d5e21d9db65c5d87c41e3933a4a4f249dca7",
+              "optimisation_budget_control.py": "f1cd4e958ea815ebabe087648f38b276d6cca9f772859a9846b7f98ac79aaf54",
+              "optimisation_convergence_control.py": "80c6f83ab6966503d40bfc47b864af1b2d2870e9ad8fd4eea78cb641fc43e9b5",
+              "particle_scaling_control.py": "262afa2ab866b6eaa345a0947531e5584ff56a791a48d7ba6d0309091f5e8d4f",
+              "precision_control.py": "ab813aedb9d7bcc02239cd9bd4509430d2d7750f3196fde4f60861efa5ee0371",
+              "precision_probe.py": "0e3a8a9965baeb6e6a1e5bc2daaa140f221f00a36b16b333cb58c344b4a6a417",
+              "probe_elements.py": "a1135a9455d953e1eb181908a5a8d1e9a64dba59673b66c901e072e787561b17",
+              "prototypes\\mkm_prototype.py": "41ad1d11897cca1464cb12573583e85799139dca6a40a71b69a564771425520f",
+              "prototypes\\ring_warp_mkm.py": "3b37f02a57052a9bbb9dea8f0fd176f1eee272b49ab087d65beb7aa547039388",
+              "publish_study.py": "a7a554638706ac787b5cc8a67af6b7e31b2b9de67f3555ca75a86fb7e7f34498",
+              "richardson_reference.py": "604ef68d5d61ce6209eaace82b14cfbb31d8e00346cf8d174d08eabdd53aa273",
               "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "scibmad_scaling.py": "64ec7faf09024ac6588a62b620d1c281995ed3b4b984e5ed6458b9da44a00d5a",
+              "scibmad_scaling_analysis.py": "9cf1425def22080fb4ad65b16b1b0d66b02a5b6cabc971bb667f3510bd36b12b",
+              "space_charge_box_probe.py": "47796a92f201d9a2bbd8a67700facb208b9f140e5fb1ac400cfd9d5a6af94bcf",
+              "startup_accounting.py": "ae1fc9ae790fe5ddfad6deed54d41c809d6334e7242a9a9391a98ff9ebdb3626",
               "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
-              "test_study.py": "ea9a162317bdf488f1f262e6b3752bc15685c1844af61fad5371379b5e77ad97",
-              "workers\\astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "test_study.py": "357cc6cc2035bf547c49cc91d29743a3c12ee4470a90b3101eebe880c830cd2f",
+              "workers\\astra_deck.py": "a0fd66663eb9d4c81e2e226cdb547518fa7e7602e3b1db9b789b2130721bfa8e",
               "workers\\impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
-              "workers\\w_astra.py": "4d584407fd1a9d4b16903368a6e59ef819145d1d491a65095c73ff8d100da52a",
-              "workers\\w_bmadx.py": "080b3fe82730bc3bf695655f36d731d33298bcf2fb68fb1ab8866afd5f9e462c",
+              "workers\\w_astra.py": "f995cbc4aa23f03a074058e4d185efb094e905bf0bd8cc2158bfe0df3aae99f8",
+              "workers\\w_bmadx.py": "2a5c7704eb62d88876f8def708aee22c4d61a2880724ed8d44f19231f1e250a6",
               "workers\\w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
-              "workers\\w_cheetah_sc.py": "8251bfcc773ac5ac7eb8d823e6c10c41a7f82e30a975404ae96687c11d21ba71",
-              "workers\\w_elegant.py": "bb5b91830c8a9fc99c3b4c5a24062dc08f6c28b18e2868a2c776eff9ed87794a",
+              "workers\\w_cheetah_sc.py": "0ecbb51867e7e64d4dc6d346504a924ea5275888aaa7eb85393dcb8c12791773",
+              "workers\\w_elegant.py": "89f607a640a46f32476182d5364d8f81d1f576571c318ac475ed4d9bde828191",
               "workers\\w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
-              "workers\\w_helix.py": "43458bd3ccd109227b9f08ce1dbb06b38af23094f5013aaad7f33d78569d7830",
+              "workers\\w_helix.py": "eacccf73fb09025a292ddc9622b802c2484bb0ffba98a2b53331dea1fb6c0f39",
               "workers\\w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
               "workers\\w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
-              "workers\\w_ocelot_sc.py": "009633bc28acbf20b0e816513d5e2600e1b6534f090dbb12a334d71863d29165",
-              "workers\\w_slipstream.py": "75dd99b2cc244033300e50aec14bdb390f27b48bb4720107cc07a1bc5b6f7a40",
-              "workers\\w_slipstream_sc.py": "019dab41b516f87f84cd24759615593b05f0967a861ceed9d98976bc18b4208e",
-              "workers\\w_xsuite.py": "8605a1c54be4ac28bb613e585e1beae4860424fdef10aa1d26197493756f96fe",
+              "workers\\w_ocelot_sc.py": "3ea60dfca4e2ffe50a5856a6ccd51d13735ebee164b485a149c3aba8bb45aa15",
+              "workers\\w_scibmad.py": "2fee28c40f7cff98d2f002f27385c9ba7d4456d545d0c838138d9d8eb6a92228",
+              "workers\\w_slipstream.py": "f35e66c40d8c925fedc73ef6b0d61e08ec30990569e515f6b6f44e09d1a9459d",
+              "workers\\w_slipstream_sc.py": "21a0284f8adaac80e25d7571a64ce719d49945db5716f3e0b56d9fcf63832b05",
+              "workers\\w_xsuite.py": "b1788d888e7e2d08408a84789c042bcab2841c2cf7908942f092d6e3b2dc4050",
+              "xsuite_gpu_profile.py": "1b5bce0e34c885a29870d4d69c7bbfe5ca9a4f20e9e90b69bdf3addde2e70863",
+              "xsuite_gpu_scaling.py": "8b0f091aaf2e9f76f1c15c7206028dc456ded34ab9021fda5848f9d2eea47d65",
+              "xsuite_gpu_scaling_analysis.py": "2c9d1ca9fe77809bb7563c0cc147986c4e137623d4fed781e970666bb4db9dd6",
               "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
             },
             "inventory": {
@@ -119,27 +167,27 @@
               "cuda": "13.2",
               "slipstream_file": "D:\\GitHub\\neg_coating_rwi\\slipstream\\src\\slipstream\\__init__.py",
               "warp": "1.17.0",
-              "slipstream": "0.1.0"
+              "slipstream": "1.1.0"
             },
             "timing": {
-              "import_s": 5.62533440021798,
-              "build_s": 0.037431000266224146,
-              "cold_s": 8.088860999792814,
+              "import_s": 5.578231199993752,
+              "build_s": 0.025867599993944168,
+              "cold_s": 15.259447799995542,
               "warm_s": {
                 "n": 2,
-                "median": 5.17397924978286,
-                "q1": 5.156272174790502,
-                "q3": 5.191686324775219,
-                "min": 5.138565099798143,
-                "max": 5.209393399767578,
+                "median": 4.471705150033813,
+                "q1": 4.4587220750399865,
+                "q3": 4.484688225027639,
+                "min": 4.44573900004616,
+                "max": 4.497671300021466,
                 "samples": [
-                  5.138565099798143,
-                  5.209393399767578
+                  4.497671300021466,
+                  4.44573900004616
                 ]
               }
             },
             "memory": {
-              "rss_peak_bytes": 974802944
+              "rss_peak_bytes": 992894976
             },
             "repeat_maxdiff": 0.0,
             "tbt_shape": [
@@ -148,12 +196,12 @@
               4
             ]
           },
-          "dq_ref": 1.972518143766866e-06,
+          "dq_ref": 1.972518031273518e-06,
           "map_components": [
-            1.9523548916433597e-07,
-            1.114251265482355e-07,
-            1.65249623857713e-08,
-            3.294224999934089e-10
+            1.9523482905174638e-07,
+            1.1142613337697047e-07,
+            1.6524967943066377e-08,
+            3.2942253796758997e-10
           ]
         },
         {
@@ -162,21 +210,23 @@
             "code": "slipstream",
             "case": "ring_tunes",
             "config": {
-              "name": "cpu-f64-o6k8b16-compiled",
+              "name": "cpu-f64-o6q8s1b8-compiled",
               "device": "cpu",
               "dtype": "float64",
               "order": 6,
               "n_kicks": 8,
-              "n_kicks_bend": 16,
+              "n_kicks_quad": 8,
+              "n_kicks_sext": 1,
+              "n_kicks_bend": 8,
               "compile_cpu": true
             },
-            "rank": 11,
+            "rank": 36,
             "job": {
               "case_path": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\cases\\ring_tunes.json",
-              "config": "cpu-f64-o6k8b16-compiled",
+              "config": "cpu-f64-o6q8s1b8-compiled",
               "repeats": 2,
               "threads": 1,
-              "out_dir": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-26_R1_CPU_control\\ring_tunes\\slipstream\\cpu-f64-o6k8b16-compiled\\p1"
+              "out_dir": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-11-07_slipstream_v110\\ring_tunes\\slipstream\\cpu-f64-o6q8s1b8-compiled\\p1"
             },
             "status": "ok",
             "warnings": [],
@@ -195,18 +245,18 @@
                 "name": "NVIDIA GeForce RTX 3050",
                 "driver_version": "616.56",
                 "memory.total": "8192 MiB",
-                "clocks.sm": "210 MHz",
+                "clocks.sm": "1927 MHz",
                 "clocks.max.sm": "2100 MHz",
-                "power.draw": "4.06 W",
+                "power.draw": "28.23 W",
                 "power.limit": "130.00 W",
-                "temperature.gpu": "35"
+                "temperature.gpu": "43"
               },
               "argv": [
                 "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\workers\\w_slipstream.py",
                 "--job",
-                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-26_R1_CPU_control\\ring_tunes\\slipstream\\cpu-f64-o6k8b16-compiled\\p1\\job.json"
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-11-07_slipstream_v110\\ring_tunes\\slipstream\\cpu-f64-o6q8s1b8-compiled\\p1\\job.json"
               ],
-              "time_utc": "2026-10-26T15:12:15Z"
+              "time_utc": "2026-11-07T22:46:14Z"
             },
             "case_sha256": "ef1c851cc69bc6d2711367a12d4406fff93ee8ffe7191898954cfd6fb16508cb",
             "lattice_sha256": "919291d4e0945645bbdc1faea617d487714e4c9d2eb13ab5cb5be3c88e57c798",
@@ -215,30 +265,76 @@
               "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
               "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
               "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "astra_mesh_cap_probe.py": "d422b60bddb3b0f1aaff6dbd128c86f7fd431f829f295a2182bd9d22d186ef6f",
+              "astra_particle_energy_control.py": "5040f54b42028f5de2dc9a93ebb8b117c5b553995b03062764cad63b853eb6cf",
+              "astra_refinement.py": "0cb8281cd87ddbadbcedb788c146d40d0baa43bed308f1688deb898016ba4b5a",
+              "bend_attribution.py": "b21214f51a16352643bd80cff81ae986eaf81f3a26a22c0517c737afe5d9af65",
+              "charge_off_control.py": "49db4f921aa81e2fc20871026f3b8c1a0abe1707c6ba55af8767d034db4af5da",
+              "clara_gpt_profile.py": "063d613f857afa2e0a0da6d33d2a9260e661287ed2d71330a4f6e63a9b77750b",
+              "clara_release_bridge.py": "e70be3e82162ac802aab380bc9540dffa0d5c384e9e8cbd6cb3d5b0c62d18510",
               "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+              "convergence_extension.py": "937f838a7f3649cae8327b821816a70737429c4659f3e46cfccfe98483ef8949",
+              "corrected_reference.py": "bf09431be9c4e19ddb246838a7329ae1495d964dcfe1ac857389561285700b6d",
               "cpu_control.py": "f1bd1a8cd52a60c8186b7c3ee146842c2726ee576e03a5b30662005ac23e8068",
+              "element_attribution.py": "9236981407e92a1da5c855bb0506f599ecd023b6d705ccef0f4dede046f671cd",
+              "element_substitution_control.py": "c9ad256a6152c743a63a1be855db049804b2ff7672a7524f511ad4e46aff4f8e",
+              "fd_ad_endpoint_control.py": "1b3eb15b2a4b843a98f0f2583da918ee39c47ad9c9e5363bfc36726c550c3850",
+              "fd_ad_knob_ladder.py": "9beacddc2bff1695843852e7aa308ea251ae23e9166341b7c411a94de5864273",
               "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "gradient_acceptance.py": "fd76562ce9a2be244ec96ed1787f77ff3efa933d426644e21beece7c04f4bba4",
+              "ibs_elena_bridge.py": "2b8d027c556aa5c7f983ac18defabb607f5d9824588ac17f4815d634bf67c4b5",
+              "injector_ad_summary.py": "1a47959873e31f2065bcc0cc7afaded93670b5ecf48b0442ced4462a2906d20d",
+              "injector_cost_control.py": "492c9989b1b77c20ce631664ddecd837ef10ac1afffd7407e48fb88ebcec5397",
+              "injector_fd_analysis.py": "58d8eddff5173696af608064d6a8957156eff5e7067b28ae4e34db3cb6a3401b",
+              "injector_fd_full_analysis.py": "ae40d672c8efed872a8e85ad6a3176eb49194d9e45e4a7d7929bf7a77ae92687",
+              "injector_optimiser_summary.py": "e8251f5500792174ba218ec94ef7961fa2533a170ad97ba8ea1fe19011e1d7a2",
+              "injector_scaling_control.py": "dc54d2c65cfa4cf96b7ceab8f20722ee79f1e6e3ee31b7de3bf3b2fae1e14214",
+              "injector_step_control.py": "9051f856014f226898eceb1333d43a4c68eba15658fa6c4f5bea9f059db8e44a",
+              "injector_tolerance_summary.py": "2788ffef15ab5af7a390243218609ec774e395583461661c7f8828150cf9e807",
+              "launch\\wsl_tree_rss.py": "e62f3e2b5b57f61f4aed379d11776207914f1af11a17d11c520d21d65de8d373",
+              "longitudinal_gates.py": "613f6853dbd5513a59c916f6a649ebc39bc0aeaacdb9d984b66241f4cf0c9f15",
               "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
-              "probe_elements.py": "23b991e9d6fb17ddc366150d6a2b5e811258027e7f51079b169a0390b6dd4770",
-              "publish_study.py": "f0436a075cacc8169251f6346c290f38ed41c1aa0a409a612d7d4d6be6520d19",
+              "mass_fix_control.py": "b0ff5b5b65de012019bd162ff3cf928a5d29e0b0df1c6a0f4c8c58c5d01d418d",
+              "memory_tree_control.py": "0cdb6a0733bf9c8ad3c484227a3dd3595b6ebfbddfff928d878a57baaa4f16ca",
+              "memory_wsl_control.py": "a75dfc9363c723c80fd19102d313449efd8eb11077a6ef65fa28061f1adc5ef5",
+              "native_box_control.py": "9f60ef9c0e3ff80155e894faf4d062ad23265f2e45bbfe7306bff5c614403709",
+              "native_mesh_control.py": "f702745f0541522f62f0351dd933d5e21d9db65c5d87c41e3933a4a4f249dca7",
+              "optimisation_budget_control.py": "f1cd4e958ea815ebabe087648f38b276d6cca9f772859a9846b7f98ac79aaf54",
+              "optimisation_convergence_control.py": "80c6f83ab6966503d40bfc47b864af1b2d2870e9ad8fd4eea78cb641fc43e9b5",
+              "particle_scaling_control.py": "262afa2ab866b6eaa345a0947531e5584ff56a791a48d7ba6d0309091f5e8d4f",
+              "precision_control.py": "ab813aedb9d7bcc02239cd9bd4509430d2d7750f3196fde4f60861efa5ee0371",
+              "precision_probe.py": "0e3a8a9965baeb6e6a1e5bc2daaa140f221f00a36b16b333cb58c344b4a6a417",
+              "probe_elements.py": "a1135a9455d953e1eb181908a5a8d1e9a64dba59673b66c901e072e787561b17",
+              "prototypes\\mkm_prototype.py": "41ad1d11897cca1464cb12573583e85799139dca6a40a71b69a564771425520f",
+              "prototypes\\ring_warp_mkm.py": "3b37f02a57052a9bbb9dea8f0fd176f1eee272b49ab087d65beb7aa547039388",
+              "publish_study.py": "a7a554638706ac787b5cc8a67af6b7e31b2b9de67f3555ca75a86fb7e7f34498",
+              "richardson_reference.py": "604ef68d5d61ce6209eaace82b14cfbb31d8e00346cf8d174d08eabdd53aa273",
               "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "scibmad_scaling.py": "64ec7faf09024ac6588a62b620d1c281995ed3b4b984e5ed6458b9da44a00d5a",
+              "scibmad_scaling_analysis.py": "9cf1425def22080fb4ad65b16b1b0d66b02a5b6cabc971bb667f3510bd36b12b",
+              "space_charge_box_probe.py": "47796a92f201d9a2bbd8a67700facb208b9f140e5fb1ac400cfd9d5a6af94bcf",
+              "startup_accounting.py": "ae1fc9ae790fe5ddfad6deed54d41c809d6334e7242a9a9391a98ff9ebdb3626",
               "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
-              "test_study.py": "ea9a162317bdf488f1f262e6b3752bc15685c1844af61fad5371379b5e77ad97",
-              "workers\\astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "test_study.py": "357cc6cc2035bf547c49cc91d29743a3c12ee4470a90b3101eebe880c830cd2f",
+              "workers\\astra_deck.py": "a0fd66663eb9d4c81e2e226cdb547518fa7e7602e3b1db9b789b2130721bfa8e",
               "workers\\impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
-              "workers\\w_astra.py": "4d584407fd1a9d4b16903368a6e59ef819145d1d491a65095c73ff8d100da52a",
-              "workers\\w_bmadx.py": "080b3fe82730bc3bf695655f36d731d33298bcf2fb68fb1ab8866afd5f9e462c",
+              "workers\\w_astra.py": "f995cbc4aa23f03a074058e4d185efb094e905bf0bd8cc2158bfe0df3aae99f8",
+              "workers\\w_bmadx.py": "2a5c7704eb62d88876f8def708aee22c4d61a2880724ed8d44f19231f1e250a6",
               "workers\\w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
-              "workers\\w_cheetah_sc.py": "8251bfcc773ac5ac7eb8d823e6c10c41a7f82e30a975404ae96687c11d21ba71",
-              "workers\\w_elegant.py": "bb5b91830c8a9fc99c3b4c5a24062dc08f6c28b18e2868a2c776eff9ed87794a",
+              "workers\\w_cheetah_sc.py": "0ecbb51867e7e64d4dc6d346504a924ea5275888aaa7eb85393dcb8c12791773",
+              "workers\\w_elegant.py": "89f607a640a46f32476182d5364d8f81d1f576571c318ac475ed4d9bde828191",
               "workers\\w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
-              "workers\\w_helix.py": "43458bd3ccd109227b9f08ce1dbb06b38af23094f5013aaad7f33d78569d7830",
+              "workers\\w_helix.py": "eacccf73fb09025a292ddc9622b802c2484bb0ffba98a2b53331dea1fb6c0f39",
               "workers\\w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
               "workers\\w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
-              "workers\\w_ocelot_sc.py": "009633bc28acbf20b0e816513d5e2600e1b6534f090dbb12a334d71863d29165",
-              "workers\\w_slipstream.py": "75dd99b2cc244033300e50aec14bdb390f27b48bb4720107cc07a1bc5b6f7a40",
-              "workers\\w_slipstream_sc.py": "019dab41b516f87f84cd24759615593b05f0967a861ceed9d98976bc18b4208e",
-              "workers\\w_xsuite.py": "8605a1c54be4ac28bb613e585e1beae4860424fdef10aa1d26197493756f96fe",
+              "workers\\w_ocelot_sc.py": "3ea60dfca4e2ffe50a5856a6ccd51d13735ebee164b485a149c3aba8bb45aa15",
+              "workers\\w_scibmad.py": "2fee28c40f7cff98d2f002f27385c9ba7d4456d545d0c838138d9d8eb6a92228",
+              "workers\\w_slipstream.py": "f35e66c40d8c925fedc73ef6b0d61e08ec30990569e515f6b6f44e09d1a9459d",
+              "workers\\w_slipstream_sc.py": "21a0284f8adaac80e25d7571a64ce719d49945db5716f3e0b56d9fcf63832b05",
+              "workers\\w_xsuite.py": "b1788d888e7e2d08408a84789c042bcab2841c2cf7908942f092d6e3b2dc4050",
+              "xsuite_gpu_profile.py": "1b5bce0e34c885a29870d4d69c7bbfe5ca9a4f20e9e90b69bdf3addde2e70863",
+              "xsuite_gpu_scaling.py": "8b0f091aaf2e9f76f1c15c7206028dc456ded34ab9021fda5848f9d2eea47d65",
+              "xsuite_gpu_scaling_analysis.py": "2c9d1ca9fe77809bb7563c0cc147986c4e137623d4fed781e970666bb4db9dd6",
               "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
             },
             "inventory": {
@@ -262,27 +358,27 @@
               "cuda": "13.2",
               "slipstream_file": "D:\\GitHub\\neg_coating_rwi\\slipstream\\src\\slipstream\\__init__.py",
               "warp": "1.17.0",
-              "slipstream": "0.1.0"
+              "slipstream": "1.1.0"
             },
             "timing": {
-              "import_s": 5.5051690000109375,
-              "build_s": 0.03196140006184578,
-              "cold_s": 27.56163299968466,
+              "import_s": 5.276274900010321,
+              "build_s": 0.02551629999652505,
+              "cold_s": 8.030377899995074,
               "warm_s": {
                 "n": 2,
-                "median": 5.604881150415167,
-                "q1": 5.297780225402676,
-                "q3": 5.911982075427659,
-                "min": 4.990679300390184,
-                "max": 6.2190830004401505,
+                "median": 4.569227950007189,
+                "q1": 4.550442875013687,
+                "q3": 4.588013025000691,
+                "min": 4.531657800020184,
+                "max": 4.606798099994194,
                 "samples": [
-                  6.2190830004401505,
-                  4.990679300390184
+                  4.606798099994194,
+                  4.531657800020184
                 ]
               }
             },
             "memory": {
-              "rss_peak_bytes": 1054633984
+              "rss_peak_bytes": 975900672
             },
             "repeat_maxdiff": 0.0,
             "tbt_shape": [
@@ -291,12 +387,12 @@
               4
             ]
           },
-          "dq_ref": 1.972518143766866e-06,
+          "dq_ref": 1.972518031273518e-06,
           "map_components": [
-            1.9523548916433597e-07,
-            1.114251265482355e-07,
-            1.65249623857713e-08,
-            3.294224999934089e-10
+            1.9523482905174638e-07,
+            1.1142613337697047e-07,
+            1.6524967943066377e-08,
+            3.2942253796758997e-10
           ]
         },
         {
@@ -305,21 +401,23 @@
             "code": "slipstream",
             "case": "ring_tunes",
             "config": {
-              "name": "cpu-f64-o6k8b16-compiled",
+              "name": "cpu-f64-o6q8s1b8-compiled",
               "device": "cpu",
               "dtype": "float64",
               "order": 6,
               "n_kicks": 8,
-              "n_kicks_bend": 16,
+              "n_kicks_quad": 8,
+              "n_kicks_sext": 1,
+              "n_kicks_bend": 8,
               "compile_cpu": true
             },
-            "rank": 11,
+            "rank": 36,
             "job": {
               "case_path": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\cases\\ring_tunes.json",
-              "config": "cpu-f64-o6k8b16-compiled",
+              "config": "cpu-f64-o6q8s1b8-compiled",
               "repeats": 2,
               "threads": 1,
-              "out_dir": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-26_R1_CPU_control\\ring_tunes\\slipstream\\cpu-f64-o6k8b16-compiled\\p2"
+              "out_dir": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-11-07_slipstream_v110\\ring_tunes\\slipstream\\cpu-f64-o6q8s1b8-compiled\\p2"
             },
             "status": "ok",
             "warnings": [],
@@ -340,16 +438,16 @@
                 "memory.total": "8192 MiB",
                 "clocks.sm": "210 MHz",
                 "clocks.max.sm": "2100 MHz",
-                "power.draw": "4.26 W",
+                "power.draw": "4.71 W",
                 "power.limit": "130.00 W",
-                "temperature.gpu": "35"
+                "temperature.gpu": "40"
               },
               "argv": [
                 "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\workers\\w_slipstream.py",
                 "--job",
-                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-26_R1_CPU_control\\ring_tunes\\slipstream\\cpu-f64-o6k8b16-compiled\\p2\\job.json"
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-11-07_slipstream_v110\\ring_tunes\\slipstream\\cpu-f64-o6q8s1b8-compiled\\p2\\job.json"
               ],
-              "time_utc": "2026-10-26T15:13:01Z"
+              "time_utc": "2026-11-07T22:46:38Z"
             },
             "case_sha256": "ef1c851cc69bc6d2711367a12d4406fff93ee8ffe7191898954cfd6fb16508cb",
             "lattice_sha256": "919291d4e0945645bbdc1faea617d487714e4c9d2eb13ab5cb5be3c88e57c798",
@@ -358,30 +456,76 @@
               "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
               "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
               "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "astra_mesh_cap_probe.py": "d422b60bddb3b0f1aaff6dbd128c86f7fd431f829f295a2182bd9d22d186ef6f",
+              "astra_particle_energy_control.py": "5040f54b42028f5de2dc9a93ebb8b117c5b553995b03062764cad63b853eb6cf",
+              "astra_refinement.py": "0cb8281cd87ddbadbcedb788c146d40d0baa43bed308f1688deb898016ba4b5a",
+              "bend_attribution.py": "b21214f51a16352643bd80cff81ae986eaf81f3a26a22c0517c737afe5d9af65",
+              "charge_off_control.py": "49db4f921aa81e2fc20871026f3b8c1a0abe1707c6ba55af8767d034db4af5da",
+              "clara_gpt_profile.py": "063d613f857afa2e0a0da6d33d2a9260e661287ed2d71330a4f6e63a9b77750b",
+              "clara_release_bridge.py": "e70be3e82162ac802aab380bc9540dffa0d5c384e9e8cbd6cb3d5b0c62d18510",
               "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+              "convergence_extension.py": "937f838a7f3649cae8327b821816a70737429c4659f3e46cfccfe98483ef8949",
+              "corrected_reference.py": "bf09431be9c4e19ddb246838a7329ae1495d964dcfe1ac857389561285700b6d",
               "cpu_control.py": "f1bd1a8cd52a60c8186b7c3ee146842c2726ee576e03a5b30662005ac23e8068",
+              "element_attribution.py": "9236981407e92a1da5c855bb0506f599ecd023b6d705ccef0f4dede046f671cd",
+              "element_substitution_control.py": "c9ad256a6152c743a63a1be855db049804b2ff7672a7524f511ad4e46aff4f8e",
+              "fd_ad_endpoint_control.py": "1b3eb15b2a4b843a98f0f2583da918ee39c47ad9c9e5363bfc36726c550c3850",
+              "fd_ad_knob_ladder.py": "9beacddc2bff1695843852e7aa308ea251ae23e9166341b7c411a94de5864273",
               "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "gradient_acceptance.py": "fd76562ce9a2be244ec96ed1787f77ff3efa933d426644e21beece7c04f4bba4",
+              "ibs_elena_bridge.py": "2b8d027c556aa5c7f983ac18defabb607f5d9824588ac17f4815d634bf67c4b5",
+              "injector_ad_summary.py": "1a47959873e31f2065bcc0cc7afaded93670b5ecf48b0442ced4462a2906d20d",
+              "injector_cost_control.py": "492c9989b1b77c20ce631664ddecd837ef10ac1afffd7407e48fb88ebcec5397",
+              "injector_fd_analysis.py": "58d8eddff5173696af608064d6a8957156eff5e7067b28ae4e34db3cb6a3401b",
+              "injector_fd_full_analysis.py": "ae40d672c8efed872a8e85ad6a3176eb49194d9e45e4a7d7929bf7a77ae92687",
+              "injector_optimiser_summary.py": "e8251f5500792174ba218ec94ef7961fa2533a170ad97ba8ea1fe19011e1d7a2",
+              "injector_scaling_control.py": "dc54d2c65cfa4cf96b7ceab8f20722ee79f1e6e3ee31b7de3bf3b2fae1e14214",
+              "injector_step_control.py": "9051f856014f226898eceb1333d43a4c68eba15658fa6c4f5bea9f059db8e44a",
+              "injector_tolerance_summary.py": "2788ffef15ab5af7a390243218609ec774e395583461661c7f8828150cf9e807",
+              "launch\\wsl_tree_rss.py": "e62f3e2b5b57f61f4aed379d11776207914f1af11a17d11c520d21d65de8d373",
+              "longitudinal_gates.py": "613f6853dbd5513a59c916f6a649ebc39bc0aeaacdb9d984b66241f4cf0c9f15",
               "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
-              "probe_elements.py": "23b991e9d6fb17ddc366150d6a2b5e811258027e7f51079b169a0390b6dd4770",
-              "publish_study.py": "f0436a075cacc8169251f6346c290f38ed41c1aa0a409a612d7d4d6be6520d19",
+              "mass_fix_control.py": "b0ff5b5b65de012019bd162ff3cf928a5d29e0b0df1c6a0f4c8c58c5d01d418d",
+              "memory_tree_control.py": "0cdb6a0733bf9c8ad3c484227a3dd3595b6ebfbddfff928d878a57baaa4f16ca",
+              "memory_wsl_control.py": "a75dfc9363c723c80fd19102d313449efd8eb11077a6ef65fa28061f1adc5ef5",
+              "native_box_control.py": "9f60ef9c0e3ff80155e894faf4d062ad23265f2e45bbfe7306bff5c614403709",
+              "native_mesh_control.py": "f702745f0541522f62f0351dd933d5e21d9db65c5d87c41e3933a4a4f249dca7",
+              "optimisation_budget_control.py": "f1cd4e958ea815ebabe087648f38b276d6cca9f772859a9846b7f98ac79aaf54",
+              "optimisation_convergence_control.py": "80c6f83ab6966503d40bfc47b864af1b2d2870e9ad8fd4eea78cb641fc43e9b5",
+              "particle_scaling_control.py": "262afa2ab866b6eaa345a0947531e5584ff56a791a48d7ba6d0309091f5e8d4f",
+              "precision_control.py": "ab813aedb9d7bcc02239cd9bd4509430d2d7750f3196fde4f60861efa5ee0371",
+              "precision_probe.py": "0e3a8a9965baeb6e6a1e5bc2daaa140f221f00a36b16b333cb58c344b4a6a417",
+              "probe_elements.py": "a1135a9455d953e1eb181908a5a8d1e9a64dba59673b66c901e072e787561b17",
+              "prototypes\\mkm_prototype.py": "41ad1d11897cca1464cb12573583e85799139dca6a40a71b69a564771425520f",
+              "prototypes\\ring_warp_mkm.py": "3b37f02a57052a9bbb9dea8f0fd176f1eee272b49ab087d65beb7aa547039388",
+              "publish_study.py": "a7a554638706ac787b5cc8a67af6b7e31b2b9de67f3555ca75a86fb7e7f34498",
+              "richardson_reference.py": "604ef68d5d61ce6209eaace82b14cfbb31d8e00346cf8d174d08eabdd53aa273",
               "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "scibmad_scaling.py": "64ec7faf09024ac6588a62b620d1c281995ed3b4b984e5ed6458b9da44a00d5a",
+              "scibmad_scaling_analysis.py": "9cf1425def22080fb4ad65b16b1b0d66b02a5b6cabc971bb667f3510bd36b12b",
+              "space_charge_box_probe.py": "47796a92f201d9a2bbd8a67700facb208b9f140e5fb1ac400cfd9d5a6af94bcf",
+              "startup_accounting.py": "ae1fc9ae790fe5ddfad6deed54d41c809d6334e7242a9a9391a98ff9ebdb3626",
               "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
-              "test_study.py": "ea9a162317bdf488f1f262e6b3752bc15685c1844af61fad5371379b5e77ad97",
-              "workers\\astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "test_study.py": "357cc6cc2035bf547c49cc91d29743a3c12ee4470a90b3101eebe880c830cd2f",
+              "workers\\astra_deck.py": "a0fd66663eb9d4c81e2e226cdb547518fa7e7602e3b1db9b789b2130721bfa8e",
               "workers\\impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
-              "workers\\w_astra.py": "4d584407fd1a9d4b16903368a6e59ef819145d1d491a65095c73ff8d100da52a",
-              "workers\\w_bmadx.py": "080b3fe82730bc3bf695655f36d731d33298bcf2fb68fb1ab8866afd5f9e462c",
+              "workers\\w_astra.py": "f995cbc4aa23f03a074058e4d185efb094e905bf0bd8cc2158bfe0df3aae99f8",
+              "workers\\w_bmadx.py": "2a5c7704eb62d88876f8def708aee22c4d61a2880724ed8d44f19231f1e250a6",
               "workers\\w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
-              "workers\\w_cheetah_sc.py": "8251bfcc773ac5ac7eb8d823e6c10c41a7f82e30a975404ae96687c11d21ba71",
-              "workers\\w_elegant.py": "bb5b91830c8a9fc99c3b4c5a24062dc08f6c28b18e2868a2c776eff9ed87794a",
+              "workers\\w_cheetah_sc.py": "0ecbb51867e7e64d4dc6d346504a924ea5275888aaa7eb85393dcb8c12791773",
+              "workers\\w_elegant.py": "89f607a640a46f32476182d5364d8f81d1f576571c318ac475ed4d9bde828191",
               "workers\\w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
-              "workers\\w_helix.py": "43458bd3ccd109227b9f08ce1dbb06b38af23094f5013aaad7f33d78569d7830",
+              "workers\\w_helix.py": "eacccf73fb09025a292ddc9622b802c2484bb0ffba98a2b53331dea1fb6c0f39",
               "workers\\w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
               "workers\\w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
-              "workers\\w_ocelot_sc.py": "009633bc28acbf20b0e816513d5e2600e1b6534f090dbb12a334d71863d29165",
-              "workers\\w_slipstream.py": "75dd99b2cc244033300e50aec14bdb390f27b48bb4720107cc07a1bc5b6f7a40",
-              "workers\\w_slipstream_sc.py": "019dab41b516f87f84cd24759615593b05f0967a861ceed9d98976bc18b4208e",
-              "workers\\w_xsuite.py": "8605a1c54be4ac28bb613e585e1beae4860424fdef10aa1d26197493756f96fe",
+              "workers\\w_ocelot_sc.py": "3ea60dfca4e2ffe50a5856a6ccd51d13735ebee164b485a149c3aba8bb45aa15",
+              "workers\\w_scibmad.py": "2fee28c40f7cff98d2f002f27385c9ba7d4456d545d0c838138d9d8eb6a92228",
+              "workers\\w_slipstream.py": "f35e66c40d8c925fedc73ef6b0d61e08ec30990569e515f6b6f44e09d1a9459d",
+              "workers\\w_slipstream_sc.py": "21a0284f8adaac80e25d7571a64ce719d49945db5716f3e0b56d9fcf63832b05",
+              "workers\\w_xsuite.py": "b1788d888e7e2d08408a84789c042bcab2841c2cf7908942f092d6e3b2dc4050",
+              "xsuite_gpu_profile.py": "1b5bce0e34c885a29870d4d69c7bbfe5ca9a4f20e9e90b69bdf3addde2e70863",
+              "xsuite_gpu_scaling.py": "8b0f091aaf2e9f76f1c15c7206028dc456ded34ab9021fda5848f9d2eea47d65",
+              "xsuite_gpu_scaling_analysis.py": "2c9d1ca9fe77809bb7563c0cc147986c4e137623d4fed781e970666bb4db9dd6",
               "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
             },
             "inventory": {
@@ -405,27 +549,27 @@
               "cuda": "13.2",
               "slipstream_file": "D:\\GitHub\\neg_coating_rwi\\slipstream\\src\\slipstream\\__init__.py",
               "warp": "1.17.0",
-              "slipstream": "0.1.0"
+              "slipstream": "1.1.0"
             },
             "timing": {
-              "import_s": 5.41011770023033,
-              "build_s": 0.03313400037586689,
-              "cold_s": 8.14531429996714,
+              "import_s": 5.346757400024217,
+              "build_s": 0.025405799970030785,
+              "cold_s": 8.017498400004115,
               "warm_s": {
                 "n": 2,
-                "median": 5.109403300099075,
-                "q1": 5.068531550001353,
-                "q3": 5.150275050196797,
-                "min": 5.027659799903631,
-                "max": 5.1911468002945185,
+                "median": 4.623635249969084,
+                "q1": 4.548644174967194,
+                "q3": 4.698626324970974,
+                "min": 4.473653099965304,
+                "max": 4.7736173999728635,
                 "samples": [
-                  5.027659799903631,
-                  5.1911468002945185
+                  4.7736173999728635,
+                  4.473653099965304
                 ]
               }
             },
             "memory": {
-              "rss_peak_bytes": 974737408
+              "rss_peak_bytes": 977088512
             },
             "repeat_maxdiff": 0.0,
             "tbt_shape": [
@@ -434,18 +578,18 @@
               4
             ]
           },
-          "dq_ref": 1.972518143766866e-06,
+          "dq_ref": 1.972518031273518e-06,
           "map_components": [
-            1.9523548916433597e-07,
-            1.114251265482355e-07,
-            1.65249623857713e-08,
-            3.294224999934089e-10
+            1.9523482905174638e-07,
+            1.1142613337697047e-07,
+            1.6524967943066377e-08,
+            3.2942253796758997e-10
           ]
         }
       ],
       "n_ok": 3,
-      "warm_s": 5.17397924978286,
-      "dq_ref": 1.972518143766866e-06
+      "warm_s": 4.569227950007189,
+      "dq_ref": 1.972518031273518e-06
     },
     {
       "case": "ring_grad",
@@ -456,21 +600,23 @@
             "code": "slipstream",
             "case": "ring_grad",
             "config": {
-              "name": "cpu-f64-o6k8b16-compiled",
+              "name": "cpu-f64-o6q8s1b8-compiled",
               "device": "cpu",
               "dtype": "float64",
               "order": 6,
               "n_kicks": 8,
-              "n_kicks_bend": 16,
+              "n_kicks_quad": 8,
+              "n_kicks_sext": 1,
+              "n_kicks_bend": 8,
               "compile_cpu": true
             },
-            "rank": 11,
+            "rank": 36,
             "job": {
               "case_path": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\cases\\ring_grad.json",
-              "config": "cpu-f64-o6k8b16-compiled",
+              "config": "cpu-f64-o6q8s1b8-compiled",
               "repeats": 2,
               "threads": 1,
-              "out_dir": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-26_R1_CPU_control\\ring_grad\\slipstream\\cpu-f64-o6k8b16-compiled\\p0"
+              "out_dir": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-11-07_slipstream_v110\\ring_grad\\slipstream\\cpu-f64-o6q8s1b8-compiled\\p0"
             },
             "status": "ok",
             "warnings": [],
@@ -491,316 +637,16 @@
                 "memory.total": "8192 MiB",
                 "clocks.sm": "210 MHz",
                 "clocks.max.sm": "2100 MHz",
-                "power.draw": "8.04 W",
-                "power.limit": "130.00 W",
-                "temperature.gpu": "34"
-              },
-              "argv": [
-                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\workers\\w_slipstream.py",
-                "--job",
-                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-26_R1_CPU_control\\ring_grad\\slipstream\\cpu-f64-o6k8b16-compiled\\p0\\job.json"
-              ],
-              "time_utc": "2026-10-26T15:17:16Z"
-            },
-            "case_sha256": "fbbf0a76fe2454460bc52be2ab1b140bdcdb63532afea28a8749c750e006046a",
-            "lattice_sha256": "919291d4e0945645bbdc1faea617d487714e4c9d2eb13ab5cb5be3c88e57c798",
-            "source_sha256": {
-              "analyse.py": "1c2fccfd63acce2b768a3e011d2551b4665b37743accc4453613a9626e8008f8",
-              "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
-              "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
-              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
-              "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
-              "cpu_control.py": "f1bd1a8cd52a60c8186b7c3ee146842c2726ee576e03a5b30662005ac23e8068",
-              "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
-              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
-              "probe_elements.py": "23b991e9d6fb17ddc366150d6a2b5e811258027e7f51079b169a0390b6dd4770",
-              "publish_study.py": "f0436a075cacc8169251f6346c290f38ed41c1aa0a409a612d7d4d6be6520d19",
-              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
-              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
-              "test_study.py": "ea9a162317bdf488f1f262e6b3752bc15685c1844af61fad5371379b5e77ad97",
-              "workers\\astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
-              "workers\\impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
-              "workers\\w_astra.py": "4d584407fd1a9d4b16903368a6e59ef819145d1d491a65095c73ff8d100da52a",
-              "workers\\w_bmadx.py": "080b3fe82730bc3bf695655f36d731d33298bcf2fb68fb1ab8866afd5f9e462c",
-              "workers\\w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
-              "workers\\w_cheetah_sc.py": "8251bfcc773ac5ac7eb8d823e6c10c41a7f82e30a975404ae96687c11d21ba71",
-              "workers\\w_elegant.py": "bb5b91830c8a9fc99c3b4c5a24062dc08f6c28b18e2868a2c776eff9ed87794a",
-              "workers\\w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
-              "workers\\w_helix.py": "43458bd3ccd109227b9f08ce1dbb06b38af23094f5013aaad7f33d78569d7830",
-              "workers\\w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
-              "workers\\w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
-              "workers\\w_ocelot_sc.py": "009633bc28acbf20b0e816513d5e2600e1b6534f090dbb12a334d71863d29165",
-              "workers\\w_slipstream.py": "75dd99b2cc244033300e50aec14bdb390f27b48bb4720107cc07a1bc5b6f7a40",
-              "workers\\w_slipstream_sc.py": "019dab41b516f87f84cd24759615593b05f0967a861ceed9d98976bc18b4208e",
-              "workers\\w_xsuite.py": "8605a1c54be4ac28bb613e585e1beae4860424fdef10aa1d26197493756f96fe",
-              "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
-            },
-            "inventory": {
-              "model": {
-                "n": 104,
-                "length": 48.0,
-                "angle": 6.283185307179586,
-                "k1L_abs": 15.400513654257905,
-                "k2L_abs": 32.0
-              },
-              "reference": {
-                "n": 104,
-                "length": 48.0,
-                "angle": 6.283185307179586,
-                "k1L_abs": 15.400513654257905,
-                "k2L_abs": 32.0
-              }
-            },
-            "forward_s": 0.19090240029618144,
-            "fd_s": {
-              "0.01": 2.04753839969635,
-              "0.001": 2.0345031996257603,
-              "0.0001": 2.1388460998423398,
-              "1e-05": 2.0444072000682354
-            },
-            "ad_build_s": 0.0031400001607835293,
-            "ad_cold_s": 7.511198400054127,
-            "ad_warm_s": {
-              "n": 2,
-              "median": 1.8024807502515614,
-              "q1": 1.7447522752918303,
-              "q3": 1.8602092252112925,
-              "min": 1.6870238003320992,
-              "max": 1.9179377001710236,
-              "samples": [
-                1.9179377001710236,
-                1.6870238003320992
-              ]
-            },
-            "versions": {
-              "torch": "2.14.0+cu132",
-              "cuda": "13.2",
-              "slipstream_file": "D:\\GitHub\\neg_coating_rwi\\slipstream\\src\\slipstream\\__init__.py",
-              "warp": "1.17.0",
-              "slipstream": "0.1.0"
-            },
-            "timing": {
-              "import_s": 5.447313700336963,
-              "build_s": 0.03143069986253977
-            },
-            "memory": {
-              "rss_peak_bytes": 1067261952
-            }
-          },
-          "ad_vs_fd": [
-            3.891831766692808e-09,
-            8.214065353695946e-08
-          ],
-          "versus_reference": [
-            0.00022036264428637684,
-            0.02043508369104811
-          ],
-          "versus_eager_ad": [
-            1.7015173975584702e-14,
-            2.249166856083104e-13
-          ]
-        },
-        {
-          "result": {
-            "schema": 1,
-            "code": "slipstream",
-            "case": "ring_grad",
-            "config": {
-              "name": "cpu-f64-o6k8b16-compiled",
-              "device": "cpu",
-              "dtype": "float64",
-              "order": 6,
-              "n_kicks": 8,
-              "n_kicks_bend": 16,
-              "compile_cpu": true
-            },
-            "rank": 11,
-            "job": {
-              "case_path": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\cases\\ring_grad.json",
-              "config": "cpu-f64-o6k8b16-compiled",
-              "repeats": 2,
-              "threads": 1,
-              "out_dir": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-26_R1_CPU_control\\ring_grad\\slipstream\\cpu-f64-o6k8b16-compiled\\p1"
-            },
-            "status": "ok",
-            "warnings": [],
-            "provenance": {
-              "host": "DDAST0117",
-              "platform": "Windows-11-10.0.26200-SP0",
-              "python": "3.12.13",
-              "cpu_count": 32,
-              "threads_env": {
-                "OMP_NUM_THREADS": "1",
-                "MKL_NUM_THREADS": "1",
-                "OPENBLAS_NUM_THREADS": "1",
-                "NUMBA_NUM_THREADS": "1"
-              },
-              "gpu": {
-                "name": "NVIDIA GeForce RTX 3050",
-                "driver_version": "616.56",
-                "memory.total": "8192 MiB",
-                "clocks.sm": "210 MHz",
-                "clocks.max.sm": "2100 MHz",
-                "power.draw": "4.58 W",
-                "power.limit": "130.00 W",
-                "temperature.gpu": "35"
-              },
-              "argv": [
-                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\workers\\w_slipstream.py",
-                "--job",
-                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-26_R1_CPU_control\\ring_grad\\slipstream\\cpu-f64-o6k8b16-compiled\\p1\\job.json"
-              ],
-              "time_utc": "2026-10-26T15:13:54Z"
-            },
-            "case_sha256": "fbbf0a76fe2454460bc52be2ab1b140bdcdb63532afea28a8749c750e006046a",
-            "lattice_sha256": "919291d4e0945645bbdc1faea617d487714e4c9d2eb13ab5cb5be3c88e57c798",
-            "source_sha256": {
-              "analyse.py": "1c2fccfd63acce2b768a3e011d2551b4665b37743accc4453613a9626e8008f8",
-              "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
-              "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
-              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
-              "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
-              "cpu_control.py": "f1bd1a8cd52a60c8186b7c3ee146842c2726ee576e03a5b30662005ac23e8068",
-              "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
-              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
-              "probe_elements.py": "23b991e9d6fb17ddc366150d6a2b5e811258027e7f51079b169a0390b6dd4770",
-              "publish_study.py": "f0436a075cacc8169251f6346c290f38ed41c1aa0a409a612d7d4d6be6520d19",
-              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
-              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
-              "test_study.py": "ea9a162317bdf488f1f262e6b3752bc15685c1844af61fad5371379b5e77ad97",
-              "workers\\astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
-              "workers\\impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
-              "workers\\w_astra.py": "4d584407fd1a9d4b16903368a6e59ef819145d1d491a65095c73ff8d100da52a",
-              "workers\\w_bmadx.py": "080b3fe82730bc3bf695655f36d731d33298bcf2fb68fb1ab8866afd5f9e462c",
-              "workers\\w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
-              "workers\\w_cheetah_sc.py": "8251bfcc773ac5ac7eb8d823e6c10c41a7f82e30a975404ae96687c11d21ba71",
-              "workers\\w_elegant.py": "bb5b91830c8a9fc99c3b4c5a24062dc08f6c28b18e2868a2c776eff9ed87794a",
-              "workers\\w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
-              "workers\\w_helix.py": "43458bd3ccd109227b9f08ce1dbb06b38af23094f5013aaad7f33d78569d7830",
-              "workers\\w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
-              "workers\\w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
-              "workers\\w_ocelot_sc.py": "009633bc28acbf20b0e816513d5e2600e1b6534f090dbb12a334d71863d29165",
-              "workers\\w_slipstream.py": "75dd99b2cc244033300e50aec14bdb390f27b48bb4720107cc07a1bc5b6f7a40",
-              "workers\\w_slipstream_sc.py": "019dab41b516f87f84cd24759615593b05f0967a861ceed9d98976bc18b4208e",
-              "workers\\w_xsuite.py": "8605a1c54be4ac28bb613e585e1beae4860424fdef10aa1d26197493756f96fe",
-              "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
-            },
-            "inventory": {
-              "model": {
-                "n": 104,
-                "length": 48.0,
-                "angle": 6.283185307179586,
-                "k1L_abs": 15.400513654257905,
-                "k2L_abs": 32.0
-              },
-              "reference": {
-                "n": 104,
-                "length": 48.0,
-                "angle": 6.283185307179586,
-                "k1L_abs": 15.400513654257905,
-                "k2L_abs": 32.0
-              }
-            },
-            "forward_s": 0.1883564000017941,
-            "fd_s": {
-              "0.01": 2.1902605001814663,
-              "0.001": 2.0414813002571464,
-              "0.0001": 2.050713600125164,
-              "1e-05": 2.0224160999059677
-            },
-            "ad_build_s": 0.0025169001892209053,
-            "ad_cold_s": 146.5200342000462,
-            "ad_warm_s": {
-              "n": 2,
-              "median": 1.8546086999122053,
-              "q1": 1.8005063500022516,
-              "q3": 1.9087110498221591,
-              "min": 1.7464040000922978,
-              "max": 1.9628133997321129,
-              "samples": [
-                1.9628133997321129,
-                1.7464040000922978
-              ]
-            },
-            "versions": {
-              "torch": "2.14.0+cu132",
-              "cuda": "13.2",
-              "slipstream_file": "D:\\GitHub\\neg_coating_rwi\\slipstream\\src\\slipstream\\__init__.py",
-              "warp": "1.17.0",
-              "slipstream": "0.1.0"
-            },
-            "timing": {
-              "import_s": 6.022876999806613,
-              "build_s": 0.03335439972579479
-            },
-            "memory": {
-              "rss_peak_bytes": 1359331328
-            }
-          },
-          "ad_vs_fd": [
-            3.891831766692808e-09,
-            8.214065353695946e-08
-          ],
-          "versus_reference": [
-            0.00022036264428637684,
-            0.02043508369104811
-          ],
-          "versus_eager_ad": [
-            1.7015173975584702e-14,
-            2.249166856083104e-13
-          ]
-        },
-        {
-          "result": {
-            "schema": 1,
-            "code": "slipstream",
-            "case": "ring_grad",
-            "config": {
-              "name": "cpu-f64-o6k8b16-compiled",
-              "device": "cpu",
-              "dtype": "float64",
-              "order": 6,
-              "n_kicks": 8,
-              "n_kicks_bend": 16,
-              "compile_cpu": true
-            },
-            "rank": 11,
-            "job": {
-              "case_path": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\cases\\ring_grad.json",
-              "config": "cpu-f64-o6k8b16-compiled",
-              "repeats": 2,
-              "threads": 1,
-              "out_dir": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-26_R1_CPU_control\\ring_grad\\slipstream\\cpu-f64-o6k8b16-compiled\\p2"
-            },
-            "status": "ok",
-            "warnings": [],
-            "provenance": {
-              "host": "DDAST0117",
-              "platform": "Windows-11-10.0.26200-SP0",
-              "python": "3.12.13",
-              "cpu_count": 32,
-              "threads_env": {
-                "OMP_NUM_THREADS": "1",
-                "MKL_NUM_THREADS": "1",
-                "OPENBLAS_NUM_THREADS": "1",
-                "NUMBA_NUM_THREADS": "1"
-              },
-              "gpu": {
-                "name": "NVIDIA GeForce RTX 3050",
-                "driver_version": "616.56",
-                "memory.total": "8192 MiB",
-                "clocks.sm": "210 MHz",
-                "clocks.max.sm": "2100 MHz",
-                "power.draw": "4.29 W",
+                "power.draw": "4.68 W",
                 "power.limit": "130.00 W",
                 "temperature.gpu": "33"
               },
               "argv": [
                 "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\workers\\w_slipstream.py",
                 "--job",
-                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-10-26_R1_CPU_control\\ring_grad\\slipstream\\cpu-f64-o6k8b16-compiled\\p2\\job.json"
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-11-07_slipstream_v110\\ring_grad\\slipstream\\cpu-f64-o6q8s1b8-compiled\\p0\\job.json"
               ],
-              "time_utc": "2026-10-26T15:16:45Z"
+              "time_utc": "2026-11-07T22:54:21Z"
             },
             "case_sha256": "fbbf0a76fe2454460bc52be2ab1b140bdcdb63532afea28a8749c750e006046a",
             "lattice_sha256": "919291d4e0945645bbdc1faea617d487714e4c9d2eb13ab5cb5be3c88e57c798",
@@ -809,30 +655,76 @@
               "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
               "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
               "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "astra_mesh_cap_probe.py": "d422b60bddb3b0f1aaff6dbd128c86f7fd431f829f295a2182bd9d22d186ef6f",
+              "astra_particle_energy_control.py": "5040f54b42028f5de2dc9a93ebb8b117c5b553995b03062764cad63b853eb6cf",
+              "astra_refinement.py": "0cb8281cd87ddbadbcedb788c146d40d0baa43bed308f1688deb898016ba4b5a",
+              "bend_attribution.py": "b21214f51a16352643bd80cff81ae986eaf81f3a26a22c0517c737afe5d9af65",
+              "charge_off_control.py": "49db4f921aa81e2fc20871026f3b8c1a0abe1707c6ba55af8767d034db4af5da",
+              "clara_gpt_profile.py": "063d613f857afa2e0a0da6d33d2a9260e661287ed2d71330a4f6e63a9b77750b",
+              "clara_release_bridge.py": "e70be3e82162ac802aab380bc9540dffa0d5c384e9e8cbd6cb3d5b0c62d18510",
               "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+              "convergence_extension.py": "937f838a7f3649cae8327b821816a70737429c4659f3e46cfccfe98483ef8949",
+              "corrected_reference.py": "bf09431be9c4e19ddb246838a7329ae1495d964dcfe1ac857389561285700b6d",
               "cpu_control.py": "f1bd1a8cd52a60c8186b7c3ee146842c2726ee576e03a5b30662005ac23e8068",
+              "element_attribution.py": "9236981407e92a1da5c855bb0506f599ecd023b6d705ccef0f4dede046f671cd",
+              "element_substitution_control.py": "c9ad256a6152c743a63a1be855db049804b2ff7672a7524f511ad4e46aff4f8e",
+              "fd_ad_endpoint_control.py": "1b3eb15b2a4b843a98f0f2583da918ee39c47ad9c9e5363bfc36726c550c3850",
+              "fd_ad_knob_ladder.py": "9beacddc2bff1695843852e7aa308ea251ae23e9166341b7c411a94de5864273",
               "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "gradient_acceptance.py": "fd76562ce9a2be244ec96ed1787f77ff3efa933d426644e21beece7c04f4bba4",
+              "ibs_elena_bridge.py": "2b8d027c556aa5c7f983ac18defabb607f5d9824588ac17f4815d634bf67c4b5",
+              "injector_ad_summary.py": "1a47959873e31f2065bcc0cc7afaded93670b5ecf48b0442ced4462a2906d20d",
+              "injector_cost_control.py": "492c9989b1b77c20ce631664ddecd837ef10ac1afffd7407e48fb88ebcec5397",
+              "injector_fd_analysis.py": "58d8eddff5173696af608064d6a8957156eff5e7067b28ae4e34db3cb6a3401b",
+              "injector_fd_full_analysis.py": "ae40d672c8efed872a8e85ad6a3176eb49194d9e45e4a7d7929bf7a77ae92687",
+              "injector_optimiser_summary.py": "e8251f5500792174ba218ec94ef7961fa2533a170ad97ba8ea1fe19011e1d7a2",
+              "injector_scaling_control.py": "dc54d2c65cfa4cf96b7ceab8f20722ee79f1e6e3ee31b7de3bf3b2fae1e14214",
+              "injector_step_control.py": "9051f856014f226898eceb1333d43a4c68eba15658fa6c4f5bea9f059db8e44a",
+              "injector_tolerance_summary.py": "2788ffef15ab5af7a390243218609ec774e395583461661c7f8828150cf9e807",
+              "launch\\wsl_tree_rss.py": "e62f3e2b5b57f61f4aed379d11776207914f1af11a17d11c520d21d65de8d373",
+              "longitudinal_gates.py": "613f6853dbd5513a59c916f6a649ebc39bc0aeaacdb9d984b66241f4cf0c9f15",
               "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
-              "probe_elements.py": "23b991e9d6fb17ddc366150d6a2b5e811258027e7f51079b169a0390b6dd4770",
-              "publish_study.py": "f0436a075cacc8169251f6346c290f38ed41c1aa0a409a612d7d4d6be6520d19",
+              "mass_fix_control.py": "b0ff5b5b65de012019bd162ff3cf928a5d29e0b0df1c6a0f4c8c58c5d01d418d",
+              "memory_tree_control.py": "0cdb6a0733bf9c8ad3c484227a3dd3595b6ebfbddfff928d878a57baaa4f16ca",
+              "memory_wsl_control.py": "a75dfc9363c723c80fd19102d313449efd8eb11077a6ef65fa28061f1adc5ef5",
+              "native_box_control.py": "9f60ef9c0e3ff80155e894faf4d062ad23265f2e45bbfe7306bff5c614403709",
+              "native_mesh_control.py": "f702745f0541522f62f0351dd933d5e21d9db65c5d87c41e3933a4a4f249dca7",
+              "optimisation_budget_control.py": "f1cd4e958ea815ebabe087648f38b276d6cca9f772859a9846b7f98ac79aaf54",
+              "optimisation_convergence_control.py": "80c6f83ab6966503d40bfc47b864af1b2d2870e9ad8fd4eea78cb641fc43e9b5",
+              "particle_scaling_control.py": "262afa2ab866b6eaa345a0947531e5584ff56a791a48d7ba6d0309091f5e8d4f",
+              "precision_control.py": "ab813aedb9d7bcc02239cd9bd4509430d2d7750f3196fde4f60861efa5ee0371",
+              "precision_probe.py": "0e3a8a9965baeb6e6a1e5bc2daaa140f221f00a36b16b333cb58c344b4a6a417",
+              "probe_elements.py": "a1135a9455d953e1eb181908a5a8d1e9a64dba59673b66c901e072e787561b17",
+              "prototypes\\mkm_prototype.py": "41ad1d11897cca1464cb12573583e85799139dca6a40a71b69a564771425520f",
+              "prototypes\\ring_warp_mkm.py": "3b37f02a57052a9bbb9dea8f0fd176f1eee272b49ab087d65beb7aa547039388",
+              "publish_study.py": "a7a554638706ac787b5cc8a67af6b7e31b2b9de67f3555ca75a86fb7e7f34498",
+              "richardson_reference.py": "604ef68d5d61ce6209eaace82b14cfbb31d8e00346cf8d174d08eabdd53aa273",
               "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "scibmad_scaling.py": "64ec7faf09024ac6588a62b620d1c281995ed3b4b984e5ed6458b9da44a00d5a",
+              "scibmad_scaling_analysis.py": "9cf1425def22080fb4ad65b16b1b0d66b02a5b6cabc971bb667f3510bd36b12b",
+              "space_charge_box_probe.py": "47796a92f201d9a2bbd8a67700facb208b9f140e5fb1ac400cfd9d5a6af94bcf",
+              "startup_accounting.py": "ae1fc9ae790fe5ddfad6deed54d41c809d6334e7242a9a9391a98ff9ebdb3626",
               "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
-              "test_study.py": "ea9a162317bdf488f1f262e6b3752bc15685c1844af61fad5371379b5e77ad97",
-              "workers\\astra_deck.py": "ebd5b301e2b059030b2f0b53fd9f9ffefff7c4d5e179eca9d337d93f300fdf48",
+              "test_study.py": "357cc6cc2035bf547c49cc91d29743a3c12ee4470a90b3101eebe880c830cd2f",
+              "workers\\astra_deck.py": "a0fd66663eb9d4c81e2e226cdb547518fa7e7602e3b1db9b789b2130721bfa8e",
               "workers\\impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
-              "workers\\w_astra.py": "4d584407fd1a9d4b16903368a6e59ef819145d1d491a65095c73ff8d100da52a",
-              "workers\\w_bmadx.py": "080b3fe82730bc3bf695655f36d731d33298bcf2fb68fb1ab8866afd5f9e462c",
+              "workers\\w_astra.py": "f995cbc4aa23f03a074058e4d185efb094e905bf0bd8cc2158bfe0df3aae99f8",
+              "workers\\w_bmadx.py": "2a5c7704eb62d88876f8def708aee22c4d61a2880724ed8d44f19231f1e250a6",
               "workers\\w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
-              "workers\\w_cheetah_sc.py": "8251bfcc773ac5ac7eb8d823e6c10c41a7f82e30a975404ae96687c11d21ba71",
-              "workers\\w_elegant.py": "bb5b91830c8a9fc99c3b4c5a24062dc08f6c28b18e2868a2c776eff9ed87794a",
+              "workers\\w_cheetah_sc.py": "0ecbb51867e7e64d4dc6d346504a924ea5275888aaa7eb85393dcb8c12791773",
+              "workers\\w_elegant.py": "89f607a640a46f32476182d5364d8f81d1f576571c318ac475ed4d9bde828191",
               "workers\\w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
-              "workers\\w_helix.py": "43458bd3ccd109227b9f08ce1dbb06b38af23094f5013aaad7f33d78569d7830",
+              "workers\\w_helix.py": "eacccf73fb09025a292ddc9622b802c2484bb0ffba98a2b53331dea1fb6c0f39",
               "workers\\w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
               "workers\\w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
-              "workers\\w_ocelot_sc.py": "009633bc28acbf20b0e816513d5e2600e1b6534f090dbb12a334d71863d29165",
-              "workers\\w_slipstream.py": "75dd99b2cc244033300e50aec14bdb390f27b48bb4720107cc07a1bc5b6f7a40",
-              "workers\\w_slipstream_sc.py": "019dab41b516f87f84cd24759615593b05f0967a861ceed9d98976bc18b4208e",
-              "workers\\w_xsuite.py": "8605a1c54be4ac28bb613e585e1beae4860424fdef10aa1d26197493756f96fe",
+              "workers\\w_ocelot_sc.py": "3ea60dfca4e2ffe50a5856a6ccd51d13735ebee164b485a149c3aba8bb45aa15",
+              "workers\\w_scibmad.py": "2fee28c40f7cff98d2f002f27385c9ba7d4456d545d0c838138d9d8eb6a92228",
+              "workers\\w_slipstream.py": "f35e66c40d8c925fedc73ef6b0d61e08ec30990569e515f6b6f44e09d1a9459d",
+              "workers\\w_slipstream_sc.py": "21a0284f8adaac80e25d7571a64ce719d49945db5716f3e0b56d9fcf63832b05",
+              "workers\\w_xsuite.py": "b1788d888e7e2d08408a84789c042bcab2841c2cf7908942f092d6e3b2dc4050",
+              "xsuite_gpu_profile.py": "1b5bce0e34c885a29870d4d69c7bbfe5ca9a4f20e9e90b69bdf3addde2e70863",
+              "xsuite_gpu_scaling.py": "8b0f091aaf2e9f76f1c15c7206028dc456ded34ab9021fda5848f9d2eea47d65",
+              "xsuite_gpu_scaling_analysis.py": "2c9d1ca9fe77809bb7563c0cc147986c4e137623d4fed781e970666bb4db9dd6",
               "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
             },
             "inventory": {
@@ -851,25 +743,25 @@
                 "k2L_abs": 32.0
               }
             },
-            "forward_s": 0.2056957995519042,
+            "forward_s": 0.16384940000716597,
             "fd_s": {
-              "0.01": 2.0762956999242306,
-              "0.001": 2.0818230998702347,
-              "0.0001": 2.0693998001515865,
-              "1e-05": 2.074391999747604
+              "0.01": 1.7991583999828435,
+              "0.001": 1.7792902999790385,
+              "0.0001": 1.7904086000053212,
+              "1e-05": 1.82738099998096
             },
-            "ad_build_s": 0.0032363999634981155,
-            "ad_cold_s": 8.023581199813634,
+            "ad_build_s": 0.002646299952175468,
+            "ad_cold_s": 16.070871100004297,
             "ad_warm_s": {
               "n": 2,
-              "median": 1.8464331498835236,
-              "q1": 1.7816508248215541,
-              "q3": 1.911215474945493,
-              "min": 1.7168684997595847,
-              "max": 1.9759978000074625,
+              "median": 1.384900849981932,
+              "q1": 1.3833381249714876,
+              "q3": 1.3864635749923764,
+              "min": 1.3817753999610431,
+              "max": 1.3880263000028208,
               "samples": [
-                1.9759978000074625,
-                1.7168684997595847
+                1.3817753999610431,
+                1.3880263000028208
               ]
             },
             "versions": {
@@ -877,40 +769,436 @@
               "cuda": "13.2",
               "slipstream_file": "D:\\GitHub\\neg_coating_rwi\\slipstream\\src\\slipstream\\__init__.py",
               "warp": "1.17.0",
-              "slipstream": "0.1.0"
+              "slipstream": "1.1.0"
             },
             "timing": {
-              "import_s": 5.528119600377977,
-              "build_s": 0.03735189978033304
+              "import_s": 5.367298299970571,
+              "build_s": 0.024684400006663054
             },
             "memory": {
-              "rss_peak_bytes": 1067094016
+              "rss_peak_bytes": 1077686272
             }
           },
           "ad_vs_fd": [
-            3.891831766692808e-09,
-            8.214065353695946e-08
+            3.8734412279856156e-09,
+            3.5960313886449006e-08
           ],
           "versus_reference": [
-            0.00022036264428637684,
-            0.02043508369104811
+            0.00022035938643680426,
+            0.02043487057462766
           ],
           "versus_eager_ad": [
-            1.7015173975584702e-14,
-            2.249166856083104e-13
+            9.906855493614458e-15,
+            4.0443493478652807e-14
+          ]
+        },
+        {
+          "result": {
+            "schema": 1,
+            "code": "slipstream",
+            "case": "ring_grad",
+            "config": {
+              "name": "cpu-f64-o6q8s1b8-compiled",
+              "device": "cpu",
+              "dtype": "float64",
+              "order": 6,
+              "n_kicks": 8,
+              "n_kicks_quad": 8,
+              "n_kicks_sext": 1,
+              "n_kicks_bend": 8,
+              "compile_cpu": true
+            },
+            "rank": 36,
+            "job": {
+              "case_path": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\cases\\ring_grad.json",
+              "config": "cpu-f64-o6q8s1b8-compiled",
+              "repeats": 2,
+              "threads": 1,
+              "out_dir": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-11-07_slipstream_v110\\ring_grad\\slipstream\\cpu-f64-o6q8s1b8-compiled\\p1"
+            },
+            "status": "ok",
+            "warnings": [],
+            "provenance": {
+              "host": "DDAST0117",
+              "platform": "Windows-11-10.0.26200-SP0",
+              "python": "3.12.13",
+              "cpu_count": 32,
+              "threads_env": {
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "NUMBA_NUM_THREADS": "1"
+              },
+              "gpu": {
+                "name": "NVIDIA GeForce RTX 3050",
+                "driver_version": "616.56",
+                "memory.total": "8192 MiB",
+                "clocks.sm": "210 MHz",
+                "clocks.max.sm": "2100 MHz",
+                "power.draw": "3.74 W",
+                "power.limit": "130.00 W",
+                "temperature.gpu": "32"
+              },
+              "argv": [
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\workers\\w_slipstream.py",
+                "--job",
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-11-07_slipstream_v110\\ring_grad\\slipstream\\cpu-f64-o6q8s1b8-compiled\\p1\\job.json"
+              ],
+              "time_utc": "2026-11-07T23:03:04Z"
+            },
+            "case_sha256": "fbbf0a76fe2454460bc52be2ab1b140bdcdb63532afea28a8749c750e006046a",
+            "lattice_sha256": "919291d4e0945645bbdc1faea617d487714e4c9d2eb13ab5cb5be3c88e57c798",
+            "source_sha256": {
+              "analyse.py": "1c2fccfd63acce2b768a3e011d2551b4665b37743accc4453613a9626e8008f8",
+              "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
+              "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
+              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "astra_mesh_cap_probe.py": "d422b60bddb3b0f1aaff6dbd128c86f7fd431f829f295a2182bd9d22d186ef6f",
+              "astra_particle_energy_control.py": "5040f54b42028f5de2dc9a93ebb8b117c5b553995b03062764cad63b853eb6cf",
+              "astra_refinement.py": "0cb8281cd87ddbadbcedb788c146d40d0baa43bed308f1688deb898016ba4b5a",
+              "bend_attribution.py": "b21214f51a16352643bd80cff81ae986eaf81f3a26a22c0517c737afe5d9af65",
+              "charge_off_control.py": "49db4f921aa81e2fc20871026f3b8c1a0abe1707c6ba55af8767d034db4af5da",
+              "clara_gpt_profile.py": "063d613f857afa2e0a0da6d33d2a9260e661287ed2d71330a4f6e63a9b77750b",
+              "clara_release_bridge.py": "e70be3e82162ac802aab380bc9540dffa0d5c384e9e8cbd6cb3d5b0c62d18510",
+              "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+              "convergence_extension.py": "937f838a7f3649cae8327b821816a70737429c4659f3e46cfccfe98483ef8949",
+              "corrected_reference.py": "bf09431be9c4e19ddb246838a7329ae1495d964dcfe1ac857389561285700b6d",
+              "cpu_control.py": "f1bd1a8cd52a60c8186b7c3ee146842c2726ee576e03a5b30662005ac23e8068",
+              "element_attribution.py": "9236981407e92a1da5c855bb0506f599ecd023b6d705ccef0f4dede046f671cd",
+              "element_substitution_control.py": "c9ad256a6152c743a63a1be855db049804b2ff7672a7524f511ad4e46aff4f8e",
+              "fd_ad_endpoint_control.py": "1b3eb15b2a4b843a98f0f2583da918ee39c47ad9c9e5363bfc36726c550c3850",
+              "fd_ad_knob_ladder.py": "9beacddc2bff1695843852e7aa308ea251ae23e9166341b7c411a94de5864273",
+              "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "gradient_acceptance.py": "fd76562ce9a2be244ec96ed1787f77ff3efa933d426644e21beece7c04f4bba4",
+              "ibs_elena_bridge.py": "2b8d027c556aa5c7f983ac18defabb607f5d9824588ac17f4815d634bf67c4b5",
+              "injector_ad_summary.py": "1a47959873e31f2065bcc0cc7afaded93670b5ecf48b0442ced4462a2906d20d",
+              "injector_cost_control.py": "492c9989b1b77c20ce631664ddecd837ef10ac1afffd7407e48fb88ebcec5397",
+              "injector_fd_analysis.py": "58d8eddff5173696af608064d6a8957156eff5e7067b28ae4e34db3cb6a3401b",
+              "injector_fd_full_analysis.py": "ae40d672c8efed872a8e85ad6a3176eb49194d9e45e4a7d7929bf7a77ae92687",
+              "injector_optimiser_summary.py": "e8251f5500792174ba218ec94ef7961fa2533a170ad97ba8ea1fe19011e1d7a2",
+              "injector_scaling_control.py": "dc54d2c65cfa4cf96b7ceab8f20722ee79f1e6e3ee31b7de3bf3b2fae1e14214",
+              "injector_step_control.py": "9051f856014f226898eceb1333d43a4c68eba15658fa6c4f5bea9f059db8e44a",
+              "injector_tolerance_summary.py": "2788ffef15ab5af7a390243218609ec774e395583461661c7f8828150cf9e807",
+              "launch\\wsl_tree_rss.py": "e62f3e2b5b57f61f4aed379d11776207914f1af11a17d11c520d21d65de8d373",
+              "longitudinal_gates.py": "613f6853dbd5513a59c916f6a649ebc39bc0aeaacdb9d984b66241f4cf0c9f15",
+              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
+              "mass_fix_control.py": "b0ff5b5b65de012019bd162ff3cf928a5d29e0b0df1c6a0f4c8c58c5d01d418d",
+              "memory_tree_control.py": "0cdb6a0733bf9c8ad3c484227a3dd3595b6ebfbddfff928d878a57baaa4f16ca",
+              "memory_wsl_control.py": "a75dfc9363c723c80fd19102d313449efd8eb11077a6ef65fa28061f1adc5ef5",
+              "native_box_control.py": "9f60ef9c0e3ff80155e894faf4d062ad23265f2e45bbfe7306bff5c614403709",
+              "native_mesh_control.py": "f702745f0541522f62f0351dd933d5e21d9db65c5d87c41e3933a4a4f249dca7",
+              "optimisation_budget_control.py": "f1cd4e958ea815ebabe087648f38b276d6cca9f772859a9846b7f98ac79aaf54",
+              "optimisation_convergence_control.py": "80c6f83ab6966503d40bfc47b864af1b2d2870e9ad8fd4eea78cb641fc43e9b5",
+              "particle_scaling_control.py": "262afa2ab866b6eaa345a0947531e5584ff56a791a48d7ba6d0309091f5e8d4f",
+              "precision_control.py": "ab813aedb9d7bcc02239cd9bd4509430d2d7750f3196fde4f60861efa5ee0371",
+              "precision_probe.py": "0e3a8a9965baeb6e6a1e5bc2daaa140f221f00a36b16b333cb58c344b4a6a417",
+              "probe_elements.py": "a1135a9455d953e1eb181908a5a8d1e9a64dba59673b66c901e072e787561b17",
+              "prototypes\\mkm_prototype.py": "41ad1d11897cca1464cb12573583e85799139dca6a40a71b69a564771425520f",
+              "prototypes\\ring_warp_mkm.py": "3b37f02a57052a9bbb9dea8f0fd176f1eee272b49ab087d65beb7aa547039388",
+              "publish_study.py": "a7a554638706ac787b5cc8a67af6b7e31b2b9de67f3555ca75a86fb7e7f34498",
+              "richardson_reference.py": "604ef68d5d61ce6209eaace82b14cfbb31d8e00346cf8d174d08eabdd53aa273",
+              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "scibmad_scaling.py": "64ec7faf09024ac6588a62b620d1c281995ed3b4b984e5ed6458b9da44a00d5a",
+              "scibmad_scaling_analysis.py": "9cf1425def22080fb4ad65b16b1b0d66b02a5b6cabc971bb667f3510bd36b12b",
+              "space_charge_box_probe.py": "47796a92f201d9a2bbd8a67700facb208b9f140e5fb1ac400cfd9d5a6af94bcf",
+              "startup_accounting.py": "ae1fc9ae790fe5ddfad6deed54d41c809d6334e7242a9a9391a98ff9ebdb3626",
+              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
+              "test_study.py": "357cc6cc2035bf547c49cc91d29743a3c12ee4470a90b3101eebe880c830cd2f",
+              "workers\\astra_deck.py": "a0fd66663eb9d4c81e2e226cdb547518fa7e7602e3b1db9b789b2130721bfa8e",
+              "workers\\impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
+              "workers\\w_astra.py": "f995cbc4aa23f03a074058e4d185efb094e905bf0bd8cc2158bfe0df3aae99f8",
+              "workers\\w_bmadx.py": "2a5c7704eb62d88876f8def708aee22c4d61a2880724ed8d44f19231f1e250a6",
+              "workers\\w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
+              "workers\\w_cheetah_sc.py": "0ecbb51867e7e64d4dc6d346504a924ea5275888aaa7eb85393dcb8c12791773",
+              "workers\\w_elegant.py": "89f607a640a46f32476182d5364d8f81d1f576571c318ac475ed4d9bde828191",
+              "workers\\w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
+              "workers\\w_helix.py": "eacccf73fb09025a292ddc9622b802c2484bb0ffba98a2b53331dea1fb6c0f39",
+              "workers\\w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
+              "workers\\w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
+              "workers\\w_ocelot_sc.py": "3ea60dfca4e2ffe50a5856a6ccd51d13735ebee164b485a149c3aba8bb45aa15",
+              "workers\\w_scibmad.py": "2fee28c40f7cff98d2f002f27385c9ba7d4456d545d0c838138d9d8eb6a92228",
+              "workers\\w_slipstream.py": "f35e66c40d8c925fedc73ef6b0d61e08ec30990569e515f6b6f44e09d1a9459d",
+              "workers\\w_slipstream_sc.py": "21a0284f8adaac80e25d7571a64ce719d49945db5716f3e0b56d9fcf63832b05",
+              "workers\\w_xsuite.py": "b1788d888e7e2d08408a84789c042bcab2841c2cf7908942f092d6e3b2dc4050",
+              "xsuite_gpu_profile.py": "1b5bce0e34c885a29870d4d69c7bbfe5ca9a4f20e9e90b69bdf3addde2e70863",
+              "xsuite_gpu_scaling.py": "8b0f091aaf2e9f76f1c15c7206028dc456ded34ab9021fda5848f9d2eea47d65",
+              "xsuite_gpu_scaling_analysis.py": "2c9d1ca9fe77809bb7563c0cc147986c4e137623d4fed781e970666bb4db9dd6",
+              "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
+            },
+            "inventory": {
+              "model": {
+                "n": 104,
+                "length": 48.0,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257905,
+                "k2L_abs": 32.0
+              },
+              "reference": {
+                "n": 104,
+                "length": 48.0,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257905,
+                "k2L_abs": 32.0
+              }
+            },
+            "forward_s": 0.23063800000818446,
+            "fd_s": {
+              "0.01": 1.78159600001527,
+              "0.001": 1.8077824999927543,
+              "0.0001": 1.9149147000280209,
+              "1e-05": 1.8067988000111654
+            },
+            "ad_build_s": 0.0028093999717384577,
+            "ad_cold_s": 6.1397628000122495,
+            "ad_warm_s": {
+              "n": 2,
+              "median": 1.5232469500042498,
+              "q1": 1.4675727750000078,
+              "q3": 1.5789211250084918,
+              "min": 1.4118985999957658,
+              "max": 1.6345953000127338,
+              "samples": [
+                1.4118985999957658,
+                1.6345953000127338
+              ]
+            },
+            "versions": {
+              "torch": "2.14.0+cu132",
+              "cuda": "13.2",
+              "slipstream_file": "D:\\GitHub\\neg_coating_rwi\\slipstream\\src\\slipstream\\__init__.py",
+              "warp": "1.17.0",
+              "slipstream": "1.1.0"
+            },
+            "timing": {
+              "import_s": 5.3659080999786966,
+              "build_s": 0.028246500005479902
+            },
+            "memory": {
+              "rss_peak_bytes": 1052155904
+            }
+          },
+          "ad_vs_fd": [
+            3.8734412279856156e-09,
+            3.5960313886449006e-08
+          ],
+          "versus_reference": [
+            0.00022035938643680426,
+            0.02043487057462766
+          ],
+          "versus_eager_ad": [
+            9.906855493614458e-15,
+            4.0443493478652807e-14
+          ]
+        },
+        {
+          "result": {
+            "schema": 1,
+            "code": "slipstream",
+            "case": "ring_grad",
+            "config": {
+              "name": "cpu-f64-o6q8s1b8-compiled",
+              "device": "cpu",
+              "dtype": "float64",
+              "order": 6,
+              "n_kicks": 8,
+              "n_kicks_quad": 8,
+              "n_kicks_sext": 1,
+              "n_kicks_bend": 8,
+              "compile_cpu": true
+            },
+            "rank": 36,
+            "job": {
+              "case_path": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\cases\\ring_grad.json",
+              "config": "cpu-f64-o6q8s1b8-compiled",
+              "repeats": 2,
+              "threads": 1,
+              "out_dir": "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-11-07_slipstream_v110\\ring_grad\\slipstream\\cpu-f64-o6q8s1b8-compiled\\p2"
+            },
+            "status": "ok",
+            "warnings": [],
+            "provenance": {
+              "host": "DDAST0117",
+              "platform": "Windows-11-10.0.26200-SP0",
+              "python": "3.12.13",
+              "cpu_count": 32,
+              "threads_env": {
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "NUMBA_NUM_THREADS": "1"
+              },
+              "gpu": {
+                "name": "NVIDIA GeForce RTX 3050",
+                "driver_version": "616.56",
+                "memory.total": "8192 MiB",
+                "clocks.sm": "210 MHz",
+                "clocks.max.sm": "2100 MHz",
+                "power.draw": "4.43 W",
+                "power.limit": "130.00 W",
+                "temperature.gpu": "33"
+              },
+              "argv": [
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\workers\\w_slipstream.py",
+                "--job",
+                "D:\\GitHub\\neg_coating_rwi\\slipstream_dev\\reports\\Slipstream\\benchmarks\\results\\2026-11-07_slipstream_v110\\ring_grad\\slipstream\\cpu-f64-o6q8s1b8-compiled\\p2\\job.json"
+              ],
+              "time_utc": "2026-11-07T22:55:02Z"
+            },
+            "case_sha256": "fbbf0a76fe2454460bc52be2ab1b140bdcdb63532afea28a8749c750e006046a",
+            "lattice_sha256": "919291d4e0945645bbdc1faea617d487714e4c9d2eb13ab5cb5be3c88e57c798",
+            "source_sha256": {
+              "analyse.py": "1c2fccfd63acce2b768a3e011d2551b4665b37743accc4453613a9626e8008f8",
+              "analyse_grad.py": "8e75e20ee27b5a7d65c41f33aca26fb08ace0f5967756e14ef41945aea639162",
+              "analyse_sc.py": "6f5adeb20fc0dd9b563e70f69133ff24fce5eb5745b744083a473f58b4c4ed02",
+              "analyse_transport.py": "af33fbdab74d40fa4515a38db24de03dca481996571b54af5dd39e468ec9f92a",
+              "astra_mesh_cap_probe.py": "d422b60bddb3b0f1aaff6dbd128c86f7fd431f829f295a2182bd9d22d186ef6f",
+              "astra_particle_energy_control.py": "5040f54b42028f5de2dc9a93ebb8b117c5b553995b03062764cad63b853eb6cf",
+              "astra_refinement.py": "0cb8281cd87ddbadbcedb788c146d40d0baa43bed308f1688deb898016ba4b5a",
+              "bend_attribution.py": "b21214f51a16352643bd80cff81ae986eaf81f3a26a22c0517c737afe5d9af65",
+              "charge_off_control.py": "49db4f921aa81e2fc20871026f3b8c1a0abe1707c6ba55af8767d034db4af5da",
+              "clara_gpt_profile.py": "063d613f857afa2e0a0da6d33d2a9260e661287ed2d71330a4f6e63a9b77750b",
+              "clara_release_bridge.py": "e70be3e82162ac802aab380bc9540dffa0d5c384e9e8cbd6cb3d5b0c62d18510",
+              "common.py": "5c21f4fadc6197f481925dc2e88cdb6f71c44450ae19bb9d1006e22a62eb36ac",
+              "convergence_extension.py": "937f838a7f3649cae8327b821816a70737429c4659f3e46cfccfe98483ef8949",
+              "corrected_reference.py": "bf09431be9c4e19ddb246838a7329ae1495d964dcfe1ac857389561285700b6d",
+              "cpu_control.py": "f1bd1a8cd52a60c8186b7c3ee146842c2726ee576e03a5b30662005ac23e8068",
+              "element_attribution.py": "9236981407e92a1da5c855bb0506f599ecd023b6d705ccef0f4dede046f671cd",
+              "element_substitution_control.py": "c9ad256a6152c743a63a1be855db049804b2ff7672a7524f511ad4e46aff4f8e",
+              "fd_ad_endpoint_control.py": "1b3eb15b2a4b843a98f0f2583da918ee39c47ad9c9e5363bfc36726c550c3850",
+              "fd_ad_knob_ladder.py": "9beacddc2bff1695843852e7aa308ea251ae23e9166341b7c411a94de5864273",
+              "gpu_control.py": "ebc69faa001245a7ca0be21bd275a0beccec6d74f63534acf5f0d73a718f2adf",
+              "gradient_acceptance.py": "fd76562ce9a2be244ec96ed1787f77ff3efa933d426644e21beece7c04f4bba4",
+              "ibs_elena_bridge.py": "2b8d027c556aa5c7f983ac18defabb607f5d9824588ac17f4815d634bf67c4b5",
+              "injector_ad_summary.py": "1a47959873e31f2065bcc0cc7afaded93670b5ecf48b0442ced4462a2906d20d",
+              "injector_cost_control.py": "492c9989b1b77c20ce631664ddecd837ef10ac1afffd7407e48fb88ebcec5397",
+              "injector_fd_analysis.py": "58d8eddff5173696af608064d6a8957156eff5e7067b28ae4e34db3cb6a3401b",
+              "injector_fd_full_analysis.py": "ae40d672c8efed872a8e85ad6a3176eb49194d9e45e4a7d7929bf7a77ae92687",
+              "injector_optimiser_summary.py": "e8251f5500792174ba218ec94ef7961fa2533a170ad97ba8ea1fe19011e1d7a2",
+              "injector_scaling_control.py": "dc54d2c65cfa4cf96b7ceab8f20722ee79f1e6e3ee31b7de3bf3b2fae1e14214",
+              "injector_step_control.py": "9051f856014f226898eceb1333d43a4c68eba15658fa6c4f5bea9f059db8e44a",
+              "injector_tolerance_summary.py": "2788ffef15ab5af7a390243218609ec774e395583461661c7f8828150cf9e807",
+              "launch\\wsl_tree_rss.py": "e62f3e2b5b57f61f4aed379d11776207914f1af11a17d11c520d21d65de8d373",
+              "longitudinal_gates.py": "613f6853dbd5513a59c916f6a649ebc39bc0aeaacdb9d984b66241f4cf0c9f15",
+              "make_cases.py": "5ce2e202d4b0cf37c2757789c231664d416642a9f3bf4d9aa010fca6e4d21aa0",
+              "mass_fix_control.py": "b0ff5b5b65de012019bd162ff3cf928a5d29e0b0df1c6a0f4c8c58c5d01d418d",
+              "memory_tree_control.py": "0cdb6a0733bf9c8ad3c484227a3dd3595b6ebfbddfff928d878a57baaa4f16ca",
+              "memory_wsl_control.py": "a75dfc9363c723c80fd19102d313449efd8eb11077a6ef65fa28061f1adc5ef5",
+              "native_box_control.py": "9f60ef9c0e3ff80155e894faf4d062ad23265f2e45bbfe7306bff5c614403709",
+              "native_mesh_control.py": "f702745f0541522f62f0351dd933d5e21d9db65c5d87c41e3933a4a4f249dca7",
+              "optimisation_budget_control.py": "f1cd4e958ea815ebabe087648f38b276d6cca9f772859a9846b7f98ac79aaf54",
+              "optimisation_convergence_control.py": "80c6f83ab6966503d40bfc47b864af1b2d2870e9ad8fd4eea78cb641fc43e9b5",
+              "particle_scaling_control.py": "262afa2ab866b6eaa345a0947531e5584ff56a791a48d7ba6d0309091f5e8d4f",
+              "precision_control.py": "ab813aedb9d7bcc02239cd9bd4509430d2d7750f3196fde4f60861efa5ee0371",
+              "precision_probe.py": "0e3a8a9965baeb6e6a1e5bc2daaa140f221f00a36b16b333cb58c344b4a6a417",
+              "probe_elements.py": "a1135a9455d953e1eb181908a5a8d1e9a64dba59673b66c901e072e787561b17",
+              "prototypes\\mkm_prototype.py": "41ad1d11897cca1464cb12573583e85799139dca6a40a71b69a564771425520f",
+              "prototypes\\ring_warp_mkm.py": "3b37f02a57052a9bbb9dea8f0fd176f1eee272b49ab087d65beb7aa547039388",
+              "publish_study.py": "a7a554638706ac787b5cc8a67af6b7e31b2b9de67f3555ca75a86fb7e7f34498",
+              "richardson_reference.py": "604ef68d5d61ce6209eaace82b14cfbb31d8e00346cf8d174d08eabdd53aa273",
+              "run.py": "2d2930ebf5728450f48dcdbc70eb2de6562ad4513252a8ea0ddcdcc693f71a5a",
+              "scibmad_scaling.py": "64ec7faf09024ac6588a62b620d1c281995ed3b4b984e5ed6458b9da44a00d5a",
+              "scibmad_scaling_analysis.py": "9cf1425def22080fb4ad65b16b1b0d66b02a5b6cabc971bb667f3510bd36b12b",
+              "space_charge_box_probe.py": "47796a92f201d9a2bbd8a67700facb208b9f140e5fb1ac400cfd9d5a6af94bcf",
+              "startup_accounting.py": "ae1fc9ae790fe5ddfad6deed54d41c809d6334e7242a9a9391a98ff9ebdb3626",
+              "study.py": "317c39b7a8a17e6556db236d86b2a6a27fcb833821578104ae845a7d298dfa91",
+              "test_study.py": "357cc6cc2035bf547c49cc91d29743a3c12ee4470a90b3101eebe880c830cd2f",
+              "workers\\astra_deck.py": "a0fd66663eb9d4c81e2e226cdb547518fa7e7602e3b1db9b789b2130721bfa8e",
+              "workers\\impactx_run.py": "e969ccc3ed3b39f44a4d1b135b7ca34af2e8f7241571112cecb44bf06edc9278",
+              "workers\\w_astra.py": "f995cbc4aa23f03a074058e4d185efb094e905bf0bd8cc2158bfe0df3aae99f8",
+              "workers\\w_bmadx.py": "2a5c7704eb62d88876f8def708aee22c4d61a2880724ed8d44f19231f1e250a6",
+              "workers\\w_cheetah.py": "cf519250699da501598c35e2c4b2c5df48becba40d91f683f50ade335775b6e3",
+              "workers\\w_cheetah_sc.py": "0ecbb51867e7e64d4dc6d346504a924ea5275888aaa7eb85393dcb8c12791773",
+              "workers\\w_elegant.py": "89f607a640a46f32476182d5364d8f81d1f576571c318ac475ed4d9bde828191",
+              "workers\\w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
+              "workers\\w_helix.py": "eacccf73fb09025a292ddc9622b802c2484bb0ffba98a2b53331dea1fb6c0f39",
+              "workers\\w_impactx.py": "70ca8b475afc3c154c81c3b01a20602aec0874b51e8ff18c543d5160f9e6246e",
+              "workers\\w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
+              "workers\\w_ocelot_sc.py": "3ea60dfca4e2ffe50a5856a6ccd51d13735ebee164b485a149c3aba8bb45aa15",
+              "workers\\w_scibmad.py": "2fee28c40f7cff98d2f002f27385c9ba7d4456d545d0c838138d9d8eb6a92228",
+              "workers\\w_slipstream.py": "f35e66c40d8c925fedc73ef6b0d61e08ec30990569e515f6b6f44e09d1a9459d",
+              "workers\\w_slipstream_sc.py": "21a0284f8adaac80e25d7571a64ce719d49945db5716f3e0b56d9fcf63832b05",
+              "workers\\w_xsuite.py": "b1788d888e7e2d08408a84789c042bcab2841c2cf7908942f092d6e3b2dc4050",
+              "xsuite_gpu_profile.py": "1b5bce0e34c885a29870d4d69c7bbfe5ca9a4f20e9e90b69bdf3addde2e70863",
+              "xsuite_gpu_scaling.py": "8b0f091aaf2e9f76f1c15c7206028dc456ded34ab9021fda5848f9d2eea47d65",
+              "xsuite_gpu_scaling_analysis.py": "2c9d1ca9fe77809bb7563c0cc147986c4e137623d4fed781e970666bb4db9dd6",
+              "xsuite_model_control.py": "2c9f9ef8065bc2c95448a1dbbef840f0d7400496bf5253c8e5d3687cad08c615"
+            },
+            "inventory": {
+              "model": {
+                "n": 104,
+                "length": 48.0,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257905,
+                "k2L_abs": 32.0
+              },
+              "reference": {
+                "n": 104,
+                "length": 48.0,
+                "angle": 6.283185307179586,
+                "k1L_abs": 15.400513654257905,
+                "k2L_abs": 32.0
+              }
+            },
+            "forward_s": 0.17887860001064837,
+            "fd_s": {
+              "0.01": 1.8702226000023074,
+              "0.001": 1.9102242999942973,
+              "0.0001": 1.8155116999987513,
+              "1e-05": 1.8266459999722429
+            },
+            "ad_build_s": 0.0028921000193804502,
+            "ad_cold_s": 6.209927099989727,
+            "ad_warm_s": {
+              "n": 2,
+              "median": 1.5434272499987856,
+              "q1": 1.4855712249991484,
+              "q3": 1.6012832749984227,
+              "min": 1.4277151999995112,
+              "max": 1.6591392999980599,
+              "samples": [
+                1.4277151999995112,
+                1.6591392999980599
+              ]
+            },
+            "versions": {
+              "torch": "2.14.0+cu132",
+              "cuda": "13.2",
+              "slipstream_file": "D:\\GitHub\\neg_coating_rwi\\slipstream\\src\\slipstream\\__init__.py",
+              "warp": "1.17.0",
+              "slipstream": "1.1.0"
+            },
+            "timing": {
+              "import_s": 6.694128399947658,
+              "build_s": 0.02711050002835691
+            },
+            "memory": {
+              "rss_peak_bytes": 1051746304
+            }
+          },
+          "ad_vs_fd": [
+            3.8734412279856156e-09,
+            3.5960313886449006e-08
+          ],
+          "versus_reference": [
+            0.00022035938643680426,
+            0.02043487057462766
+          ],
+          "versus_eager_ad": [
+            9.906855493614458e-15,
+            4.0443493478652807e-14
           ]
         }
       ],
       "n_ok": 3,
-      "fd_s": 2.075477649923414,
-      "ad_s": 1.8464331498835236,
+      "fd_s": 1.8277730000118027,
+      "ad_s": 1.5232469500042498,
       "ad_vs_fd": [
-        3.891831766692808e-09,
-        8.214065353695946e-08
+        3.8734412279856156e-09,
+        3.5960313886449006e-08
       ],
       "versus_eager_ad": [
-        1.7015173975584702e-14,
-        2.249166856083104e-13
+        9.906855493614458e-15,
+        4.0443493478652807e-14
       ]
     }
   ]
