@@ -43,6 +43,7 @@ Yes for accuracy, and for most of the codes. Not for everything, and not for tim
 | GPT | no (licence) | n/a | Archived reference, or native Windows with a licence |
 | Bmad-X, SciBmad, HELIX | conda environments in the extended image, built from `envs/*.yml` (8 Nov) | Bmad-X `563c825`, SciBmad 0.6.0+26.10.14 (Julia 1.12 inside), HELIX v1.20.0: the paper's versions | Run in the image and reproduce the archive |
 | JuTrack | no | Julia 1.10.4 on Windows | Enzyme, a dependency, does not precompile on Linux with Julia 1.10.4 or 1.10.10 (WSL and Docker, `Missing Julia object for global`). Archived on Linux; runs on the workstation's Windows platform |
+| OPAL-X | no (10 Nov) | 1.0.0 (tag `OPALX-1.0.0`): the official CPU image `ghcr.io/opalx-project/opalx:cpu`, and a CUDA source build for the RTX 3050 | Not in the image: the official image is Ubuntu 24.04 (glibc 2.39) against AlmaLinux 9 (2.34), so its binary cannot be copied in, and it has no GPU build. `setup/install_opalx.sh` builds the CUDA and OpenMP versions and pulls the image; the worker reaches them through `BENCH_OPALX_*` (platform `wsl` or `linux`, default `skip`). See `reviews/benchmark/codes/CODES.md` |
 | ImpactX | no | a source build at `e4279a4b` (26.10 plus 20 commits) | `beam.at_fixed_t()`, which the worker needs, is not in conda-forge's 26.10. Archived on Linux until a release has it, or build the source |
 
 What this means for the paper's reproducibility item (R5 in `PLAN.md`): a second PC with Docker reproduces the accuracy gates and
@@ -226,6 +227,7 @@ New in this repository for the move: `runner.py` now starts a worker on five pla
 | SciBmad, Bmad-X, HELIX | docker | windows, wsl, windows | the image carries them (`/opt/envs/*`) |
 | JuTrack | archived | windows | Enzyme does not precompile on Linux (open decision 5) |
 | ImpactX | archived | wsl (source build) | needs `beam.at_fixed_t()` (open decision 6) |
+| OPAL-X | skip | wsl (CUDA source build, CPU image through docker) | `setup/install_opalx.sh`; `sc_drift` only; not in the paper yet |
 | GPT | archived | windows | licence; install it yourself and set `platform`, `BENCH_GPT_BIN`, `GPTLICENSE` |
 
 ### Not moved

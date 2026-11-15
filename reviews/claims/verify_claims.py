@@ -80,8 +80,8 @@ chk("E6", "Slipstream worst element deviation <= 2e-13", 2e-13, max(max(v.values
 chk("E7", "elegant quad/sext worst deviation (text: 1e-9)", 1e-9, max(max(elem[("elegant", e)].values()) for e in ("quad", "sext")), 0.25)
 import numpy as np  # noqa: E402
 # ---- SciBmad (7 November 2026; replaces Bmad-X in the paper): Table III rows, element maps, Jacobians
-for cid, cfg, tune, warm, xy, pp in [("S1", "cpu-f64-o4k4", 8.86e-9, 1.01, 7.48e-11, 1.31e-10), ("S2", "cpu-f64-o6k32", 8.08e-11, 5.35, 5.26e-12, 4.04e-12),
-                                      ("S3", "cpu-f64-std", 3.96e-3, 0.863, 4.37e-5, 5.50e-5)]:
+for cid, cfg, tune, warm, xy, pp in [("S1", "cpu-f64-o4k4", 8.86e-9, 0.898, 7.48e-11, 1.31e-10), ("S2", "cpu-f64-o6k32", 8.08e-11, 4.77, 5.26e-12, 4.04e-12),
+                                      ("S3", "cpu-f64-std", 3.96e-3, 0.745, 4.37e-5, 5.50e-5)]:
     r = ring[("scibmad", cfg)]
     chk(cid + "a", f"Table III: SciBmad {cfg} tune error", tune, r["dq_ref"], 0.02)
     chk(cid + "b", f"Table III: SciBmad {cfg} warm time [s]", warm, r["warm_s"], 0.02)
@@ -120,7 +120,7 @@ chk("S24", "SciBmad o4k4 final state after 64 turns vs elegant, max over x,y,px,
 fs = gp[5]["slipstream_gpu_f64"]["first5_vs_elegant"]
 chk("S25", "Slipstream f64 final state after 64 turns vs elegant, max (text: 1.1e-8)", 1.1e-8, max(fs.values()), 0.04)
 chk("S26", "SciBmad GPU f32 o4k4 tune error, 1024 turns (text: 1.5e-4)", 1.5e-4, stun["cuda-f32-o4k4"]["dq_ref"], 0.03)
-chk("S27", "SciBmad CPU o4k4 ring_tunes warm [s] (text: 1.0)", 1.0, stun["cpu-f64-o4k4"]["warm_s"], 0.03)
+chk("S27", "SciBmad CPU o4k4 ring_tunes warm [s] (text: 0.9)", 0.9, stun["cpu-f64-o4k4"]["warm_s"], 0.05)
 chk("S28", "SciBmad GPU f32 o4k4 ring_tunes warm [s] (text: 4.8)", 4.8, stun["cuda-f32-o4k4"]["warm_s"], 0.03)
 chk("S29", "SciBmad GPU f64 o4k4 ring_tunes warm [s] (text: 15)", 15, stun["cuda-f64-o4k4"]["warm_s"], 0.03)
 

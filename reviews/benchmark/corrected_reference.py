@@ -10,7 +10,8 @@ from analyse_grad import best_fd, errs
 HERE = Path(__file__).resolve().parent
 OLD = common.RESULTS / '2026-10-26_R1'
 NEW = common.RESULTS / '2026-10-27_momentum'
-SCIBMAD = common.RESULTS / '2026-11-07_scibmad'
+SCIBMAD = common.RESULTS / '2026-11-07_scibmad'   # ring_grad
+SCIBMAD_RING = common.RESULTS / '2026-11-10_scibmad_quiet'   # ring_tunes: rerun on a quiet host 10 November 2026 (same tune data as 7 November, lower timing scatter)
 DATA = common.EVIDENCE / '2026-10-26_R1'
 
 
@@ -83,7 +84,7 @@ def main():
         row['dy0'] = float(np.abs(z['y0'] - reference['y0']).max())
         grad.append(row)
     # SciBmad (added 7 November 2026, replacing Bmad-X in the paper): run later, on the same host, against the same corrected reference.
-    for cfg_dir in sorted((SCIBMAD / 'ring_tunes/scibmad').glob('*')):
+    for cfg_dir in sorted((SCIBMAD_RING / 'ring_tunes/scibmad').glob('*')):
         paths = sorted(cfg_dir.glob('p*/tbt.npz'))
         assert len(paths) == 3, cfg_dir
         jobs = [common.load(p.parent / 'result.json') for p in paths]

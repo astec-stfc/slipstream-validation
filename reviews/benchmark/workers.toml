@@ -39,3 +39,6 @@ linear_fodo = "workers/w_helix.py"
 
 [scibmad]
 ring = "workers/w_scibmad.py"
+
+[opalx]
+sc_drift = "workers/w_opalx.py"

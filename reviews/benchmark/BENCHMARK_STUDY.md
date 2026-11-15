@@ -104,11 +104,11 @@ Nine new elegant reference jobs use the same normalised reference momentum as th
 | xsuite | cpu-f64-yosk16b32 | 0.29 | 0.000296 | 8.08e-07 | 4.84e-06 | 6.26e-07 | 3.91e-09 | False |
 | elegant | cpu-f64-o6s8b16 | 0.701 | 3.82e-09 | 3.32e-10 | 2.55e-10 | 3.43e-11 | 9.23e-13 | True |
 | elegant | cpu-f64-o6s16b32 | 1.3 | 0 | 0 | 0 | 0 | 0 | True |
-| scibmad | cpu-f64-o4k16 | 1.68 | 5.98e-11 | 5.53e-12 | 3.51e-12 | 4.98e-13 | 1.46e-14 | True |
-| scibmad | cpu-f64-o4k4 | 1.01 | 8.86e-09 | 7.48e-11 | 1.31e-10 | 2.48e-11 | 4.09e-13 | True |
-| scibmad | cpu-f64-o6k32 | 5.35 | 8.08e-11 | 5.26e-12 | 4.04e-12 | 5.44e-13 | 1.47e-14 | True |
-| scibmad | cpu-f64-o6k8 | 1.89 | 7.62e-11 | 5.26e-12 | 4.04e-12 | 5.44e-13 | 1.47e-14 | True |
-| scibmad | cpu-f64-std | 0.863 | 0.00396 | 4.37e-05 | 5.5e-05 | 1.95e-05 | 4.82e-07 | False |
+| scibmad | cpu-f64-o4k16 | 1.65 | 5.98e-11 | 5.53e-12 | 3.51e-12 | 4.98e-13 | 1.46e-14 | True |
+| scibmad | cpu-f64-o4k4 | 0.898 | 8.86e-09 | 7.48e-11 | 1.31e-10 | 2.48e-11 | 4.09e-13 | True |
+| scibmad | cpu-f64-o6k32 | 4.77 | 8.08e-11 | 5.26e-12 | 4.04e-12 | 5.44e-13 | 1.47e-14 | True |
+| scibmad | cpu-f64-o6k8 | 1.77 | 7.62e-11 | 5.26e-12 | 4.04e-12 | 5.44e-13 | 1.47e-14 | True |
+| scibmad | cpu-f64-std | 0.745 | 0.00396 | 4.37e-05 | 5.5e-05 | 1.95e-05 | 4.82e-07 | False |
 
 ## Exploratory Xsuite model correction (historical reference)
 

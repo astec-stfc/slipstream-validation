@@ -32,6 +32,9 @@ DESIGN = {
 }
 
 
+OUTSIDE_STUDY = {"opalx"}   # codes added after the frozen design (it is hashed into each campaign, so it must not change); run them with run.py
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--campaign", required=True)

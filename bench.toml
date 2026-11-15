@@ -85,6 +85,14 @@ note = "the sc_drift worker needs beam.at_fixed_t(), which is in ImpactX after t
 python = "/opt/envs/impactx/bin/python"
 timeout = 7200
 
+# ---- OPAL-X (IPPL + Kokkos): not in the image.  The official CPU image is Ubuntu 24.04 (glibc 2.39) and the validation image is AlmaLinux 9 (2.34), so its
+# binary cannot be copied in; the GPU needs a CUDA source build.  `bash setup/install_opalx.sh` builds and pulls them on a Linux host or in WSL; then set
+# platform = "wsl" (or "linux"), conda_env, and BENCH_OPALX_CUDA_EXE / BENCH_OPALX_CPU_EXE in bench.local.toml.  The gpu rungs also need [docker] gpus = true.
+[codes.opalx]
+platform = "skip"
+note = "run it on a host that has an OPAL-X build or docker: see setup/install_opalx.sh and reviews/benchmark/codes/CODES.md"
+timeout = 7200
+
 # ---- licensed: the user installs it; the frozen result is the reference until then
 [codes.gpt]
 platform = "archived"

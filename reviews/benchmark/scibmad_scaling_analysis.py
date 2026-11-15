@@ -32,7 +32,7 @@ def ring_tunes():
     ref = np.load(REF)['tbt']
     qr = common.tunes(ref, case)
     rows = []
-    for d in sorted(GPU_TUNES.glob('cuda-*/p0')) + [common.RESULTS / '2026-11-07_scibmad/ring_tunes/scibmad/cpu-f64-o4k4/p0']:
+    for d in sorted(GPU_TUNES.glob('cuda-*/p0')) + [common.RESULTS / '2026-11-10_scibmad_quiet/ring_tunes/scibmad/cpu-f64-o4k4/p0']:
         res = common.load(d / 'result.json')
         tbt = np.load(d / 'tbt.npz')['tbt']
         q = common.tunes(tbt, case)

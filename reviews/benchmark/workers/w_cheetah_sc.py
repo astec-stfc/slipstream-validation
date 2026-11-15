@@ -12,6 +12,9 @@ from common import run_worker  # noqa: E402
 # (grid points per axis, grid extent in sigma, slices per 0.05 m)
 _RUNGS = [(16, 4.0, 1), (32, 4.0, 2), (64, 4.0, 4)]
 CONFIGS = [dict(name=f"cuda-f32-g{g}s{s}", device="cuda", dtype="float32", grid=g, extent=e, nslice=s) for g, e, s in _RUNGS[:2]]
+# float64 on the GPU (11 November 2026): tests whether the float32 GPU rung's frozen energy spread is the precision; slow on a consumer card (1/64 FP64 rate).  It sits before the
+# CPU rungs, which stay last (the last configuration of a code is its own converged rung)
+CONFIGS += [dict(name="cuda-f64-g32s2", device="cuda", dtype="float64", grid=32, extent=4.0, nslice=2)]
 CONFIGS += [dict(name=f"cpu-f64-g{g}s{s}", device="cpu", dtype="float64", grid=g, extent=e, nslice=s) for g, e, s in _RUNGS]
 
 

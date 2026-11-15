@@ -11,7 +11,7 @@ import run
 from analyse_grad import best_fd
 from analyse_transport import reference
 from analyse_sc import solver_family, energy_gaps
-from study import DESIGN
+from study import DESIGN, OUTSIDE_STUDY
 
 
 def test_finite_energy_coordinate_roundtrip():
@@ -56,7 +56,7 @@ def test_fd_extrapolation_recovers_known_derivative():
 
 
 def test_every_listed_code_has_a_selected_case():
-    assert set(run.REG) - {c for d in DESIGN.values() for c in d["codes"].split(",")} == set()   # every code of bench.toml is in the frozen design
+    assert set(run.REG) - OUTSIDE_STUDY - {c for d in DESIGN.values() for c in d["codes"].split(",")} == set()   # every code of bench.toml is in the frozen design, or added later
     for case, d in DESIGN.items():
         for code in d["codes"].split(","):
             assert run.worker_path(code, case)

@@ -46,7 +46,8 @@ ALIASES = {("slipstream", "cpu-f64-o6q8s1b8"): ("slipstream", "cuda-f64-o6q8s1b8
            ("slipstream", "cpu-f64-r32z128t2c5"): ("slipstream", "cuda-f32-r32z128t2c5"),     # f64 on the CPU against f32 on the GPU
            ("slipstream", "cpu-f64-r64z256t1c2"): ("slipstream", "cuda-f32-r64z256t1c2")}
 # image jobs that have no archived row on purpose (a rung added after the archived campaign)
-NOREF_OK = {("sc_drift", "astra", "cpu-f64-3d64h1.4")}
+NOREF_OK = {("sc_drift", "astra", "cpu-f64-3d64h1.4"),
+            ("sc_drift", "opalx", "cpu-f64-open32h40"), ("sc_drift", "opalx", "cpu-f64-open64h40")}   # OPAL-X: added 10 November 2026, after the archived campaign
 
 _ELEGANT_BUILD = ("the image's elegant 2026.1.0 gives a finite-difference Jacobian 7.6e-9 (absolute) away from the paper's 2026.3.0 (endpoint state "
                   "6e-14); the worst-column error of Slipstream is 4.7e-5 against 2026.3.0 and 2.1e-5 against 2026.1.0, the difference of two "

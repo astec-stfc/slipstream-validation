@@ -38,6 +38,8 @@ cpu.cheetah = ["cpu-f64-g32s2", "cpu-f64-g64s4"]
 cpu.ocelot = ["cpu-f64-g32s2", "cpu-f64-g64s4"]
 cpu.impactx = ["cpu-f64-mg32x40s2", "cpu-f64-mg64x80s4"]
 cpu.gpt = ["cpu-f64-mesh-acc5", "cpu-f64-mesh-acc6"]
+cpu.opalx = ["cpu-f64-open32h40", "cpu-f64-open64h40"]
+gpu.opalx = ["cuda-f64-open32h40", "cuda-f64-open64h40", "cuda-f64-open128h40"]
 
 [linear_fodo]
 kind = "linear_fodo"

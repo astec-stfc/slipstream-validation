@@ -1,0 +1,42 @@
+{
+ "runner": "3.12.13",
+ "platform": "win32",
+ "cpu": "AMD Ryzen 9 7950X 16-Core Processor",
+ "image": "slipstream-validation:local",
+ "image_id": "sha256:b9c8f3d7489edc4edd9d6c9a57f7825b74361c6d8b0c519c5e17c34179a807d3",
+ "slipstream": {
+  "path": "C:\\Users\\jkj62.CLRC\\Documents\\GitHub\\slipstream",
+  "commit": "97daa0979429820df56785a2c7002403ec1cbae7",
+  "dirty": false
+ },
+ "platforms": {
+  "opalx": "wsl"
+ },
+ "repos": {
+  "opalx": []
+ },
+ "args": {
+  "cmd": "run",
+  "review": "benchmark",
+  "case": [
+   "sc_drift"
+  ],
+  "code": [
+   "opalx"
+  ],
+  "config": [
+   "cuda-f64-open32h40,cuda-f64-open64h40,cuda-f64-open128h40"
+  ],
+  "procs": 3,
+  "repeats": 2,
+  "threads": 1,
+  "seed": 1,
+  "timeout": 3600.0,
+  "slipstream": "C:\\Users\\jkj62.CLRC\\Documents\\GitHub\\slipstream",
+  "tag": "2026-11-10_opalx",
+  "execute": true,
+  "check": false,
+  "force": false
+ },
+ "time_utc": "2026-11-10T15:14:50Z"
+}

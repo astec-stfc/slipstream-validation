@@ -9,7 +9,7 @@ manuscript and reads the compact results from `reviews/claims/evidence/`.
 | --- | --- | --- | --- |
 | `ring_tunes` | amplitude-dependent tunes of a 48 m ring over 1024 turns | Slipstream, elegant, Xsuite, Cheetah, JuTrack, SciBmad, Bmad-X | G1 conventions, G2 nonlinear ring, G3 precision |
 | `ring_grad` | five-knob Jacobian by automatic differentiation against finite differences | Slipstream, elegant, Xsuite, Cheetah, JuTrack, SciBmad, Bmad-X | G11 |
-| `sc_drift` | free-drift space charge on one frozen bunch | Slipstream, ASTRA, Cheetah, Ocelot, ImpactX, GPT | G4 |
+| `sc_drift` | free-drift space charge on one frozen bunch | Slipstream, ASTRA, Cheetah, Ocelot, ImpactX, GPT, OPAL-X | G4 |
 | `linear_fodo` | proton FODO, analytic control | Slipstream, HELIX | G1 |
 
 `cases.toml` lists the configurations a campaign runs (`cpu`; `gpu` when the host has a card), `workers.toml` the worker of each
