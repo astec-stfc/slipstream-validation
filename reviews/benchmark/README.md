@@ -71,6 +71,16 @@ they use; set `SSV_SLIPSTREAM` to the Slipstream checkout under test. `SSV_RESUL
 | SciBmad | `scibmad_scaling.py`, `scibmad_scaling_analysis.py`; the Slipstream step-model prototypes are in `prototypes/` |
 | CLARA and injector studies (need the workbench: `SSV_WORKBENCH` is the `neg_coating_rwi` checkout, and its 12 GB of story output) | `clara_release_bridge.py`, `clara_gpt_profile.py`, `injector_ad_summary.py`, `injector_optimiser_summary.py`, `injector_tolerance_summary.py`, `ibs_elena_bridge.py` |
 
+The injector derivative, jitter and tuning studies of the paper (Sec. IV D and E, campaign `2026-11-21_injector_image`, CLARA 5 pC deck, cathode image on) are run
+here. The drivers are `injector_clara_ad.py` (autograd against finite differences, `--image on`; `--fd-knobs` shards the knobs and `--ad-json` shares the one
+autograd pass between them), `injector_clara_profile.py`, `injector_clara_energy_spread.py`, `injector_clara_tolerance.py`, `injector_clara_optimiser.py` (timing: run it
+alone, three methods at once) and `injector_clara_memory.py` (GPU). They read the deck from the workbench (`SSV_WORKBENCH`). The summaries `injector_fd_full_analysis.py`,
+`injector_ad_summary.py`, `injector_tolerance_summary.py` and `injector_optimiser_summary.py` take `--campaign TAG` and write `reviews/claims/evidence/TAG/`; without it they
+rebuild the archived image-off numbers of `2026-10-26_R1`. **Memory:** reverse mode over the whole line holds 9 to 14 GiB of host memory per process (the autograd graph
+grows with the steps even with checkpointing); forward-only jobs hold under 1 GiB. Run every long CPU job under `memguard.py --max-gib N`, one reverse-mode job at a time:
+ten at once overran the 63 GiB of the workstation, whose pagefile is on a hard disk, and made it unusable (21 November 2026). `injector_clara_memory.py` caps itself
+below the free GPU memory and skips a run without checkpointing that would not fit, because a run past the card spills into host memory (3 November 2026).
+
 `publish_study.py` writes the per-case summaries of a campaign to the evidence folder and refreshes `BENCHMARK_STUDY.md`; `test_study.py`
 holds the numerical controls of the harness itself (no external code). `launch/conda_run.sh` is how `wsl` and `conda` workers start;
 `launch/wsl_tree_rss.py` samples the resident set of a worker tree for the memory controls.

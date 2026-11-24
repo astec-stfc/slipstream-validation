@@ -54,6 +54,9 @@ _ELEGANT_BUILD = ("the image's elegant 2026.1.0 gives a finite-difference Jacobi
                   "numbers that small; native 2026.3.0 with this worker reproduces the archived row exactly")
 KNOWN: dict = {   # (case, code, config, metric) -> reason
     ("ring_grad", "slipstream", "cpu-f64-o6q8s1b8", "rel_col"): _ELEGANT_BUILD,
+    # SciBmad: same reference shift (rel_col falls 2.2x like Slipstream's); its rel_fro and ad_vs_fd_col are equal to the archive
+    ("ring_grad", "scibmad", "cpu-f64-o4k4", "rel_col"): _ELEGANT_BUILD,
+    ("ring_grad", "scibmad", "cpu-f64-o6k32", "rel_col"): _ELEGANT_BUILD,
 }
 
 

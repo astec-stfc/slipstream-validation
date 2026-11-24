@@ -1,0 +1,265 @@
+{
+ "steps": [
+  {
+   "n_particles": 4096,
+   "z_stop_m": 0.1,
+   "mode": "none",
+   "n_steps": 861,
+   "checkpoint_every": 0,
+   "status": "ok",
+   "seconds": 14.229114532470703,
+   "peak_MiB": 1560.6962890625
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 0.1,
+   "mode": "sqrt",
+   "n_steps": 861,
+   "checkpoint_every": 29,
+   "status": "ok",
+   "seconds": 22.895249605178833,
+   "peak_MiB": 88.9736328125
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 0.15,
+   "mode": "none",
+   "n_steps": 1201,
+   "checkpoint_every": 0,
+   "status": "ok",
+   "seconds": 18.654098987579346,
+   "peak_MiB": 2158.65966796875
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 0.15,
+   "mode": "sqrt",
+   "n_steps": 1201,
+   "checkpoint_every": 34,
+   "status": "ok",
+   "seconds": 34.36992788314819,
+   "peak_MiB": 96.94482421875
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 0.2,
+   "mode": "none",
+   "n_steps": 1531,
+   "checkpoint_every": 0,
+   "status": "ok",
+   "seconds": 23.76168727874756,
+   "peak_MiB": 2737.39111328125
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 0.2,
+   "mode": "sqrt",
+   "n_steps": 1531,
+   "checkpoint_every": 39,
+   "status": "ok",
+   "seconds": 38.49818754196167,
+   "peak_MiB": 104.916015625
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 0.3,
+   "mode": "none",
+   "n_steps": 2201,
+   "checkpoint_every": 0,
+   "status": "ok",
+   "seconds": 32.51203966140747,
+   "peak_MiB": 3917.37548828125
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 0.3,
+   "mode": "sqrt",
+   "n_steps": 2201,
+   "checkpoint_every": 46,
+   "status": "ok",
+   "seconds": 60.38213562965393,
+   "peak_MiB": 119.78564453125
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 0.5,
+   "mode": "none",
+   "n_steps": 3551,
+   "checkpoint_every": 0,
+   "status": "skipped_exceeds_budget",
+   "seconds": null,
+   "peak_MiB": null,
+   "predicted_MiB": 6609.703742639343
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 0.5,
+   "mode": "sqrt",
+   "n_steps": 3551,
+   "checkpoint_every": 59,
+   "status": "ok",
+   "seconds": 89.12169575691223,
+   "peak_MiB": 140.5107421875
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 0.75,
+   "mode": "none",
+   "n_steps": 5221,
+   "checkpoint_every": 0,
+   "status": "skipped_exceeds_budget",
+   "seconds": null,
+   "peak_MiB": null,
+   "predicted_MiB": 9697.916580792327
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 0.75,
+   "mode": "sqrt",
+   "n_steps": 5221,
+   "checkpoint_every": 72,
+   "status": "ok",
+   "seconds": 133.74877047538757,
+   "peak_MiB": 164.94580078125
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 1.0,
+   "mode": "none",
+   "n_steps": 6901,
+   "checkpoint_every": 0,
+   "status": "skipped_exceeds_budget",
+   "seconds": null,
+   "peak_MiB": null,
+   "predicted_MiB": 12804.621711389344
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 1.0,
+   "mode": "sqrt",
+   "n_steps": 6901,
+   "checkpoint_every": 83,
+   "status": "ok",
+   "seconds": 181.3354160785675,
+   "peak_MiB": 186.1923828125
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 1.5,
+   "mode": "none",
+   "n_steps": 10251,
+   "checkpoint_every": 0,
+   "status": "skipped_exceeds_budget",
+   "seconds": null,
+   "peak_MiB": null,
+   "predicted_MiB": 18999.539680139344
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 1.5,
+   "mode": "sqrt",
+   "n_steps": 10251,
+   "checkpoint_every": 101,
+   "status": "ok",
+   "seconds": 268.66879391670227,
+   "peak_MiB": 218.61962890625
+  }
+ ],
+ "particles": [
+  {
+   "n_particles": 1024,
+   "z_stop_m": 0.5,
+   "mode": "none",
+   "n_steps": 3551,
+   "checkpoint_every": 0,
+   "status": "ok",
+   "seconds": 48.84078311920166,
+   "peak_MiB": 1868.0087890625
+  },
+  {
+   "n_particles": 1024,
+   "z_stop_m": 0.5,
+   "mode": "sqrt",
+   "n_steps": 3551,
+   "checkpoint_every": 59,
+   "status": "ok",
+   "seconds": 87.59074115753174,
+   "peak_MiB": 54.076171875
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 0.5,
+   "mode": "none",
+   "n_steps": 3551,
+   "checkpoint_every": 0,
+   "status": "skipped_exceeds_budget",
+   "seconds": null,
+   "peak_MiB": null,
+   "predicted_MiB": 11591.864980468748
+  },
+  {
+   "n_particles": 4096,
+   "z_stop_m": 0.5,
+   "mode": "sqrt",
+   "n_steps": 3551,
+   "checkpoint_every": 59,
+   "status": "ok",
+   "seconds": 89.33218622207642,
+   "peak_MiB": 140.5107421875
+  },
+  {
+   "n_particles": 16384,
+   "z_stop_m": 0.5,
+   "mode": "none",
+   "n_steps": 3551,
+   "checkpoint_every": 0,
+   "status": "skipped_exceeds_budget",
+   "seconds": null,
+   "peak_MiB": null,
+   "predicted_MiB": 46367.45992187499
+  },
+  {
+   "n_particles": 16384,
+   "z_stop_m": 0.5,
+   "mode": "sqrt",
+   "n_steps": 3551,
+   "checkpoint_every": 59,
+   "status": "ok",
+   "seconds": 133.1574878692627,
+   "peak_MiB": 486.2490234375
+  },
+  {
+   "n_particles": 65536,
+   "z_stop_m": 0.5,
+   "mode": "none",
+   "n_steps": 3551,
+   "checkpoint_every": 0,
+   "status": "skipped_exceeds_budget",
+   "seconds": null,
+   "peak_MiB": null,
+   "predicted_MiB": 185469.83968749997
+  },
+  {
+   "n_particles": 65536,
+   "z_stop_m": 0.5,
+   "mode": "sqrt",
+   "n_steps": 3551,
+   "checkpoint_every": 59,
+   "status": "ok",
+   "seconds": 324.33615040779114,
+   "peak_MiB": 1869.2021484375
+  }
+ ],
+ "device": "NVIDIA GeForce RTX 3050",
+ "dt_s": 5e-13,
+ "image": "on",
+ "image_steps": 380,
+ "env": {
+  "torch": "2.14.0+cu132"
+ },
+ "source_sha256": {
+  "injector_ad_memory.json": "594281844246d5f1539d5f8454d3f5a66657fb6205d3304a0af78afe3b7bbcb1"
+ },
+ "analysis_sha256": "9081761b3bbf68c0616fbd36c2944d6acf79b8e1fad13e90fe76824a48014b66",
+ "device_MiB": 8191.5
+}

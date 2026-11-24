@@ -6,6 +6,7 @@ start 1 were rebuilt from their stdout logs (their own JSON write failed; x is n
 Per start and method: the trace of the best objective against wall time and evaluation number, the cost per evaluation, and the time and number of evaluations to reach
 within 10 and 5 per cent of the best objective found by any method from that start.
 """
+import argparse
 import json
 from pathlib import Path
 
@@ -14,7 +15,7 @@ import numpy as np
 import common
 
 HERE = Path(__file__).resolve().parent
-RES = common.RESULTS / 'optimiser'
+RES = common.RESULTS / 'optimiser'   # with --campaign TAG: results/TAG/optimiser/start{1,2}_METHOD.json
 METHODS = ('lbfgs_ad', 'neldermead', 'bayes')
 
 
@@ -26,12 +27,17 @@ def first_reaching(trace, level):
 
 
 def main():
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument('--campaign', help='a new campaign (results/TAG/..., evidence/TAG/...) instead of the archived 2026-10-26_R1 one')
+    a = ap.parse_args()
+    res, pre, tag = (common.RESULTS / a.campaign / 'optimiser', '', a.campaign) if a.campaign else (RES, '2026-11-03_', '2026-10-26_R1')
     runs = {}
-    for f in sorted(RES.glob('2026-11-03_start*_*.json')):
+    for f in sorted(res.glob(f'{pre}start*_*.json')):
         d = json.loads(f.read_text())
-        start = f.name.split('_')[1]
+        start = f.name[len(pre):].split('_')[0]
         runs.setdefault(start, {})[d['method']] = d
-    out = dict(design=dict(date='2026-11-03', deck='CLARA 5 pC injector400.in', objective='emittance_n,x [mm mrad] + 0.05 (E_kin - 30 MeV)^2 at 3.37 m', budget_s=None,
+    out = dict(design=dict(date=a.campaign[:10] if a.campaign else '2026-11-03', deck='CLARA 5 pC injector400.in',
+                           cathode_image=next(iter(next(iter(runs.values())).values())).get('image', 'off'), objective='emittance_n,x [mm mrad] + 0.05 (E_kin - 30 MeV)^2 at 3.37 m', budget_s=None,
                            note='Three processes at once on a 16-core CPU, 5 threads each, below-normal priority: the wall times include the contention of the other two and the backward pass '
                                 'or surrogate fit of the method. Single starts, one run per method.'),
                source_sha256={}, analysis_sha256=common.sha256(__file__), starts={})
@@ -45,13 +51,14 @@ def main():
             tr = d['trace']
             out['design']['budget_s'] = d['budget_s']
             gaps = np.diff([0.0] + [r['t_s'] for r in tr])
-            entry['methods'][m] = dict(stopped=d['stopped'], n_eval=len(tr), wall_s=d['wall_s'], final_best_J=tr[-1]['J_best'], median_s_per_eval=float(np.median(gaps)),
+            entry['methods'][m] = dict(stopped=d['stopped'], n_eval=len(tr), wall_s=d['wall_s'], final_best_J=tr[-1]['J_best'], best_x=min(tr, key=lambda r: r['J']).get('x'), median_s_per_eval=float(np.median(gaps)),
                                        to_10pct=first_reaching(tr, 1.10 * best), to_5pct=first_reaching(tr, 1.05 * best), source=d.get('source', 'own JSON'),
                                        trace=[{k: r[k] for k in ('t_s', 'n_eval', 'J', 'J_best', 'eps', 'Ekin')} for r in tr])
         out['starts'][start] = entry
-        for f in sorted(RES.glob(f'2026-11-03_{start}_*.json')):
+        for f in sorted(res.glob(f'{pre}{start}_*.json')):
             out['source_sha256'][f.name] = common.sha256(f)
-    (common.EVIDENCE / '2026-10-26_R1/injector_optimiser.json').write_text(json.dumps(out, indent=1) + '\n')
+    (common.EVIDENCE / tag).mkdir(parents=True, exist_ok=True)
+    (common.EVIDENCE / tag / 'injector_optimiser.json').write_text(json.dumps(out, indent=1) + '\n')
     for start, e in out['starts'].items():
         print(start, 'best J', round(e['best_J'], 4))
         for m, v in e['methods'].items():

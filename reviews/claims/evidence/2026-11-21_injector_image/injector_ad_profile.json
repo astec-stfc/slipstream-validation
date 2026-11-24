@@ -1,0 +1,729 @@
+{
+ "nominal": {
+  "cavities[0].phase_deg": -9.0,
+  "cavities[0].e_max_V_per_m": 105000000.0,
+  "cavities[1].phase_deg": -16.0,
+  "cavities[1].e_max_V_per_m": 19500000.0,
+  "solenoids[0].b_max_T": 0.27,
+  "charge_scale": 1.0
+ },
+ "particles": 1024,
+ "dt_s": 5e-13,
+ "image": "on",
+ "image_steps": 379,
+ "rows": [
+  {
+   "z_stop_m": 0.05,
+   "n_steps": 521,
+   "z_reached_m": 0.07125573846469414,
+   "values": {
+    "emit_x_mm_mrad": 9.638287414704067,
+    "sigma_x_mm": 0.37425883944799504,
+    "sigma_z_mm": 0.22541275880292616,
+    "emit_z_kev_mm": 0.13045458402186566,
+    "Ekin_MeV": 3.993976792373187,
+    "dE_rms_keV": 5.346651911206957
+   },
+   "grad": {
+    "emit_x_mm_mrad": {
+     "cavities[0].phase_deg": 0.10881835379468892,
+     "cavities[0].e_max_V_per_m": -8.92797084660052e-09,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": 27.618718342691977,
+     "charge_scale": 1.301904968976973
+    },
+    "sigma_x_mm": {
+     "cavities[0].phase_deg": 0.002008119420146369,
+     "cavities[0].e_max_V_per_m": -3.1864210977505375e-10,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": -0.13863109720364986,
+     "charge_scale": 0.02504772420269702
+    },
+    "sigma_z_mm": {
+     "cavities[0].phase_deg": 0.0022095884919000517,
+     "cavities[0].e_max_V_per_m": 6.305558061261201e-11,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": -8.768311799083471e-06,
+     "charge_scale": 0.006928593552515293
+    },
+    "emit_z_kev_mm": {
+     "cavities[0].phase_deg": -0.0018214969214807762,
+     "cavities[0].e_max_V_per_m": 1.3068561871283238e-09,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": -0.00623092270251515,
+     "charge_scale": 0.05418864439322809
+    },
+    "Ekin_MeV": {
+     "cavities[0].phase_deg": 0.014556345435393298,
+     "cavities[0].e_max_V_per_m": 3.715934392116577e-08,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": -0.0001874757105695278,
+     "charge_scale": 4.399015558840602e-05
+    },
+    "dE_rms_keV": {
+     "cavities[0].phase_deg": -0.6343129472454925,
+     "cavities[0].e_max_V_per_m": 2.4007780582900363e-07,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": -0.02042603918321425,
+     "charge_scale": -1.0656975476190356
+    }
+   },
+   "seconds": 28.50994610786438
+  },
+  {
+   "z_stop_m": 0.1,
+   "n_steps": 861,
+   "z_reached_m": 0.12190314995081082,
+   "values": {
+    "emit_x_mm_mrad": 14.901401193942238,
+    "sigma_x_mm": 0.450484633698303,
+    "sigma_z_mm": 0.22445034539832504,
+    "emit_z_kev_mm": 0.1605767137998936,
+    "Ekin_MeV": 4.078944354819377,
+    "dE_rms_keV": 6.720889061141799
+   },
+   "grad": {
+    "emit_x_mm_mrad": {
+     "cavities[0].phase_deg": 0.2196606966803649,
+     "cavities[0].e_max_V_per_m": 2.5390908297793067e-08,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": 6.236159969318524,
+     "charge_scale": 2.460412517108844
+    },
+    "sigma_x_mm": {
+     "cavities[0].phase_deg": 0.003381107702420771,
+     "cavities[0].e_max_V_per_m": 3.942190198387263e-10,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": -0.6960423768268241,
+     "charge_scale": 0.03701011437036451
+    },
+    "sigma_z_mm": {
+     "cavities[0].phase_deg": 0.0023215341218955038,
+     "cavities[0].e_max_V_per_m": 5.1213503023466903e-11,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": 2.3692650708723347e-05,
+     "charge_scale": 0.007074012045649959
+    },
+    "emit_z_kev_mm": {
+     "cavities[0].phase_deg": -0.002852246627896262,
+     "cavities[0].e_max_V_per_m": 9.880192023995432e-10,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": 0.0395771213442157,
+     "charge_scale": 0.08849375506878326
+    },
+    "Ekin_MeV": {
+     "cavities[0].phase_deg": 0.008190174622643487,
+     "cavities[0].e_max_V_per_m": 3.7588705905372674e-08,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": -0.00026576884696279677,
+     "charge_scale": 9.652327691205445e-05
+    },
+    "dE_rms_keV": {
+     "cavities[0].phase_deg": -0.7870966230971806,
+     "cavities[0].e_max_V_per_m": 2.6075944542125655e-07,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": -0.0461503335935723,
+     "charge_scale": -1.1579261541442039
+    }
+   },
+   "seconds": 46.887165546417236
+  },
+  {
+   "z_stop_m": 0.2,
+   "n_steps": 1531,
+   "z_reached_m": 0.2217088064196795,
+   "values": {
+    "emit_x_mm_mrad": 1.9493860193833206,
+    "sigma_x_mm": 0.44343920072554716,
+    "sigma_z_mm": 0.2226774178203628,
+    "emit_z_kev_mm": 0.2181608034278106,
+    "Ekin_MeV": 4.078942255689799,
+    "dE_rms_keV": 6.435875010849718
+   },
+   "grad": {
+    "emit_x_mm_mrad": {
+     "cavities[0].phase_deg": 0.039445646782609436,
+     "cavities[0].e_max_V_per_m": 3.447303337762483e-08,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": -16.69344890914324,
+     "charge_scale": 0.4477009088341255
+    },
+    "sigma_x_mm": {
+     "cavities[0].phase_deg": 0.005055622224644603,
+     "cavities[0].e_max_V_per_m": 4.477886815773892e-09,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": -2.7859708218498227,
+     "charge_scale": 0.04917346991736718
+    },
+    "sigma_z_mm": {
+     "cavities[0].phase_deg": 0.002545988234303152,
+     "cavities[0].e_max_V_per_m": 2.3071029497842168e-11,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": 9.283378557269326e-05,
+     "charge_scale": 0.0074377322046643235
+    },
+    "emit_z_kev_mm": {
+     "cavities[0].phase_deg": -0.003541421052186073,
+     "cavities[0].e_max_V_per_m": -7.105655598516646e-10,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": 0.5098379608089447,
+     "charge_scale": 0.16269830766153406
+    },
+    "Ekin_MeV": {
+     "cavities[0].phase_deg": 0.008190478174063775,
+     "cavities[0].e_max_V_per_m": 3.758932969695442e-08,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": -0.0005887145715328791,
+     "charge_scale": 9.705642804579546e-05
+    },
+    "dE_rms_keV": {
+     "cavities[0].phase_deg": -0.776613624521619,
+     "cavities[0].e_max_V_per_m": 2.6319308723257687e-07,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": -0.16739869962698675,
+     "charge_scale": -1.3737865068466908
+    }
+   },
+   "seconds": 81.8894100189209
+  },
+  {
+   "z_stop_m": 0.4,
+   "n_steps": 2871,
+   "z_reached_m": 0.4213210546164673,
+   "values": {
+    "emit_x_mm_mrad": 0.4171904836068124,
+    "sigma_x_mm": 0.3735569952526145,
+    "sigma_z_mm": 0.21938573330284566,
+    "emit_z_kev_mm": 0.4053804405244068,
+    "Ekin_MeV": 4.0789307240595685,
+    "dE_rms_keV": 5.967983399444977
+   },
+   "grad": {
+    "emit_x_mm_mrad": {
+     "cavities[0].phase_deg": -0.0017524671418031044,
+     "cavities[0].e_max_V_per_m": -1.5045667120816872e-09,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": 0.06149646063373575,
+     "charge_scale": 0.21140048201847172
+    },
+    "sigma_x_mm": {
+     "cavities[0].phase_deg": 0.007906227487767134,
+     "cavities[0].e_max_V_per_m": 1.3067292478992851e-08,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": -7.038168589386344,
+     "charge_scale": 0.07285897748266781
+    },
+    "sigma_z_mm": {
+     "cavities[0].phase_deg": 0.002985583038846255,
+     "cavities[0].e_max_V_per_m": -4.515687396921801e-11,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": 0.000969175148320441,
+     "charge_scale": 0.008423123273236598
+    },
+    "emit_z_kev_mm": {
+     "cavities[0].phase_deg": -0.00899870372347025,
+     "cavities[0].e_max_V_per_m": -1.1390282133209873e-08,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": 5.184829305377379,
+     "charge_scale": 0.3452624966316285
+    },
+    "Ekin_MeV": {
+     "cavities[0].phase_deg": 0.008191301699932941,
+     "cavities[0].e_max_V_per_m": 3.7591140736024654e-08,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": -0.0015391894013936835,
+     "charge_scale": 9.295647997487976e-05
+    },
+    "dE_rms_keV": {
+     "cavities[0].phase_deg": -0.7441519041032361,
+     "cavities[0].e_max_V_per_m": 2.5154025242519805e-07,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": 4.221596318983194,
+     "charge_scale": -1.5456638814818122
+    }
+   },
+   "seconds": 154.33506870269775
+  },
+  {
+   "z_stop_m": 0.7,
+   "n_steps": 4891,
+   "z_reached_m": 0.722229078579194,
+   "values": {
+    "emit_x_mm_mrad": 0.4367022482356912,
+    "sigma_x_mm": 0.2931240498383434,
+    "sigma_z_mm": 0.21517953832409137,
+    "emit_z_kev_mm": 0.9188080066771654,
+    "Ekin_MeV": 4.078912568052655,
+    "dE_rms_keV": 6.208061914959319
+   },
+   "grad": {
+    "emit_x_mm_mrad": {
+     "cavities[0].phase_deg": 0.0002828527712016281,
+     "cavities[0].e_max_V_per_m": 1.0263858467091597e-09,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": -1.2152691524579418,
+     "charge_scale": 0.19950583905653838
+    },
+    "sigma_x_mm": {
+     "cavities[0].phase_deg": 0.010894078912173814,
+     "cavities[0].e_max_V_per_m": 2.3613689608459367e-08,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": -12.433902155332317,
+     "charge_scale": 0.12239551893035791
+    },
+    "sigma_z_mm": {
+     "cavities[0].phase_deg": 0.0036171148290439097,
+     "cavities[0].e_max_V_per_m": -1.8671946792174908e-10,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": 0.007116068295841051,
+     "charge_scale": 0.010585940701362824
+    },
+    "emit_z_kev_mm": {
+     "cavities[0].phase_deg": -0.03704641716650449,
+     "cavities[0].e_max_V_per_m": -7.378922397049323e-08,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": 35.597550915081996,
+     "charge_scale": 0.6744798944956739
+    },
+    "Ekin_MeV": {
+     "cavities[0].phase_deg": 0.008192928261232836,
+     "cavities[0].e_max_V_per_m": 3.7595127906679344e-08,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": -0.0036601929417707023,
+     "charge_scale": 9.527012001349654e-05
+    },
+    "dE_rms_keV": {
+     "cavities[0].phase_deg": -0.6853476344839842,
+     "cavities[0].e_max_V_per_m": -2.312196616763438e-09,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": 104.02426352490423,
+     "charge_scale": -0.2849571078555861
+    }
+   },
+   "seconds": 266.8533639907837
+  },
+  {
+   "z_stop_m": 1.0,
+   "n_steps": 6901,
+   "z_reached_m": 1.0216474540307157,
+   "values": {
+    "emit_x_mm_mrad": 0.441507019065762,
+    "sigma_x_mm": 0.2560397795371749,
+    "sigma_z_mm": 0.21204436689635073,
+    "emit_z_kev_mm": 1.7096107908635076,
+    "Ekin_MeV": 4.078901680095394,
+    "dE_rms_keV": 8.632228583953987
+   },
+   "grad": {
+    "emit_x_mm_mrad": {
+     "cavities[0].phase_deg": -0.0010374815068680031,
+     "cavities[0].e_max_V_per_m": -1.477356124606338e-09,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": -0.05458314754976851,
+     "charge_scale": 0.20813461649390397
+    },
+    "sigma_x_mm": {
+     "cavities[0].phase_deg": 0.010775411680547369,
+     "cavities[0].e_max_V_per_m": 2.730662551047057e-08,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": -14.6184914365117,
+     "charge_scale": 0.17631018525225003
+    },
+    "sigma_z_mm": {
+     "cavities[0].phase_deg": 0.004185897265701748,
+     "cavities[0].e_max_V_per_m": -4.002395596910633e-10,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": 0.028859466374083775,
+     "charge_scale": 0.013669904817687623
+    },
+    "emit_z_kev_mm": {
+     "cavities[0].phase_deg": -0.07840792365649937,
+     "cavities[0].e_max_V_per_m": -1.9927327709158548e-07,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": 101.63650945133752,
+     "charge_scale": 0.7142799087500968
+    },
+    "Ekin_MeV": {
+     "cavities[0].phase_deg": 0.008193476921242173,
+     "cavities[0].e_max_V_per_m": 3.7597424366270154e-08,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": -0.005000754455462394,
+     "charge_scale": 0.00011052596675204542
+    },
+    "dE_rms_keV": {
+     "cavities[0].phase_deg": -0.7169373837468394,
+     "cavities[0].e_max_V_per_m": -7.185656119390831e-07,
+     "cavities[1].phase_deg": 0.0,
+     "cavities[1].e_max_V_per_m": 0.0,
+     "solenoids[0].b_max_T": 429.98572306181,
+     "charge_scale": 1.094957733980635
+    }
+   },
+   "seconds": 373.7848162651062
+  },
+  {
+   "z_stop_m": 1.3,
+   "n_steps": 8921,
+   "z_reached_m": 1.322676534445741,
+   "values": {
+    "emit_x_mm_mrad": 0.4375391199499846,
+    "sigma_x_mm": 0.23656025025268249,
+    "sigma_z_mm": 0.2099805487092148,
+    "emit_z_kev_mm": 2.4069148675316203,
+    "Ekin_MeV": 5.332125364616132,
+    "dE_rms_keV": 13.38107615431317
+   },
+   "grad": {
+    "emit_x_mm_mrad": {
+     "cavities[0].phase_deg": 0.0018955598599079107,
+     "cavities[0].e_max_V_per_m": 5.21094806187932e-09,
+     "cavities[1].phase_deg": -2.994409675302294e-05,
+     "cavities[1].e_max_V_per_m": 5.623317934798503e-11,
+     "solenoids[0].b_max_T": -3.302903848032093,
+     "charge_scale": 0.22029669491631626
+    },
+    "sigma_x_mm": {
+     "cavities[0].phase_deg": 0.0061874135206662325,
+     "cavities[0].e_max_V_per_m": 1.9349906162767457e-08,
+     "cavities[1].phase_deg": -0.0002560148532815994,
+     "cavities[1].e_max_V_per_m": -1.4807766221906133e-09,
+     "solenoids[0].b_max_T": -10.732069446299297,
+     "charge_scale": 0.18709689514824207
+    },
+    "sigma_z_mm": {
+     "cavities[0].phase_deg": 0.004602675529975309,
+     "cavities[0].e_max_V_per_m": -7.274749675625618e-10,
+     "cavities[1].phase_deg": 2.9225939589800616e-05,
+     "cavities[1].e_max_V_per_m": -5.90148184260395e-12,
+     "solenoids[0].b_max_T": 0.08691558083426859,
+     "charge_scale": 0.017339573806810046
+    },
+    "emit_z_kev_mm": {
+     "cavities[0].phase_deg": -0.0757976967565336,
+     "cavities[0].e_max_V_per_m": -2.6361818862653737e-07,
+     "cavities[1].phase_deg": 7.643209541292187e-05,
+     "cavities[1].e_max_V_per_m": 6.53171012152028e-10,
+     "solenoids[0].b_max_T": 141.98136335017668,
+     "charge_scale": 0.3802060842489793
+    },
+    "Ekin_MeV": {
+     "cavities[0].phase_deg": 0.0061591991448173965,
+     "cavities[0].e_max_V_per_m": 3.291983275433552e-08,
+     "cavities[1].phase_deg": 0.010320585588159124,
+     "cavities[1].e_max_V_per_m": 6.427607808643917e-08,
+     "solenoids[0].b_max_T": -0.0035397751537085257,
+     "charge_scale": 0.00024299576042869338
+    },
+    "dE_rms_keV": {
+     "cavities[0].phase_deg": -0.6672552215371734,
+     "cavities[0].e_max_V_per_m": -6.451449909961352e-07,
+     "cavities[1].phase_deg": -0.14853691411325387,
+     "cavities[1].e_max_V_per_m": 1.5279050933075353e-07,
+     "solenoids[0].b_max_T": 516.644829494586,
+     "charge_scale": -1.8680914212454862
+    }
+   },
+   "seconds": 474.88117146492004
+  },
+  {
+   "z_stop_m": 1.7,
+   "n_steps": 11591,
+   "z_reached_m": 1.7220960635886198,
+   "values": {
+    "emit_x_mm_mrad": 0.43110043339033194,
+    "sigma_x_mm": 0.192498031888995,
+    "sigma_z_mm": 0.20695570468591595,
+    "emit_z_kev_mm": 3.049711133066017,
+    "Ekin_MeV": 10.732994406749304,
+    "dE_rms_keV": 32.36756530310056
+   },
+   "grad": {
+    "emit_x_mm_mrad": {
+     "cavities[0].phase_deg": 0.0012020579522227567,
+     "cavities[0].e_max_V_per_m": 3.9906790550544675e-09,
+     "cavities[1].phase_deg": -1.5140380836250755e-05,
+     "cavities[1].e_max_V_per_m": 1.0116493095361193e-10,
+     "solenoids[0].b_max_T": -2.6263922803100725,
+     "charge_scale": 0.2093270355820035
+    },
+    "sigma_x_mm": {
+     "cavities[0].phase_deg": -0.00034184093968919326,
+     "cavities[0].e_max_V_per_m": 4.2024872449877e-09,
+     "cavities[1].phase_deg": -0.0007755807619837821,
+     "cavities[1].e_max_V_per_m": -4.9830470711910355e-09,
+     "solenoids[0].b_max_T": -2.5980625672799804,
+     "charge_scale": 0.13029786853487077
+    },
+    "sigma_z_mm": {
+     "cavities[0].phase_deg": 0.004598040286316712,
+     "cavities[0].e_max_V_per_m": -9.157543849449255e-10,
+     "cavities[1].phase_deg": 0.00020538789149934423,
+     "cavities[1].e_max_V_per_m": 3.736783744872017e-11,
+     "solenoids[0].b_max_T": 0.11267750714459848,
+     "charge_scale": 0.018317708671875176
+    },
+    "emit_z_kev_mm": {
+     "cavities[0].phase_deg": -0.025347415864599196,
+     "cavities[0].e_max_V_per_m": -2.2980272565251685e-07,
+     "cavities[1].phase_deg": 0.00018337863667163828,
+     "cavities[1].e_max_V_per_m": 6.452668667927104e-09,
+     "solenoids[0].b_max_T": 134.17287541558315,
+     "charge_scale": 0.1293062111532475
+    },
+    "Ekin_MeV": {
+     "cavities[0].phase_deg": -0.0025096852721705042,
+     "cavities[0].e_max_V_per_m": 1.242863393985266e-08,
+     "cavities[1].phase_deg": 0.040529320977407815,
+     "cavities[1].e_max_V_per_m": 3.39237546390485e-07,
+     "solenoids[0].b_max_T": 0.0024604314731161286,
+     "charge_scale": 0.0007606652732864312
+    },
+    "dE_rms_keV": {
+     "cavities[0].phase_deg": 0.3641274145804627,
+     "cavities[0].e_max_V_per_m": 9.158759320167388e-07,
+     "cavities[1].phase_deg": -1.3277167232537908,
+     "cavities[1].e_max_V_per_m": 1.4411861060688041e-06,
+     "solenoids[0].b_max_T": 175.98371609721355,
+     "charge_scale": -3.589984421075873
+    }
+   },
+   "seconds": 549.6644501686096
+  },
+  {
+   "z_stop_m": 2.2,
+   "n_steps": 14931,
+   "z_reached_m": 2.222426512246717,
+   "values": {
+    "emit_x_mm_mrad": 0.42635409505663385,
+    "sigma_x_mm": 0.17735687008840906,
+    "sigma_z_mm": 0.20516987796140093,
+    "emit_z_kev_mm": 3.566302229090892,
+    "Ekin_MeV": 17.57362323039994,
+    "dE_rms_keV": 56.27443959708232
+   },
+   "grad": {
+    "emit_x_mm_mrad": {
+     "cavities[0].phase_deg": 0.001418373848890017,
+     "cavities[0].e_max_V_per_m": 4.624630952327017e-09,
+     "cavities[1].phase_deg": -9.188316636317085e-06,
+     "cavities[1].e_max_V_per_m": 1.898135166889374e-10,
+     "solenoids[0].b_max_T": -3.0188489199128887,
+     "charge_scale": 0.21023116876926914
+    },
+    "sigma_x_mm": {
+     "cavities[0].phase_deg": -0.0047381946939432235,
+     "cavities[0].e_max_V_per_m": -6.979210919034492e-09,
+     "cavities[1].phase_deg": -0.001130490392010875,
+     "cavities[1].e_max_V_per_m": -7.409745242519149e-09,
+     "solenoids[0].b_max_T": 3.4567723745034757,
+     "charge_scale": 0.07866921844243999
+    },
+    "sigma_z_mm": {
+     "cavities[0].phase_deg": 0.004547779709457495,
+     "cavities[0].e_max_V_per_m": -1.0037769345073787e-09,
+     "cavities[1].phase_deg": 0.0003227074881069889,
+     "cavities[1].e_max_V_per_m": 1.170216410462799e-10,
+     "solenoids[0].b_max_T": 0.1186685213833656,
+     "charge_scale": 0.018455709151882167
+    },
+    "emit_z_kev_mm": {
+     "cavities[0].phase_deg": 0.03570277531313226,
+     "cavities[0].e_max_V_per_m": -1.498442014115928e-07,
+     "cavities[1].phase_deg": -0.001019218796877979,
+     "cavities[1].e_max_V_per_m": 1.2025302996394943e-08,
+     "solenoids[0].b_max_T": 101.23161322577637,
+     "charge_scale": 0.12248969552856595
+    },
+    "Ekin_MeV": {
+     "cavities[0].phase_deg": -0.012173794978069608,
+     "cavities[0].e_max_V_per_m": -1.0681203475550869e-08,
+     "cavities[1].phase_deg": 0.07349426774929833,
+     "cavities[1].e_max_V_per_m": 6.842085331105333e-07,
+     "solenoids[0].b_max_T": 0.008318865573872165,
+     "charge_scale": 0.0013174622051686652
+    },
+    "dE_rms_keV": {
+     "cavities[0].phase_deg": 1.5100238225371192,
+     "cavities[0].e_max_V_per_m": 2.1893598877604205e-06,
+     "cavities[1].phase_deg": -2.8193608029017914,
+     "cavities[1].e_max_V_per_m": 3.0671411083941578e-06,
+     "solenoids[0].b_max_T": 30.393868351934607,
+     "charge_scale": -1.8988983496805552
+    }
+   },
+   "seconds": 720.0535516738892
+  },
+  {
+   "z_stop_m": 2.7,
+   "n_steps": 18261,
+   "z_reached_m": 2.7214360952492735,
+   "values": {
+    "emit_x_mm_mrad": 0.42259410146001947,
+    "sigma_x_mm": 0.17497546201652442,
+    "sigma_z_mm": 0.20429802855850368,
+    "emit_z_kev_mm": 3.90634335257748,
+    "Ekin_MeV": 24.43582593841934,
+    "dE_rms_keV": 78.6543850231354
+   },
+   "grad": {
+    "emit_x_mm_mrad": {
+     "cavities[0].phase_deg": 0.001688481407563766,
+     "cavities[0].e_max_V_per_m": 5.401119280922935e-09,
+     "cavities[1].phase_deg": -1.0589745584830003e-05,
+     "cavities[1].e_max_V_per_m": 2.4809013465888865e-10,
+     "solenoids[0].b_max_T": -3.44199611343868,
+     "charge_scale": 0.2120305105030315
+    },
+    "sigma_x_mm": {
+     "cavities[0].phase_deg": -0.007062961146832189,
+     "cavities[0].e_max_V_per_m": -1.348989754854044e-08,
+     "cavities[1].phase_deg": -0.001319760164159384,
+     "cavities[1].e_max_V_per_m": -8.882466831607719e-09,
+     "solenoids[0].b_max_T": 7.033806605159166,
+     "charge_scale": 0.04181122440711707
+    },
+    "sigma_z_mm": {
+     "cavities[0].phase_deg": 0.004517455314884005,
+     "cavities[0].e_max_V_per_m": -1.0461670711354153e-09,
+     "cavities[1].phase_deg": 0.00038309907733761914,
+     "cavities[1].e_max_V_per_m": 1.671002414164336e-10,
+     "solenoids[0].b_max_T": 0.12031176522890434,
+     "charge_scale": 0.018468210795629627
+    },
+    "emit_z_kev_mm": {
+     "cavities[0].phase_deg": 0.07975592875949979,
+     "cavities[0].e_max_V_per_m": -8.519316901265048e-08,
+     "cavities[1].phase_deg": -0.0036137501783155696,
+     "cavities[1].e_max_V_per_m": 1.5937135669178957e-08,
+     "solenoids[0].b_max_T": 73.60283802258643,
+     "charge_scale": 0.19042965562965197
+    },
+    "Ekin_MeV": {
+     "cavities[0].phase_deg": -0.02104224858957143,
+     "cavities[0].e_max_V_per_m": -3.1944802534216396e-08,
+     "cavities[1].phase_deg": 0.10401779918247436,
+     "cavities[1].e_max_V_per_m": 1.028839720252739e-06,
+     "solenoids[0].b_max_T": 0.012556576404108438,
+     "charge_scale": 0.0018227804744357303
+    },
+    "dE_rms_keV": {
+     "cavities[0].phase_deg": 2.5195975574082032,
+     "cavities[0].e_max_V_per_m": 3.2608576491684227e-06,
+     "cavities[1].phase_deg": -4.282541894228994,
+     "cavities[1].e_max_V_per_m": 4.655432110047036e-06,
+     "solenoids[0].b_max_T": -23.927392487800738,
+     "charge_scale": 0.053405551205645635
+    }
+   },
+   "seconds": 866.7138328552246
+  },
+  {
+   "z_stop_m": 3.37147,
+   "n_steps": 22741,
+   "z_reached_m": 3.392867394057607,
+   "values": {
+    "emit_x_mm_mrad": 0.41716686202604875,
+    "sigma_x_mm": 0.18337858304307786,
+    "sigma_z_mm": 0.2036587775962598,
+    "emit_z_kev_mm": 4.217015921834416,
+    "Ekin_MeV": 31.866235934239896,
+    "dE_rms_keV": 102.81048110653897
+   },
+   "grad": {
+    "emit_x_mm_mrad": {
+     "cavities[0].phase_deg": 0.0020554468560827674,
+     "cavities[0].e_max_V_per_m": 6.434414727706892e-09,
+     "cavities[1].phase_deg": 3.7228562073574706e-05,
+     "cavities[1].e_max_V_per_m": 6.157894545353793e-10,
+     "solenoids[0].b_max_T": -4.039173179176402,
+     "charge_scale": 0.21381759333470818
+    },
+    "sigma_x_mm": {
+     "cavities[0].phase_deg": -0.008850948990390545,
+     "cavities[0].e_max_V_per_m": -1.8933549800092272e-08,
+     "cavities[1].phase_deg": -0.0014756938760197293,
+     "cavities[1].e_max_V_per_m": -1.0328224941338747e-08,
+     "solenoids[0].b_max_T": 10.063235386595784,
+     "charge_scale": 0.00769891397581829
+    },
+    "sigma_z_mm": {
+     "cavities[0].phase_deg": 0.004493258200526052,
+     "cavities[0].e_max_V_per_m": -1.077496956487204e-09,
+     "cavities[1].phase_deg": 0.0004288153096984564,
+     "cavities[1].e_max_V_per_m": 2.0764696498340079e-10,
+     "solenoids[0].b_max_T": 0.12105081931283654,
+     "charge_scale": 0.018458955295038167
+    },
+    "emit_z_kev_mm": {
+     "cavities[0].phase_deg": 0.11990283524252189,
+     "cavities[0].e_max_V_per_m": -2.4544590785940415e-08,
+     "cavities[1].phase_deg": -0.007546162905553862,
+     "cavities[1].e_max_V_per_m": 1.9586786661850842e-08,
+     "solenoids[0].b_max_T": 47.6716447008151,
+     "charge_scale": 0.2876425021891831
+    },
+    "Ekin_MeV": {
+     "cavities[0].phase_deg": -0.030532773941911565,
+     "cavities[0].e_max_V_per_m": -5.472469951098229e-08,
+     "cavities[1].phase_deg": 0.13295462184290785,
+     "cavities[1].e_max_V_per_m": 1.4008931744805485e-06,
+     "solenoids[0].b_max_T": 0.01638731625923902,
+     "charge_scale": 0.0023690236717314474
+    },
+    "dE_rms_keV": {
+     "cavities[0].phase_deg": 3.559189546198108,
+     "cavities[0].e_max_V_per_m": 4.31573649733479e-06,
+     "cavities[1].phase_deg": -5.859329841739295,
+     "cavities[1].e_max_V_per_m": 6.396429697618049e-06,
+     "solenoids[0].b_max_T": -48.95251186231568,
+     "charge_scale": 2.219528019882989
+    }
+   },
+   "seconds": 1080.6692702770233
+  }
+ ],
+ "env": {
+  "torch": "2.14.0+cu132"
+ },
+ "source_sha256": {
+  "part0.json": "0dfc53b35cbe12b45a482aa1a5e0c22a33a6025e987de024bc07f05a32765a90",
+  "part1.json": "edb781e26a14bd2be44693d07364dc67287ed6bd294c2a2c654ce9882bd4efb2",
+  "part2.json": "a43ba6985a40bb6cca585be9263849fb1ddbede79f193c407ebbf224c8c34dc6"
+ },
+ "analysis_sha256": "9081761b3bbf68c0616fbd36c2944d6acf79b8e1fad13e90fe76824a48014b66"
+}
