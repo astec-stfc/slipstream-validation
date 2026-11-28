@@ -55,6 +55,13 @@ NOREF_OK = {("sc_drift", "astra", "cpu-f64-3d64h1.4"),
 _ELEGANT_BUILD = ("the image's elegant 2026.1.0 gives a finite-difference Jacobian 7.6e-9 (absolute) away from the paper's 2026.3.0 (endpoint state "
                   "6e-14); the worst-column error of Slipstream is 4.7e-5 against 2026.3.0 and 2.1e-5 against 2026.1.0, the difference of two "
                   "numbers that small; native 2026.3.0 with this worker reproduces the archived row exactly")
+# Metrics that differ between hosts by more than the floor of their case: (case, metric) -> floor.  Ratchets from a measured spread.
+FLOORS = {
+    # 28 November 2026, a GitHub runner against the workstation, both in the image: the finite-difference Jacobians of Slipstream differ by up to
+    # 1.5e-7 in the worst column (step 1e-5) and the autodiff Jacobians by 1.6e-13, so the move of this metric is round-off.  Twice that spread.
+    ("ring_grad", "ad_vs_fd_col"): 3e-7,
+}
+
 KNOWN: dict = {   # (case, code, config, metric) -> reason
     ("ring_grad", "slipstream", "cpu-f64-o6q8s1b8", "rel_col"): _ELEGANT_BUILD,
     # SciBmad: same reference shift (rel_col falls 2.2x like Slipstream's); its rel_fro and ad_vs_fd_col are equal to the archive
@@ -110,7 +117,7 @@ def judge(case, code, cfg, x, o, limits):
         o is not None and any(num(x.get(m)) is None and num(o.get(m)) is not None for m in spec["metrics"]))
     for m in spec["metrics"]:
         n, a = num(x.get(m)), num(o.get(m)) if o else None
-        if n is not None and a is not None and abs(n - a) > max(REL * abs(a), spec["floor"]):
+        if n is not None and a is not None and abs(n - a) > max(REL * abs(a), FLOORS.get((case, m), spec["floor"])):
             moved.append((m, a, n))
     for m in spec.get("flags", []):
         if o is not None and str(x.get(m)) != str(o.get(m)):

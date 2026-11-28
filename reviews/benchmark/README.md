@@ -87,6 +87,9 @@ holds the numerical controls of the harness itself (no external code). `launch/c
 
 ## Gates
 
+One metric has a floor of its own (`FLOORS` in `check.py`): `ring_grad` `ad_vs_fd_col`, 3e-7, twice the finite-difference round-off
+measured between two hosts on 28 November 2026.
+
 `check compare TAG` is the gate of a rerun. It analyses every case in the campaign with the case's own script and compares it with the
 archived campaign: a metric agrees when it moved by no more than max(25 % of the archived value, a floor) from the archived value in
 `reviews/claims/evidence/2026-10-26_R1/`. This is a ratchet from one host pair, to be re-measured on a second host. The physics gate of
