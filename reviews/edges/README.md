@@ -21,9 +21,13 @@ today's accuracy so that a loss of it is noticed.
 | the same with `sigma_z_floor_m` lowered to 0.5 um | the plane stays an equipotential | the adaptive mesh exceeds its cap and **drops the image without a message** | pinned (documented behaviour) |
 | CSR of a bunch with a spike, grid kernel, 256 to 2048 bins | 1-D steady-state quadrature | rms 4.4 % at 256 bins, 0.09 % at 2048 | target: converges; ratchets |
 | the same, pairwise kernel (`fast_collective_effects=False`, the `LinacTracker` default) | the same | **rms 24 %, largest 63 %** at 3000 particles, 22 % and 57 % at 10 000 | ratchet |
+| the same random particles, grid kernel at 256 bins | the same | rms 5.5 %, largest 15 % at 3000; 3.8 % and 11 % at 10 000 | ratchet |
 | steps that graze apertures, plugs, slits and scrapers, also placed ones | dense sampling of the step | no loss missed | target |
 | a point exactly on an aperture edge | inside | inside | target |
 | excursion between two turn boundaries | lost at the element | `track_loss_map` sees it, `track` does not (documented) | pinned |
+
+The two kernels are compared above on equal numbers of particles, drawn at random (mean over five seeds; noise-free quantile samples
+give the pairwise kernel the same error). The ranking is a statement about this spiked bunch, not about smooth ones.
 
 Near the cathode the emission law of `PhotoCathodeModel` uses its own screening calculation, not this mesh; the mesh field is what
 pushes the particles.

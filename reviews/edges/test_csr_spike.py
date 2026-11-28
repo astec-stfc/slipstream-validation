@@ -72,6 +72,14 @@ def test_grid_kernel_at_the_default_256_bins():
 
 
 @pytest.mark.parametrize("n", [3000, 10000])
+def test_grid_kernel_at_equal_particle_number(n):
+    """The fair comparison with the pairwise kernel below: the same particles, drawn at random so that shot noise counts."""
+    rng = np.random.default_rng(0)
+    tau = np.concatenate([s * rng.standard_normal(round(f * n)) for f, s in PARTS])
+    assert errors(tau, grid_kick(tau, 256))[0] < 0.11   # ratchet: mean rms over five seeds 0.055 at 3000 particles, 0.038 at 10 000
+
+
+@pytest.mark.parametrize("n", [3000, 10000])
 def test_pairwise_kernel_on_the_spike(n):
     """The kernel of ``fast_collective_effects=False`` (the LinacTracker default) smooths with Silverman's bandwidth of the whole bunch,
     far wider than the spike.  The limits record how far that is from the reference (measured rms 0.24 and 0.22, largest 0.63 and 0.57, a
