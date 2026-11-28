@@ -30,6 +30,15 @@ pytest -m tier0
 
 This recomputes every number quoted in the paper from `reviews/claims/evidence/` and writes `results/claims.csv`.
 
+## Gates against Slipstream (any PC, no simulation code)
+
+```bash
+SSV_SLIPSTREAM=../slipstream pytest -m slipstream      # without the variable: the installed package
+```
+
+CI runs the fast ones on every push against Slipstream `develop`. The `Nightly` workflow runs all of them and a campaign in the
+simulation image; start it by hand to test another branch or a pull request (`refs/pull/N/head`).
+
 ## Running the codes (a Linux host with Docker)
 
 ```bash

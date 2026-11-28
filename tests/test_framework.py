@@ -87,6 +87,11 @@ def test_the_gate_can_fail():
     big = dict(ad_vs_fd_fro="1e-6", ad_vs_fd_col="1e-6", rel_fro="1e-3", rel_col="1e-3", dy0="1e-3")
     assert judge(dict(big, rel_fro="1.2e-3"), big, "ring_grad") == "ok"
     assert judge(dict(big, rel_fro="1.3e-3"), big, "ring_grad") == "MOVED"
+    # a metric with its own floor (finite-difference round-off between hosts): only that one
+    small = dict(big, ad_vs_fd_fro="3e-8", ad_vs_fd_col="3e-8")
+    assert judge(dict(small, ad_vs_fd_col="1.2e-7"), small, "ring_grad") == "ok"
+    assert judge(dict(small, ad_vs_fd_col="5e-7"), small, "ring_grad") == "MOVED"
+    assert judge(dict(small, ad_vs_fd_fro="1.2e-7"), small, "ring_grad") == "MOVED"
     # absolute limit of the case beats the archive: the archive itself may not break G11
     assert judge(dict(big, ad_vs_fd_fro="2e-5"), dict(big, ad_vs_fd_fro="2e-5"), "ring_grad", lim={"jac_rel": 1e-5}) == "LIMIT"
     # a flag that changed
