@@ -1,4 +1,5 @@
 """Tier 0: the cases, the workers, bench.toml and the archived evidence agree.  No simulation code is started."""
+import re
 import subprocess
 import tomllib
 
@@ -46,6 +47,16 @@ def test_plan_lists_jobs_for_the_image_codes_only():
     assert not any(j[2].startswith("cuda") for j in jobs)             # no GPU unless bench.local.toml asks
     gpu = dict(bench, docker=dict(bench["docker"], gpus=True))
     assert any(j[2].startswith("cuda") for j in runner.jobs_for("benchmark", gpu, case=["ring_tunes"])[0])
+
+
+@pytest.mark.tier0
+def test_the_base_image_is_pinned_and_the_nightly_plans_only_codes_of_the_core_image(monkeypatch):
+    docker = (runner.ROOT / "docker" / "Dockerfile").read_text()
+    assert re.search(r"^ARG SIMCODES_IMAGE=\S+@sha256:[0-9a-f]{64}$", docker, re.M)
+    assert " AS core" in docker
+    monkeypatch.setenv("SSV_BENCH", str(runner.ROOT / "bench.ci.toml"))
+    codes = {j[1] for j in runner.jobs_for("benchmark", runner.load_bench())[0]}
+    assert codes == {"slipstream", "elegant", "astra", "xsuite", "cheetah", "ocelot"}
 
 
 @pytest.mark.tier0

@@ -24,7 +24,7 @@ and the failing case stays as `xfail` with the issue number in the reason.
 
 ## Traps
 
-- Slipstream's repository is private, so the image cannot clone it. Mount a `git archive` export of the commit under test (`checkouts/slipstream-NAME`, `[paths].slipstream`), never a working tree: on the Windows workstation `slipstream/examples` is a junction to `slipstream_examples`, which Docker does not follow (21 false test failures, 6 November 2026).
+- Slipstream is not in the image. Mount a `git archive` export of the commit under test (`checkouts/slipstream-NAME`, `[paths].slipstream`), never a working tree: on the Windows workstation `slipstream/examples` is a junction to `slipstream_examples`, which Docker does not follow (21 false test failures, 6 November 2026).
 - A background job started with `nohup ... &` inside a `wsl.exe` call is killed when the call returns. Run the whole `wsl.exe` command as a background task of your tool, and write its output to a file with `python -u`.
 - The conda environment on the Windows workstation imports Slipstream from `C:\...\Documents\GitHub\slipstream`, not from the `neg_coating_rwi` submodule. Set `PYTHONPATH` to the checkout under test.
 - On Windows, set `CXX=clang-cl` before any `torch.compile` run. In the image `g++` is used and needs nothing.
