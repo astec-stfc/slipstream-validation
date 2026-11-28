@@ -1,7 +1,7 @@
-results/
-runs/
-work/
-checkouts/
+/results/
+/runs/
+/work/
+/checkouts/
 __pycache__/
 .pytest_cache/
 *.pyc

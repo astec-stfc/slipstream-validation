@@ -1,4 +1,5 @@
 """Tier 0: the cases, the workers, bench.toml and the archived evidence agree.  No simulation code is started."""
+import subprocess
 import tomllib
 
 import pytest
@@ -24,6 +25,16 @@ def test_no_machine_path_is_committed():
     for p in [runner.ROOT / "bench.toml", *BENCH.rglob("*.py"), *BENCH.rglob("*.toml")]:
         text = p.read_text(errors="ignore")
         assert "C:/Users" not in text and "C:" + chr(92) + "Users" not in text, p
+
+
+@pytest.mark.tier0
+def test_git_ignores_no_evidence():
+    """An ignored evidence file exists on this PC and nowhere else: `runs/` once hid one the claims read, and CI failed on every push."""
+    if not (runner.ROOT / ".git").exists():
+        pytest.skip("not a git checkout")
+    r = subprocess.run(["git", "-C", str(runner.ROOT), "ls-files", "--others", "--ignored", "--exclude-standard", "--", "reviews/claims/evidence"],
+                       capture_output=True, text=True, check=True)
+    assert not r.stdout, r.stdout
 
 
 @pytest.mark.tier0
