@@ -87,6 +87,9 @@ holds the numerical controls of the harness itself (no external code). `launch/c
 
 ## Gates
 
+One metric has a floor of its own (`FLOORS` in `check.py`): `ring_grad` `ad_vs_fd_col`, 3e-7, twice the finite-difference round-off
+measured between two hosts on 28 November 2026.
+
 `check compare TAG` is the gate of a rerun. It analyses every case in the campaign with the case's own script and compares it with the
 archived campaign: a metric agrees when it moved by no more than max(25 % of the archived value, a floor) from the archived value in
 `reviews/claims/evidence/2026-10-26_R1/`. This is a ratchet from one host pair, to be re-measured on a second host. The physics gate of
@@ -97,8 +100,28 @@ report folder (G1 to G13). `CASES` in `check.py` says which columns are gated, t
 | --- | --- | --- | --- |
 | `ring_tunes` | `dq_ref` | 1e-9 | |
 | `ring_grad` | `ad_vs_fd_fro`, `ad_vs_fd_col`, `rel_fro`, `rel_col`, `dy0` | 1e-9 | `ad_vs_fd_fro` must stay below `jac_rel` = 1e-5 (G11), whatever the archive says |
-| `sc_drift` | `size`, `length`, `emit`, `spread` against the reference, `dEkin_change_eV` | 1e-9 | `pass` flag equal |
+| `sc_drift` | `size`, `length`, `emit`, `spread` against the reference, `dEkin_change_eV` | 1e-9 | `pass` flag equal; limits on the final distributions, below |
 | `linear_fodo` | `position_abs_m`, `momentum_abs` | 1e-15 | `pass` flag equal; `cpu-f64-o4k4b8` fails the 1e-11 gate by design, in the archive too |
+
+### Distributions
+
+Rms sizes and emittances can agree while the tails differ. `sc_drift` also compares the final particles with the reference's
+([phase_space.py](phase_space.py)): each of (x, x'), (y, y') and (z, delta) is whitened with its own covariance, then `shape` is the
+sliced Wasserstein-1 distance (in standard deviations) and `halo` the relative difference of the 99.9th percentile radius.
+
+| Column | Limit | Largest measured, 28 November 2026 | What space charge itself changes over the 3 m |
+| --- | --- | --- | --- |
+| `shape_vs_ref` | 0.011 | 0.0055 (ASTRA axisymmetric) | 0.089 |
+| `halo_vs_ref` | 0.016 | 0.0081 (ASTRA axisymmetric) | 0.31 |
+| `shape_z_vs_ref` | 0.015 | 0.0076 (Slipstream cylindrical) | 0.041 |
+| `halo_z_vs_ref` | 0.073 | 0.037 (Slipstream cylindrical; its 3-D solver 0.0023) | 0.11 |
+
+These are ratchets, measured with ASTRA 4.0 (Windows) and Slipstream `86f31e6` on the CPU. The last column is the distance of the
+input bunch from the reference at 3 m: the `halo_z` limit is close to it, so that column only sees a large error. The codes track the
+same macroparticles, so sampling noise does not enter (two independent halves of one bunch would differ by 0.012 in `shape` and 0.09 in `halo`).
+
+ASTRA and Slipstream write `snapshot.npz`; a row of theirs without one fails when the reference has one. The other codes' workers do
+not write it yet and are not gated on distributions. A campaign made before 28 November 2026 has no snapshots and is not affected.
 
 Rows: `ok`, `new` (a rung with no archived row on purpose, `NOREF_OK`), `NOREF` (no archived row and not allowed: a hole), `MOVED`,
 `LIMIT`, `FAILED`, and `XFAIL` (moved, with a reason in `KNOWN`). Exit status is 1 for `MOVED`, `LIMIT` and `FAILED`.

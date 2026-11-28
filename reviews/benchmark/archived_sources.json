@@ -7,5 +7,6 @@
  "workers/w_gpt.py": "60187970495b782411210232fe1d9a00e935464db4be080388d98163154ac26e",
  "workers/w_jutrack.py": "73a3673bd315601e3af28c4668843e5bb03b12abf1b93c7e030471216e832f33",
  "workers/w_ocelot_sc.py": "3ea60dfca4e2ffe50a5856a6ccd51d13735ebee164b485a149c3aba8bb45aa15",
- "workers/w_scibmad.py": "2fee28c40f7cff98d2f002f27385c9ba7d4456d545d0c838138d9d8eb6a92228"
+ "workers/w_scibmad.py": "2fee28c40f7cff98d2f002f27385c9ba7d4456d545d0c838138d9d8eb6a92228",
+ "workers/w_slipstream_sc.py": "4d0f7a3cbd33f66857d5b732198f7e05264410a5d9c20b4dd38a08d34ccaa2c6"
 }
