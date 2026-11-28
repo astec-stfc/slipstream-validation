@@ -17,8 +17,11 @@ import numpy as np
 HERE = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import common  # noqa: E402
+import phase_space  # noqa: E402
 
 OBS = dict(size=("sigma_x_m", "sigma_y_m"), length=("sigma_z_m",), emit=("eps_nx_m", "eps_ny_m"), spread=("sigma_E_eV",))
+PHASE = ("shape", "halo", "shape_z", "halo_z")   # distances of the final distributions from the reference's (phase_space.py)
+SNAPSHOT_CODES = ("slipstream", "astra")        # their workers save one: a row of theirs without it is reported, not skipped
 
 
 def solver_family(cfg):
@@ -51,12 +54,13 @@ def main():
     for res in sorted(root.glob("*/*/p*/result.json")):
         r = json.loads(res.read_text())
         runs.setdefault((r["code"], r["config"]["name"]), []).append((r, res.parent))
-    rows, tabs = [], {}
+    rows, tabs, folders = [], {}, {}
     for (code, name), rs in runs.items():
         ok = [(r, d) for r, d in rs if r["status"] == "ok"]
         row = dict(code=code, config=name, rank=rs[0][0]["rank"], n_proc=len(rs), n_ok=len(ok),
                    solver_family=solver_family(rs[0][0]["config"]))
         if ok:
+            folders[(code, name)] = ok[0][1]
             tabs[(code, name)] = np.load(ok[0][1] / "tbt.npz")["tbt"]
             med = lambda f: float(np.median([f(r) for r, _ in ok]))  # noqa: E731
             row.update(warm_s=med(lambda r: r["timing"]["warm_s"]["median"]) if ok[0][0]["timing"]["warm_s"] else None,
@@ -72,6 +76,7 @@ def main():
     cand = [r for r in rows if r["code"] == ref_code and (ref_code, r["config"]) in tabs]
     ref_row = max(cand, key=lambda r: r["rank"]) if cand else None
     ref = tabs[(ref_code, ref_row["config"])] if ref_row else None
+    ref_snapshot = folders[(ref_code, ref_row["config"])] / "snapshot.npz" if ref_row else None
     for r in rows:
         t = tabs.get((r["code"], r["config"]))
         if t is None:
@@ -87,8 +92,15 @@ def main():
         if ref is not None:
             r.update(energy_gaps(t, ref, cols))
             r["pass"] = r["size_vs_ref"] <= tol["sigma_rel"] and r["emit_vs_ref"] <= tol["eps_rel"] and r["length_vs_ref"] <= tol["sigma_rel"]
+        if ref_snapshot is not None and ref_snapshot.exists():
+            snapshot = folders[(r["code"], r["config"])] / "snapshot.npz"
+            if snapshot.exists():
+                found = phase_space.compare(np.load(snapshot), np.load(ref_snapshot), case["stations_m"][-1])
+                r.update({f"{k}_vs_ref": found[k] for k in PHASE})
+            elif r["code"] in SNAPSHOT_CODES:
+                r.update({f"{k}_vs_ref": "missing" for k in PHASE})
     keys = ["code", "config", "rank", "n_proc", "n_ok", "warm_s", "cold_s", "build_s", "import_s", "rss_mb", "cuda_mb"] + \
-           [f"{k}_vs_ref" for k in OBS] + [f"{k}_vs_prev" for k in OBS] + ["dEkin_eV", "baseline_dEkin_eV", "dEkin_change_eV", "pass", "warnings", "error"]
+           [f"{k}_vs_ref" for k in OBS] + [f"{k}_vs_prev" for k in OBS] + ["dEkin_eV", "baseline_dEkin_eV", "dEkin_change_eV", "pass", "warnings", "error"] + [f"{k}_vs_ref" for k in PHASE]
     with open(root / "summary.csv", "w", newline="") as f:
         w = csv.DictWriter(f, keys, extrasaction="ignore")
         w.writeheader()
@@ -99,10 +111,10 @@ def main():
           f"Differences are the worst relative difference over stations 1.. ({len(case['stations_m']) - 1} stations); tolerances: size and length {tol['sigma_rel']:g}, emittance {tol['eps_rel']:g}. "
           "`prev` is the change within the same solver family, device and precision. Times are medians over independent processes. "
           "CSV energy columns separate the absolute mean-energy gap, entrance baseline offset and discrepancy in energy change, so a constant GPT offset is not read as an incorrect force.", "",
-          "| code | config | warm [s] | cold [s] | size vs ref | length vs ref | emit vs ref | spread vs ref | dEkin [eV] | emit vs prev | pass | warnings |", "|---|---|---|---|---|---|---|---|---|---|---|---|"]
+          "| code | config | warm [s] | cold [s] | size vs ref | length vs ref | emit vs ref | spread vs ref | dEkin [eV] | emit vs prev | shape vs ref | halo vs ref | pass | warnings |", "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for r in rows:
         md.append(f"| {r['code']} | {r['config']} | {g(r.get('warm_s'))} | {g(r.get('cold_s'))} | {g(r.get('size_vs_ref'))} | {g(r.get('length_vs_ref'))} | {g(r.get('emit_vs_ref'))} | "
-                  f"{g(r.get('spread_vs_ref'))} | {g(r.get('dEkin_eV'))} | {g(r.get('emit_vs_prev'))} | {r.get('pass', '-')} | {r.get('warnings') or r.get('error') or ''} |")
+                  f"{g(r.get('spread_vs_ref'))} | {g(r.get('dEkin_eV'))} | {g(r.get('emit_vs_prev'))} | {g(r.get('shape_vs_ref'))} | {g(r.get('halo_vs_ref'))} | {r.get('pass', '-')} | {r.get('warnings') or r.get('error') or ''} |")
     md += ["", "## Cheapest passing configuration per code (by warm time)", ""]
     for c in sorted({r["code"] for r in rows}):
         okc = [r for r in rows if r["code"] == c and r.get("pass") and r.get("warm_s") is not None]
