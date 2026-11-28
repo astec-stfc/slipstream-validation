@@ -1,0 +1,13 @@
+# GitHub Actions (.github/workflows/nightly.yml): Docker on the runner, the `core` target of docker/Dockerfile, so only the codes
+# of the simcodes image.  Use with SSV_BENCH=bench.ci.toml.
+[docker]
+image = "slipstream-validation:core"
+
+[codes.scibmad]
+platform = "skip"
+
+[codes.bmadx]
+platform = "skip"
+
+[codes.helix]
+platform = "skip"

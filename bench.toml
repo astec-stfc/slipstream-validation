@@ -33,7 +33,7 @@ conda_base = "~/miniforge3"
 base = "~/miniforge3"
 
 [paths]
-slipstream = ""       # checkout of Slipstream to test; required by the image (the repository is private, so the image cannot clone it)
+slipstream = ""       # checkout of Slipstream to test; required by the image, which does not contain Slipstream
 
 # ---- in the base image (simcodes: ASTRA, elegant, Xsuite, Cheetah, Ocelot)
 [codes.slipstream]

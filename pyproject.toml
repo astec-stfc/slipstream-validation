@@ -13,6 +13,8 @@ markers = [
     "benchmark: the frozen cross-code cases",
     "injector: CLARA injector against ASTRA and GPT",
     "tier0: needs Python, numpy and pytest only; runs in CI",
+    "slipstream: needs Slipstream and torch on a CPU, no external code; runs in CI",
+    "slow: more than a few seconds; the nightly run includes these",
     "tier1: needs the validation image (ASTRA, elegant, Ocelot, Xsuite, Cheetah) and Slipstream on CPU",
     "tier2: needs a GPU, a licensed code (GPT) or an external build (ImpactX, JuTrack, HELIX)",
 ]
