@@ -48,13 +48,15 @@ LINEAR_ONLY = {
 }
 
 # Ratchets (about twice the value measured at STATES on 28 November 2026) for approximations that are intended and documented in Slipstream:
-# the elegant-style edge map acts on slopes (EDGE_EFFECTS=1), and the deflecting cavity is symplectic with beta0 in place of beta(delta).
+# the elegant-style edge map acts on slopes (EDGE_EFFECTS=1), the deflecting cavity is symplectic with beta0 in place of beta(delta), and the
+# thin corrector kicks slopes, as elegant's does (the same 1.5e-6 on the reference orbit in both codes).
 RATCHET = [   # (id, element, energy [eV], limit)
     ("edge_bend", LINEAR_ONLY["edge_bend"], 3e9, 3.3e-6),
     ("fringe_bend", E("B", "bend", 1.0, angle=0.2, e1=0.1, e2=0.1, hgap=0.02, fint=0.5), 3e9, 6.4e-6),
     ("second_order_edge", E("B", "bend", 1.0, angle=0.2, e1=0.1, e2=0.1, edge_order=2), 3e9, 3.3e-6),
     ("deflecting_cavity", LINEAR_ONLY["deflecting_cavity"], 3e9, 2.4e-11),
     ("deflecting_cavity", LINEAR_ONLY["deflecting_cavity"], 5e6, 6.6e-3),
+    ("thin_corrector", E("K", "hkick", 0.0, kick_x=1e-3), 3e9, 8.1e-5),
 ]
 
 
@@ -107,21 +109,20 @@ def test_documented_approximation_has_not_grown(spec, energy_eV, limit):
 
 
 @pytest.mark.xfail(strict=True, raises=AssertionError, reason=(
-    "Slipstream defect, issue to be filed: the bend kick is dpx = -ds (1 + h x) Fy, dpy = ds (1 + h x) Fx, so d(dpx)/dy - d(dpy)/dx = "
-    "-ds h Fx. It is not the gradient of a potential when h and K1 or K2 are both non-zero. The error grows with y and does not fall with "
-    "more slices; the determinant stays 1."))
+    "astec-stfc/slipstream#64: the bend kick is dpx = -ds (1 + h x) Fy, dpy = ds (1 + h x) Fx with a straight-magnet field, so "
+    "d(dpx)/dy - d(dpy)/dx = -ds h Fx.  The curvature terms of elegant's default CSBEND (NONLINEAR=1) are missing.  The error grows "
+    "off the reference orbit and does not fall with more slices; the determinant stays 1."))
 @pytest.mark.parametrize("strength", [dict(k1=0.4), dict(k2=3.0)], ids=["k1", "k2"])
 def test_combined_function_bend_is_symplectic(strength):
     assert symplectic_error(canonical_jacobians(ring_of([E("B", "bend", 1.0, angle=0.2, **strength)]), STATES)) < EXACT
 
 
 @pytest.mark.xfail(strict=True, raises=AssertionError, reason=(
-    "Slipstream, issue to be filed: a corrector with a non-zero kick follows elegant's matrix method on slopes, and its path length is taken "
-    "from the entrance slopes only, so the time of flight lacks the term that pairs with the momentum dependence of the kick."))
-@pytest.mark.parametrize("length", [0.0, 0.2], ids=["thin", "thick"])
-def test_corrector_with_a_kick_is_symplectic(length):
-    ring = ring_of([E("K", "hkick", length, kick_x=1e-3)])
-    assert symplectic_error(canonical_jacobians(ring, torch.zeros(1, 6, dtype=F64))) < EXACT
+    "astec-stfc/slipstream#65: the path length of a thick corrector is taken from the entrance slopes only, so the term kick * x' * L / 2 "
+    "is missing from the time of flight.  elegant has it and is at 1.5e-6, the level of a thin corrector."))
+def test_thick_corrector_is_no_worse_than_a_thin_one():
+    ring = ring_of([E("K", "hkick", 0.2, kick_x=1e-3)])
+    assert symplectic_error(canonical_jacobians(ring, torch.zeros(1, 6, dtype=F64))) < 3e-6
 
 
 def benchmark_ring():
