@@ -135,6 +135,18 @@ def test_accelerator_float32_tau_of_the_default_kernel(record_property):
     check(record_property, "cuda", "f32", "default", ("tau",))
 
 
+@pytest.mark.xfail(strict=True, raises=AssertionError, reason=(
+    "astec-stfc/slipstream#65: in double-single, the kick of a corrector given in its ElementSpec is dropped without an error.  A fix that "
+    "refuses the lattice instead will fail this mark with NotImplementedError."))
+@pytest.mark.parametrize("precision", ["ds-full", "ds-hybrid"])
+def test_double_single_applies_a_corrector_kick(precision):
+    """A path that does not implement an element must say so, not skip it."""
+    spec, state = [E("K", "hkick", 0.2, kick_x=1e-3)], particles()
+    ref = RingMap(spec, 6e8, device="cpu", dtype=F64).turn(state)
+    ring = RingMap(spec, 6e8, device="cpu", double_single=precision.removeprefix("ds-"))
+    assert differences(ring.track(state, 1, aperture=(1.0, 1.0)).state, ref)["px"] < LIMIT[precision]
+
+
 # ------------------------------------------------------------------------------------------------ the Warp ring kernel, on the CPU
 @functools.lru_cache(maxsize=None)
 def warp_on_cpu(precision):

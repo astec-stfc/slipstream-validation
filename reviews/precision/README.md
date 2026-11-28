@@ -33,7 +33,10 @@ Largest difference of a coordinate over 256 particles, divided by its largest re
 | double-single, hybrid | 2e-7 | ratchet | 9e-8 |
 | collective kernels, float64 / float32 | 1e-12 / 1e-5 | target | 2e-14 / 2e-6 |
 
-## Known failure
+## Known failures
+
+[astec-stfc/slipstream#65](https://github.com/astec-stfc/slipstream/issues/65): double-single drops the kick of a corrector without an
+error (`px` stays at its entrance value). Strict `xfail`. The Warp ring kernel refuses correctors and the torch map runs instead.
 
 [astec-stfc/slipstream#62](https://github.com/astec-stfc/slipstream/issues/62): the Warp ring kernel loses the change of `tau` in
 float32 (relative error 1.1e-4 against 4.7e-7 on the eager path). That is the default CUDA ring path. Strict `xfail` on the GPU and
