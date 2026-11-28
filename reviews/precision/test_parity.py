@@ -9,6 +9,7 @@ An accelerator is used when torch sees one: ROCm presents itself as ``torch.cuda
 Differences are the largest absolute difference of a coordinate over the particles, divided by its largest reference value.
 """
 import functools
+import inspect
 import os
 import shutil
 
@@ -17,6 +18,7 @@ import pytest
 torch = pytest.importorskip("torch")
 pytest.importorskip("slipstream")
 
+from slipstream.tracking.native import elements, ring_warp  # noqa: E402
 from slipstream.tracking.native.collective import csr_steady_state_delta_kick_fast  # noqa: E402
 from slipstream.tracking.native.lattice_import import ElementSpec as E  # noqa: E402
 from slipstream.tracking.native.ring import RingMap  # noqa: E402
@@ -32,8 +34,14 @@ if os.name == "nt":
     os.environ.setdefault("CXX", "clang-cl")          # torch.compile on Windows (AGENTS.md)
 
 
+# The marks of #62 and #59 follow the Slipstream under test, because the nightly runs two branches that need not have the same fixes.
 WARP_TAU = ("astec-stfc/slipstream#62: ring_warp.py still forms the change of tau as arc / beta - ds / beta0, the difference of two "
             "nearly equal lengths that Slipstream #59 removed from the torch maps (elements._delay).  float32 on the Warp kernel loses tau.")
+WARP_HAS_62 = "arc * inv_beta - ds * inv_beta0" in inspect.getsource(ring_warp)
+
+# float32 tau of the torch maps: fixed by astec-stfc/slipstream#59, which a branch has once it has `elements._delay`
+TAU_BEFORE_59 = pytest.mark.xfail(not hasattr(elements, "_delay"), strict=True, raises=AssertionError,
+                                  reason="astec-stfc/slipstream#59: this Slipstream does not have the float32 tau fix yet")
 
 
 def accelerator(test):
@@ -47,6 +55,7 @@ CELL = [E("QF", "quad", 0.2, k1=1.5), E("D1", "drift", 0.4), E("B", "bend", 1.0,
         E("S", "sext", 0.1, k2=10.0), E("D2", "drift", 0.4), E("QD", "quad", 0.2, k1=-1.35), E("D3", "drift", 0.4)] * 2
 TURNS = 20
 COORDS = ("x", "px", "y", "py", "tau", "delta")
+NOT_TAU = ("x", "px", "y", "py", "delta")
 
 # Limits of the transverse coordinates and delta.  float64 and float32 are targets of about 100 and 30 times the unit round-off after
 # 20 turns of this lattice; the double-single limits are Slipstream's own self-check (full) and a ratchet (hybrid, measured 9e-8).
@@ -92,11 +101,16 @@ def check(record_property, device, precision, kernel, coords):
         assert found[c] < LIMIT[precision], f"{c}: {found[c]:.2e} on {ACCEL if device == 'cuda' else 'cpu'}"
 
 
-@pytest.mark.parametrize("precision,kernel", [("f64", "compiled"), ("f32", "eager")])
-def test_cpu_ring(record_property, precision, kernel):
+@pytest.mark.parametrize("precision,kernel,coords", [("f64", "compiled", COORDS), ("f32", "eager", NOT_TAU)], ids=["f64-compiled", "f32-eager"])
+def test_cpu_ring(record_property, precision, kernel, coords):
     if kernel == "compiled":
         need_compiler()
-    check(record_property, "cpu", precision, kernel, COORDS)
+    check(record_property, "cpu", precision, kernel, coords)
+
+
+@TAU_BEFORE_59
+def test_cpu_float32_tau(record_property):
+    check(record_property, "cpu", "f32", "eager", ("tau",))
 
 
 @pytest.mark.parametrize("precision", ["ds-full", "ds-hybrid"])
@@ -108,11 +122,11 @@ def test_cpu_double_single_ring(record_property, precision):
 @accelerator
 @pytest.mark.parametrize("precision,kernel", [("f64", "eager"), ("f64", "default"), ("f32", "eager"), ("f32", "default")])
 def test_accelerator_ring(record_property, precision, kernel):
-    check(record_property, "cuda", precision, kernel, ("x", "px", "y", "py", "delta"))
+    check(record_property, "cuda", precision, kernel, NOT_TAU)
 
 
 @accelerator
-@pytest.mark.parametrize("precision,kernel", [("f64", "eager"), ("f64", "default"), ("f32", "eager")])
+@pytest.mark.parametrize("precision,kernel", [("f64", "eager"), ("f64", "default"), pytest.param("f32", "eager", marks=TAU_BEFORE_59)])
 def test_accelerator_tau(record_property, precision, kernel):
     check(record_property, "cuda", precision, kernel, ("tau",))
 
@@ -130,7 +144,7 @@ def warp_ring_active():
 
 
 @accelerator
-@pytest.mark.xfail(warp_ring_active(), strict=True, raises=AssertionError, reason=WARP_TAU)
+@pytest.mark.xfail(WARP_HAS_62 and warp_ring_active(), strict=True, raises=AssertionError, reason=WARP_TAU)
 def test_accelerator_float32_tau_of_the_default_kernel(record_property):
     check(record_property, "cuda", "f32", "default", ("tau",))
 
@@ -175,7 +189,7 @@ def test_warp_ring_kernel_on_cpu(record_property, precision, coords):
         assert found[c] < LIMIT[precision], f"{c}: {found[c]:.2e}"
 
 
-@pytest.mark.xfail(strict=True, raises=AssertionError, reason=WARP_TAU)
+@pytest.mark.xfail(WARP_HAS_62, strict=True, raises=AssertionError, reason=WARP_TAU)
 def test_warp_ring_kernel_float32_tau_on_cpu():
     assert differences(warp_on_cpu("f32"), track("cpu", "f64", "eager"))["tau"] < LIMIT["f32"]
 

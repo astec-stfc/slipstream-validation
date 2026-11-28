@@ -35,12 +35,15 @@ Largest difference of a coordinate over 256 particles, divided by its largest re
 
 ## Known failures
 
+[astec-stfc/slipstream#59](https://github.com/astec-stfc/slipstream/issues/59), only on a Slipstream without the fix (`main` on 28 November
+2026, while `develop` has it): float32 `tau` of the torch maps. The mark follows the code under test and is strict there.
+
 [astec-stfc/slipstream#65](https://github.com/astec-stfc/slipstream/issues/65): double-single drops the kick of a corrector without an
 error (`px` stays at its entrance value). Strict `xfail`. The Warp ring kernel refuses correctors and the torch map runs instead.
 
 [astec-stfc/slipstream#62](https://github.com/astec-stfc/slipstream/issues/62): the Warp ring kernel loses the change of `tau` in
 float32 (relative error 1.1e-4 against 4.7e-7 on the eager path). That is the default CUDA ring path. Strict `xfail` on the GPU and
-on the CPU backend: a fix fails the mark, which is then removed.
+on the CPU backend while the code under test still has the old formula; with a fix the rows have to pass.
 
 ## Not covered
 
