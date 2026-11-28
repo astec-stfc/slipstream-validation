@@ -34,7 +34,7 @@ Yes for accuracy, and for most of the codes. Not for everything, and not for tim
 
 | Piece | In the image | Same as the paper's run? | Consequence |
 | --- | --- | --- | --- |
-| Slipstream | mounted from a `git archive` export (the repository is private, so the image cannot clone it) | torch 2.13.0+cu130, Python 3.14.6, CPU or `--gpus all` | Accuracy gates run. GPU needs the NVIDIA container toolkit (Docker Desktop on WSL 2 passes the card through; `nvidia-smi` sees the RTX 3050 here) |
+| Slipstream | mounted from a `git archive` export (one image serves every commit; the repository is public since November 2026) | torch 2.13.0+cu130, Python 3.14.6, CPU or `--gpus all` | Accuracy gates run. GPU needs the NVIDIA container toolkit (Docker Desktop on WSL 2 passes the card through; `nvidia-smi` sees the RTX 3050 here) |
 | Xsuite | xtrack 0.111.0 | Same version as the benchmark's WSL environment | CPU rows run. The GPU rows need cupy, which the image lacks (tier 2) |
 | Ocelot | ocelot-desy 25.6.0 | Not checked against the paper's build | The result records the version; a mismatch is a finding, not a failure |
 | Cheetah | yes | Version not yet compared | Same |
@@ -80,8 +80,15 @@ archive deposit of them, not to this repository.
 | Tier | Needs | Runs | What it checks |
 | --- | --- | --- | --- |
 | 0 | Python, numpy, pytest | every push, in CI, 0.4 s | the 401 quoted numbers against archived evidence; hashes of cases and evidence; that cases, workers and the code table agree |
-| 1 | the image, Slipstream on CPU | by hand or scheduled, minutes to an hour | ring tunes, five-knob Jacobian, free-drift space charge and linear FODO in Slipstream, elegant, ASTRA, Ocelot, Xsuite (CPU) and Cheetah; reruns agree with the archived campaign within the cross-host tolerance |
+| gate | Slipstream, torch on CPU (marker `slipstream`) | every push and pull request, in CI, minutes | gates that need no other code, against Slipstream `develop`; `linear_fodo` through the runner and `check` |
+| 1 | the image, Slipstream on CPU | nightly in CI (`nightly.yml`) or by hand, about an hour | ring tunes, five-knob Jacobian, free-drift space charge and linear FODO in Slipstream, elegant, ASTRA, Ocelot, Xsuite (CPU) and Cheetah; reruns agree with the archived campaign within the cross-host tolerance |
 | 2 | a GPU, a licence or an external build | by hand on the host that has it | GPU rows and Xsuite on GPU, GPT, ImpactX, JuTrack, HELIX, Bmad-X, the long CLARA runs |
+
+`nightly.yml` builds the `core` target of the Dockerfile (`bench.ci.toml`). Monday to Saturday it runs Slipstream with the two reference
+codes (elegant for the rings, ASTRA for `sc_drift`), which is what a Slipstream change can move; on Sunday it runs every code of that
+image, which checks that the references still reproduce. It tests `develop` unless a manual run names another ref, and a failed scheduled
+run opens an issue with the label `nightly`. Tier 2 has no scheduled run: it needs a self-hosted GPU runner, and on a public repository such a
+runner must never run pull-request code.
 
 ## 6. Reviews and gates
 

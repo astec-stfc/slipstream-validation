@@ -18,3 +18,27 @@ jobs:
         run: python -m pip install --upgrade pip numpy pytest
       - name: Tier 0 (no simulation code)
         run: pytest -m tier0 -v
+
+  # Gates that need Slipstream and no other code, against its development branch. The commit tested is in the log header.
+  slipstream:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: astec-stfc/slipstream
+          ref: develop
+          path: slipstream-src
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Slipstream and a CPU torch
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu --extra-index-url https://pypi.org/simple torch
+          python -m pip install ./slipstream-src pytest
+      - name: Slipstream gates (fast)
+        env:
+          SSV_SLIPSTREAM: slipstream-src
+        run: pytest -m "slipstream and not slow" -v

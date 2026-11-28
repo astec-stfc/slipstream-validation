@@ -1,0 +1,129 @@
+name: Nightly
+
+# Slipstream against its gates and the archived campaign.  Nothing in the Slipstream repository is needed: it is public and checked
+# out here.  Monday to Saturday: Slipstream and the two reference codes.  Sunday: every code of the `core` image.
+on:
+  schedule:
+    - cron: "23 2 * * 1-6"
+    - cron: "23 2 * * 0"
+  workflow_dispatch:
+    inputs:
+      slipstream_ref:
+        description: Slipstream branch, tag or commit (refs/pull/N/head for a pull request)
+        default: develop
+      all_codes:
+        description: Run every code of the image, not only Slipstream and the references
+        type: boolean
+        default: false
+  pull_request:
+    paths: [".github/workflows/nightly.yml", "docker/**", "bench.ci.toml"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nightly-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gates:
+    name: Gates (${{ matrix.ref }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        ref: ${{ fromJSON(inputs.slipstream_ref && format('["{0}"]', inputs.slipstream_ref) || '["develop", "main"]') }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: astec-stfc/slipstream
+          ref: ${{ matrix.ref }}
+          path: slipstream-src
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Slipstream and a CPU torch
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu --extra-index-url https://pypi.org/simple torch
+          python -m pip install ./slipstream-src pytest
+      - name: All gates that need Slipstream only
+        env:
+          SSV_SLIPSTREAM: slipstream-src
+        run: pytest -m "tier0 or slipstream" -v -rs
+
+  campaign:
+    name: Campaign
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    env:
+      SSV_BENCH: bench.ci.run.toml
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: astec-stfc/slipstream
+          ref: ${{ inputs.slipstream_ref || 'develop' }}
+          path: slipstream-src
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install what the analysis needs
+        run: python -m pip install numpy
+      - name: Make room for the image
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
+          df -h /
+      - name: Build the core image
+        run: docker build --target core -t slipstream-validation:core -f docker/Dockerfile .
+      - name: Choose the codes
+        env:
+          ALL: ${{ inputs.all_codes || github.event.schedule == '23 2 * * 0' }}
+        run: |
+          cp bench.ci.toml "$SSV_BENCH"
+          if [ "$ALL" != "true" ]; then
+            for code in xsuite cheetah ocelot; do printf '\n[codes.%s]\nplatform = "skip"\n' "$code" >> "$SSV_BENCH"; done
+          fi
+      - name: Run
+        run: |
+          mkdir -p results   # before docker mounts it, or the daemon creates it as root
+          python -m slipstream_validation.runner checkout slipstream-src HEAD --name ci
+          python -m slipstream_validation.runner plan benchmark --check --slipstream checkouts/slipstream-ci
+          python -m slipstream_validation.runner run benchmark --execute --tag ci --slipstream checkouts/slipstream-ci
+      - name: Compare with the archive
+        run: |
+          set -o pipefail
+          python -m slipstream_validation.check compare ci | tee results/compare.txt
+          { echo '```'; cat results/compare.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+      - name: Keep the results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: campaign-${{ github.run_id }}
+          path: results/
+          if-no-files-found: warn
+          retention-days: 30
+
+  report:
+    name: Open an issue on failure
+    needs: [gates, campaign]
+    if: failure() && github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          RUN: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          open=$(gh issue list --repo "$GITHUB_REPOSITORY" --label nightly --state open --json number --jq '.[0].number // empty')
+          if [ -n "$open" ]; then
+            gh issue comment "$open" --repo "$GITHUB_REPOSITORY" --body "Failed again: $RUN"
+          else
+            gh label create nightly --repo "$GITHUB_REPOSITORY" --description "Failed scheduled validation run" --force
+            gh issue create --repo "$GITHUB_REPOSITORY" --label nightly --title "Nightly validation failed" \
+              --body "A scheduled run against Slipstream failed: $RUN. The log of each job names the Slipstream commit. Close this issue when a run passes."
+          fi
