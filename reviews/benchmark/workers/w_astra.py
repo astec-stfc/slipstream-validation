@@ -12,6 +12,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import numpy as np  # noqa: E402
 from astra_deck import write_deck  # noqa: E402
 from common import launches, run_worker  # noqa: E402
+from phase_space import save_snapshot  # noqa: E402
 
 EXE = pathlib.Path(os.environ.get("BENCH_ASTRA_EXE", "Astra"))
 # (Nrad, Nlong_in, time step [ps]); the 3-D rung is last so that the code's own finest setting is the 3-D solver
@@ -58,6 +59,16 @@ def _write_energy_gain(d):
     (out / "energy_gain.json").write_text(json.dumps(dict(ekin_initial_eV=e0, ekin_final_eV=e1, gain_eV=e1 - e0, file=final[-1].name)))
 
 
+def _save_particles(d):
+    """The active particles of the last phase-space file (at ZSTOP) as the snapshot for the distribution metrics; ASTRA's electron mass."""
+    final = sorted(d.glob("sc_drift.[0-9][0-9][0-9][0-9].001"))
+    if final:
+        p = np.loadtxt(final[-1])
+        p[1:, [2, 5]] += p[0, [2, 5]]   # z and pz are relative to the first row, the reference particle (a particle too)
+        p = p[p[:, 9] >= 0]             # negative status: lost
+        save_snapshot(p[:, 0], p[:, 1], p[:, 2], *(p[:, k] / 511003.0 for k in (3, 4, 5)))
+
+
 def track(model, init, turns, cfg):
     d, case = model["dir"], model["case"]
     for f in d.glob("sc_drift.*.001"):
@@ -66,6 +77,7 @@ def track(model, init, turns, cfg):
     if not (d / "sc_drift.Xemit.001").exists():
         raise RuntimeError((r.stdout + r.stderr)[-2000:])
     _write_energy_gain(d)
+    _save_particles(d)
     X, Y, Z = (read_table(d / f"sc_drift.{c}emit.001") for c in "XYZ")
     st = np.array(case["stations_m"])
     # ASTRA columns: X/Y: z[m] t[ns] <x>[mm] rms x[mm] rms x'[mrad] emit_n[pi mm mrad] cor;  Z: z t Ekin[MeV] rms z[mm] rms dE[keV] emit[keV mm] cor

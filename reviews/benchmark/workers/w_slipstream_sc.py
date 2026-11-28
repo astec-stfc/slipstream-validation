@@ -12,6 +12,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import numpy as np  # noqa: E402
 from astra_deck import write_deck  # noqa: E402
 from common import lab_stats, launches, run_worker  # noqa: E402
+from phase_space import save_snapshot  # noqa: E402
 
 # (nr, nz, dt [ps], subcycle steps)
 _RUNGS = [(16, 64, 4.0, 10), (32, 128, 2.0, 5), (64, 256, 1.0, 2), (64, 256, 0.5, 1)]
@@ -66,8 +67,12 @@ def track(model, init, turns, cfg):
 
     inj, case = model["inj"], model["case"]
     res = inj.track(device=cfg["device"], dtype=getattr(torch, cfg["dtype"]), use_compile=cfg["device"] == "cuda",
-                    record_every=cfg.get("record_every", 5),
+                    record_every=cfg.get("record_every", 5), return_particles=True,
                     verbose=False, z_stop_m=case["stations_m"][-1] + 0.05)
+    from slipstream.constants import C_LIGHT
+
+    save_snapshot(*(res[k].double().cpu().numpy() for k in ("x", "y", "z")),
+                  *(res[k].double().cpu().numpy() / C_LIGHT for k in ("ux", "uy", "uz")))   # u = gamma v
     tr = {k: np.asarray(v, dtype=float) for k, v in res["trajectory"].items()}
     st = np.array(case["stations_m"])
     f = lambda key, scale: np.interp(st, tr["z_m"], tr[key]) * scale  # noqa: E731

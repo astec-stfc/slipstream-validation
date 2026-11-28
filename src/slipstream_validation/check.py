@@ -5,7 +5,7 @@
 
 A metric agrees when it moved by no more than REL of the archived value or the case's floor, whichever is larger.  That is a ratchet,
 not a target: it comes from one host pair (this PC, native GPU or WSL against the image) and is to be re-measured from a second host.
-A case may also have an absolute limit from its json (ring_grad: AD against its own central difference, `jac_rel`).  Wall times are
+A case may also have absolute limits, from its json (ring_grad: AD against its own central difference, `jac_rel`) or given in CASES.  Wall times are
 printed beside each other and never gated, because they do not reproduce between hosts.  A difference that has an explanation goes
 into KNOWN with the reason; it is then XFAIL, not hidden.
 """
@@ -30,7 +30,10 @@ CASES = {
     "ring_grad": dict(metrics=["ad_vs_fd_fro", "ad_vs_fd_col", "rel_fro", "rel_col", "dy0"], floor=1e-9, time="fd_s",
                       limit={"ad_vs_fd_fro": "jac_rel"}),
     "sc_drift": dict(metrics=["size_vs_ref", "length_vs_ref", "emit_vs_ref", "spread_vs_ref", "dEkin_change_eV"], floor=1e-9,
-                     flags=["pass"], time="warm_s"),
+                     flags=["pass"], time="warm_s",
+                     # ratchets on the final distributions against the reference's (phase_space.py): about twice the largest value of the
+                     # ASTRA and Slipstream CPU rungs on 28 November 2026.  No archived campaign has them; a campaign gates itself.
+                     limit={"shape_vs_ref": 0.011, "halo_vs_ref": 0.016, "shape_z_vs_ref": 0.015, "halo_z_vs_ref": 0.073}),
     "linear_fodo": dict(metrics=["position_abs_m", "momentum_abs"], floor=1e-15, flags=["pass"], time="warm_s"),
 }
 # A campaign is compared only if it ran one of these rungs: the analysis measures every other row against the reference code's finest rung
@@ -114,8 +117,11 @@ def judge(case, code, cfg, x, o, limits):
             moved.append((m, o.get(m), x.get(m)))
     for m, key in spec.get("limit", {}).items():
         n = num(x.get(m))
-        if n is not None and key in limits and n > limits[key]:
-            why.append(f"{m} {n:.3g} above the limit {key} = {limits[key]:g}")
+        cap = key if isinstance(key, float) else limits.get(key)
+        if x.get(m) == "missing":
+            why.append(f"{m}: the worker wrote no particle snapshot")
+        elif n is not None and cap is not None and n > cap:
+            why.append(f"{m} {n:.3g} above the limit {cap:g}" + ("" if isinstance(key, float) else f" ({key})"))
     if failed:
         status = "FAILED"
     elif why:
